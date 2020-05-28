@@ -1,16 +1,28 @@
-# build artifacts
-sketch-navi.sketchplugin
-
-# npm
-node_modules
-.npm
-npm-debug.log
-
-# mac
+# platform related
 .DS_Store
+._.DS_Store
+*.log
 
-# WebStorm
+# editor related
 .idea
+*.swp
+*.~
+.*.un~
+.vimrc
+.cache
 
-# sketch
-# sketch-assets
+# build related
+build/
+dist*/
+node_modules/
+amd_modules/
+test-reports/
+coverage/
+.nyc_output
+.deploy
+
+# develop
+mydev*
+/debug/
+
+navi.sketchplugin

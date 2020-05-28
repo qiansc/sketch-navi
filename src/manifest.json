@@ -4,14 +4,45 @@
   "commands": [
     {
       "name": "my-command",
-      "identifier": "sketch-navi.my-command-identifier",
+      "identifier": "navi.my-command-identifier",
       "script": "./my-command.js"
+    },
+    {
+      "name" : "Action Listener",
+      "noshortcut": "true",
+      "identifier": "per.action",
+      "script": "action.js",
+      "handlers": {
+        "actions": {
+          "OpenDocument": "onOpenDocument",
+          "CloseDocument": "onCloseDocument",
+          "SelectionChanged.finish": "onSelectionChanged"
+        }
+      }
+    },
+    {
+      "name": "toggleSidePanel",
+      "identifier": "per.toggle-side-panel",
+      "script": "sidePanel.js",
+      "shortcut": "ctrl command k",
+      "handlers": {
+        "run": "onToggleSidePanel",
+        "actions": {
+          "OpenDocument": "onOpenDocument",
+          "CloseDocument": "onCloseDocument",
+          "Shutdown": "onShutdown",
+          "SelectionChanged": "onSelectionChanged",
+          "AddDifference": "onDifference",
+          "LayoutSettings": "onLayoutSettings"
+        }
+      }
     }
   ],
   "menu": {
-    "title": "sketch-navi",
+    "isRoot": false,
+    "title": "navi",
     "items": [
-      "sketch-navi.my-command-identifier"
+      "navi.my-command-identifier"
     ]
   }
 }

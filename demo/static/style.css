@@ -1,0 +1,9 @@
+body{
+    margin: 0;
+    overflow: hidden;
+    overflow-y:hidden;
+    overflow-x:hidden;
+}
+.a-color-picker {
+    overflow: hidden;
+}
