@@ -3,9 +3,9 @@
   "icon": "icon.png",
   "commands": [
     {
-      "name": "my-command",
-      "identifier": "navi.my-command-identifier",
-      "script": "./my-command.js"
+      "name": "About",
+      "identifier": "navi.about-identifier",
+      "script": "./about.ts"
     },
     {
       "name" : "Action Listener",
@@ -42,7 +42,7 @@
     "isRoot": false,
     "title": "navi",
     "items": [
-      "navi.my-command-identifier"
+      "navi.about-identifier"
     ]
   }
 }

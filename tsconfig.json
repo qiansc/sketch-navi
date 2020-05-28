@@ -1,27 +1,15 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "module": "CommonJS",
-    "moduleResolution": "Node",
-    "outDir": "./dist",
-    "target": "esnext",
-    "sourceMap": false,
-    "skipDefaultLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": [
-        "es2016",
-        "DOM"
-    ],
-    "skipLibCheck": true,
-    "noImplicitAny": false,
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
+    "target": "es5",
+    "module": "esnext",
     "downlevelIteration": true,
-    "strict": false,
-    "suppressImplicitAnyIndexErrors": true
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node"
   },
-  "include": [ "src/**/*.*"],
-  "exclude": ["plugin", "recipe", "utils"]
+  "include": [
+    "src", "**/*.ts", "**/*.js"
+  ],
+  "exclude": []
 }

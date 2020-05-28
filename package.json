@@ -6,22 +6,32 @@
     "sketch": ">=49.0"
   },
   "skpm": {
-    "name": "sketch-navi",
+    "name": "Navi",
     "manifest": "src/manifest.json",
-    "main": "sketch-navi.sketchplugin",
+    "main": "navi.sketchplugin",
     "assets": [
       "assets/**/*"
-    ],
-    "sketch-assets-file": "sketch-assets/icons.sketch"
+    ]
   },
   "scripts": {
     "build": "skpm-build",
     "watch": "skpm-build --watch",
     "start": "skpm-build --watch --run",
+    "lint": "eslint .",
     "postinstall": "npm run build && skpm-link"
   },
   "devDependencies": {
-    "@skpm/builder": "^0.7.0"
+    "@skpm/builder": "<1",
+    "@typescript-eslint/eslint-plugin": "^2.4.0",
+    "@typescript-eslint/parser": "^2.4.0",
+    "eslint": "^6.5.1",
+    "terser-webpack-plugin": "^3.0.0",
+    "ts-loader": "^7.0.0",
+    "typescript": "^3.1.6"
+  },
+  "dependencies": {
+    "mocha-js-delegate": "^0.2.0",
+    "sketch-module-web-view": "^3.4.1"
   },
   "author": "qiansc"
 }
