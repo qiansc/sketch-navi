@@ -6,8 +6,11 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "moduleResolution": "node"
-  },
+    "moduleResolution": "node",
+    "lib": [
+        "es6"
+    ]
+},
   "include": [
     "src", "**/*.ts", "**/*.js"
   ],

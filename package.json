@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@skpm/builder": "<1",
+    "@types/sketch": "git+https://github.com/qjebbs/sketch.d.ts.git",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.4.0",
     "eslint": "^6.5.1",

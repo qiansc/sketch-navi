@@ -10,7 +10,7 @@
     {
       "name" : "Action Listener",
       "noshortcut": "true",
-      "identifier": "per.action",
+      "identifier": "navi.action",
       "script": "action.js",
       "handlers": {
         "actions": {
@@ -22,7 +22,7 @@
     },
     {
       "name": "toggleSidePanel",
-      "identifier": "per.toggle-side-panel",
+      "identifier": "navi.toggle-side-panel",
       "script": "sidePanel.js",
       "shortcut": "ctrl command k",
       "handlers": {
@@ -40,9 +40,10 @@
   ],
   "menu": {
     "isRoot": false,
-    "title": "navi",
+    "title": "Navi",
     "items": [
-      "navi.about-identifier"
+      "navi.about-identifier",
+      "navi.toggle-side-panel"
     ]
   }
 }
