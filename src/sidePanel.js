@@ -17,6 +17,8 @@ const insertSidePanel = (toolbar, identifier, isInsert = false) => {
 
   const views = stageView.subviews()
   const existId = isInsert || views.find(d => ''.concat(d.identifier()) === identifier)
+  console.log('views', views);
+  console.log('existId', existId);
 
   const finalViews = []
   let pushedWebView = false
@@ -24,6 +26,7 @@ const insertSidePanel = (toolbar, identifier, isInsert = false) => {
   for (let i = 0; i < views.count(); i++) {
     const view = views[i]
     if (existId) {
+        console.log('==>', i, view.identifier(), identifier);
       if (''.concat(view.identifier()) !== identifier) finalViews.push(view)
     } else {
       finalViews.push(view)
@@ -33,6 +36,8 @@ const insertSidePanel = (toolbar, identifier, isInsert = false) => {
       }
     }
   }
+  console.log('pushedWebView', pushedWebView);
+  console.log('finalViews', finalViews);
 
   if (pushedWebView) {
     setSettingForKey(SidePanelIdentifier, 'true')

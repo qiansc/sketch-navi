@@ -36,6 +36,18 @@
           "LayoutSettings": "onLayoutSettings"
         }
       }
+    },
+    {
+        "name": "Navi",
+        "identifier": "navi.side-panel",
+        "script": "main.ts",
+        "shortcut": "ctrl command n",
+        "handlers": {
+          "run": "onToggle",
+          "actions": {
+
+          }
+        }
     }
   ],
   "menu": {
@@ -43,7 +55,8 @@
     "title": "Navi",
     "items": [
       "navi.about-identifier",
-      "navi.toggle-side-panel"
+      "navi.toggle-side-panel",
+      "navi.side-panel"
     ]
   }
 }
