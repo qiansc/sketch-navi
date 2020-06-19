@@ -12,8 +12,8 @@ export function onToggle(context: any) {
     let panel = panelFactory.hasPanel(Panel);
 
     if (panel){
-        stageView.remove(panel.id);
-        stageView.shutdown(panel.prefix);
+        stageView.removePanel(panel);
+        stageView.shutdownPanel(panel);
         /** 移除一些其他关联项目 */
         return;
     }

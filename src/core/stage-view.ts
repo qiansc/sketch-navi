@@ -22,25 +22,25 @@ export class StageView {
         this.stageView.adjustSubviews();
     }
 
-    remove(id: string) {
+    removePanel(panel: Panel) {
         const views = this.stageView.subviews();
         const finalViews = [];
         for (let i = 0; i < views.count(); i++) {
             const view = views[i];
-            if (''.concat(view.identifier()) !== id) {
+            if (''.concat(view.identifier()) !== panel.id) {
                 finalViews.push(view);
             }
         }
-        NSUserDefaults.standardUserDefaults().setObject_forKey(nil, id);
+        NSUserDefaults.standardUserDefaults().setObject_forKey(nil, panel.id);
         this.stageView.subviews = finalViews;
         this.stageView.adjustSubviews();
     }
 
-    public shutdown(prefix: string){
+    public shutdownPanel(panel: Panel){
         const threadDictionary = NSThread.mainThread().threadDictionary();
         //  BrowserManage.empty()
-        const prefixRegExp = new RegExp(`${prefix}*`)
-        const webViewPrefixRegExp = new RegExp(`${prefix}-webview*`)
+        const prefixRegExp = new RegExp(`${panel.prefix}*`)
+        const webViewPrefixRegExp = new RegExp(`${panel.prefix}-webview*`)
 
         for (const key in threadDictionary) {
           if (prefixRegExp.test(key)) {
