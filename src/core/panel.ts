@@ -42,50 +42,6 @@ export class Panel {
         stageView.subviews = finalViews;
         stageView.adjustSubviews();
     }
-
-    /** 移除view */
-    public removeFrom(stageView: any) {
-        const views = stageView.subviews();
-        const finalViews = [];
-        for (let i = 0; i < views.count(); i++) {
-            const view = views[i];
-            if (''.concat(view.identifier()) !== this.id) {
-                finalViews.push(view);
-            }
-        }
-        NSUserDefaults.standardUserDefaults().setObject_forKey(nil, this.id);
-        stageView.subviews = finalViews;
-        stageView.adjustSubviews();
-    }
-
-
-    public shutdown(documentID: string){
-        const threadDictionary = NSThread.mainThread().threadDictionary();
-        //  BrowserManage.empty()
-        const prefixRegExp = new RegExp(`${this.prefix}*`)
-        const webViewPrefixRegExp = new RegExp(`${this.prefix}-webview*`)
-
-        for (const key in threadDictionary) {
-          if (prefixRegExp.test(key)) {
-            if (webViewPrefixRegExp.test(key)) {
-              threadDictionary[key].close()
-            }
-            threadDictionary.removeObjectForKey(key)
-          }
-        }
-
-        // clear WindowResizeNotification
-        this.removeObserverWindowResizeNotification(documentID);
-        COScript.currentCOScript().setShouldKeepAround(false);
-    }
-    private removeObserverWindowResizeNotification(documentID: string) {
-        const delegateInstance = NSThread.mainThread().threadDictionary()(`window-move-instance-${documentID}`)
-        if (delegateInstance) {
-          NSNotificationCenter.defaultCenter().removeObserver_name_object(delegateInstance, NSWindowDidResizeNotification, nil)
-          removeThreadDictForKey(`window-move-instance-${documentID}`)
-          removeThreadDictForKey(`window-move-selector-${documentID}`)
-        }
-    }
 }
 
 function removeThreadDictForKey(key: any) {

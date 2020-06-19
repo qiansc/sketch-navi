@@ -1,4 +1,6 @@
 
+import { StageView } from './stage-view';
+
 const sketchContextInstances: SketchContext[] = [];
 
 /** 对context上下文进行一些封装 */
@@ -6,10 +8,14 @@ export class SketchContext {
     public document: any;
     public documentID: string;
     public version: string;
+    public contentView: any;
+    public stageView: StageView;
     constructor(private context: any) {
         this.document = context.document || context.actionContext.document || (MSDocument as any).currentDocument();
         this.documentID = this.document.documentData().objectID();
         this.version = new String(context.plugin.version()).toString();
+        this.contentView = this.context.document.documentWindow().contentView();
+        this.stageView = new StageView(this.documentID, this.contentView.subviews().objectAtIndex(0));
     }
 
     /** 插件目录 */
@@ -37,4 +43,5 @@ export class SketchContext {
         sketchContextInstances.push(sketchContext);
         return sketchContext;
     }
+
 }
