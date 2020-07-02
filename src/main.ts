@@ -1,23 +1,21 @@
 import { SketchContext } from './core/sketch-context';
-import { PanelFactory } from './core/panel-factory';
-import { Panel } from './core/panel';
+import { id, create as createSliderView } from './core/slider-view';
+import { StackView } from './core/element/stack-view';
 
 export function onToggle(context: any) {
 
     const sketchContext = SketchContext.getOrCreate(context);
     const stageView = sketchContext.stageView;
 
-    const panelFactory = new PanelFactory(sketchContext.documentID);
-    panelFactory.regist('navi', Panel);
-    let panel = panelFactory.hasPanel(Panel);
+    let view = stageView.getView<StackView>(id);
 
-    if (panel){
-        stageView.removePanel(panel);
-        stageView.shutdownPanel(panel);
-        /** 移除一些其他关联项目 */
+    if (view) {
+        stageView.removeView(id, view);
+        stageView.shutdownView(id);
         return;
     }
-    panel = panelFactory.createPanel(Panel);
-    stageView.insertPanel(panel);
+
+    view = createSliderView();
+    stageView.insertView(id, view);
 
 }
