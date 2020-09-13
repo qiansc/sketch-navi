@@ -3,47 +3,12 @@
   "icon": "icon.png",
   "commands": [
     {
-      "name": "About",
-      "identifier": "navi.about-identifier",
-      "script": "./about.ts"
-    },
-    {
-      "name" : "Action Listener",
-      "noshortcut": "true",
-      "identifier": "navi.action",
-      "script": "action.js",
-      "handlers": {
-        "actions": {
-          "OpenDocument": "onOpenDocument",
-          "CloseDocument": "onCloseDocument",
-          "SelectionChanged.finish": "onSelectionChanged"
-        }
-      }
-    },
-    {
-      "name": "toggleSidePanel",
-      "identifier": "navi.toggle-side-panel",
-      "script": "sidePanel.js",
-      "shortcut": "ctrl command k",
-      "handlers": {
-        "run": "onToggleSidePanel",
-        "actions": {
-          "OpenDocument": "onOpenDocument",
-          "CloseDocument": "onCloseDocument",
-          "Shutdown": "onShutdown",
-          "SelectionChanged": "onSelectionChanged",
-          "AddDifference": "onDifference",
-          "LayoutSettings": "onLayoutSettings"
-        }
-      }
-    },
-    {
         "name": "Navi",
-        "identifier": "navi.side-panel",
+        "identifier": "navi.main-identifier",
         "script": "main.ts",
         "shortcut": "ctrl command n",
         "handlers": {
-          "run": "onToggle",
+          "run": "onStart",
           "actions": {
 
           }
@@ -51,12 +16,10 @@
     }
   ],
   "menu": {
-    "isRoot": false,
+    "isRoot": true,
     "title": "Navi",
     "items": [
-      "navi.about-identifier",
-      "navi.toggle-side-panel",
-      "navi.side-panel"
+      "navi.main-identifier"
     ]
   }
 }

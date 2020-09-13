@@ -1,21 +1,10 @@
-import { SketchContext } from './core/sketch-context';
-import { id, create as createSliderView } from './core/slider-view';
-import { StackView } from './core/element/stack-view';
+// const framework = require('./framework/print-export.xcworkspace/contents.xcworkspacedata');
+// var nib = framework.getNib('PEOptionsAccessoryView');
+// var root = nib.getRoot();
+// const id = 'nbnbnb-nsview';
+// root.identifier = id;
 
-export function onToggle(context: any) {
-
-    const sketchContext = SketchContext.getOrCreate(context);
-    const stageView = sketchContext.stageView;
-
-    let view = stageView.getView<StackView>(id);
-
-    if (view) {
-        stageView.removeView(id, view);
-        stageView.shutdownView(id);
-        return;
-    }
-
-    view = createSliderView();
-    stageView.insertView(id, view);
+export function onStart(context: any) {
+    console.log('Hello 123');
 
 }
