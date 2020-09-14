@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A38993F9250B85A000211D90 /* Navi.h in Headers */ = {isa = PBXBuildFile; fileRef = A38993F7250B859F00211D90 /* Navi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A1D897250EE6CA004E59A4 /* Menu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A38993F4250B859F00211D90 /* Navi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38993F7250B859F00211D90 /* Navi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Navi.h; sourceTree = "<group>"; };
 		A38993F8250B85A000211D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2A1D897250EE6CA004E59A4 /* Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Menu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 			children = (
 				A38993F7250B859F00211D90 /* Navi.h */,
 				A38993F8250B85A000211D90 /* Info.plist */,
+				B2A1D897250EE6CA004E59A4 /* Menu.xib */,
 			);
 			path = Navi;
 			sourceTree = "<group>";
@@ -121,6 +124,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

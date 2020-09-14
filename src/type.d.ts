@@ -69,3 +69,5 @@ declare var NSClosableWindowMask: any;
 declare var NSFullSizeContentViewWindowMask: any;
 declare var NSWindowStyleMaskResizable: any;
 declare var NSWindowMiniaturizeButton: any;
+declare var NSSwitchButton: any;
+declare var NSOnState: any;
