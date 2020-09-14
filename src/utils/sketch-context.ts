@@ -27,6 +27,7 @@ export class SketchContext {
         return `${this.pluginFolderPath()}/Contents/Resources`;
     }
 
+    /** NS资源定位符 */
     public NSURL(path?: string) {
         let url = this.context.plugin.url()
         .URLByAppendingPathComponent('Contents')
@@ -76,6 +77,13 @@ export class SketchContext {
 
     public getView(index: number) {
         return this.stageView.subviews()[index];
+    }
+
+    public static hasDocument(context: any){
+        if(context.document || (context.actionContext && context.actionContext.document) || (MSDocument as any).currentDocument()) {
+            return true;
+        }
+        return false;
     }
 
 }

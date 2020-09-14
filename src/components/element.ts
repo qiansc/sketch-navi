@@ -33,10 +33,44 @@ export const createButton = ({ rect, size, iconUrl, activeIconUrl, tooltip = '',
     return button
 }
 
+
+/**
+ * createImageView 创建 NSImageView
+ * @param {*} rect
+ * @param {*} icon
+ * @param {*} size
+ */
+export const createImageView = (rect: any, imageURL: any, size?: any) => {
+    const imageView = NSImageView.alloc().initWithFrame(rect)
+    const image = createImage(imageURL, size)
+    imageView.setImage(image)
+    imageView.setAutoresizingMask(5)
+    return imageView
+  }
+
 export const createImage = (imageURL: string, size?: number) => {
     // NSImage.alloc().initWithSize([width, height])
-    const Image = NSImage.alloc().initWithContentsOfURL(imageURL);
-    // size && Image.setSize(size)
+    const Image = NSImage.alloc().initWithContentsOfURL(imageURL)
+    size && Image.setSize(size)
     Image.setScalesWhenResized(true)
     return Image
  }
+
+ /**
+ * createImageView 创建 NSBoxSeparator
+ */
+export const createBoxSeparator = () => {
+    // set to 0 in width and height
+    const separtorBox = NSBox.alloc().initWithFrame(NSZeroRect)
+    // Specifies that the box is a separator
+    separtorBox.setBoxType(2 || NSBoxSeparator)
+    separtorBox.setBorderColor(NSColor.colorWithHex('#F5F5F5'))
+    try {
+      separtorBox.setBorderColor(NSColor.colorWithSRGBRed_green_blue_alpha(1.0, 1.0, 1.0, 1.0))
+    } catch (error) {
+      console.error(error)
+    }
+
+    // separtorBox.setTransparent(true)
+    return separtorBox
+  }
