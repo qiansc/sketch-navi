@@ -27,6 +27,13 @@ export class SketchContext {
         return `${this.pluginFolderPath()}/Contents/Resources`;
     }
 
+    public NSURL(path?: string) {
+        let url = this.context.plugin.url()
+        .URLByAppendingPathComponent('Contents')
+        .URLByAppendingPathComponent('Resources');
+        return path? url.URLByAppendingPathComponent(path) : url;
+    }
+
     /** 从缓存里查找是否有可复用的上下文 */
     // static getOrCreate(context: any){
     //     const document = context.document || context.actionContext.document || (MSDocument as any).currentDocument();

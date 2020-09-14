@@ -71,3 +71,5 @@ declare var NSWindowStyleMaskResizable: any;
 declare var NSWindowMiniaturizeButton: any;
 declare var NSSwitchButton: any;
 declare var NSOnState: any;
+declare var NSButtonCell: any;
+declare var NSRadioButton: any;

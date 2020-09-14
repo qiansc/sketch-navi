@@ -1,5 +1,5 @@
 import { SketchContext } from './utils/sketch-context';
-import { Menu } from './components/menu';
+import { MenuController } from './components/menu.controller';
 
 export function onStart(context: any) {
     COScript.currentCOScript().setShouldKeepAround(true);
@@ -10,11 +10,10 @@ export function onStart(context: any) {
     }
     const ctx = new SketchContext(context);
 
-    const menu = new Menu(ctx);
+    const mc = new MenuController(ctx);
 
-    if (!menu.initView()) {
-        menu.toogle();
+    if (!mc.initView()) {
+        mc.toogle();
     }
-    console.log(menu.view);
-
+    console.log(mc.view);
 }

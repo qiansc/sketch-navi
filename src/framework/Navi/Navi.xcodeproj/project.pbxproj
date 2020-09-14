@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A38993F9250B85A000211D90 /* Navi.h in Headers */ = {isa = PBXBuildFile; fileRef = A38993F7250B859F00211D90 /* Navi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3D219FC250F6D2600D1A905 /* MenuBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D219FB250F6D2600D1A905 /* MenuBtn.xib */; };
+		A3D219FF250F6D3200D1A905 /* MenuBtn.h in Headers */ = {isa = PBXBuildFile; fileRef = A3D219FD250F6D3200D1A905 /* MenuBtn.h */; };
+		A3D21A00250F6D3200D1A905 /* MenuBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D219FE250F6D3200D1A905 /* MenuBtn.m */; };
 		B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A1D897250EE6CA004E59A4 /* Menu.xib */; };
 /* End PBXBuildFile section */
 
@@ -15,6 +18,9 @@
 		A38993F4250B859F00211D90 /* Navi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38993F7250B859F00211D90 /* Navi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Navi.h; sourceTree = "<group>"; };
 		A38993F8250B85A000211D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3D219FB250F6D2600D1A905 /* MenuBtn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuBtn.xib; sourceTree = "<group>"; };
+		A3D219FD250F6D3200D1A905 /* MenuBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuBtn.h; sourceTree = "<group>"; };
+		A3D219FE250F6D3200D1A905 /* MenuBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuBtn.m; sourceTree = "<group>"; };
 		B2A1D897250EE6CA004E59A4 /* Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Menu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +57,9 @@
 				A38993F7250B859F00211D90 /* Navi.h */,
 				A38993F8250B85A000211D90 /* Info.plist */,
 				B2A1D897250EE6CA004E59A4 /* Menu.xib */,
+				A3D219FB250F6D2600D1A905 /* MenuBtn.xib */,
+				A3D219FD250F6D3200D1A905 /* MenuBtn.h */,
+				A3D219FE250F6D3200D1A905 /* MenuBtn.m */,
 			);
 			path = Navi;
 			sourceTree = "<group>";
@@ -62,6 +71,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3D219FF250F6D3200D1A905 /* MenuBtn.h in Headers */,
 				A38993F9250B85A000211D90 /* Navi.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */,
+				A3D219FC250F6D2600D1A905 /* MenuBtn.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3D21A00250F6D3200D1A905 /* MenuBtn.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
