@@ -7,3 +7,7 @@ export function MenuNib() {
 export function MenuBtn() {
     return framework.getNib('MenuBtn');
 }
+
+export function PanelNib() {
+    return framework.getNib('Panel');
+}

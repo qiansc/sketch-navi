@@ -49,13 +49,13 @@ export class SketchContext {
     //     return sketchContext;
     // }
 
-    public insertAfterViewCanvas(view: any) {
+    public insertViewAfter(view: any, identifier: string = 'view_canvas') {
         const views = this.stageView.subviews();
         const finalViews = [];
         let pushedWebView = false;
         for (let i = 0; i < views.count(); i++) {
             finalViews.push(views[i]);
-            if (!pushedWebView && ''.concat(views[i].identifier()) === 'view_canvas') {
+            if (!pushedWebView && compare(views[i].identifier(), identifier)) {
                 pushedWebView = true;
                 finalViews.push(view);
             }
@@ -65,10 +65,26 @@ export class SketchContext {
         this.stageView.adjustSubviews();
     }
 
+    public insertViewBefore(view: any, identifier: string = 'view_canvas') {
+        const views = this.stageView.subviews();
+        const finalViews = [];
+        let pushedWebView = false;
+        for (let i = 0; i < views.count(); i++) {
+            if (!pushedWebView && compare(views[i].identifier(), identifier)) {
+                pushedWebView = true;
+                finalViews.push(view);
+            }
+            finalViews.push(views[i]);
+        }
+        // NSUserDefaults.standardUserDefaults().setObject_forKey('true', vid);
+        this.stageView.subviews = finalViews;
+        this.stageView.adjustSubviews();
+    }
+
     public findView(identifier: string) {
         const views = this.stageView.subviews();
         for (let i = 0; i < views.count(); i++) {
-            if (''.concat(views[i].identifier()) === identifier) {
+            if (compare(views[i].identifier(), identifier)) {
                 return i;
             }
         }
@@ -79,7 +95,7 @@ export class SketchContext {
         const finalViews = [];
         const views = this.stageView.subviews();
         for (let i = 0; i < views.count(); i++) {
-            if (''.concat(views[i].identifier()) !== identifier) {
+            if (!compare(views[i].identifier(), identifier)) {
                 finalViews.push(views[i]);
             }
         }
@@ -99,3 +115,7 @@ export class SketchContext {
     }
 
 }
+
+function compare(str: string, str0: string) {
+    return ''.concat(str) === ''.concat(str0);
+};

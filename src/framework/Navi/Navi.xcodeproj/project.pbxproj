@@ -11,6 +11,7 @@
 		A3D219FC250F6D2600D1A905 /* MenuBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D219FB250F6D2600D1A905 /* MenuBtn.xib */; };
 		A3D219FF250F6D3200D1A905 /* MenuBtn.h in Headers */ = {isa = PBXBuildFile; fileRef = A3D219FD250F6D3200D1A905 /* MenuBtn.h */; };
 		A3D21A00250F6D3200D1A905 /* MenuBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D219FE250F6D3200D1A905 /* MenuBtn.m */; };
+		A3E6094425109AB500C98536 /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3E6094325109AB500C98536 /* Panel.xib */; };
 		B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A1D897250EE6CA004E59A4 /* Menu.xib */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +22,7 @@
 		A3D219FB250F6D2600D1A905 /* MenuBtn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuBtn.xib; sourceTree = "<group>"; };
 		A3D219FD250F6D3200D1A905 /* MenuBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuBtn.h; sourceTree = "<group>"; };
 		A3D219FE250F6D3200D1A905 /* MenuBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuBtn.m; sourceTree = "<group>"; };
+		A3E6094325109AB500C98536 /* Panel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Panel.xib; sourceTree = "<group>"; };
 		B2A1D897250EE6CA004E59A4 /* Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Menu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +62,7 @@
 				A3D219FB250F6D2600D1A905 /* MenuBtn.xib */,
 				A3D219FD250F6D3200D1A905 /* MenuBtn.h */,
 				A3D219FE250F6D3200D1A905 /* MenuBtn.m */,
+				A3E6094325109AB500C98536 /* Panel.xib */,
 			);
 			path = Navi;
 			sourceTree = "<group>";
@@ -134,6 +137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3E6094425109AB500C98536 /* Panel.xib in Resources */,
 				B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */,
 				A3D219FC250F6D2600D1A905 /* MenuBtn.xib in Resources */,
 			);

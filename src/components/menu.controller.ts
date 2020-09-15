@@ -1,80 +1,92 @@
 import { SketchContext } from "../utils/sketch-context";
 import * as framework from '../framework';
 import { createButton, createImageView, createBoxSeparator } from './element';
+import { PanelController } from "./panel.controller";
+
+const EventEmitter = require('events');
 
 export class MenuController {
     public id: string;
     public view: any;
     private nib: any;
+    private emitter = new EventEmitter();
     constructor(private ctx: SketchContext) {
         this.id = `${ctx.documentID}-navi-menu-panel`;
-    }
-    initView() {
-        const threadDictionary = NSThread.mainThread().threadDictionary();
-        if (threadDictionary[this.id]) {
-            this.nib = threadDictionary[this.id];
-            this.view = this.nib.getRoot();
-        } else {
-            this.nib = framework.MenuNib();
-            threadDictionary[this.id] = this.nib;
-            this.view = this.nib.getRoot();
-            this.view.identifier = this.id;
-            this.initInterface();
-        }
-
-
-        const index = this.ctx.findView(this.id);
-
-
-        // const index = this.ctx.findView(this.id);
-        if (index === -1) {
-            // this.nib = framework.MenuNib();
-            // console.log(this.nib.getOwner().hidden);
-            // this.view = this.nib.getRoot();
-            // this.view.identifier = this.id;
-
-            this.ctx.insertAfterViewCanvas(this.view);
-        } else {
-            this.ctx.removeView(this.id);
-        }
+        this.nib = framework.MenuNib();
+        this.view = this.nib.getRoot();
+        this.view.identifier = this.id;
+        this.generateInterface();
     }
     toogle() {
-        this.view.hidden = !this.view.hidden;
-        this.ctx.stageView.adjustSubviews();
+        const index = this.ctx.findView(this.id);
+        index === -1 ? this.show() : this.hide();
     }
-    private initInterface() {
-        const toolbar = this.nib.headStack;
-        const Logo = createImageView(NSMakeRect(0, 0, 40, 30), this.ctx.NSURL('icons/main.png'), NSMakeSize(40, 40))
-        toolbar.addView_inGravity(Logo, 1);
+    show() {
+        this.ctx.insertViewAfter(this.view);
+    }
+    hide() {
+        this.ctx.removeView(this.id);
+    }
+    private generateInterface() {
+        const parent = this.nib.headStack;
+        const options = [{
+            tooltip: '全部',
+            id: 'main',
+            gravity: 1
+        }, {
+            tooltip: '颜色',
+            id: 'color',
+            gravity: 1
+        }, {
+            tooltip: '文本',
+            id: 'text',
+            gravity: 1
+        }, {
+            tooltip: '设置',
+            id: 'mask',
+            gravity: 3
+        }, {
+            tooltip: '用户',
+            id: 'border',
+            gravity: 3
+        }];
 
-        for(var i = 0; i < 3; i++) {
-
+        parent.addView_inGravity(createBoxSeparator(), 3);
+        options.forEach((option, index) => {
             const button = createButton({
                 rect: NSMakeRect(0, 0, 40, 40),
                 size: NSMakeSize(40, 40),
-                tooltip: '上传画板' + i,
+                tooltip: option.tooltip,
                 type: 2,
-                iconUrl: this.ctx.NSURL('icons/color.png'),
-                activeIconUrl: this.ctx.NSURL('icons/color-active.png'),
-                callAction: () => console.log('click'),
+                iconUrl: this.ctx.NSURL(`icons/${option.id}.png`),
+                activeIconUrl: this.ctx.NSURL(`icons/${option.id}-active.png`),
+                callAction: () => {
+                    this.onClick(option.id, button);
+                },
             });
-            toolbar.addView_inGravity(createBoxSeparator(), 1)
-            toolbar.addView_inGravity(button,  1);
-        }
-        for(var i = 0; i < 3; i++) {
+            parent.addView_inGravity(button, option.gravity || 1);
+            parent.addView_inGravity(createBoxSeparator(), option.gravity || 1);
+        });
 
-            const button = createButton({
-                rect: NSMakeRect(0, 0, 40, 40),
-                size: NSMakeSize(40, 40),
-                tooltip: '上传画板' + (i+10),
-                type: 2,
-                iconUrl: this.ctx.NSURL('icons/text.png'),
-                activeIconUrl: this.ctx.NSURL('icons/text-active.png'),
-                callAction: () => console.log('click'),
-            });
-            toolbar.addView_inGravity(createBoxSeparator(), 3)
-            toolbar.addView_inGravity(button,  3);
+    }
+
+    private onClick(id: string, view: any) {
+        // console.log(id, view);
+        if (id === 'main') {
+            this.emitter.emit(MENU_EVENT.MAIN_CLICK, id, view);
         }
+    }
+    on(event: MENU_EVENT, cb: any){
+        this.emitter.on(event, cb);
+    }
+}
+
+export enum MENU_EVENT {
+    'MAIN_CLICK' = 1,
+}
+// main.click
+// tools.click
+//
 
         // toolbar.addView_inGravity(createImageView(NSMakeRect(0, 0, 40, 8), this.ctx.NSURL('icons/transparent.png')), 3);
 
@@ -85,8 +97,3 @@ export class MenuController {
         // this.nib.buttonMain.setCOSJSTargetFunction(function(sender: any){
         //     console.log('XXXXXX!!HAHAHAHA');
         // });
-    }
-
-}
-
-

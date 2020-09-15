@@ -73,3 +73,5 @@ declare var NSSwitchButton: any;
 declare var NSOnState: any;
 declare var NSButtonCell: any;
 declare var NSRadioButton: any;
+
+declare var EventEmitter: any;
