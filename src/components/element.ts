@@ -6,8 +6,9 @@ interface ButtonOptions {
     tooltip?: string,
     type?: number,
     callAction?: any
-  }
+}
 
+/** 创建 NSButton */
 export const createButton = ({ rect, size, iconUrl, activeIconUrl, tooltip = '', type = 5, callAction }: ButtonOptions) => {
     const button = rect ? NSButton.alloc().initWithFrame(rect) : NSButton.alloc().init()
     const image = createImage(iconUrl, size)
@@ -34,20 +35,16 @@ export const createButton = ({ rect, size, iconUrl, activeIconUrl, tooltip = '',
 }
 
 
-/**
- * createImageView 创建 NSImageView
- * @param {*} rect
- * @param {*} icon
- * @param {*} size
- */
+/** 创建 NSImageView */
 export const createImageView = (rect: any, imageURL: any, size?: any) => {
     const imageView = NSImageView.alloc().initWithFrame(rect)
     const image = createImage(imageURL, size)
     imageView.setImage(image)
     imageView.setAutoresizingMask(5)
     return imageView
-  }
+}
 
+/** 创建 NSImage */
 export const createImage = (imageURL: string, size?: number) => {
     // NSImage.alloc().initWithSize([width, height])
     const Image = NSImage.alloc().initWithContentsOfURL(imageURL)
@@ -56,10 +53,8 @@ export const createImage = (imageURL: string, size?: number) => {
     return Image
  }
 
- /**
- * createImageView 创建 NSBoxSeparator
- */
-export const createBoxSeparator = () => {
+ /** 创建 NSBoxSeparator */
+export function createBoxSeparator() {
     // set to 0 in width and height
     const separtorBox = NSBox.alloc().initWithFrame(NSZeroRect)
     // Specifies that the box is a separator

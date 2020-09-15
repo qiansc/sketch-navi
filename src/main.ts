@@ -10,7 +10,5 @@ export function onStart(context: any) {
     const ctx = new SketchContext(context);
     const menuController = new MenuController(ctx);
 
-    if (!menuController.initView()) {
-        menuController.toogle();
-    }
+    menuController.initView();
 }

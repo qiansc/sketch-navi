@@ -75,6 +75,18 @@ export class SketchContext {
         return -1;
     }
 
+    public removeView(identifier: string) {
+        const finalViews = [];
+        const views = this.stageView.subviews();
+        for (let i = 0; i < views.count(); i++) {
+            if (''.concat(views[i].identifier()) !== identifier) {
+                finalViews.push(views[i]);
+            }
+        }
+        this.stageView.subviews = finalViews;
+        this.stageView.adjustSubviews();
+    }
+
     public getView(index: number) {
         return this.stageView.subviews()[index];
     }
