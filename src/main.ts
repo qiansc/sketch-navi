@@ -1,6 +1,6 @@
 import { SketchContext } from './utils/sketch-context';
-import { MenuController, MENU_EVENT } from './components/menu.controller';
-import { PanelController } from './components/panel.controller';
+import { MenuController, MENU_EVENT, MenuOption } from './components/menu.controller';
+import { PanelController, PANEL_EVENT } from './components/panel.controller';
 
 export function onStart(context: any) {
     if(!SketchContext.hasDocument(context)) {
@@ -33,9 +33,17 @@ function getRuntime(ctx: SketchContext) {
     const panelController = new PanelController(ctx);
 
     // 下面开始把不同controller的事件和处理过程串联起来
-    menuController.on(MENU_EVENT.MAIN_CLICK, (id: string, target: any) => {
-        console.log(id, target);
+    menuController.on(MENU_EVENT.MAIN_CLICK, (option: MenuOption, target: any) => {
+        target.state() ? panelController.show() : panelController.hide();
     });
+
+    menuController.on(MENU_EVENT.PANEL_CLICK, (option: MenuOption, target: any) => {
+        // 全部按钮点击时展开面板
+        // target.state() ? panelController.show() : panelController.hide();
+    });
+
+    panelController.on(PANEL_EVENT.WINDOW_CLOSE, () => menuController.setMainButtonState(0));
+    panelController.on(PANEL_EVENT.PANEL_SHOW, () => menuController.setMainButtonState(1));
 
 
     return {

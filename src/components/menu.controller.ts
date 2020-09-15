@@ -1,7 +1,6 @@
 import { SketchContext } from "../utils/sketch-context";
 import * as framework from '../framework';
-import { createButton, createImageView, createBoxSeparator } from './element';
-import { PanelController } from "./panel.controller";
+import { createButton, createBoxSeparator } from './element';
 
 const EventEmitter = require('events');
 
@@ -10,6 +9,7 @@ export class MenuController {
     public view: any;
     private nib: any;
     private emitter = new EventEmitter();
+    private buttons: {[index: string]: any} = {};
     constructor(private ctx: SketchContext) {
         this.id = `${ctx.documentID}-navi-menu-panel`;
         this.nib = framework.MenuNib();
@@ -29,28 +29,6 @@ export class MenuController {
     }
     private generateInterface() {
         const parent = this.nib.headStack;
-        const options = [{
-            tooltip: '全部',
-            id: 'main',
-            gravity: 1
-        }, {
-            tooltip: '颜色',
-            id: 'color',
-            gravity: 1
-        }, {
-            tooltip: '文本',
-            id: 'text',
-            gravity: 1
-        }, {
-            tooltip: '设置',
-            id: 'mask',
-            gravity: 3
-        }, {
-            tooltip: '用户',
-            id: 'border',
-            gravity: 3
-        }];
-
         parent.addView_inGravity(createBoxSeparator(), 3);
         options.forEach((option, index) => {
             const button = createButton({
@@ -61,29 +39,80 @@ export class MenuController {
                 iconUrl: this.ctx.NSURL(`icons/${option.id}.png`),
                 activeIconUrl: this.ctx.NSURL(`icons/${option.id}-active.png`),
                 callAction: () => {
-                    this.onClick(option.id, button);
+                    this.onClick(option, button);
                 },
             });
+            this.buttons[option.id] = button;
             parent.addView_inGravity(button, option.gravity || 1);
             parent.addView_inGravity(createBoxSeparator(), option.gravity || 1);
         });
-
     }
 
-    private onClick(id: string, view: any) {
-        // console.log(id, view);
-        if (id === 'main') {
-            this.emitter.emit(MENU_EVENT.MAIN_CLICK, id, view);
+    private onClick(option: MenuOption, view: any) {
+        if (option.event === MENU_EVENT.MAIN_CLICK) {
+
+        } else if (option.event === MENU_EVENT.BUTTON_CLICK){
+
+        } else if (option.event === MENU_EVENT.PANEL_CLICK){
+            // 点击普通按钮时 如果总控Main未激活 则模拟激活 打开主面板
+            if (this.buttons['main'] && view.state() === 1 && this.buttons['main'].state() !== 1) {
+                this.buttons['main'] && this.buttons['main'].performClick('callAction:');
+            }
         }
+        this.emitter.emit(option.event, option, view);
     }
+
     on(event: MENU_EVENT, cb: any){
         this.emitter.on(event, cb);
+    }
+    public setMainButtonState(state: number) {
+        this.buttons['main'] && this.buttons['main'].setState(state);
     }
 }
 
 export enum MENU_EVENT {
     'MAIN_CLICK' = 1,
+    'PANEL_CLICK' = 2,
+    'BUTTON_CLICK' = 3,
 }
+
+export interface MenuOption {
+    tooltip: string,
+    id: string,
+    gravity: 1 | 2 | 3,
+    event?: MENU_EVENT
+}
+
+
+const options : MenuOption[] = [{
+    tooltip: '全部',
+    id: 'main',
+    gravity: 1,
+    event: MENU_EVENT.MAIN_CLICK
+}, {
+    tooltip: '颜色',
+    id: 'color',
+    gravity: 1,
+    event: MENU_EVENT.PANEL_CLICK
+}, {
+    tooltip: '文本',
+    id: 'text',
+    gravity: 1,
+    event: MENU_EVENT.PANEL_CLICK
+}, {
+    tooltip: '设置',
+    id: 'mask',
+    gravity: 3,
+    event: MENU_EVENT.BUTTON_CLICK
+}, {
+    tooltip: '用户',
+    id: 'border',
+    gravity: 3,
+    event: MENU_EVENT.BUTTON_CLICK
+}];
+
+
+
 // main.click
 // tools.click
 //

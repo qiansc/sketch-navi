@@ -68,10 +68,17 @@ declare var NSTitledWindowMask: any;
 declare var NSClosableWindowMask: any;
 declare var NSFullSizeContentViewWindowMask: any;
 declare var NSWindowStyleMaskResizable: any;
+declare var NSWindowStyleMaskTitled: any;
+declare var NSWindowStyleMaskClosable: any;
 declare var NSWindowMiniaturizeButton: any;
+declare var NSBackingStoreBuffered: any;
+declare var NSWindowTitleVisible: any;
 declare var NSSwitchButton: any;
 declare var NSOnState: any;
 declare var NSButtonCell: any;
 declare var NSRadioButton: any;
+declare var NSWindowStyleMaskBorderless: any;
+declare var NSWindow: any;
+declare var NSApp: any;
 
 declare var EventEmitter: any;

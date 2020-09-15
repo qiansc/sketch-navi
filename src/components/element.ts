@@ -69,3 +69,32 @@ export function createBoxSeparator() {
     // separtorBox.setTransparent(true)
     return separtorBox
   }
+
+
+
+export interface WindowOption{
+      frame?: any;
+      title: string;
+}
+
+
+export function createWindow(option: WindowOption) {
+    const {
+        frame = NSMakeRect(100, 100, 200, 200),
+        title = '',
+
+    } = option;
+    const styleMask = NSWindowStyleMaskBorderless;
+    const rect = NSWindow.contentRectForFrameRect_styleMask(frame, styleMask);
+
+    const uiStyle = NSWindowStyleMaskTitled | NSWindowStyleMaskResizable | NSWindowStyleMaskClosable;
+
+    const window = NSWindow.alloc().initWithContentRect_styleMask_backing_defer(rect, uiStyle, NSBackingStoreBuffered, false);
+    window.titleVisibility = NSWindowTitleVisible;
+    // [window setBackgroundColor:[NSColor blueColor]];
+
+    window.setTitle(title);
+    window.center();
+    window.makeKeyAndOrderFront(window);
+    return window;
+}
