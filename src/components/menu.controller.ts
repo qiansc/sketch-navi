@@ -1,19 +1,21 @@
 import { SketchContext } from "../utils/sketch-context";
 import * as framework from '../framework';
 import { createButton, createBoxSeparator } from './element';
+import { getSubviewById } from "../utils/view-utils";
 
 const EventEmitter = require('events');
 
 export class MenuController {
     public id: string;
     public view: any;
-    private nib: any;
     private emitter = new EventEmitter();
     private buttons: {[index: string]: any} = {};
     constructor(private ctx: SketchContext) {
         this.id = `${ctx.documentID}-navi-menu-panel`;
-        this.nib = framework.MenuNib();
-        this.view = this.nib.getRoot();
+        const NSMenuController = framework.framework.getClass('MenuController');
+        // const controller = NSMenuController.alloc().initWithNibName_bundle("Menu", NSBundle.mainBundle());
+        const controller = NSMenuController.viewControllerFromNIB();
+        this.view = controller.view();
         this.view.identifier = this.id;
         this.generateInterface();
     }
@@ -28,7 +30,7 @@ export class MenuController {
         this.ctx.removeView(this.id);
     }
     private generateInterface() {
-        const parent = this.nib.headStack;
+        const parent = getSubviewById(this.view, 'headStack');
         parent.addView_inGravity(createBoxSeparator(), 3);
         options.forEach((option, index) => {
             const button = createButton({
