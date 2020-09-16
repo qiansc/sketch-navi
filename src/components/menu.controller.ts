@@ -25,6 +25,25 @@ export class MenuController {
     }
     show() {
         this.ctx.insertViewAfter(this.view);
+        const index = this.ctx.findView(this.id);
+        // this.ctx.stageView.delegate().splitView_shouldAdjustSizeOfSubview = () => {
+        //     return 1;
+        // }
+        // console.log(this.ctx.stageView.delegate().splitView_shouldAdjustSizeOfSubview(this.ctx.stageView, this.view));
+        // console.log(this.ctx.stageView.subviews()[0], this.ctx.stageView.delegate().splitView_shouldAdjustSizeOfSubview(this.ctx.stageView, this.ctx.stageView.subviews()[0]));
+        // console.log(this.ctx.stageView.subviews()[1],this.ctx.stageView.delegate().splitView_shouldAdjustSizeOfSubview(this.ctx.stageView, this.ctx.stageView.subviews()[1]));
+        // console.log(this.ctx.stageView.subviews()[2],this.ctx.stageView.delegate().splitView_shouldAdjustSizeOfSubview(this.ctx.stageView, this.ctx.stageView.subviews()[2]));
+
+        // const xxx = this.ctx.stageView.delegate();
+
+        // this.ctx.stageView.setDelegate(new MochaJSDelegate({
+        //     'splitView_shouldAdjustSizeOfSubview:': (a, c, c) => {
+        //         return xxx.splitView_shouldAdjustSizeOfSubview();
+        //         this.emitter.emit(PANEL_EVENT.WINDOW_CLOSE);
+        //         return NSApp.stopModal();
+        //     }
+        // }).getClassInstance());
+
     }
     hide() {
         this.ctx.removeView(this.id);
