@@ -7,6 +7,7 @@
 //
 
 #import "MenuController.h"
+#import "MenuProtocol.h"
 
 @interface MenuController ()
 
@@ -24,6 +25,9 @@
 //    [self setPreferredContentSize:CGSizeMake(40, 450)];
 //    self.view.window.contentMinSize = CGSizeMake(40, 450);
 //    self.view.window.contentMaxSize = CGSizeMake(40, 450);
+    if (self.delegate) {
+        [self.delegate viewWillLayoutSize:[NSString stringWithFormat:@"%d,%d", self.view.frame.size.width, self.view.frame.size.height]];
+    }
 }
 
 + (instancetype)viewControllerFromNIB {
@@ -45,5 +49,10 @@
     // [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)viewWillTransitionToSize:(NSSize)newSize {
+    
+}
+//- (void)setDelegate:(id<MenuProtocol>)_delegete {
+//    self.delegate = _delegete;
+//}
 @end

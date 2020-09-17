@@ -2,7 +2,7 @@ import { SketchContext } from "../utils/sketch-context";
 import * as framework from '../framework';
 import { createButton, createBoxSeparator } from './element';
 import { getSubviewById } from "../utils/view-utils";
-
+import { makeDisableResizeDelegate } from "../utils/disable-resize-delegate";
 const EventEmitter = require('events');
 
 export class MenuController {
@@ -10,14 +10,15 @@ export class MenuController {
     public view: any;
     private emitter = new EventEmitter();
     private buttons: {[index: string]: any} = {};
+    private NSController: any;
     constructor(private ctx: SketchContext) {
         this.id = `${ctx.documentID}-navi-menu-panel`;
         const NSMenuController = framework.framework.getClass('MenuController');
         // const controller = NSMenuController.alloc().initWithNibName_bundle("Menu", NSBundle.mainBundle());
-        const controller = NSMenuController.viewControllerFromNIB();
-        this.view = controller.view();
-        this.view.identifier = this.id;
-        this.generateInterface();
+        this.NSController = NSMenuController.viewControllerFromNIB();
+        this.view = this.NSController.view();
+        this.view.identifier = this.id ;
+        this.addButtons();
     }
     toogle() {
         const index = this.ctx.findView(this.id);
@@ -25,30 +26,15 @@ export class MenuController {
     }
     show() {
         this.ctx.insertViewAfter(this.view);
-        const index = this.ctx.findView(this.id);
-        // this.ctx.stageView.delegate().splitView_shouldAdjustSizeOfSubview = () => {
-        //     return 1;
-        // }
-        // console.log(this.ctx.stageView.delegate().splitView_shouldAdjustSizeOfSubview(this.ctx.stageView, this.view));
-        // console.log(this.ctx.stageView.subviews()[0], this.ctx.stageView.delegate().splitView_shouldAdjustSizeOfSubview(this.ctx.stageView, this.ctx.stageView.subviews()[0]));
-        // console.log(this.ctx.stageView.subviews()[1],this.ctx.stageView.delegate().splitView_shouldAdjustSizeOfSubview(this.ctx.stageView, this.ctx.stageView.subviews()[1]));
-        // console.log(this.ctx.stageView.subviews()[2],this.ctx.stageView.delegate().splitView_shouldAdjustSizeOfSubview(this.ctx.stageView, this.ctx.stageView.subviews()[2]));
-
-        // const xxx = this.ctx.stageView.delegate();
-
-        // this.ctx.stageView.setDelegate(new MochaJSDelegate({
-        //     'splitView_shouldAdjustSizeOfSubview:': (a, c, c) => {
-        //         return xxx.splitView_shouldAdjustSizeOfSubview();
-        //         this.emitter.emit(PANEL_EVENT.WINDOW_CLOSE);
-        //         return NSApp.stopModal();
-        //     }
-        // }).getClassInstance());
-
+        // 设置delegate固定高度
+        this.NSController.delegate = makeDisableResizeDelegate(this.ctx.stageView, this.view);
     }
     hide() {
         this.ctx.removeView(this.id);
+        // 取消delegate
+        this.NSController.delegate = nil;
     }
-    private generateInterface() {
+    private addButtons() {
         const parent = getSubviewById(this.view, 'headStack');
         parent.addView_inGravity(createBoxSeparator(), 3);
         options.forEach((option, index) => {
@@ -86,6 +72,7 @@ export class MenuController {
     on(event: MENU_EVENT, cb: any){
         this.emitter.on(event, cb);
     }
+
     public setMainButtonState(state: number) {
         this.buttons['main'] && this.buttons['main'].setState(state);
     }
@@ -132,11 +119,6 @@ const options : MenuOption[] = [{
     event: MENU_EVENT.BUTTON_CLICK
 }];
 
-
-
-// main.click
-// tools.click
-//
 
         // toolbar.addView_inGravity(createImageView(NSMakeRect(0, 0, 40, 8), this.ctx.NSURL('icons/transparent.png')), 3);
 

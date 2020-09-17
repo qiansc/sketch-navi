@@ -83,6 +83,9 @@ declare var NSApp: any;
 declare var NSBundle: any;
 declare var NSURL: any;
 
+
 declare var EventEmitter: any;
 declare var __command: any;
+
+
 
