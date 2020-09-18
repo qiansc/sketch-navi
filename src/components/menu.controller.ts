@@ -2,7 +2,7 @@ import { SketchContext } from "../utils/sketch-context";
 import * as framework from '../framework';
 import { createButton, createBoxSeparator } from './element';
 import { getSubviewById } from "../utils/view-utils";
-import { makeDisableResizeDelegate } from "../utils/disable-resize-delegate";
+import { makeDisableResizeDelegate } from "../utils/resize-delegate";
 const EventEmitter = require('events');
 
 export class MenuController {
@@ -14,7 +14,6 @@ export class MenuController {
     constructor(private ctx: SketchContext) {
         this.id = `${ctx.documentID}-navi-menu-panel`;
         const NSMenuController = framework.framework.getClass('MenuController');
-        // const controller = NSMenuController.alloc().initWithNibName_bundle("Menu", NSBundle.mainBundle());
         this.NSController = NSMenuController.viewControllerFromNIB();
         this.view = this.NSController.view();
         this.view.identifier = this.id ;
@@ -32,7 +31,7 @@ export class MenuController {
     hide() {
         this.ctx.removeView(this.id);
         // 取消delegate
-        this.NSController.delegate = nil;
+        this.NSController.delegate = null;
     }
     private addButtons() {
         const parent = getSubviewById(this.view, 'headStack');

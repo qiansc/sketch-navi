@@ -7,13 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "MenuProtocol.h"
+#import "RezieseProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MenuController : NSViewController
     
-    @property (nonatomic,weak) id<MenuProtocol> delegate;
+    @property (nonatomic,weak) id<ResizeProtocol> delegate;
     @property (strong) IBOutlet NSView *view;
     // Convenience Method
     + (instancetype)viewControllerFromNIB;

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol MenuProtocol <NSObject>
+@protocol ResizeProtocol <NSObject>
 
 @optional
 -(void)viewWillLayoutSize:(NSString*)newSize;

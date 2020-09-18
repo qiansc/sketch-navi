@@ -1,25 +1,17 @@
 //
-//  MenuController.m
+//  PanelController.m
 //  Navi
 //
-//  Created by Qian,Sicheng on 2020/9/16.
+//  Created by Qian,Sicheng on 2020/9/18.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "MenuController.h"
-#import "RezieseProtocol.h"
+#import "PanelController.h"
 
-@interface MenuController ()
-
-@end
-
-@implementation MenuController
+@implementation PanelController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setPreferredContentSize:CGSizeMake(40, 450)];
-    [self.view setAutoresizingMask:NSViewNotSizable];
-    
 }
 -  (void)viewWillLayout {
 //    [self setPreferredContentSize:CGSizeMake(40, 450)];
@@ -36,23 +28,7 @@
     NSString* const frameworkBundleID  = @"com.baidu.Navi";
     NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
     
-    return[[MenuController alloc] initWithNibName:@"Menu" bundle:resourceBundlePath];
+    return[[PanelController alloc] initWithNibName:@"Panel" bundle:resourceBundlePath];
     // return [[MenuController alloc] initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle mainBundle]];
 }
-- (void)viewDidAppear{
-//    [self.view setFrameSize:NSMakeSize(40, 450)];
-//    [self setPreferredContentSize:CGSizeMake(40, 450)];
-//    self.view.window.contentMinSize = CGSizeMake(40, 450);
-//    self.view.window.contentMaxSize = CGSizeMake(40, 450);
-}
-- (void)didReceiveMemoryWarning {
-    // [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-- (void)viewWillTransitionToSize:(NSSize)newSize {
-    
-}
-//- (void)setDelegate:(id<MenuProtocol>)_delegete {
-//    self.delegate = _delegete;
-//}
 @end
