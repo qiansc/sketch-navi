@@ -9,65 +9,57 @@
 */
 const MochaJSDelegate = require('mocha-js-delegate');
 
-export function makeDisableResizeDelegate(NSSplitViewInstance: any, subview: any) {
-    const width = subview.frame().size.width;
-    return new MochaJSDelegate({
-        'viewWillLayoutSize:': (newSize: any) => {
-            try{
-                let index = -1;
-                const views = NSSplitViewInstance.subviews();
-                for (let i = 0; i < views.count(); i++) {
-                    if (''.concat(views[i].identifier()) ===
-                        ''.concat(subview.identifier())) {
-                        index = i;
-                    }
-                }
-                if (index > 0 && NSSplitViewInstance.subviews()[index+1]) {
-                    const nextWidth = NSSplitViewInstance.subviews()[index+1].frame().size.width;
-                    const nextPos = NSSplitViewInstance.maxPossiblePositionOfDividerAtIndex(index);
-                    const prevWidth = NSSplitViewInstance.subviews()[index-1].frame().size.width;
-                    NSSplitViewInstance.setPosition_ofDividerAtIndex(nextPos - nextWidth - width - 1, index - 1);
-                    if (NSSplitViewInstance.subviews()[index-1].identifier().indexOf('-navi-') > 0) {
-                        NSSplitViewInstance.setPosition_ofDividerAtIndex(nextPos - nextWidth - width - 2 - prevWidth, index - 2);
-                    }
-                }
-            }catch(e) {
-                console.log(e);
+export function splitViewItemDisableRezise(NSSplitViewInstance: any, subview: any, limitWidth: number) {
+    try{
+        let index = -1;
+        const views = NSSplitViewInstance.subviews();
+        for (let i = 0; i < views.count(); i++) {
+            if (''.concat(views[i].identifier()) ===
+                ''.concat(subview.identifier())) {
+                    index = i;
             }
         }
-    }).getClassInstance();
+        if (index > 0 && NSSplitViewInstance.subviews()[index+1]) {
+            const nextWidth = NSSplitViewInstance.subviews()[index+1].frame().size.width;
+            const nextPos = NSSplitViewInstance.maxPossiblePositionOfDividerAtIndex(index);
+            // const prevWidth = NSSplitViewInstance.subviews()[index-1].frame().size.width;
+            NSSplitViewInstance.setPosition_ofDividerAtIndex(nextPos - nextWidth - limitWidth - 1, index - 1);
+
+            // 防止前侧面板大小变化
+            // if (NSSplitViewInstance.subviews()[index-1].identifier().indexOf('-navi-') > 0) {
+            //     NSSplitViewInstance.setPosition_ofDividerAtIndex(nextPos - nextWidth - width - 2 - prevWidth, index - 2);
+            // }
+        }
+    }catch(e) {
+        console.log(e);
+    }
 }
 
-export function makeLimitResizeDelegate(NSSplitViewInstance: any, subview: any, minWidth : number = 0, maxWidth: number =  99999) {
-    return new MochaJSDelegate({
-        'viewWillLayoutSize:': (newSize: any) => {
-            try{
+export function splitViewItemLimitRezise(NSSplitViewInstance: any, subview: any, minWidth : number = 0, maxWidth: number =  99999) {
+    try{
 
-                let index = -1;
-                const views = NSSplitViewInstance.subviews();
-                for (let i = 0; i < views.count(); i++) {
-                    if (''.concat(views[i].identifier()) ===
-                        ''.concat(subview.identifier())) {
-                        index = i;
-                    }
-                }
-                if (index > 0 && NSSplitViewInstance.subviews()[index+1]) {
-                    const x = NSSplitViewInstance.maxPossiblePositionOfDividerAtIndex(index-1) - subview.frame().size.width;
-                     const nextWidth = NSSplitViewInstance.subviews()[index+1].frame().size.width;
-                     const nextPos = NSSplitViewInstance.maxPossiblePositionOfDividerAtIndex(index);
-                     const startX = nextPos - nextWidth - minWidth - 1;
-                     const endX = nextPos - nextWidth - maxWidth - 1;
-                     // console.log(x , startX , endX, nextPos, nextWidth);
-                     if (x > startX) {
-                        NSSplitViewInstance.setPosition_ofDividerAtIndex(startX, index - 1);
-                     } else if(x < endX){
-                        NSSplitViewInstance.setPosition_ofDividerAtIndex(endX, index - 1);
-                     }
-                }
-            }catch(e) {
-                console.log(e);
+        let index = -1;
+        const views = NSSplitViewInstance.subviews();
+        for (let i = 0; i < views.count(); i++) {
+            if (''.concat(views[i].identifier()) ===
+                ''.concat(subview.identifier())) {
+                index = i;
             }
         }
-    }).getClassInstance();
+        if (index > 0 && NSSplitViewInstance.subviews()[index+1]) {
+            const x = NSSplitViewInstance.maxPossiblePositionOfDividerAtIndex(index-1) - subview.frame().size.width;
+             const nextWidth = NSSplitViewInstance.subviews()[index+1].frame().size.width;
+             const nextPos = NSSplitViewInstance.maxPossiblePositionOfDividerAtIndex(index);
+             const startX = nextPos - nextWidth - minWidth - 1;
+             const endX = nextPos - nextWidth - maxWidth - 1;
+             // console.log(x , startX , endX, nextPos, nextWidth);
+             if (x > startX) {
+                NSSplitViewInstance.setPosition_ofDividerAtIndex(startX, index - 1);
+             } else if(x < endX){
+                NSSplitViewInstance.setPosition_ofDividerAtIndex(endX, index - 1);
+             }
+        }
+    }catch(e) {
+        console.log(e);
+    }
 }
-

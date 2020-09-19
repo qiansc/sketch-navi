@@ -2,7 +2,9 @@ import { SketchContext } from "../utils/sketch-context";
 import * as framework from '../framework';
 import { createButton, createBoxSeparator } from './element';
 import { getSubviewById } from "../utils/view-utils";
-import { makeDisableResizeDelegate } from "../utils/resize-delegate";
+import { splitViewItemDisableRezise } from "../utils/resize-delegate";
+const MochaJSDelegate = require('mocha-js-delegate');
+
 const EventEmitter = require('events');
 
 export class MenuController {
@@ -19,19 +21,29 @@ export class MenuController {
         this.view.identifier = this.id ;
         this.addButtons();
     }
+    // 切换是否显示
     toogle() {
         const index = this.ctx.findView(this.id);
         index === -1 ? this.show() : this.hide();
     }
     show() {
         this.ctx.insertViewAfter(this.view);
-        // 设置delegate固定高度
-        this.NSController.delegate = makeDisableResizeDelegate(this.ctx.stageView, this.view);
+        const limitWidth = this.view.frame().size.width;
+        this.NSController.delegate = new MochaJSDelegate({
+            'viewWillLayoutSize:': (newSize: string) => {
+                this.emitter.emit(MENU_EVENT.WIIL_LAYOUT);
+                splitViewItemDisableRezise(this.ctx.stageView, this.view, limitWidth);
+            }
+        }).getClassInstance();
     }
     hide() {
+
+        this.setMainButtonState(0);
+
         this.ctx.removeView(this.id);
         // 取消delegate
         this.NSController.delegate = null;
+        this.emitter.emit(MENU_EVENT.MAIN_CLOSE);
     }
     private addButtons() {
         const parent = getSubviewById(this.view, 'headStack');
@@ -78,9 +90,12 @@ export class MenuController {
 }
 
 export enum MENU_EVENT {
-    'MAIN_CLICK' = 1,
-    'PANEL_CLICK' = 2,
-    'BUTTON_CLICK' = 3,
+    'MAIN_CLOSE' = 0,
+    'WIIL_LAYOUT' = 10,
+    'MAIN_CLICK' = 20,
+    'PANEL_CLICK' = 21,
+    'BUTTON_CLICK' = 23,
+
 }
 
 export interface MenuOption {

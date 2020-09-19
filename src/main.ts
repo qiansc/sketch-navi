@@ -33,6 +33,11 @@ function getRuntime(ctx: SketchContext) {
     const panelController = new PanelController(ctx);
 
     // 下面开始把不同controller的事件和处理过程串联起来
+
+    menuController.on(MENU_EVENT.MAIN_CLOSE, (option: MenuOption, target: any) => {
+        panelController.hide();
+    });
+
     menuController.on(MENU_EVENT.MAIN_CLICK, (option: MenuOption, target: any) => {
         target.state() ? panelController.show() : panelController.hide();
     });
@@ -40,6 +45,11 @@ function getRuntime(ctx: SketchContext) {
     menuController.on(MENU_EVENT.PANEL_CLICK, (option: MenuOption, target: any) => {
         // 全部按钮点击时展开面板
         // target.state() ? panelController.show() : panelController.hide();
+    });
+
+    menuController.on(MENU_EVENT.WIIL_LAYOUT, (option: MenuOption, target: any) => {
+        // 避免Menu rezise导致panel大小auto resize
+        panelController.lockSize();
     });
 
     panelController.on(PANEL_EVENT.WINDOW_CLOSE, () => menuController.setMainButtonState(0));

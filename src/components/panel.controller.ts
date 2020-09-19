@@ -2,7 +2,7 @@ import { SketchContext } from "../utils/sketch-context";
 import * as framework from '../framework';
 import { createButton, createImageView, createBoxSeparator, createWindow } from './element';
 import { getSubviewById } from "../utils/view-utils";
-import { makeLimitResizeDelegate } from "../utils/resize-delegate";
+import { splitViewItemLimitRezise } from "../utils/resize-delegate";
 const MochaJSDelegate = require('mocha-js-delegate');
 const EventEmitter = require('events');
 
@@ -48,7 +48,19 @@ export class PanelController {
             // 插入到目录左侧
             this.ctx.insertViewBefore(this.view, `${this.ctx.documentID}-navi-menu-panel`);
             this.floatButton.setState(1);
-            this.NSController.delegate = makeLimitResizeDelegate(this.ctx.stageView, this.view, this.minWidth);
+            // 下面这个代理方法主要实现限制menu宽度，策略1限制最小宽度，策略2限制在lockSize时间段内，不发生size变化
+            this.NSController.delegate = new MochaJSDelegate({
+                'viewWillLayoutSize:': (newSize: string) => {
+                    if (new Date().getTime() - this.lastLockTime > 0) {
+                        this.emitter.emit(PANEL_EVENT.WIIL_LAYOUT);
+                        splitViewItemLimitRezise(this.ctx.stageView, this.view, this.minWidth);
+                        this.lockWidth = this.view.frame().size.width;
+                    } else if(this.lockWidth) {
+                        splitViewItemLimitRezise(this.ctx.stageView, this.view, this.lockWidth, this.lockWidth);
+                    }
+                }
+            }).getClassInstance();
+
         }
     }
     private showWindow() {
@@ -68,6 +80,13 @@ export class PanelController {
         window.setAutorecalculatesKeyViewLoop(true);
         this.window = window;
     }
+
+    private lastLockTime: number = 0; // 锁定时间
+    private lockWidth: number = 0; // 锁定宽度
+        // 锁定大小以避免重绘
+    public lockSize() {
+        this.lastLockTime = new Date().getTime() + 1000; // 锁定1000ms
+    }
     on(event: PANEL_EVENT, cb: any){
         this.emitter.on(event, cb);
     }
@@ -75,5 +94,6 @@ export class PanelController {
 
 export enum PANEL_EVENT {
     'WINDOW_CLOSE' = 1,
-    'PANEL_SHOW'
+    'WIIL_LAYOUT' = 10,
+    'PANEL_SHOW' = 11,
 }
