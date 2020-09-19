@@ -6,9 +6,9 @@
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "PanelController.h"
+#import "Panel.h"
 
-@implementation PanelController
+@implementation Panel
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,7 +28,7 @@
     NSString* const frameworkBundleID  = @"com.baidu.Navi";
     NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
     
-    return[[PanelController alloc] initWithNibName:@"Panel" bundle:resourceBundlePath];
+    return[[Panel alloc] initWithNibName:@"Panel" bundle:resourceBundlePath];
     // return [[MenuController alloc] initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle mainBundle]];
 }
 @end

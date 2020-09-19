@@ -1,8 +1,8 @@
 //
-//  MenuBtn.h
+//  Section.h
 //  Navi
 //
-//  Created by Qian,Sicheng on 2020/9/14.
+//  Created by Qian,Sicheng on 2020/9/19.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
@@ -10,7 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MenuBtn : NSView
+@interface Section : NSViewController
+
 @property (strong) IBOutlet NSView *view;
 
 @end

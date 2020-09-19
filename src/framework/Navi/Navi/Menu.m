@@ -6,14 +6,14 @@
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "MenuController.h"
+#import "Menu.h"
 #import "RezieseProtocol.h"
 
-@interface MenuController ()
+@interface Menu ()
 
 @end
 
-@implementation MenuController
+@implementation Menu
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,8 +36,9 @@
     NSString* const frameworkBundleID  = @"com.baidu.Navi";
     NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
     
-    return[[MenuController alloc] initWithNibName:@"Menu" bundle:resourceBundlePath];
+    return[[Menu alloc] initWithNibName:@"Menu" bundle:resourceBundlePath];
     // return [[MenuController alloc] initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle mainBundle]];
+    // [[NSBundle mainBundle] loadNibNamed:@"MenuBtn" owner:self topLevelObjects:nil];
 }
 - (void)viewDidAppear{
 //    [self.view setFrameSize:NSMakeSize(40, 450)];

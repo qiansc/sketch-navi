@@ -7,31 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A32ED9942511D4E100EBCE68 /* MenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = A32ED9922511D4E100EBCE68 /* MenuController.h */; };
-		A32ED9952511D4E100EBCE68 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32ED9932511D4E100EBCE68 /* MenuController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A32ED9942511D4E100EBCE68 /* Menu.h in Headers */ = {isa = PBXBuildFile; fileRef = A32ED9922511D4E100EBCE68 /* Menu.h */; };
+		A32ED9952511D4E100EBCE68 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = A32ED9932511D4E100EBCE68 /* Menu.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A38993F9250B85A000211D90 /* Navi.h in Headers */ = {isa = PBXBuildFile; fileRef = A38993F7250B859F00211D90 /* Navi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A397ACC42513456500286C6E /* RezieseProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A397ACC22513456500286C6E /* RezieseProtocol.h */; };
-		A397ACC825148BEA00286C6E /* PanelController.h in Headers */ = {isa = PBXBuildFile; fileRef = A397ACC625148BEA00286C6E /* PanelController.h */; };
-		A397ACC925148BEA00286C6E /* PanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A397ACC725148BEA00286C6E /* PanelController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		A3D219FC250F6D2600D1A905 /* MenuBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D219FB250F6D2600D1A905 /* MenuBtn.xib */; };
-		A3D219FF250F6D3200D1A905 /* MenuBtn.h in Headers */ = {isa = PBXBuildFile; fileRef = A3D219FD250F6D3200D1A905 /* MenuBtn.h */; };
-		A3D21A00250F6D3200D1A905 /* MenuBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D219FE250F6D3200D1A905 /* MenuBtn.m */; };
+		A397ACC825148BEA00286C6E /* Panel.h in Headers */ = {isa = PBXBuildFile; fileRef = A397ACC625148BEA00286C6E /* Panel.h */; };
+		A397ACC925148BEA00286C6E /* Panel.m in Sources */ = {isa = PBXBuildFile; fileRef = A397ACC725148BEA00286C6E /* Panel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3B148EE2516349E00939B36 /* Section.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B148EB2516349E00939B36 /* Section.h */; };
+		A3B148EF2516349E00939B36 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B148EC2516349E00939B36 /* Section.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3B148F02516349E00939B36 /* Section.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3B148ED2516349E00939B36 /* Section.xib */; };
 		A3E6094425109AB500C98536 /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3E6094325109AB500C98536 /* Panel.xib */; };
 		B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A1D897250EE6CA004E59A4 /* Menu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A32ED9922511D4E100EBCE68 /* MenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
-		A32ED9932511D4E100EBCE68 /* MenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
+		A32ED9922511D4E100EBCE68 /* Menu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
+		A32ED9932511D4E100EBCE68 /* Menu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		A38993F4250B859F00211D90 /* Navi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38993F7250B859F00211D90 /* Navi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Navi.h; sourceTree = "<group>"; };
 		A38993F8250B85A000211D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A397ACC22513456500286C6E /* RezieseProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RezieseProtocol.h; sourceTree = "<group>"; };
-		A397ACC625148BEA00286C6E /* PanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PanelController.h; sourceTree = "<group>"; };
-		A397ACC725148BEA00286C6E /* PanelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PanelController.m; sourceTree = "<group>"; };
-		A3D219FB250F6D2600D1A905 /* MenuBtn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuBtn.xib; sourceTree = "<group>"; };
-		A3D219FD250F6D3200D1A905 /* MenuBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuBtn.h; sourceTree = "<group>"; };
-		A3D219FE250F6D3200D1A905 /* MenuBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuBtn.m; sourceTree = "<group>"; };
+		A397ACC625148BEA00286C6E /* Panel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Panel.h; sourceTree = "<group>"; };
+		A397ACC725148BEA00286C6E /* Panel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Panel.m; sourceTree = "<group>"; };
+		A3B148EB2516349E00939B36 /* Section.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		A3B148EC2516349E00939B36 /* Section.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		A3B148ED2516349E00939B36 /* Section.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Section.xib; sourceTree = "<group>"; };
 		A3E6094325109AB500C98536 /* Panel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Panel.xib; sourceTree = "<group>"; };
 		B2A1D897250EE6CA004E59A4 /* Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Menu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,20 +66,36 @@
 		A38993F6250B859F00211D90 /* Navi */ = {
 			isa = PBXGroup;
 			children = (
+				A3B148E425162C0E00939B36 /* Componetns */,
+				A3B148E3251628D500939B36 /* Headers */,
 				A38993F7250B859F00211D90 /* Navi.h */,
 				A38993F8250B85A000211D90 /* Info.plist */,
-				A397ACC22513456500286C6E /* RezieseProtocol.h */,
-				A32ED9922511D4E100EBCE68 /* MenuController.h */,
-				A32ED9932511D4E100EBCE68 /* MenuController.m */,
+				A32ED9922511D4E100EBCE68 /* Menu.h */,
+				A32ED9932511D4E100EBCE68 /* Menu.m */,
 				B2A1D897250EE6CA004E59A4 /* Menu.xib */,
-				A3D219FB250F6D2600D1A905 /* MenuBtn.xib */,
-				A3D219FD250F6D3200D1A905 /* MenuBtn.h */,
-				A3D219FE250F6D3200D1A905 /* MenuBtn.m */,
-				A397ACC625148BEA00286C6E /* PanelController.h */,
-				A397ACC725148BEA00286C6E /* PanelController.m */,
+				A397ACC625148BEA00286C6E /* Panel.h */,
+				A397ACC725148BEA00286C6E /* Panel.m */,
 				A3E6094325109AB500C98536 /* Panel.xib */,
+				A3B148EB2516349E00939B36 /* Section.h */,
+				A3B148EC2516349E00939B36 /* Section.m */,
+				A3B148ED2516349E00939B36 /* Section.xib */,
 			);
 			path = Navi;
+			sourceTree = "<group>";
+		};
+		A3B148E3251628D500939B36 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				A397ACC22513456500286C6E /* RezieseProtocol.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		A3B148E425162C0E00939B36 /* Componetns */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Componetns;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,10 +105,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3D219FF250F6D3200D1A905 /* MenuBtn.h in Headers */,
-				A32ED9942511D4E100EBCE68 /* MenuController.h in Headers */,
+				A32ED9942511D4E100EBCE68 /* Menu.h in Headers */,
+				A3B148EE2516349E00939B36 /* Section.h in Headers */,
 				A38993F9250B85A000211D90 /* Navi.h in Headers */,
-				A397ACC825148BEA00286C6E /* PanelController.h in Headers */,
+				A397ACC825148BEA00286C6E /* Panel.h in Headers */,
 				A397ACC42513456500286C6E /* RezieseProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,8 +172,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3E6094425109AB500C98536 /* Panel.xib in Resources */,
+				A3B148F02516349E00939B36 /* Section.xib in Resources */,
 				B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */,
-				A3D219FC250F6D2600D1A905 /* MenuBtn.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,9 +184,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A32ED9952511D4E100EBCE68 /* MenuController.m in Sources */,
-				A3D21A00250F6D3200D1A905 /* MenuBtn.m in Sources */,
-				A397ACC925148BEA00286C6E /* PanelController.m in Sources */,
+				A32ED9952511D4E100EBCE68 /* Menu.m in Sources */,
+				A3B148EF2516349E00939B36 /* Section.m in Sources */,
+				A397ACC925148BEA00286C6E /* Panel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

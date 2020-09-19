@@ -17,11 +17,8 @@ export class PanelController {
     private minWidth: number;
     constructor(private ctx: SketchContext) {
         this.id = `${ctx.documentID}-navi-tools-panel`;
-        // this.nib = framework.PanelNib();
-        // this.view = this.nib.getRoot();
-
-        const NSMenuController = framework.framework.getClass('PanelController');
-        this.NSController = NSMenuController.viewControllerFromNIB();
+        const NSPanel = framework.framework.getClass('Panel');
+        this.NSController = NSPanel.viewControllerFromNIB();
         this.view = this.NSController.view();
         this.view.identifier = this.id;
         this.floatButton = getSubviewById(this.view, 'floatButton');

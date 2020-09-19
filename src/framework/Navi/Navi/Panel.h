@@ -7,11 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "RezieseProtocol.h"
+#import "Headers/RezieseProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PanelController : NSViewController
+@interface Panel : NSViewController
 
 @property (nonatomic,weak) id<ResizeProtocol> delegate;
 @property (strong) IBOutlet NSView *view;

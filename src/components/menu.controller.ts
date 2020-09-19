@@ -15,8 +15,8 @@ export class MenuController {
     private NSController: any;
     constructor(private ctx: SketchContext) {
         this.id = `${ctx.documentID}-navi-menu-panel`;
-        const NSMenuController = framework.framework.getClass('MenuController');
-        this.NSController = NSMenuController.viewControllerFromNIB();
+        const NSMenu = framework.framework.getClass('Menu');
+        this.NSController = NSMenu.viewControllerFromNIB();
         this.view = this.NSController.view();
         this.view.identifier = this.id ;
         this.addButtons();
