@@ -1,8 +1,8 @@
 //
-//  Section.h
+//  SectionView.h
 //  Navi
 //
-//  Created by Qian,Sicheng on 2020/9/19.
+//  Created by QIANSC on 2020/9/20.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
@@ -10,11 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Section : NSViewController
+@interface SectionView : NSView
 
 @property (strong) IBOutlet NSView *view;
-
-+ (instancetype)viewControllerFromNIB;
 
 @end
 

@@ -9,10 +9,6 @@
 #import "Menu.h"
 #import "RezieseProtocol.h"
 
-@interface Menu ()
-
-@end
-
 @implementation Menu
 
 - (void)viewDidLoad {

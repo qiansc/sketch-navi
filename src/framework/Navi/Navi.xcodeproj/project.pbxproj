@@ -17,6 +17,9 @@
 		A3B148EF2516349E00939B36 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B148EC2516349E00939B36 /* Section.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3B148F02516349E00939B36 /* Section.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3B148ED2516349E00939B36 /* Section.xib */; };
 		A3E6094425109AB500C98536 /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3E6094325109AB500C98536 /* Panel.xib */; };
+		B25BF9AC25176C5800D44DFA /* SectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = B25BF9AA25176C5800D44DFA /* SectionView.h */; };
+		B25BF9AD25176C5800D44DFA /* SectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B25BF9AB25176C5800D44DFA /* SectionView.m */; };
+		B25BF9AF25178EA400D44DFA /* SC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B25BF9AE25178EA400D44DFA /* SC.xib */; };
 		B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A1D897250EE6CA004E59A4 /* Menu.xib */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,9 @@
 		A3B148EC2516349E00939B36 /* Section.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
 		A3B148ED2516349E00939B36 /* Section.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Section.xib; sourceTree = "<group>"; };
 		A3E6094325109AB500C98536 /* Panel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Panel.xib; sourceTree = "<group>"; };
+		B25BF9AA25176C5800D44DFA /* SectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionView.h; sourceTree = "<group>"; };
+		B25BF9AB25176C5800D44DFA /* SectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectionView.m; sourceTree = "<group>"; };
+		B25BF9AE25178EA400D44DFA /* SC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SC.xib; sourceTree = "<group>"; };
 		B2A1D897250EE6CA004E59A4 /* Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Menu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +85,9 @@
 				A3B148EB2516349E00939B36 /* Section.h */,
 				A3B148EC2516349E00939B36 /* Section.m */,
 				A3B148ED2516349E00939B36 /* Section.xib */,
+				B25BF9AA25176C5800D44DFA /* SectionView.h */,
+				B25BF9AB25176C5800D44DFA /* SectionView.m */,
+				B25BF9AE25178EA400D44DFA /* SC.xib */,
 			);
 			path = Navi;
 			sourceTree = "<group>";
@@ -108,6 +117,7 @@
 				A32ED9942511D4E100EBCE68 /* Menu.h in Headers */,
 				A3B148EE2516349E00939B36 /* Section.h in Headers */,
 				A38993F9250B85A000211D90 /* Navi.h in Headers */,
+				B25BF9AC25176C5800D44DFA /* SectionView.h in Headers */,
 				A397ACC825148BEA00286C6E /* Panel.h in Headers */,
 				A397ACC42513456500286C6E /* RezieseProtocol.h in Headers */,
 			);
@@ -172,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3E6094425109AB500C98536 /* Panel.xib in Resources */,
+				B25BF9AF25178EA400D44DFA /* SC.xib in Resources */,
 				A3B148F02516349E00939B36 /* Section.xib in Resources */,
 				B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */,
 			);
@@ -184,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B25BF9AD25176C5800D44DFA /* SectionView.m in Sources */,
 				A32ED9952511D4E100EBCE68 /* Menu.m in Sources */,
 				A3B148EF2516349E00939B36 /* Section.m in Sources */,
 				A397ACC925148BEA00286C6E /* Panel.m in Sources */,
