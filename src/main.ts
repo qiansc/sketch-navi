@@ -60,3 +60,36 @@ function getRuntime(ctx: SketchContext) {
         menuController,
     };
 }
+
+
+
+export function onSelectionChanged(context: any) {
+
+    return;
+
+    var document = require('sketch/dom').getSelectedDocument();
+
+    var selection = document.selectedLayers.layers;
+
+    var command = context.command;
+
+
+    if (selection && selection[0]) {
+        console.log('context.plugin.identifier()??', context.plugin.identifier());
+
+        console.log(selection[0].style.id, selection[0].style.fills[0].color);
+
+        var layerData = selection[0].sketchObject.userInfo();
+
+        console.log('before layerData', layerData, selection[0].sketchObject.userInfo);
+
+        // selection[0].sketchObject.userInfo = {
+        //     "AAA": "BBB"
+        // };
+        // command.setValue_forKey_onLayer_forPluginIdentifier('value!!', 'key!!', selection[0], 'Navi');
+
+        console.log('after layerData', selection[0].sketchObject.userInfo());
+
+    }
+
+}

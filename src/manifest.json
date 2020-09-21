@@ -10,7 +10,7 @@
         "handlers": {
           "run": "onStart",
           "actions": {
-
+            "SelectionChanged" : "onSelectionChanged"
           }
         }
     }

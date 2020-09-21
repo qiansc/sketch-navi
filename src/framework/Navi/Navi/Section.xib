@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,22 +25,21 @@
                     </buttonCell>
                 </button>
                 <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yQV-YH-sfy">
-                    <rect key="frame" x="20" y="263" width="127" height="19"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <rect key="frame" x="12" y="267" width="114" height="15"/>
                     <subviews>
                         <textField identifier="sectionTittle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xSe-Wq-yx1">
-                            <rect key="frame" x="-2" y="0.0" width="56" height="19"/>
-                            <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="插件标题" id="VIC-pZ-zHN">
-                                <font key="font" size="13" name="HelveticaNeue"/>
+                            <rect key="frame" x="-2" y="0.0" width="52" height="15"/>
+                            <textFieldCell key="cell" controlSize="mini" lineBreakMode="clipping" title="插件标题" id="VIC-pZ-zHN">
+                                <font key="font" size="12" name="HelveticaNeue-Bold"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
                         <button identifier="sectionInfo" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mrD-2k-KlK">
-                            <rect key="frame" x="60" y="1" width="67" height="17"/>
+                            <rect key="frame" x="56" y="0.0" width="58" height="14"/>
                             <buttonCell key="cell" type="inline" title="T_012345" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="G5V-aF-GN9">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="smallSystemBold"/>
+                                <font key="font" metaFont="miniSystemBold"/>
                             </buttonCell>
                         </button>
                     </subviews>
@@ -53,6 +52,10 @@
                         <real value="3.4028234663852886e+38"/>
                     </customSpacing>
                 </stackView>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2mN-T7-g6U" customClass="ColorMiniPanelView">
+                    <rect key="frame" x="0.0" y="126" width="240" height="140"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                </customView>
             </subviews>
             <point key="canvasLocation" x="138" y="154"/>
         </customView>

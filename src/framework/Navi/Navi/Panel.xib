@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,7 +25,7 @@
                     <rect key="frame" x="32" y="544" width="154" height="16"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="left" title="所有资源" id="6lh-Sz-xFZ">
-                        <font key="font" metaFont="message" size="11"/>
+                        <font key="font" metaFont="menu" size="11"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -41,9 +41,9 @@
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IKn-9h-Lgl">
                     <rect key="frame" x="188" y="544" width="13" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSTouchBarGoDownTemplate" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="38U-GS-dqA">
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSTouchBarGoDownTemplate" imagePosition="overlaps" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="38U-GS-dqA">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu" size="11"/>
                     </buttonCell>
                 </button>
                 <box verticalHuggingPriority="750" boxType="separator" id="mc5-Na-xp3">
@@ -59,7 +59,7 @@
                     </buttonCell>
                 </button>
                 <customView identifier="ss" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mc9-E8-nfV" customClass="SectionView">
-                    <rect key="frame" x="0.0" y="324" width="240" height="200"/>
+                    <rect key="frame" x="0.0" y="339" width="240" height="200"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </customView>
             </subviews>
