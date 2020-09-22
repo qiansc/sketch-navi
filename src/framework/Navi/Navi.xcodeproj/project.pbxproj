@@ -24,6 +24,7 @@
 		A3EB367E25188E75006B01F0 /* ColorMiniPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB367C25188E75006B01F0 /* ColorMiniPanelView.m */; };
 		A3EB36812518986D006B01F0 /* ColorMiniButtonView.h in Headers */ = {isa = PBXBuildFile; fileRef = A3EB367F2518986D006B01F0 /* ColorMiniButtonView.h */; };
 		A3EB36822518986D006B01F0 /* ColorMiniButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB36802518986D006B01F0 /* ColorMiniButtonView.m */; };
+		B23CA2962519855E00FB2416 /* HexColor.h in Headers */ = {isa = PBXBuildFile; fileRef = B23CA2942519855E00FB2416 /* HexColor.h */; };
 		B25BF9AC25176C5800D44DFA /* SectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = B25BF9AA25176C5800D44DFA /* SectionView.h */; };
 		B25BF9AD25176C5800D44DFA /* SectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B25BF9AB25176C5800D44DFA /* SectionView.m */; };
 		B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A1D897250EE6CA004E59A4 /* Menu.xib */; };
@@ -49,6 +50,7 @@
 		A3EB367C25188E75006B01F0 /* ColorMiniPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorMiniPanelView.m; sourceTree = "<group>"; };
 		A3EB367F2518986D006B01F0 /* ColorMiniButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorMiniButtonView.h; sourceTree = "<group>"; };
 		A3EB36802518986D006B01F0 /* ColorMiniButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorMiniButtonView.m; sourceTree = "<group>"; };
+		B23CA2942519855E00FB2416 /* HexColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
 		B25BF9AA25176C5800D44DFA /* SectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionView.h; sourceTree = "<group>"; };
 		B25BF9AB25176C5800D44DFA /* SectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectionView.m; sourceTree = "<group>"; };
 		B2A1D897250EE6CA004E59A4 /* Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Menu.xib; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		A38993F6250B859F00211D90 /* Navi */ = {
 			isa = PBXGroup;
 			children = (
+				B23CA2932519852600FB2416 /* Lib */,
 				A3B148E425162C0E00939B36 /* Componetns */,
 				A3B148E3251628D500939B36 /* Headers */,
 				A38993F7250B859F00211D90 /* Navi.h */,
@@ -133,6 +136,14 @@
 			path = Color;
 			sourceTree = "<group>";
 		};
+		B23CA2932519852600FB2416 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				B23CA2942519855E00FB2416 /* HexColor.h */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -140,6 +151,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B23CA2962519855E00FB2416 /* HexColor.h in Headers */,
 				A32ED9942511D4E100EBCE68 /* Menu.h in Headers */,
 				A3EB367D25188E75006B01F0 /* ColorMiniPanelView.h in Headers */,
 				A3EB367125188D6E006B01F0 /* ColorMiniPanel.h in Headers */,

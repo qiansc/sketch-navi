@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ColorMiniButtonView : NSButton
 
+@property (nonatomic, assign) BOOL selected; //default NO.
+@property (nonatomic, assign) BOOL hasBorder;
+
+- (void)setColor:(CGColorRef)CGColor;
+
 @end
 
 
