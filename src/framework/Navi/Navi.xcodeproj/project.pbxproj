@@ -50,6 +50,7 @@
 		A3EB367C25188E75006B01F0 /* ColorMiniPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorMiniPanelView.m; sourceTree = "<group>"; };
 		A3EB367F2518986D006B01F0 /* ColorMiniButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorMiniButtonView.h; sourceTree = "<group>"; };
 		A3EB36802518986D006B01F0 /* ColorMiniButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorMiniButtonView.m; sourceTree = "<group>"; };
+		A3EB36832519C2EE006B01F0 /* ButtonProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonProtocol.h; sourceTree = "<group>"; };
 		B23CA2942519855E00FB2416 /* HexColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
 		B25BF9AA25176C5800D44DFA /* SectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionView.h; sourceTree = "<group>"; };
 		B25BF9AB25176C5800D44DFA /* SectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectionView.m; sourceTree = "<group>"; };
@@ -110,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				A397ACC22513456500286C6E /* RezieseProtocol.h */,
+				A3EB36832519C2EE006B01F0 /* ButtonProtocol.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";

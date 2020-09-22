@@ -25,64 +25,36 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6fj-a4-Ejd">
+                <customView identifier="CBTN0" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FIF-wg-mEd" customClass="ColorMiniButtonView">
+                    <rect key="frame" x="13" y="87" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <customView identifier="CBTN1" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P1E-qg-f3o" customClass="ColorMiniButtonView">
                     <rect key="frame" x="49" y="87" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="JXp-LL-9cK">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="label" size="9"/>
-                    </buttonCell>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hH6-Tk-h42">
+                </customView>
+                <customView identifier="CBTN2" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QbB-GF-zgo" customClass="ColorMiniButtonView">
                     <rect key="frame" x="85" y="87" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="X9t-zY-tUf">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="label" size="9"/>
-                    </buttonCell>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UFY-EW-yIG">
-                    <rect key="frame" x="157" y="87" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="o56-ba-xep">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="label" size="9"/>
-                    </buttonCell>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CO0-vd-t11">
+                </customView>
+                <customView identifier="CBTN3" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MYj-9h-LyL" customClass="ColorMiniButtonView">
                     <rect key="frame" x="121" y="87" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="AHV-zV-QQ4">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="label" size="9"/>
-                    </buttonCell>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iuh-KS-VFm">
+                </customView>
+                <customView identifier="CBTN4" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NDg-z0-dQw" customClass="ColorMiniButtonView">
+                    <rect key="frame" x="157" y="87" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <customView identifier="CBTN5" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="226-Ms-WNK" customClass="ColorMiniButtonView">
                     <rect key="frame" x="193" y="87" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="Ccc-2p-eHQ">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="label" size="9"/>
-                    </buttonCell>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZMf-LD-rnn">
+                </customView>
+                <customView identifier="CBTN6" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="phg-1X-pbL" customClass="ColorMiniButtonView">
                     <rect key="frame" x="13" y="51" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="ETd-WZ-8qj">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="label" size="9"/>
-                    </buttonCell>
-                </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mCX-UW-EeI">
+                </customView>
+                <customView identifier="CBTN7" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HXF-9R-jli" customClass="ColorMiniButtonView">
                     <rect key="frame" x="49" y="51" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="7Yf-4f-q27">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="label" size="9"/>
-                    </buttonCell>
-                </button>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FIF-wg-mEd" customClass="ColorMiniButtonView">
-                    <rect key="frame" x="13" y="87" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </customView>
             </subviews>

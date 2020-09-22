@@ -7,7 +7,7 @@
 //
 
 #import "ColorMiniButtonView.h"
-#import "../../Lib/HexColor.h"
+#import "HexColor.h"
 
 
 @interface ColorMiniButtonView()
@@ -19,8 +19,8 @@
 
 @implementation ColorMiniButtonView
 
+// 脚本初始化调用
 - (instancetype)initWithFrame:(NSRect)frameRect {
-    
     self = [super initWithFrame:frameRect];
     if (self) {
         [self commonInitialize];
@@ -28,8 +28,8 @@
     return self;
 }
 
+// xib界面拖入初始化调用
 - (instancetype)initWithCoder:(NSCoder *)coder {
-
     self = [super initWithCoder:coder];
     if (self) {
         [self commonInitialize];
@@ -39,49 +39,46 @@
 
 - (void)commonInitialize {
     self.selected = false;
-    self.hasBorder = false;
-    self.toolTip = @"SAM_0001";
     [self setButtonType:NSButtonTypeMomentaryPushIn];
     [self setBezelStyle:NSBezelStyleRegularSquare];
 }
 
+// 重绘方法
 - (void)drawRect:(NSRect)dirtyRect {
-//    [[NSColor yellowColor] setFill];
-//    NSRectFill(dirtyRect);
     [super drawRect:dirtyRect];
     self.wantsLayer = YES;
     self.layer.masksToBounds = YES;
-    self.layer.cornerRadius = 3.0f;
-    self.layer.backgroundColor = [NSColor yellowColor].CGColor;
-    self.layer.borderWidth = 1.0f;
-    [self updateButtonState];
+    [self updateState];
 
 }
 
 - (void)mouseEntered:(NSEvent *)theEvent {
     self.hover = YES;
-    [self updateButtonState];
+    [self updateState];
     
 }
 
 - (void)mouseExited:(NSEvent *)theEvent {
     self.hover = NO;
-    [self updateButtonState];
+    [self updateState];
 };
 
 - (void)mouseDown:(NSEvent *)event {
-    self.selected = !self.selected;
-    [self updateButtonState];
-//    self.layer.backgroundColor = [NSColor redColor].CGColor;
+
 }
 
 - (void)mouseUp:(NSEvent *)event {
-//    self.layer.backgroundColor = [NSColor yellowColor].CGColor;
+    self.selected = YES;
+    [self updateState];
+//    NSLog(@"NAVIL MOSEUP IN BUTTON %@", self);
+    if (self.delegate) {
+        [self.delegate mouseUp:event on: self];
+    }
+    // NSLog(@"NAVIL BGCOLOR%@", self.layer.backgroundColor);
 }
 
-
+// 用于追踪mouseEntered / mouseExited
 - (void)updateTrackingAreas {
-    
     [super updateTrackingAreas];
     if(self.trackingArea) {
         [self removeTrackingArea:self.trackingArea];
@@ -93,20 +90,23 @@
     [self addTrackingArea:self.trackingArea];
 }
 
-- (void)updateButtonState {
+- (void)updateState {
     if (self.selected) {
-        self.layer.borderColor =  NSColorFromRGB(0x333333).CGColor;
+        self.layer.borderColor =  NSColorFromRGB(0x444444).CGColor;
+        self.layer.borderWidth = 2.0f;
+        self.layer.cornerRadius = 2.0f;
     } else {
+        self.layer.borderWidth = 1.0f;
+        self.layer.cornerRadius = 8.0f;
         if (self.hover) {
-            self.layer.borderColor =  NSColorFromRGB(0x666666).CGColor;
+            self.layer.borderColor =  NSColorFromRGB(0x999999).CGColor;
         } else {
             self.layer.borderColor =  NSColorFromRGB(0xDDDEDD).CGColor;
         }
     }
-}
-
-- (void)setColor:(CGColorRef)CGColor {
-    
+    if (self.colorString) {
+        self.layer.backgroundColor = NSColorFromRGBString(self.colorString).CGColor;
+    }
 }
 
 @end

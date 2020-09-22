@@ -7,15 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ButtonProtocol.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ColorMiniButtonView : NSButton
 
 @property (nonatomic, assign) BOOL selected; //default NO.
-@property (nonatomic, assign) BOOL hasBorder;
+@property (nonatomic, assign) NSString* colorString;
+@property (nonatomic) id<ButtonProtocol> delegate;
 
-- (void)setColor:(CGColorRef)CGColor;
+- (void)updateState;
 
 @end
 
