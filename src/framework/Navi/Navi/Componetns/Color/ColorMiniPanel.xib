@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ColorMiniPanel">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ApJ-Tp-Z6p">
+                    <rect key="frame" x="11" y="125" width="68" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" controlSize="mini" lineBreakMode="clipping" title="颜色分类A" id="qLP-cc-xMg">
+                        <font key="font" size="11" name="HelveticaNeue-Medium"/>
+                        <color key="textColor" name="underPageBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView identifier="CBTN0" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FIF-wg-mEd" customClass="ColorMiniButtonView">
+                    <rect key="frame" x="13" y="87" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <customView identifier="CBTN1" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P1E-qg-f3o" customClass="ColorMiniButtonView">
+                    <rect key="frame" x="49" y="87" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <customView identifier="CBTN2" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QbB-GF-zgo" customClass="ColorMiniButtonView">
+                    <rect key="frame" x="85" y="87" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <customView identifier="CBTN3" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MYj-9h-LyL" customClass="ColorMiniButtonView">
+                    <rect key="frame" x="121" y="87" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <customView identifier="CBTN4" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NDg-z0-dQw" customClass="ColorMiniButtonView">
+                    <rect key="frame" x="157" y="87" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <customView identifier="CBTN5" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="226-Ms-WNK" customClass="ColorMiniButtonView">
+                    <rect key="frame" x="193" y="87" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <customView identifier="CBTN6" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="phg-1X-pbL" customClass="ColorMiniButtonView">
+                    <rect key="frame" x="13" y="51" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+                <customView identifier="CBTN7" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HXF-9R-jli" customClass="ColorMiniButtonView">
+                    <rect key="frame" x="49" y="51" width="30" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </customView>
+            </subviews>
+            <point key="canvasLocation" x="139" y="154"/>
+        </customView>
+    </objects>
+</document>
