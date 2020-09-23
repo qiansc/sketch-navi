@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ButtonProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,13 +23,5 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
-
-@interface ButtonDelegate: NSObject<ButtonProtocol>
-
-@property (nonatomic, retain) ColorMiniPanel *panel;
-
-
-@end
 
 NS_ASSUME_NONNULL_END

@@ -28,26 +28,26 @@
 - (void)initUI {
     NSArray *colorValues = [NSArray arrayWithObjects:@"4C4BF3", @"4E6EF2", @"D089FF", @"CFC0FF", @"CBF8FF", @"FBE98A", @"4C4BDD", @"4E6EFF", nil];
     NSArray *samValues = [NSArray arrayWithObjects:@"SAM_001", @"SAM_002", @"SAM_003", @"SAM_004", @"SAM_005", @"SAM_006", @"SAM_007", @"SAM_008", nil];
-        
+
     NSArray *subviews = [[self view]subviews];
     NSUInteger count = 0;
-        
-    ButtonDelegate *colorButtonDelegate = [[ButtonDelegate alloc] init];
-    colorButtonDelegate.panel = self;
+
     for (NSView *view in subviews) {
         if ([view.identifier hasPrefix:@"CBTN"]) {
-    //      NSLog(@"NAVILOGO:%@", NSColorFromRGBString(colorValues[count]).CGColor);
-    //      NSLog(@"NAVIHAHA:%@", NSColorFromRGB(0x333333).CGColor);
-            
-            [((ColorMiniButtonView *)view) setToolTip: samValues[count]];
-            [((ColorMiniButtonView *)view) setDelegate: colorButtonDelegate];
-            ((ColorMiniButtonView *)view).colorString = colorValues[count];
-            [((ColorMiniButtonView *)view) updateState];
-            // NSLog(@"NAVIL : AAAA set %@ with %@", ((ColorMiniButtonView *)view), colorButtonDelegate);
+            ColorMiniButtonView *button = ((ColorMiniButtonView *)view);
+            button.toolTip = samValues[count];
+            button.colorString = colorValues[count];
+            // [button updateState];
+            [button setTarget:self];
+            [button setAction:@selector(buttonClick:)];
             count++;
-                // return view;
         }
     }
+}
+
+-(void)buttonClick:(ColorMiniButtonView*)sender {
+    NSLog(@"NAVIL sender000 %@", sender);
+    [self selectMiniButton: sender];
 }
 
 + (instancetype)viewControllerFromNIB {
@@ -72,6 +72,7 @@
     return nil;
 }
 
+// 选中某个指定button
 - (void) selectMiniButton:(ColorMiniButtonView *) button {
     if (self.selectedCode == button.toolTip) {
         return;
@@ -79,6 +80,7 @@
     [self select:button.toolTip];
 }
 
+// 选择某一种colorCode的Button
 - (void)select:(NSString *) colorCode {
     NSArray *subviews = [[self view]subviews];
     NSUInteger count = 0;
@@ -95,6 +97,7 @@
     self.selectedCode = colorCode;
 }
 
+// 子按钮选中态重置
 - (void)reset {
     for (NSView *view in [[self view]subviews]) {
         if ([view.identifier hasPrefix:@"CBTN"]) {
@@ -102,16 +105,6 @@
             [((ColorMiniButtonView *)view) updateState];
         }
     }
-}
-
-@end
-
-
-
-@implementation ButtonDelegate
-
-- (void)mouseUp:(NSEvent *)event on:(ColorMiniButtonView *)button {
-    [self.panel selectMiniButton: button];
 }
 
 @end
