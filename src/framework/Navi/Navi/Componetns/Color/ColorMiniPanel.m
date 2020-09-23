@@ -37,7 +37,7 @@
             ColorMiniButtonView *button = ((ColorMiniButtonView *)view);
             button.toolTip = samValues[count];
             button.colorString = colorValues[count];
-            // [button updateState];
+            // target action 事件绑定
             [button setTarget:self];
             [button setAction:@selector(buttonClick:)];
             count++;
@@ -46,7 +46,6 @@
 }
 
 -(void)buttonClick:(ColorMiniButtonView*)sender {
-    NSLog(@"NAVIL sender000 %@", sender);
     [self selectMiniButton: sender];
 }
 
