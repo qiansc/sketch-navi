@@ -1,15 +1,15 @@
 //
-//  ColorMiniPanel.m
+//  ColorPanel.m
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/9/21.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "ColorMiniPanel.h"
+#import "ColorPanel.h"
 #import "ColorMiniButtonView.h"
 
-@implementation ColorMiniPanel
+@implementation ColorPanel
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,7 +55,7 @@
     NSString* const frameworkBundleID  = @"com.baidu.Navi";
     NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
     
-    return [[ColorMiniPanel alloc] initWithNibName:@"ColorMiniPanel" bundle:resourceBundlePath];
+    return [[ColorPanel alloc] initWithNibName:@"ColorPanel" bundle:resourceBundlePath];
 }
 
 - (NSView *)viewWithIdentifier:(NSString *)identifier

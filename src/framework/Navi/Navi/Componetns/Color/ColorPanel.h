@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ColorMiniPanel : NSViewController
+@interface ColorPanel : NSViewController
 
 @property (strong) IBOutlet NSView *view;
 @property (nonatomic,weak) NSString *selectedCode;

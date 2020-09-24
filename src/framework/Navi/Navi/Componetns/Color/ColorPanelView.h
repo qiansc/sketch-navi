@@ -1,5 +1,5 @@
 //
-//  ColorMiniPanelView.h
+//  ColorPanelView.h
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/9/21.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ColorMiniPanelView : NSView
+@interface ColorPanelView : NSView
 
 @property (strong) IBOutlet NSView *view;
 

@@ -52,7 +52,7 @@
                         <real value="3.4028234663852886e+38"/>
                     </customSpacing>
                 </stackView>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2mN-T7-g6U" customClass="ColorMiniPanelView">
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2mN-T7-g6U" customClass="ColorPanelView">
                     <rect key="frame" x="0.0" y="126" width="240" height="140"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </customView>
