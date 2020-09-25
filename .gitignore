@@ -1,5 +1,4 @@
 # build artifacts
-*.sketchplugin
 
 # platform related
 .DS_Store

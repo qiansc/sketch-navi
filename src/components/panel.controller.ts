@@ -15,6 +15,8 @@ export class PanelController {
     private NSController: any;
     private floatButton: any;
     private minWidth: number;
+    public colorController: any; // 临时对象
+    public sectionInfo: any;
     constructor(private ctx: SketchContext) {
         this.id = `${ctx.documentID}-navi-tools-panel`;
         const NSPanel = framework.framework.getClass('Panel');
@@ -27,6 +29,18 @@ export class PanelController {
             this.show();
         });
         this.minWidth = this.view.frame().size.width;
+        // 以下是颜色测试代码
+        const section = getSubviewById(this.view, 'section');
+        this.sectionInfo = getSubviewById(this.view, 'sectionInfo');
+        const colorp = getSubviewById(section, 'colorp');
+        this.colorController = colorp.colorPanelController();
+        this.colorController.delegate = new MochaJSDelegate({
+            'colorChange:': (colorCode: string) => {
+                this.sectionInfo.setTitle(colorCode);
+                this.emitter.emit(PANEL_EVENT.COLOR_CHANGE, colorCode);
+            }
+        }).getClassInstance();
+        // 颜色测试代码结束
     }
     show() {
         this.floatButton.state() === 0 ? this.showWindow() : this.showSlider();
@@ -93,4 +107,5 @@ export enum PANEL_EVENT {
     'WINDOW_CLOSE' = 1,
     'WIIL_LAYOUT' = 10,
     'PANEL_SHOW' = 11,
+    'COLOR_CHANGE' = 21,
 }

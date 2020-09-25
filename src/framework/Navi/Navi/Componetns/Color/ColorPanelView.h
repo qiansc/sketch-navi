@@ -1,5 +1,5 @@
 //
-//  ColorMiniPanelView.h
+//  ColorPanelView.h
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/9/21.
@@ -7,12 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ColorPanel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ColorMiniPanelView : NSView
+@interface ColorPanelView : NSView
 
 @property (strong) IBOutlet NSView *view;
+
+@property (nonatomic,weak) ColorPanel *colorPanelController;
 
 @end
 

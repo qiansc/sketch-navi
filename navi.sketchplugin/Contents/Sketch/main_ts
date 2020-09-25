@@ -1,0 +1,1369 @@
+var globalThis = this;
+var global = this;
+function __skpm_run (key, context) {
+  globalThis.context = context;
+  try {
+
+var exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/main.ts");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./node_modules/@skpm/nib-loader/lib/nib-class.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@skpm/nib-loader/lib/nib-class.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* eslint-disable no-var, prefer-template, vars-on-top, no-underscore-dangle, prefer-arrow-callback, no-param-reassign */
+/* globals NSUUID, MOClassDescription, NSBundle, NSObject, __command, MOPointer */
+var ObjClass = __webpack_require__(/*! cocoascript-class */ "./node_modules/cocoascript-class/lib/index.js").default;
+
+function walkViewTree(rootView, fn) {
+  function _visit(view) {
+    fn(view);
+
+    var subviews = view.subviews();
+    for (var i = 0; i < subviews.count(); i++) {
+      _visit(subviews.objectAtIndex(i));
+    }
+  }
+
+  _visit(rootView);
+}
+
+var CONTAINS_EXT = /\.nib$/;
+
+function NibClass(nibName, delegate, bundleURL) {
+  if (CONTAINS_EXT.test(nibName)) {
+    nibName = nibName.replace(CONTAINS_EXT, '');
+  }
+  var bundle = NSBundle.bundleWithURL(bundleURL || __command.pluginBundle().url());
+
+  var nibOwner = (new ObjClass(delegate || {})).new();
+  var root;
+
+  var result = {
+    getOwner() {
+      return nibOwner;
+    },
+    getRoot() {
+      return root;
+    },
+  };
+
+  var topLevelObjectsPointer = MOPointer.alloc().initWithValue(null);
+
+  var didManagedToLoad = bundle.loadNibNamed_owner_topLevelObjects(
+    nibName,
+    nibOwner,
+    topLevelObjectsPointer,
+  );
+
+  if (!didManagedToLoad) {
+    throw new Error('Error loading nib file ' + nibName + '.nib');
+  }
+
+  var topLevelObjects = topLevelObjectsPointer.value();
+  for (var i = 0; i < topLevelObjects.count(); i++) {
+    var obj = topLevelObjects.objectAtIndex(i);
+    if (/View$/.test(String(obj.className()))) {
+      root = obj;
+      break;
+    }
+  }
+
+  // find the views that have an identifier for easy access
+  // we don't take the ones starting with _ since it's probably internal identifiers (used by cocoa)
+  walkViewTree(root, function visit(view) {
+    var id = String(view.identifier());
+    if (id && id.indexOf('_') !== 0) {
+      result[id] = view;
+    }
+  });
+
+  return result;
+}
+
+module.exports = NibClass;
+
+
+/***/ }),
+
+/***/ "./node_modules/@skpm/xcodeproj-loader/lib/xcodeproj-class.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@skpm/xcodeproj-loader/lib/xcodeproj-class.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* eslint-disable no-var, prefer-template, prefer-arrow-callback, global-require, no-param-reassign, vars-on-top */
+/* globals NSClassFromString, __command, __mocha__, NSURL */
+
+var CONTAINS_EXT = /\.framework$/;
+
+function xcodeprojClass(frameworkName) {
+  if (typeof __command === 'undefined' || !__command.pluginBundle()) {
+    throw new Error('missing plugin bundle :thinking_face:');
+  }
+
+  if (CONTAINS_EXT.test(frameworkName)) {
+    frameworkName = frameworkName.replace(CONTAINS_EXT, '');
+  }
+
+  var frameworkPath = __command
+    .pluginBundle()
+    .url()
+    .path()
+    .stringByAppendingPathComponent('Contents')
+    .stringByAppendingPathComponent('Resources');
+
+  var parts = frameworkName.split('/');
+  parts.forEach(function fixPath(part, i) {
+    if (i !== parts.length - 1) {
+      frameworkPath = frameworkPath.stringByAppendingPathComponent(part);
+    } else {
+      frameworkName = part;
+    }
+  });
+
+  return {
+    getClass(className) {
+      var existingClass = NSClassFromString(className);
+      if (!existingClass) {
+        if (
+          !__mocha__.loadFrameworkWithName_inDirectory(
+            frameworkName,
+            frameworkPath,
+          )
+        ) {
+          throw new Error("Couldn't load framework " + frameworkName);
+        }
+        existingClass = NSClassFromString(className);
+      }
+
+      if (!existingClass) {
+        throw new Error("Couldn't find class " + className);
+      }
+
+      return existingClass;
+    },
+    getNib(nibName, delegate) {
+      var bundleURL = NSURL.fileURLWithPath(
+        frameworkPath.stringByAppendingPathComponent(frameworkName) +
+          '.framework',
+      );
+
+      try {
+        return __webpack_require__(/*! @skpm/nib-loader/lib/nib-class */ "./node_modules/@skpm/nib-loader/lib/nib-class.js")(
+          nibName,
+          delegate,
+          bundleURL,
+        );
+      } catch (err) {
+        if (
+          !__mocha__.loadFrameworkWithName_inDirectory(
+            frameworkName,
+            frameworkPath,
+          )
+        ) {
+          throw new Error("Couldn't load framework " + frameworkName);
+        }
+
+        return __webpack_require__(/*! @skpm/nib-loader/lib/nib-class */ "./node_modules/@skpm/nib-loader/lib/nib-class.js")(
+          nibName,
+          delegate,
+          bundleURL,
+        );
+      }
+    },
+  };
+}
+
+module.exports = xcodeprojClass;
+
+
+/***/ }),
+
+/***/ "./node_modules/cocoascript-class/lib/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/cocoascript-class/lib/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.SuperCall = undefined;
+exports.default = ObjCClass;
+
+var _runtime = __webpack_require__(/*! ./runtime.js */ "./node_modules/cocoascript-class/lib/runtime.js");
+
+exports.SuperCall = _runtime.SuperCall;
+
+// super when returnType is id and args are void
+// id objc_msgSendSuper(struct objc_super *super, SEL op, void)
+
+const SuperInit = (0, _runtime.SuperCall)(NSStringFromSelector("init"), [], { type: "@" });
+
+// Returns a real ObjC class. No need to use new.
+function ObjCClass(defn) {
+  const superclass = defn.superclass || NSObject;
+  const className = (defn.className || defn.classname || "ObjCClass") + NSUUID.UUID().UUIDString();
+  const reserved = new Set(['className', 'classname', 'superclass']);
+  var cls = MOClassDescription.allocateDescriptionForClassWithName_superclass_(className, superclass);
+  // Add each handler to the class description
+  const ivars = [];
+  for (var key in defn) {
+    const v = defn[key];
+    if (typeof v == 'function' && key !== 'init') {
+      var selector = NSSelectorFromString(key);
+      cls.addInstanceMethodWithSelector_function_(selector, v);
+    } else if (!reserved.has(key)) {
+      ivars.push(key);
+      cls.addInstanceVariableWithName_typeEncoding(key, "@");
+    }
+  }
+
+  cls.addInstanceMethodWithSelector_function_(NSSelectorFromString('init'), function () {
+    const self = SuperInit.call(this);
+    ivars.map(name => {
+      Object.defineProperty(self, name, {
+        get() {
+          return getIvar(self, name);
+        },
+        set(v) {
+          (0, _runtime.object_setInstanceVariable)(self, name, v);
+        }
+      });
+      self[name] = defn[name];
+    });
+    // If there is a passsed-in init funciton, call it now.
+    if (typeof defn.init == 'function') defn.init.call(this);
+    return self;
+  });
+
+  return cls.registerClass();
+};
+
+function getIvar(obj, name) {
+  const retPtr = MOPointer.new();
+  (0, _runtime.object_getInstanceVariable)(obj, name, retPtr);
+  return retPtr.value().retain().autorelease();
+}
+
+/***/ }),
+
+/***/ "./node_modules/cocoascript-class/lib/runtime.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/cocoascript-class/lib/runtime.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.SuperCall = SuperCall;
+exports.CFunc = CFunc;
+const objc_super_typeEncoding = '{objc_super="receiver"@"super_class"#}';
+
+// You can store this to call your function. this must be bound to the current instance.
+function SuperCall(selector, argTypes, returnType) {
+  const func = CFunc("objc_msgSendSuper", [{ type: '^' + objc_super_typeEncoding }, { type: ":" }, ...argTypes], returnType);
+  return function (...args) {
+    const struct = make_objc_super(this, this.superclass());
+    const structPtr = MOPointer.alloc().initWithValue_(struct);
+    return func(structPtr, selector, ...args);
+  };
+}
+
+// Recursively create a MOStruct
+function makeStruct(def) {
+  if (typeof def !== 'object' || Object.keys(def).length == 0) {
+    return def;
+  }
+  const name = Object.keys(def)[0];
+  const values = def[name];
+
+  const structure = MOStruct.structureWithName_memberNames_runtime(name, Object.keys(values), Mocha.sharedRuntime());
+
+  Object.keys(values).map(member => {
+    structure[member] = makeStruct(values[member]);
+  });
+
+  return structure;
+}
+
+function make_objc_super(self, cls) {
+  return makeStruct({
+    objc_super: {
+      receiver: self,
+      super_class: cls
+    }
+  });
+}
+
+// Due to particularities of the JS bridge, we can't call into MOBridgeSupport objects directly
+// But, we can ask key value coding to do the dirty work for us ;)
+function setKeys(o, d) {
+  const funcDict = NSMutableDictionary.dictionary();
+  funcDict.o = o;
+  Object.keys(d).map(k => funcDict.setValue_forKeyPath(d[k], "o." + k));
+}
+
+// Use any C function, not just ones with BridgeSupport
+function CFunc(name, args, retVal) {
+  function makeArgument(a) {
+    if (!a) return null;
+    const arg = MOBridgeSupportArgument.alloc().init();
+    setKeys(arg, {
+      type64: a.type
+    });
+    return arg;
+  }
+  const func = MOBridgeSupportFunction.alloc().init();
+  setKeys(func, {
+    name: name,
+    arguments: args.map(makeArgument),
+    returnValue: makeArgument(retVal)
+  });
+  return func;
+}
+
+/*
+@encode(char*) = "*"
+@encode(id) = "@"
+@encode(Class) = "#"
+@encode(void*) = "^v"
+@encode(CGRect) = "{CGRect={CGPoint=dd}{CGSize=dd}}"
+@encode(SEL) = ":"
+*/
+
+function addStructToBridgeSupport(key, structDef) {
+  // OK, so this is probably the nastiest hack in this file.
+  // We go modify MOBridgeSupportController behind its back and use kvc to add our own definition
+  // There isn't another API for this though. So the only other way would be to make a real bridgesupport file.
+  const symbols = MOBridgeSupportController.sharedController().valueForKey('symbols');
+  if (!symbols) throw Error("Something has changed within bridge support so we can't add our definitions");
+  // If someone already added this definition, don't re-register it.
+  if (symbols[key] !== null) return;
+  const def = MOBridgeSupportStruct.alloc().init();
+  setKeys(def, {
+    name: key,
+    type: structDef.type
+  });
+  symbols[key] = def;
+};
+
+// This assumes the ivar is an object type. Return value is pretty useless.
+const object_getInstanceVariable = exports.object_getInstanceVariable = CFunc("object_getInstanceVariable", [{ type: "@" }, { type: '*' }, { type: "^@" }], { type: "^{objc_ivar=}" });
+// Again, ivar is of object type
+const object_setInstanceVariable = exports.object_setInstanceVariable = CFunc("object_setInstanceVariable", [{ type: "@" }, { type: '*' }, { type: "@" }], { type: "^{objc_ivar=}" });
+
+// We need Mocha to understand what an objc_super is so we can use it as a function argument
+addStructToBridgeSupport('objc_super', { type: objc_super_typeEncoding });
+
+/***/ }),
+
+/***/ "./node_modules/mocha-js-delegate/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/mocha-js-delegate/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* globals MOClassDescription, NSObject, NSSelectorFromString, NSClassFromString, MOPropertyDescription */
+
+module.exports = function MochaDelegate(definition, superclass) {
+  var uniqueClassName =
+    'MochaJSDelegate_DynamicClass_' + NSUUID.UUID().UUIDString()
+
+  var delegateClassDesc = MOClassDescription.allocateDescriptionForClassWithName_superclass_(
+    uniqueClassName,
+    superclass || NSObject
+  )
+
+  // Storage
+  var handlers = {}
+  var ivars = {}
+
+  // Define an instance method
+  function setHandlerForSelector(selectorString, func) {
+    var handlerHasBeenSet = selectorString in handlers
+    var selector = NSSelectorFromString(selectorString)
+
+    handlers[selectorString] = func
+
+    /*
+      For some reason, Mocha acts weird about arguments: https://github.com/logancollins/Mocha/issues/28
+      We have to basically create a dynamic handler with a likewise dynamic number of predefined arguments.
+    */
+    if (!handlerHasBeenSet) {
+      var args = []
+      var regex = /:/g
+      while (regex.exec(selectorString)) {
+        args.push('arg' + args.length)
+      }
+
+      // eslint-disable-next-line no-eval
+      var dynamicFunction = eval(
+        '(function (' +
+          args.join(', ') +
+          ') { return handlers[selectorString].apply(this, arguments); })'
+      )
+
+      delegateClassDesc.addInstanceMethodWithSelector_function(
+        selector,
+        dynamicFunction
+      )
+    }
+  }
+
+  // define a property
+  function setIvar(key, value) {
+    var ivarHasBeenSet = key in handlers
+
+    ivars[key] = value
+
+    if (!ivarHasBeenSet) {
+      delegateClassDesc.addInstanceVariableWithName_typeEncoding(key, '@')
+      var description = MOPropertyDescription.new()
+      description.name = key
+      description.typeEncoding = '@'
+      description.weak = true
+      description.ivarName = key
+      delegateClassDesc.addProperty(description)
+    }
+  }
+
+  this.getClass = function() {
+    return NSClassFromString(uniqueClassName)
+  }
+
+  this.getClassInstance = function(instanceVariables) {
+    var instance = NSClassFromString(uniqueClassName).new()
+    Object.keys(ivars).forEach(function(key) {
+      instance[key] = ivars[key]
+    })
+    Object.keys(instanceVariables || {}).forEach(function(key) {
+      instance[key] = instanceVariables[key]
+    })
+    return instance
+  }
+  // alias
+  this.new = this.getClassInstance
+
+  // Convenience
+  if (typeof definition === 'object') {
+    Object.keys(definition).forEach(
+      function(key) {
+        if (typeof definition[key] === 'function') {
+          setHandlerForSelector(key, definition[key])
+        } else {
+          setIvar(key, definition[key])
+        }
+      }
+    )
+  }
+
+  delegateClassDesc.registerClass()
+}
+
+
+/***/ }),
+
+/***/ "./src/components/element.ts":
+/*!***********************************!*\
+  !*** ./src/components/element.ts ***!
+  \***********************************/
+/*! exports provided: createButton, createImageView, createImage, createBoxSeparator, createWindow */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createButton", function() { return createButton; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createImageView", function() { return createImageView; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createImage", function() { return createImage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createBoxSeparator", function() { return createBoxSeparator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createWindow", function() { return createWindow; });
+/** 创建 NSButton */
+var createButton = function (_a) {
+    var rect = _a.rect, size = _a.size, iconUrl = _a.iconUrl, activeIconUrl = _a.activeIconUrl, _b = _a.tooltip, tooltip = _b === void 0 ? '' : _b, _c = _a.type, type = _c === void 0 ? 5 : _c, callAction = _a.callAction;
+    var button = rect ? NSButton.alloc().initWithFrame(rect) : NSButton.alloc().init();
+    var image = createImage(iconUrl, size);
+    button.setImage(image);
+    if (activeIconUrl) {
+        var activeImage = createImage(activeIconUrl, size);
+        button.setAlternateImage(activeImage);
+    }
+    else {
+        button.setAlternateImage(image);
+    }
+    button.setBordered(false);
+    button.sizeToFit();
+    button.setToolTip(tooltip);
+    button.setButtonType(type || NSMomentaryChangeButton);
+    button.setCOSJSTargetFunction(callAction);
+    button.setAction('callAction:');
+    button.removeBadge = function () {
+        button.setImage(image);
+        button.hasBadge = false;
+    };
+    button.icon = iconUrl;
+    return button;
+};
+/** 创建 NSImageView */
+var createImageView = function (rect, imageURL, size) {
+    var imageView = NSImageView.alloc().initWithFrame(rect);
+    var image = createImage(imageURL, size);
+    imageView.setImage(image);
+    imageView.setAutoresizingMask(5);
+    return imageView;
+};
+/** 创建 NSImage */
+var createImage = function (imageURL, size) {
+    // NSImage.alloc().initWithSize([width, height])
+    var Image = NSImage.alloc().initWithContentsOfURL(imageURL);
+    size && Image.setSize(size);
+    Image.setScalesWhenResized(true);
+    return Image;
+};
+/** 创建 NSBoxSeparator */
+function createBoxSeparator() {
+    // set to 0 in width and height
+    var separtorBox = NSBox.alloc().initWithFrame(NSZeroRect);
+    // Specifies that the box is a separator
+    separtorBox.setBoxType(2 || false);
+    separtorBox.setBorderColor(NSColor.colorWithHex('#F5F5F5'));
+    try {
+        separtorBox.setBorderColor(NSColor.colorWithSRGBRed_green_blue_alpha(1.0, 1.0, 1.0, 1.0));
+    }
+    catch (error) {
+        console.error(error);
+    }
+    // separtorBox.setTransparent(true)
+    return separtorBox;
+}
+function createWindow(option) {
+    var _a = option.frame, frame = _a === void 0 ? NSMakeRect(100, 100, 200, 200) : _a, _b = option.title, title = _b === void 0 ? '' : _b;
+    var styleMask = NSWindowStyleMaskBorderless;
+    var rect = NSWindow.contentRectForFrameRect_styleMask(frame, styleMask);
+    var uiStyle = NSWindowStyleMaskTitled | NSWindowStyleMaskResizable | NSWindowStyleMaskClosable;
+    var window = NSWindow.alloc().initWithContentRect_styleMask_backing_defer(rect, uiStyle, NSBackingStoreBuffered, false);
+    window.titleVisibility = NSWindowTitleVisible;
+    // [window setBackgroundColor:[NSColor blueColor]];
+    window.setTitle(title);
+    window.center();
+    window.makeKeyAndOrderFront(window);
+    return window;
+}
+
+
+/***/ }),
+
+/***/ "./src/components/menu.controller.ts":
+/*!*******************************************!*\
+  !*** ./src/components/menu.controller.ts ***!
+  \*******************************************/
+/*! exports provided: MenuController, MENU_EVENT */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuController", function() { return MenuController; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MENU_EVENT", function() { return MENU_EVENT; });
+/* harmony import */ var _framework__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../framework */ "./src/framework.ts");
+/* harmony import */ var _element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./element */ "./src/components/element.ts");
+/* harmony import */ var _utils_view_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/view-utils */ "./src/utils/view-utils.ts");
+/* harmony import */ var _utils_resize_delegate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/resize-delegate */ "./src/utils/resize-delegate.ts");
+
+
+
+
+var MochaJSDelegate = __webpack_require__(/*! mocha-js-delegate */ "./node_modules/mocha-js-delegate/index.js");
+var EventEmitter = __webpack_require__(/*! events */ "events");
+var MenuController = /** @class */ (function () {
+    function MenuController(ctx) {
+        this.ctx = ctx;
+        this.emitter = new EventEmitter();
+        this.buttons = {};
+        this.id = ctx.documentID + "-navi-menu-panel";
+        var NSMenu = _framework__WEBPACK_IMPORTED_MODULE_0__["framework"].getClass('Menu');
+        this.NSController = NSMenu.viewControllerFromNIB();
+        this.view = this.NSController.view();
+        this.view.identifier = this.id;
+        this.addButtons();
+    }
+    // 切换是否显示
+    MenuController.prototype.toogle = function () {
+        var index = this.ctx.findView(this.id);
+        index === -1 ? this.show() : this.hide();
+    };
+    MenuController.prototype.show = function () {
+        var _this = this;
+        this.ctx.insertViewAfter(this.view);
+        var limitWidth = this.view.frame().size.width;
+        this.NSController.delegate = new MochaJSDelegate({
+            'viewWillLayoutSize:': function (newSize) {
+                _this.emitter.emit(MENU_EVENT.WIIL_LAYOUT);
+                Object(_utils_resize_delegate__WEBPACK_IMPORTED_MODULE_3__["splitViewItemDisableRezise"])(_this.ctx.stageView, _this.view, limitWidth);
+            }
+        }).getClassInstance();
+    };
+    MenuController.prototype.hide = function () {
+        this.setMainButtonState(0);
+        this.ctx.removeView(this.id);
+        // 取消delegate
+        this.NSController.delegate = null;
+        this.emitter.emit(MENU_EVENT.MAIN_CLOSE);
+    };
+    MenuController.prototype.addButtons = function () {
+        var _this = this;
+        var parent = Object(_utils_view_utils__WEBPACK_IMPORTED_MODULE_2__["getSubviewById"])(this.view, 'headStack');
+        parent.addView_inGravity(Object(_element__WEBPACK_IMPORTED_MODULE_1__["createBoxSeparator"])(), 3);
+        options.forEach(function (option, index) {
+            var button = Object(_element__WEBPACK_IMPORTED_MODULE_1__["createButton"])({
+                rect: NSMakeRect(0, 0, 40, 40),
+                size: NSMakeSize(40, 40),
+                tooltip: option.tooltip,
+                type: 2,
+                iconUrl: _this.ctx.NSURL("icons/" + option.id + ".png"),
+                activeIconUrl: _this.ctx.NSURL("icons/" + option.id + "-active.png"),
+                callAction: function () {
+                    _this.onClick(option, button);
+                },
+            });
+            _this.buttons[option.id] = button;
+            parent.addView_inGravity(button, option.gravity || 1);
+            parent.addView_inGravity(Object(_element__WEBPACK_IMPORTED_MODULE_1__["createBoxSeparator"])(), option.gravity || 1);
+        });
+    };
+    MenuController.prototype.onClick = function (option, view) {
+        if (option.event === MENU_EVENT.MAIN_CLICK) {
+        }
+        else if (option.event === MENU_EVENT.BUTTON_CLICK) {
+        }
+        else if (option.event === MENU_EVENT.PANEL_CLICK) {
+            // 点击普通按钮时 如果总控Main未激活 则模拟激活 打开主面板
+            if (this.buttons['main'] && view.state() === 1 && this.buttons['main'].state() !== 1) {
+                this.buttons['main'] && this.buttons['main'].performClick('callAction:');
+            }
+        }
+        this.emitter.emit(option.event, option, view);
+    };
+    MenuController.prototype.on = function (event, cb) {
+        this.emitter.on(event, cb);
+    };
+    MenuController.prototype.setMainButtonState = function (state) {
+        this.buttons['main'] && this.buttons['main'].setState(state);
+    };
+    return MenuController;
+}());
+
+var MENU_EVENT;
+(function (MENU_EVENT) {
+    MENU_EVENT[MENU_EVENT["MAIN_CLOSE"] = 0] = "MAIN_CLOSE";
+    MENU_EVENT[MENU_EVENT["WIIL_LAYOUT"] = 10] = "WIIL_LAYOUT";
+    MENU_EVENT[MENU_EVENT["MAIN_CLICK"] = 20] = "MAIN_CLICK";
+    MENU_EVENT[MENU_EVENT["PANEL_CLICK"] = 21] = "PANEL_CLICK";
+    MENU_EVENT[MENU_EVENT["BUTTON_CLICK"] = 23] = "BUTTON_CLICK";
+})(MENU_EVENT || (MENU_EVENT = {}));
+var options = [{
+        tooltip: '全部',
+        id: 'main',
+        gravity: 1,
+        event: MENU_EVENT.MAIN_CLICK
+    }, {
+        tooltip: '颜色',
+        id: 'color',
+        gravity: 1,
+        event: MENU_EVENT.PANEL_CLICK
+    }, {
+        tooltip: '文本',
+        id: 'text',
+        gravity: 1,
+        event: MENU_EVENT.PANEL_CLICK
+    }, {
+        tooltip: '设置',
+        id: 'mask',
+        gravity: 3,
+        event: MENU_EVENT.BUTTON_CLICK
+    }, {
+        tooltip: '用户',
+        id: 'border',
+        gravity: 3,
+        event: MENU_EVENT.BUTTON_CLICK
+    }];
+// toolbar.addView_inGravity(createImageView(NSMakeRect(0, 0, 40, 8), this.ctx.NSURL('icons/transparent.png')), 3);
+// this.nib.buttonMain.image = NSImage.alloc().initByReferencingFile(`${this.ctx.resourcesPath()}/icons/icon-main.png`);
+// // this.buttonMainChanged = this.buttonMainChanged.bind(this);
+// // this.nib.buttonMain.setCOSJSTargetFunction(this.buttonMainChanged);
+// this.nib.buttonMain.setCOSJSTargetFunction(function(sender: any){
+//     console.log('XXXXXX!!HAHAHAHA');
+// });
+
+
+/***/ }),
+
+/***/ "./src/components/panel.controller.ts":
+/*!********************************************!*\
+  !*** ./src/components/panel.controller.ts ***!
+  \********************************************/
+/*! exports provided: PanelController, PANEL_EVENT */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PanelController", function() { return PanelController; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PANEL_EVENT", function() { return PANEL_EVENT; });
+/* harmony import */ var _framework__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../framework */ "./src/framework.ts");
+/* harmony import */ var _element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./element */ "./src/components/element.ts");
+/* harmony import */ var _utils_view_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/view-utils */ "./src/utils/view-utils.ts");
+/* harmony import */ var _utils_resize_delegate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/resize-delegate */ "./src/utils/resize-delegate.ts");
+
+
+
+
+var MochaJSDelegate = __webpack_require__(/*! mocha-js-delegate */ "./node_modules/mocha-js-delegate/index.js");
+var EventEmitter = __webpack_require__(/*! events */ "events");
+/** 插件面板区 */
+var PanelController = /** @class */ (function () {
+    function PanelController(ctx) {
+        var _this = this;
+        this.ctx = ctx;
+        this.emitter = new EventEmitter();
+        this.lastLockTime = 0; // 锁定时间
+        this.lockWidth = 0; // 锁定宽度
+        this.id = ctx.documentID + "-navi-tools-panel";
+        var NSPanel = _framework__WEBPACK_IMPORTED_MODULE_0__["framework"].getClass('Panel');
+        this.NSController = NSPanel.viewControllerFromNIB();
+        this.view = this.NSController.view();
+        this.view.identifier = this.id;
+        this.floatButton = Object(_utils_view_utils__WEBPACK_IMPORTED_MODULE_2__["getSubviewById"])(this.view, 'floatButton');
+        this.floatButton.setCOSJSTargetFunction(function () {
+            _this.hide();
+            _this.show();
+        });
+        this.minWidth = this.view.frame().size.width;
+        // 以下是颜色测试代码
+        var section = Object(_utils_view_utils__WEBPACK_IMPORTED_MODULE_2__["getSubviewById"])(this.view, 'section');
+        this.sectionInfo = Object(_utils_view_utils__WEBPACK_IMPORTED_MODULE_2__["getSubviewById"])(this.view, 'sectionInfo');
+        var colorp = Object(_utils_view_utils__WEBPACK_IMPORTED_MODULE_2__["getSubviewById"])(section, 'colorp');
+        this.colorController = colorp.colorPanelController();
+        this.colorController.delegate = new MochaJSDelegate({
+            'colorChange:': function (colorCode) {
+                _this.sectionInfo.setTitle(colorCode);
+                _this.emitter.emit(PANEL_EVENT.COLOR_CHANGE, colorCode);
+            }
+        }).getClassInstance();
+        // 颜色测试代码结束
+    }
+    PanelController.prototype.show = function () {
+        this.floatButton.state() === 0 ? this.showWindow() : this.showSlider();
+        this.emitter.emit(PANEL_EVENT.PANEL_SHOW);
+    };
+    PanelController.prototype.hide = function () {
+        if (this.window) {
+            this.NSController.delegate = null;
+            this.window.setContentView(null);
+            this.window.close();
+        }
+        this.ctx.removeView(this.id);
+    };
+    PanelController.prototype.showSlider = function () {
+        var _this = this;
+        if (this.ctx.findView(this.id) === -1) {
+            // 插入到目录左侧
+            this.ctx.insertViewBefore(this.view, this.ctx.documentID + "-navi-menu-panel");
+            this.floatButton.setState(1);
+            // 下面这个代理方法主要实现限制menu宽度，策略1限制最小宽度，策略2限制在lockSize时间段内，不发生size变化
+            this.NSController.delegate = new MochaJSDelegate({
+                'viewWillLayoutSize:': function (newSize) {
+                    if (new Date().getTime() - _this.lastLockTime > 0) {
+                        _this.emitter.emit(PANEL_EVENT.WIIL_LAYOUT);
+                        Object(_utils_resize_delegate__WEBPACK_IMPORTED_MODULE_3__["splitViewItemLimitRezise"])(_this.ctx.stageView, _this.view, _this.minWidth);
+                        _this.lockWidth = _this.view.frame().size.width;
+                    }
+                    else if (_this.lockWidth) {
+                        Object(_utils_resize_delegate__WEBPACK_IMPORTED_MODULE_3__["splitViewItemLimitRezise"])(_this.ctx.stageView, _this.view, _this.lockWidth, _this.lockWidth);
+                    }
+                }
+            }).getClassInstance();
+        }
+    };
+    PanelController.prototype.showWindow = function () {
+        var _this = this;
+        var size = this.view.frame().size;
+        this.NSController.delegate = null;
+        var window = Object(_element__WEBPACK_IMPORTED_MODULE_1__["createWindow"])({
+            title: "无极设计工具",
+            frame: NSMakeRect(0, 0, size.width, size.height)
+        });
+        window.setDelegate(new MochaJSDelegate({
+            'windowWillClose:': function () {
+                _this.emitter.emit(PANEL_EVENT.WINDOW_CLOSE);
+                return NSApp.stopModal();
+            }
+        }).getClassInstance());
+        window.setContentView(this.view);
+        window.setAutorecalculatesKeyViewLoop(true);
+        this.window = window;
+    };
+    // 锁定大小以避免重绘
+    PanelController.prototype.lockSize = function () {
+        this.lastLockTime = new Date().getTime() + 1000; // 锁定1000ms
+    };
+    PanelController.prototype.on = function (event, cb) {
+        this.emitter.on(event, cb);
+    };
+    return PanelController;
+}());
+
+var PANEL_EVENT;
+(function (PANEL_EVENT) {
+    PANEL_EVENT[PANEL_EVENT["WINDOW_CLOSE"] = 1] = "WINDOW_CLOSE";
+    PANEL_EVENT[PANEL_EVENT["WIIL_LAYOUT"] = 10] = "WIIL_LAYOUT";
+    PANEL_EVENT[PANEL_EVENT["PANEL_SHOW"] = 11] = "PANEL_SHOW";
+    PANEL_EVENT[PANEL_EVENT["COLOR_CHANGE"] = 21] = "COLOR_CHANGE";
+})(PANEL_EVENT || (PANEL_EVENT = {}));
+
+
+/***/ }),
+
+/***/ "./src/framework.ts":
+/*!**************************!*\
+  !*** ./src/framework.ts ***!
+  \**************************/
+/*! exports provided: framework, MenuNib, MenuBtn, PanelNib */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "framework", function() { return framework; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuNib", function() { return MenuNib; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuBtn", function() { return MenuBtn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PanelNib", function() { return PanelNib; });
+var framework = __webpack_require__(/*! ./framework/Navi.xcworkspace/contents.xcworkspacedata */ "./src/framework/Navi.xcworkspace/contents.xcworkspacedata");
+function MenuNib() {
+    return framework.getNib('Menu');
+}
+function MenuBtn() {
+    return framework.getNib('MenuBtn');
+}
+function PanelNib() {
+    return framework.getNib('Panel');
+}
+
+
+/***/ }),
+
+/***/ "./src/framework/Navi.xcworkspace/contents.xcworkspacedata":
+/*!*****************************************************************!*\
+  !*** ./src/framework/Navi.xcworkspace/contents.xcworkspacedata ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! ./node_modules/@skpm/xcodeproj-loader/lib/xcodeproj-class.js */ "./node_modules/@skpm/xcodeproj-loader/lib/xcodeproj-class.js")('_webpack_resources/Navi.framework');
+
+/***/ }),
+
+/***/ "./src/main.ts":
+/*!*********************!*\
+  !*** ./src/main.ts ***!
+  \*********************/
+/*! exports provided: onStart, onSelectionChanged */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onStart", function() { return onStart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onSelectionChanged", function() { return onSelectionChanged; });
+/* harmony import */ var _utils_sketch_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/sketch-context */ "./src/utils/sketch-context.ts");
+/* harmony import */ var _components_menu_controller__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/menu.controller */ "./src/components/menu.controller.ts");
+/* harmony import */ var _components_panel_controller__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/panel.controller */ "./src/components/panel.controller.ts");
+
+
+
+function onStart(context) {
+    if (!_utils_sketch_context__WEBPACK_IMPORTED_MODULE_0__["SketchContext"].hasDocument(context)) {
+        return;
+    }
+    COScript.currentCOScript().setShouldKeepAround(true);
+    var ctx = new _utils_sketch_context__WEBPACK_IMPORTED_MODULE_0__["SketchContext"](context);
+    var threadDictionary = NSThread.mainThread().threadDictionary();
+    // 从内存中恢复 因为每次插件调用onStart都是重新执行
+    var runtime = threadDictionary[ctx.documentID + "-navi-runtime"];
+    if (!runtime) {
+        // 创建并写入内存
+        runtime = threadDictionary[ctx.documentID + "-navi-runtime"] = getRuntime(ctx);
+    }
+    runtime.menuController.toogle();
+}
+function getRuntime(ctx) {
+    var menuController = new _components_menu_controller__WEBPACK_IMPORTED_MODULE_1__["MenuController"](ctx);
+    var panelController = new _components_panel_controller__WEBPACK_IMPORTED_MODULE_2__["PanelController"](ctx);
+    // 下面开始把不同controller的事件和处理过程串联起来
+    menuController.on(_components_menu_controller__WEBPACK_IMPORTED_MODULE_1__["MENU_EVENT"].MAIN_CLOSE, function (option, target) {
+        panelController.hide();
+    });
+    menuController.on(_components_menu_controller__WEBPACK_IMPORTED_MODULE_1__["MENU_EVENT"].MAIN_CLICK, function (option, target) {
+        target.state() ? panelController.show() : panelController.hide();
+    });
+    menuController.on(_components_menu_controller__WEBPACK_IMPORTED_MODULE_1__["MENU_EVENT"].PANEL_CLICK, function (option, target) {
+        // 全部按钮点击时展开面板
+        // target.state() ? panelController.show() : panelController.hide();
+    });
+    menuController.on(_components_menu_controller__WEBPACK_IMPORTED_MODULE_1__["MENU_EVENT"].WIIL_LAYOUT, function (option, target) {
+        // 避免Menu rezise导致panel大小auto resize
+        panelController.lockSize();
+    });
+    panelController.on(_components_panel_controller__WEBPACK_IMPORTED_MODULE_2__["PANEL_EVENT"].WINDOW_CLOSE, function () { return menuController.setMainButtonState(0); });
+    panelController.on(_components_panel_controller__WEBPACK_IMPORTED_MODULE_2__["PANEL_EVENT"].PANEL_SHOW, function () { return menuController.setMainButtonState(1); });
+    panelController.on(_components_panel_controller__WEBPACK_IMPORTED_MODULE_2__["PANEL_EVENT"].COLOR_CHANGE, function (colorCode) { return changeColor(colorCode); });
+    return {
+        menuController: menuController,
+        panelController: panelController,
+    };
+}
+/** 以下代码是颜色测试代码 */
+function changeColor(colorCode) {
+    var document = __webpack_require__(/*! sketch/dom */ "sketch/dom").getSelectedDocument();
+    var selection = document.selectedLayers.layers;
+    if (selection[0]) {
+        selection[0].style.fills[0].color = "#" + color[colorCode];
+        try {
+            selection[0].sketchObject.userInfo = {
+                'com.baidu.Navi': { style: { fills: [{ colorCode: colorCode }] } }
+            };
+            // console.log('jsondata', jsonData);
+            // console.log( '___>', selection[0].sketchObject.userInfo());
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
+}
+function onSelectionChanged(context) {
+    var document = __webpack_require__(/*! sketch/dom */ "sketch/dom").getSelectedDocument();
+    var selection = document.selectedLayers.layers;
+    var command = context.command;
+    var threadDictionary = NSThread.mainThread().threadDictionary();
+    var runtime = threadDictionary[document.id + "-navi-runtime"];
+    if (runtime && selection && selection[0]) {
+        // console.log(selection[0].style.id, selection[0].style.fills[0].color);
+        var layerData = selection[0].sketchObject.userInfo();
+        if (layerData) {
+            var colorCode = layerData['com.baidu.Navi'].style.fills[0].colorCode; // 选中颜色的编码
+            selection[0].style.fills[0].color = "#" + color[colorCode]; // 修复颜色
+            console.log('colorCode', colorCode);
+            runtime.panelController.colorController.select(colorCode);
+        }
+        else {
+            runtime.panelController.colorController.reset();
+            runtime.panelController.sectionInfo.setTitle(selection[0].style.fills[0].color);
+        }
+    }
+}
+var color = {
+    "SAM_001": "4C4BF3FF",
+    "SAM_002": "4E6EF2FF",
+    "SAM_003": "D089FFFF",
+    "SAM_004": "CFC0FFFF",
+    "SAM_005": "CBF8FFFF",
+    "SAM_006": "FBE98AFF",
+    "SAM_007": "4C4BDDFF",
+    "SAM_008": "4E6EFFFF",
+};
+/** 以上代码是颜色测试代码 */
+
+
+/***/ }),
+
+/***/ "./src/utils/resize-delegate.ts":
+/*!**************************************!*\
+  !*** ./src/utils/resize-delegate.ts ***!
+  \**************************************/
+/*! exports provided: splitViewItemDisableRezise, splitViewItemLimitRezise */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "splitViewItemDisableRezise", function() { return splitViewItemDisableRezise; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "splitViewItemLimitRezise", function() { return splitViewItemLimitRezise; });
+/**
+  * 通过代理在viewWillLayout时触发的时机，限制用户resize splitView面板
+  * splitView面板是sketch创建的，其splitViewController[NSSplitViewInstance.delegate()]控制策略，但是我们没有办法修改这个类的策略
+  * 所以通过重绘时机,根据slider下个面板的起始位置-40来固定宽度
+  *
+  * 需要锁定的NSView需要实现 src/framework/Navi/Navi/MenuProtocol.h 的代理接口
+  * 同时其NSViewController需要在viewWillLayout调用代理接口方法
+*/
+var MochaJSDelegate = __webpack_require__(/*! mocha-js-delegate */ "./node_modules/mocha-js-delegate/index.js");
+function splitViewItemDisableRezise(NSSplitViewInstance, subview, limitWidth) {
+    try {
+        var index = -1;
+        var views = NSSplitViewInstance.subviews();
+        for (var i = 0; i < views.count(); i++) {
+            if (''.concat(views[i].identifier()) ===
+                ''.concat(subview.identifier())) {
+                index = i;
+            }
+        }
+        if (index > 0 && NSSplitViewInstance.subviews()[index + 1]) {
+            var nextWidth = NSSplitViewInstance.subviews()[index + 1].frame().size.width;
+            var nextPos = NSSplitViewInstance.maxPossiblePositionOfDividerAtIndex(index);
+            // const prevWidth = NSSplitViewInstance.subviews()[index-1].frame().size.width;
+            NSSplitViewInstance.setPosition_ofDividerAtIndex(nextPos - nextWidth - limitWidth - 1, index - 1);
+            // 防止前侧面板大小变化
+            // if (NSSplitViewInstance.subviews()[index-1].identifier().indexOf('-navi-') > 0) {
+            //     NSSplitViewInstance.setPosition_ofDividerAtIndex(nextPos - nextWidth - width - 2 - prevWidth, index - 2);
+            // }
+        }
+    }
+    catch (e) {
+        console.log(e);
+    }
+}
+function splitViewItemLimitRezise(NSSplitViewInstance, subview, minWidth, maxWidth) {
+    if (minWidth === void 0) { minWidth = 0; }
+    if (maxWidth === void 0) { maxWidth = 99999; }
+    try {
+        var index = -1;
+        var views = NSSplitViewInstance.subviews();
+        for (var i = 0; i < views.count(); i++) {
+            if (''.concat(views[i].identifier()) ===
+                ''.concat(subview.identifier())) {
+                index = i;
+            }
+        }
+        if (index > 0 && NSSplitViewInstance.subviews()[index + 1]) {
+            var x = NSSplitViewInstance.maxPossiblePositionOfDividerAtIndex(index - 1) - subview.frame().size.width;
+            var nextWidth = NSSplitViewInstance.subviews()[index + 1].frame().size.width;
+            var nextPos = NSSplitViewInstance.maxPossiblePositionOfDividerAtIndex(index);
+            var startX = nextPos - nextWidth - minWidth - 1;
+            var endX = nextPos - nextWidth - maxWidth - 1;
+            // console.log(x , startX , endX, nextPos, nextWidth);
+            if (x > startX) {
+                NSSplitViewInstance.setPosition_ofDividerAtIndex(startX, index - 1);
+            }
+            else if (x < endX) {
+                NSSplitViewInstance.setPosition_ofDividerAtIndex(endX, index - 1);
+            }
+        }
+    }
+    catch (e) {
+        console.log(e);
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/utils/sketch-context.ts":
+/*!*************************************!*\
+  !*** ./src/utils/sketch-context.ts ***!
+  \*************************************/
+/*! exports provided: SketchContext */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SketchContext", function() { return SketchContext; });
+/** 对context上下文进行一些封装 */
+var SketchContext = /** @class */ (function () {
+    function SketchContext(context) {
+        this.context = context;
+        this.document = context.document || (context.actionContext && context.actionContext.document) || MSDocument.currentDocument();
+        this.documentID = this.document.documentData().objectID();
+        this.version = new String(context.plugin.version()).toString();
+        this.plugin = context.plugin;
+        this.contentView = this.context.document.documentWindow().contentView();
+        this.stageView = this.contentView.subviews().objectAtIndex(0);
+    }
+    /** 插件目录 */
+    SketchContext.prototype.pluginFolderPath = function () {
+        var split = this.context.scriptPath.split('/');
+        split.splice(-3, 3);
+        return split.join('/');
+    };
+    /** 资源目录 */
+    SketchContext.prototype.resourcesPath = function () {
+        return this.pluginFolderPath() + "/Contents/Resources";
+    };
+    /** NS资源定位符 */
+    SketchContext.prototype.NSURL = function (path) {
+        var url = this.context.plugin.url()
+            .URLByAppendingPathComponent('Contents')
+            .URLByAppendingPathComponent('Resources');
+        return path ? url.URLByAppendingPathComponent(path) : url;
+    };
+    /** 从缓存里查找是否有可复用的上下文 */
+    // static getOrCreate(context: any){
+    //     const document = context.document || context.actionContext.document || (MSDocument as any).currentDocument();
+    //     const documentID = document.documentData().objectID();
+    //     for(let i = 0; i < sketchContextInstances.length; i++) {
+    //         if (sketchContextInstances[i].documentID === documentID) {
+    //             return sketchContextInstances[i];
+    //         }
+    //     }
+    //     const sketchContext = new SketchContext(context);
+    //     sketchContextInstances.push(sketchContext);
+    //     return sketchContext;
+    // }
+    SketchContext.prototype.insertViewAfter = function (view, identifier) {
+        if (identifier === void 0) { identifier = 'view_canvas'; }
+        var views = this.stageView.subviews();
+        var finalViews = [];
+        var pushedWebView = false;
+        for (var i = 0; i < views.count(); i++) {
+            finalViews.push(views[i]);
+            if (!pushedWebView && compare(views[i].identifier(), identifier)) {
+                pushedWebView = true;
+                finalViews.push(view);
+            }
+        }
+        // NSUserDefaults.standardUserDefaults().setObject_forKey('true', vid);
+        this.stageView.subviews = finalViews;
+        this.stageView.adjustSubviews();
+    };
+    SketchContext.prototype.insertViewBefore = function (view, identifier) {
+        if (identifier === void 0) { identifier = 'view_canvas'; }
+        var views = this.stageView.subviews();
+        var finalViews = [];
+        var pushedWebView = false;
+        for (var i = 0; i < views.count(); i++) {
+            if (!pushedWebView && compare(views[i].identifier(), identifier)) {
+                pushedWebView = true;
+                finalViews.push(view);
+            }
+            finalViews.push(views[i]);
+        }
+        // NSUserDefaults.standardUserDefaults().setObject_forKey('true', vid);
+        this.stageView.subviews = finalViews;
+        this.stageView.adjustSubviews();
+    };
+    SketchContext.prototype.findView = function (identifier) {
+        var views = this.stageView.subviews();
+        for (var i = 0; i < views.count(); i++) {
+            if (compare(views[i].identifier(), identifier)) {
+                return i;
+            }
+        }
+        return -1;
+    };
+    SketchContext.prototype.removeView = function (identifier) {
+        var finalViews = [];
+        var views = this.stageView.subviews();
+        for (var i = 0; i < views.count(); i++) {
+            if (!compare(views[i].identifier(), identifier)) {
+                finalViews.push(views[i]);
+            }
+        }
+        this.stageView.subviews = finalViews;
+        this.stageView.adjustSubviews();
+    };
+    SketchContext.prototype.getView = function (index) {
+        return this.stageView.subviews()[index];
+    };
+    SketchContext.hasDocument = function (context) {
+        if (context.document || (context.actionContext && context.actionContext.document) || MSDocument.currentDocument()) {
+            return true;
+        }
+        return false;
+    };
+    return SketchContext;
+}());
+
+function compare(str, str0) {
+    return ''.concat(str) === ''.concat(str0);
+}
+;
+
+
+/***/ }),
+
+/***/ "./src/utils/view-utils.ts":
+/*!*********************************!*\
+  !*** ./src/utils/view-utils.ts ***!
+  \*********************************/
+/*! exports provided: walkViewTree, listAllSubviews, getSubviewsById, getSubviewById */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "walkViewTree", function() { return walkViewTree; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listAllSubviews", function() { return listAllSubviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSubviewsById", function() { return getSubviewsById; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSubviewById", function() { return getSubviewById; });
+function walkViewTree(rootView, fn) {
+    function _visit(view) {
+        fn(view);
+        var subviews = view.subviews();
+        for (var i = 0; i < subviews.count(); i++) {
+            _visit(subviews.objectAtIndex(i));
+        }
+    }
+    _visit(rootView);
+}
+function listAllSubviews(rootView) {
+    var result = [];
+    walkViewTree(rootView, function (view) {
+        var id = String(view.identifier());
+        if (id && id.indexOf('_') !== 0) {
+            result[id] = view;
+        }
+    });
+    return result;
+}
+function getSubviewsById(rootView, identifier) {
+    var result = [];
+    walkViewTree(rootView, function (view) {
+        var id = String(view.identifier());
+        if (id && id.indexOf('_') !== 0 && String(identifier) === id) {
+            result.push(view);
+        }
+    });
+    return result;
+}
+function getSubviewById(rootView, identifier) {
+    return getSubviewsById(rootView, identifier)[0];
+}
+
+
+/***/ }),
+
+/***/ "events":
+/*!*************************!*\
+  !*** external "events" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("events");
+
+/***/ }),
+
+/***/ "sketch/dom":
+/*!*****************************!*\
+  !*** external "sketch/dom" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("sketch/dom");
+
+/***/ })
+
+/******/ });
+    if (key === 'default' && typeof exports === 'function') {
+      exports(context);
+    } else if (typeof exports[key] !== 'function') {
+      throw new Error('Missing export named "' + key + '". Your command should contain something like `export function " + key +"() {}`.');
+    } else {
+      exports[key](context);
+    }
+  } catch (err) {
+    if (typeof process !== 'undefined' && process.listenerCount && process.listenerCount('uncaughtException')) {
+      process.emit("uncaughtException", err, "uncaughtException");
+    } else {
+      throw err
+    }
+  }
+}
+globalThis['onStart'] = __skpm_run.bind(this, 'onStart');
+globalThis['onSelectionChanged'] = __skpm_run.bind(this, 'onSelectionChanged');
+globalThis['onRun'] = __skpm_run.bind(this, 'default')

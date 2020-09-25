@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSTrackingArea *trackingArea;
 @property (nonatomic, assign) BOOL hover;
 
+
 @end
 
 @implementation ColorMiniButtonView
@@ -64,17 +65,12 @@
 };
 
 - (void)mouseDown:(NSEvent *)event {
-
 }
 
 - (void)mouseUp:(NSEvent *)event {
     self.selected = YES;
     [self updateState];
-//    NSLog(@"NAVIL MOSEUP IN BUTTON %@", self);
-    if (self.delegate) {
-        [self.delegate mouseUp:event on: self];
-    }
-    // NSLog(@"NAVIL BGCOLOR%@", self.layer.backgroundColor);
+    [self.target performSelector:self.action withObject:self];
 }
 
 // 用于追踪mouseEntered / mouseExited

@@ -7,14 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ButtonProtocol.h"
+#import "DataChangeProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ColorMiniPanel : NSViewController
+@interface ColorPanel : NSViewController
 
 @property (strong) IBOutlet NSView *view;
 @property (nonatomic,weak) NSString *selectedCode;
+@property (nonatomic,weak) id<DataChangeProtocol> delegate;
 
 + (instancetype)viewControllerFromNIB;
 
@@ -24,13 +25,5 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
-
-@interface ButtonDelegate: NSObject<ButtonProtocol>
-
-@property (nonatomic, retain) ColorMiniPanel *panel;
-
-
-@end
 
 NS_ASSUME_NONNULL_END

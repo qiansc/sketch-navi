@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ButtonProtocol.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -16,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL selected; //default NO.
 @property (nonatomic, assign) NSString* colorString;
-@property (nonatomic) id<ButtonProtocol> delegate;
 
 - (void)updateState;
 
