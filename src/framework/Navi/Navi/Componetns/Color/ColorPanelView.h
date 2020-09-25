@@ -7,12 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ColorPanel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ColorPanelView : NSView
 
 @property (strong) IBOutlet NSView *view;
+
+@property (nonatomic,weak) ColorPanel *colorPanelController;
 
 @end
 

@@ -36,6 +36,7 @@
 		A38993F4250B859F00211D90 /* Navi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38993F7250B859F00211D90 /* Navi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Navi.h; sourceTree = "<group>"; };
 		A38993F8250B85A000211D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A396D0D2251DE63B0061CC73 /* DataChangeProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataChangeProtocol.h; sourceTree = "<group>"; };
 		A397ACC22513456500286C6E /* RezieseProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RezieseProtocol.h; sourceTree = "<group>"; };
 		A397ACC625148BEA00286C6E /* Panel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Panel.h; sourceTree = "<group>"; };
 		A397ACC725148BEA00286C6E /* Panel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Panel.m; sourceTree = "<group>"; };
@@ -110,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				A397ACC22513456500286C6E /* RezieseProtocol.h */,
+				A396D0D2251DE63B0061CC73 /* DataChangeProtocol.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";

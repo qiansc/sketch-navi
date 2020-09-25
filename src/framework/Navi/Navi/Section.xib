@@ -7,6 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Section">
             <connections>
+                <outlet property="colorPanelView" destination="2mN-T7-g6U" id="dvK-m8-Vmj"/>
+                <outlet property="pluginTitle" destination="mrD-2k-KlK" id="ivj-AM-n9C"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -25,18 +27,18 @@
                     </buttonCell>
                 </button>
                 <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yQV-YH-sfy">
-                    <rect key="frame" x="12" y="267" width="114" height="15"/>
+                    <rect key="frame" x="12" y="265" width="102" height="17"/>
                     <subviews>
                         <textField identifier="sectionTittle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xSe-Wq-yx1">
-                            <rect key="frame" x="-2" y="0.0" width="52" height="15"/>
-                            <textFieldCell key="cell" controlSize="mini" lineBreakMode="clipping" title="插件标题" id="VIC-pZ-zHN">
-                                <font key="font" size="12" name="HelveticaNeue-Bold"/>
+                            <rect key="frame" x="-2" y="0.0" width="40" height="17"/>
+                            <textFieldCell key="cell" controlSize="mini" lineBreakMode="clipping" title="填充色" id="VIC-pZ-zHN">
+                                <font key="font" size="12" name="PingFangTC-Semibold"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
                         <button identifier="sectionInfo" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mrD-2k-KlK">
-                            <rect key="frame" x="56" y="0.0" width="58" height="14"/>
+                            <rect key="frame" x="44" y="1" width="58" height="14"/>
                             <buttonCell key="cell" type="inline" title="T_012345" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="G5V-aF-GN9">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="miniSystemBold"/>
@@ -52,7 +54,7 @@
                         <real value="3.4028234663852886e+38"/>
                     </customSpacing>
                 </stackView>
-                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2mN-T7-g6U" customClass="ColorPanelView">
+                <customView identifier="colorp" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2mN-T7-g6U" customClass="ColorPanelView">
                     <rect key="frame" x="0.0" y="126" width="240" height="140"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </customView>

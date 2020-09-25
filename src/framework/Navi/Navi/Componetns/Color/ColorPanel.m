@@ -76,6 +76,7 @@
     if (self.selectedCode == button.toolTip) {
         return;
     }
+    
     [self select:button.toolTip];
 }
 
@@ -89,11 +90,17 @@
                 ((ColorMiniButtonView *)view).selected == YES) {
                 ((ColorMiniButtonView *)view).selected = NO;
                 [((ColorMiniButtonView *)view) updateState];
+            } else if (view.toolTip == colorCode && ((ColorMiniButtonView *)view).selected == NO){
+                ((ColorMiniButtonView *)view).selected = YES;
+                [((ColorMiniButtonView *)view) updateState];
             }
             count++;
         }
     }
     self.selectedCode = colorCode;
+    if (self.delegate) {
+        [self.delegate colorChange:colorCode];
+    }
 }
 
 // 子按钮选中态重置

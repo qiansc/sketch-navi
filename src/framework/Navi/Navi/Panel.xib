@@ -58,7 +58,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <customView identifier="ss" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mc9-E8-nfV" customClass="SectionView">
+                <customView identifier="section" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mc9-E8-nfV" customClass="SectionView">
                     <rect key="frame" x="0.0" y="339" width="240" height="200"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </customView>

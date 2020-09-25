@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sketch-hq/SketchAPI/develop/docs/sketch-plugin-manifest-schema.json",
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "Navi",
+      "identifier": "navi.main-identifier",
+      "script": "main_ts",
+      "shortcut": "ctrl command n",
+      "handlers": {
+        "run": "onStart",
+        "actions": {
+          "SelectionChanged": "onSelectionChanged"
+        }
+      }
+    }
+  ],
+  "menu": {
+    "isRoot": true,
+    "title": "Navi",
+    "items": [
+      "navi.main-identifier"
+    ]
+  },
+  "version": "0.1.0",
+  "description": "",
+  "name": "Navi",
+  "identifier": "Navi",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com//master/.appcast.xml",
+  "author": "qiansc"
+}

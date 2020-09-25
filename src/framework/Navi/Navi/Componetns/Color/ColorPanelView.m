@@ -15,8 +15,8 @@
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
 
-    
-    self.view = [ColorPanel viewControllerFromNIB].view;
+    self.colorPanelController = [ColorPanel viewControllerFromNIB];
+    self.view = self.colorPanelController.view;
     
     NSRect contentFrame = NSMakeRect(0, 0, self.frame.size.width, self.frame.size.height);
     self.view.frame = contentFrame;
@@ -31,7 +31,8 @@
 - (id)initWithFrame:(NSRect)frameRect {
     self = [super initWithFrame:frameRect];
 
-    self.view = [ColorPanel viewControllerFromNIB].view;
+    self.colorPanelController = [ColorPanel viewControllerFromNIB];
+    self.view = self.colorPanelController.view;
 
     NSRect contentFrame = NSMakeRect(0, 0, frameRect.size.width, frameRect.size.height);
     self.view.frame = contentFrame;

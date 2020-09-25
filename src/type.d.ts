@@ -86,6 +86,6 @@ declare var NSURL: any;
 
 declare var EventEmitter: any;
 declare var __command: any;
-
+declare var NSJSONSerialization: any;
 
 
