@@ -18,3 +18,15 @@ dist*/
 node_modules/
 coverage/
 .nyc_output
+
+# Xcode per-user config
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+xcuserdata/
+!*/contents.xcworkspacedata
+!*.pbxproj
