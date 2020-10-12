@@ -3,6 +3,7 @@ import * as framework from '../framework';
 import { createButton, createBoxSeparator } from './element';
 import { getSubviewById } from "../utils/view-utils";
 import { splitViewItemDisableRezise } from "../utils/resize-delegate";
+import { NSStackViewGravityBottom } from "sketch";
 const MochaJSDelegate = require('mocha-js-delegate');
 
 const EventEmitter = require('events');
@@ -19,7 +20,9 @@ export class MenuController {
         this.NSController = NSMenu.viewControllerFromNIB();
         this.view = this.NSController.view();
         this.view.identifier = this.id ;
-        this.addButtons();
+        this.NSController.initButton(options);
+        // console.log(this.ctx.NSURL(`icons/xxx.png`));
+        // this.addButtons();
     }
     // 切换是否显示
     toogle() {
@@ -109,27 +112,27 @@ export interface MenuOption {
 const options : MenuOption[] = [{
     tooltip: '全部',
     id: 'main',
-    gravity: 1,
+    gravity: NSStackViewGravityTop,
     event: MENU_EVENT.MAIN_CLICK
 }, {
     tooltip: '颜色',
     id: 'color',
-    gravity: 1,
+    gravity: NSStackViewGravityTop,
     event: MENU_EVENT.PANEL_CLICK
 }, {
     tooltip: '文本',
     id: 'text',
-    gravity: 1,
+    gravity: NSStackViewGravityTop,
     event: MENU_EVENT.PANEL_CLICK
 }, {
     tooltip: '设置',
     id: 'mask',
-    gravity: 3,
+    gravity: NSStackViewGravityBottom,
     event: MENU_EVENT.BUTTON_CLICK
 }, {
     tooltip: '用户',
     id: 'border',
-    gravity: 3,
+    gravity: NSStackViewGravityBottom,
     event: MENU_EVENT.BUTTON_CLICK
 }];
 

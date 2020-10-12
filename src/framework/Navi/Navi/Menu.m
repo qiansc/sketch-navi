@@ -15,7 +15,6 @@
     [super viewDidLoad];
     [self setPreferredContentSize:CGSizeMake(40, 450)];
     [self.view setAutoresizingMask:NSViewNotSizable];
-    
 }
 -  (void)viewWillLayout {
 //    [self setPreferredContentSize:CGSizeMake(40, 450)];
@@ -49,7 +48,34 @@
 - (void)viewWillTransitionToSize:(NSSize)newSize {
     
 }
-//- (void)setDelegate:(id<MenuProtocol>)_delegete {
-//    self.delegate = _delegete;
-//}
+
+- (void)initButton: (NSArray<NSDictionary *>*) arr {
+
+    [self.headStack addView:[Util separtorBox] inGravity: NSStackViewGravityBottom];
+    
+    NSBundle *frameworkBundle = [NSBundle bundleForClass:[Menu class]];
+    NSString *resourcePath = [frameworkBundle pathForResource:@"border" ofType:@"png"];
+    
+    NSLog(@"NAVIL resourcePath %@", resourcePath);
+
+    for(NSDictionary *option in arr) {
+        NSButton *button = [self createButton:option[@"tooltip"] icon:option[@"iconUrl"] activeIcon: option[@"activeIconUrl"]];
+        
+        NSStackViewGravity gravity = option[@"gravity"] || NSStackViewGravityTop;
+        [self.headStack addView:button inGravity: gravity];
+        [self.headStack addView:[Util separtorBox] inGravity: gravity];
+    }
+}
+
+- (NSButton*)createButton:(NSString*) name icon: (NSURL *) iconUrl activeIcon:(NSURL *) activeIconUrl {
+    NSButton *button = [[NSButton alloc]initWithFrame:NSMakeRect(0, 0, 40, 40)];
+    [button setImage:[Util createImage:iconUrl withSize: NSMakeSize(40, 40)]];
+    [button setAlternateImage:[Util createImage:activeIconUrl withSize: NSMakeSize(40, 40)]];
+    [button setBordered:NO];
+    [button sizeToFit];
+    [button setToolTip: name];
+    [button setButtonType: NSButtonTypeMomentaryChange];
+    return button;
+}
+
 @end

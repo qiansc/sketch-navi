@@ -30,19 +30,20 @@ export class PanelController {
         });
         this.minWidth = this.view.frame().size.width;
         // 以下是颜色测试代码
-        const section = getSubviewById(this.view, 'section');
-        this.sectionInfo = getSubviewById(this.view, 'sectionInfo');
-        const colorp = getSubviewById(section, 'colorp');
-        this.colorController = colorp.colorPanelController();
-        this.colorController.delegate = new MochaJSDelegate({
-            'colorChange:': (colorCode: string) => {
-                this.sectionInfo.setTitle(colorCode);
-                this.emitter.emit(PANEL_EVENT.COLOR_CHANGE, colorCode);
-            }
-        }).getClassInstance();
+        // const section = getSubviewById(this.view, 'section');
+        // this.sectionInfo = getSubviewById(this.view, 'sectionInfo');
+        // const colorp = getSubviewById(section, 'colorp');
+        // this.colorController = colorp.colorPanelController();
+        // this.colorController.delegate = new MochaJSDelegate({
+        //     'colorChange:': (colorCode: string) => {
+        //         this.sectionInfo.setTitle(colorCode);
+        //         this.emitter.emit(PANEL_EVENT.COLOR_CHANGE, colorCode);
+        //     }
+        // }).getClassInstance();
         // 颜色测试代码结束
     }
     show() {
+        this.NSController.layoutSection();
         this.floatButton.state() === 0 ? this.showWindow() : this.showSlider();
         this.emitter.emit(PANEL_EVENT.PANEL_SHOW);
     }

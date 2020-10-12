@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Headers/RezieseProtocol.h"
+#import "Menu.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -56,7 +56,7 @@ function getRuntime(ctx: SketchContext) {
     panelController.on(PANEL_EVENT.WINDOW_CLOSE, () => menuController.setMainButtonState(0));
     panelController.on(PANEL_EVENT.PANEL_SHOW, () => menuController.setMainButtonState(1));
 
-    panelController.on(PANEL_EVENT.COLOR_CHANGE, (colorCode: string) => changeColor(colorCode));
+    // panelController.on(PANEL_EVENT.COLOR_CHANGE, (colorCode: string) => changeColor(colorCode));
 
 
     return {
@@ -98,16 +98,16 @@ export function onSelectionChanged(context: any) {
     if (runtime && selection && selection[0]) {
         // console.log(selection[0].style.id, selection[0].style.fills[0].color);
 
-        var layerData = selection[0].sketchObject.userInfo();
+        // var layerData = selection[0].sketchObject.userInfo();
 
-        if (layerData) {
-            const colorCode = layerData['com.baidu.Navi'].style.fills[0].colorCode; // 选中颜色的编码
-            selection[0].style.fills[0].color = `#${color[colorCode]}`; // 修复颜色
-            runtime.panelController.colorController.select(colorCode);
-        } else {
-            runtime.panelController.colorController.reset();
-            runtime.panelController.sectionInfo.setTitle(selection[0].style.fills[0].color);
-        }
+        // if (layerData) {
+        //     const colorCode = layerData['com.baidu.Navi'].style.fills[0].colorCode; // 选中颜色的编码
+        //     selection[0].style.fills[0].color = `#${color[colorCode]}`; // 修复颜色
+        //     runtime.panelController.colorController.select(colorCode);
+        // } else {
+        //     runtime.panelController.colorController.reset();
+        //     runtime.panelController.sectionInfo.setTitle(selection[0].style.fills[0].color);
+        // }
 
     }
 
@@ -123,6 +123,4 @@ const color: {[index: string]: string} = {
     "SAM_007": "4C4BDDFF",
     "SAM_008": "4E6EFFFF",
 };
-
-
 /** 以上代码是颜色测试代码 */

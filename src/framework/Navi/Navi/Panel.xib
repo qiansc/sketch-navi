@@ -58,11 +58,35 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <customView identifier="section" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mc9-E8-nfV" customClass="SectionView">
-                    <rect key="frame" x="0.0" y="339" width="240" height="200"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                </customView>
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5A-1j-KMD">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="537"/>
+                    <clipView key="contentView" id="51B-74-XdU">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="537"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view id="LEp-ug-epk">
+                                <rect key="frame" x="0.0" y="0.0" width="225" height="522"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="6Q4-zI-fed">
+                        <rect key="frame" x="-100" y="-100" width="225" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="vyx-EJ-qOI">
+                        <rect key="frame" x="225" y="0.0" width="15" height="537"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
             </subviews>
+            <constraints>
+                <constraint firstItem="e5A-1j-KMD" firstAttribute="top" secondItem="mc5-Na-xp3" secondAttribute="bottom" constant="2" id="9rE-Eg-QhD"/>
+                <constraint firstItem="e5A-1j-KMD" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="agZ-CH-mY7"/>
+                <constraint firstAttribute="bottom" secondItem="e5A-1j-KMD" secondAttribute="bottom" id="iu6-S8-Bx9"/>
+                <constraint firstAttribute="trailing" secondItem="e5A-1j-KMD" secondAttribute="trailing" id="zQ4-yM-ydb"/>
+            </constraints>
             <point key="canvasLocation" x="140" y="4"/>
         </customView>
     </objects>

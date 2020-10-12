@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Headers/RezieseProtocol.h"
+#import "Util.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
     
     @property (nonatomic,weak) id<ResizeProtocol> delegate;
     @property (strong) IBOutlet NSView *view;
+    @property (strong) IBOutlet NSStackView *headStack;
     // Convenience Method
     + (instancetype)viewControllerFromNIB;
     - (void)viewWillTransitionToSize:(NSSize)newSize;

@@ -82,6 +82,8 @@ declare var NSWindow: any;
 declare var NSApp: any;
 declare var NSBundle: any;
 declare var NSURL: any;
+declare var NSStackViewGravityTop: any;
+declare var NSStackViewGravityBottom: any;
 
 
 declare var EventEmitter: any;

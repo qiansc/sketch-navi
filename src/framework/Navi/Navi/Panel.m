@@ -23,7 +23,6 @@
 }
 
 + (instancetype)viewControllerFromNIB {
-    
     // 这里一般都写 bundle:[NSBundle mainBundle] 但是以framework形式加载时候会出错
     NSString* const frameworkBundleID  = @"com.baidu.Navi";
     NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
@@ -31,4 +30,9 @@
     return[[Panel alloc] initWithNibName:@"Panel" bundle:resourceBundlePath];
     // return [[MenuController alloc] initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle mainBundle]];
 }
+
+- (void)layoutSection {
+    NSLog(@"NAVIL %@", [Menu instance]);
+}
+
 @end
