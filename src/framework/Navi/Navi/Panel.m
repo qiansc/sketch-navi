@@ -32,7 +32,7 @@
 }
 
 - (void)layoutSection {
-    NSLog(@"NAVIL %@", [Menu instance]);
+    NSLog(@"NAVIL %@", @"<<<");
 }
 
 @end

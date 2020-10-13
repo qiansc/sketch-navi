@@ -7,7 +7,7 @@
 //
 
 #import "Menu.h"
-#import "RezieseProtocol.h"
+#import "Config.h"
 
 @implementation Menu
 
@@ -15,6 +15,7 @@
     [super viewDidLoad];
     [self setPreferredContentSize:CGSizeMake(40, 450)];
     [self.view setAutoresizingMask:NSViewNotSizable];
+    [self initButton];
 }
 -  (void)viewWillLayout {
 //    [self setPreferredContentSize:CGSizeMake(40, 450)];
@@ -49,21 +50,42 @@
     
 }
 
-- (void)initButton: (NSArray<NSDictionary *>*) arr {
+- (void)initButton {
 
     [self.headStack addView:[Util separtorBox] inGravity: NSStackViewGravityBottom];
-    
-    NSBundle *frameworkBundle = [NSBundle bundleForClass:[Menu class]];
-    NSString *resourcePath = [frameworkBundle pathForResource:@"border" ofType:@"png"];
-    
-    NSLog(@"NAVIL resourcePath %@", resourcePath);
 
-    for(NSDictionary *option in arr) {
-        NSButton *button = [self createButton:option[@"tooltip"] icon:option[@"iconUrl"] activeIcon: option[@"activeIconUrl"]];
-        
-        NSStackViewGravity gravity = option[@"gravity"] || NSStackViewGravityTop;
+    NSBundle *frameworkBundle = [NSBundle bundleForClass:[Menu class]];
+
+    NSArray<NSDictionary*>* options = [Config MenuOption];
+    
+    for(NSDictionary *option in options) {
+
+        NSString *id = option[@"id"];
+        NSURL *iconUrl = [NSURL fileURLWithPath:[frameworkBundle pathForResource: id ofType:@"png"]];
+        NSURL *activeUrl = [NSURL fileURLWithPath:[frameworkBundle pathForResource:  [id stringByAppendingFormat:@"%@", @"-active"] ofType:@"png"]];
+
+        NSButton *button = [self createButton:option[@"name"] icon: iconUrl activeIcon: activeUrl];
+
+        NSStackViewGravity gravity = option[@"gravity"] ? [option[@"gravity"] longValue] : NSStackViewGravityTop;
+
         [self.headStack addView:button inGravity: gravity];
         [self.headStack addView:[Util separtorBox] inGravity: gravity];
+
+        button.identifier = id;
+
+        [button setTarget:self];
+        [button setAction:@selector(buttonClick:)];
+
+        if([id  isEqual: @"main"]) {
+            self.mainButton = button;
+        }
+
+    }
+}
+
+-(void)buttonClick:(NSButton*)button {
+    if (self.delegate) {
+        [self.delegate onButtonClick: button];
     }
 }
 
@@ -74,7 +96,7 @@
     [button setBordered:NO];
     [button sizeToFit];
     [button setToolTip: name];
-    [button setButtonType: NSButtonTypeMomentaryChange];
+    [button setButtonType: NSButtonTypeToggle]; //NSButtonTypeMomentaryChange
     return button;
 }
 

@@ -14,15 +14,24 @@ export class MenuController {
     private emitter = new EventEmitter();
     private buttons: {[index: string]: any} = {};
     private NSController: any;
+    private limitWidth: number;
+    private delegate: any;
     constructor(private ctx: SketchContext) {
         this.id = `${ctx.documentID}-navi-menu-panel`;
         const NSMenu = framework.framework.getClass('Menu');
         this.NSController = NSMenu.viewControllerFromNIB();
         this.view = this.NSController.view();
         this.view.identifier = this.id ;
-        this.NSController.initButton(options);
-        // console.log(this.ctx.NSURL(`icons/xxx.png`));
-        // this.addButtons();
+        this.limitWidth = this.view.frame().size.width;
+        this.delegate = new MochaJSDelegate({
+            "viewWillLayoutSize:": (newSize: string) => {
+                this.emitter.emit(MENU_EVENT.WIIL_LAYOUT);
+                splitViewItemDisableRezise(this.ctx.stageView, this.view, this.limitWidth);
+            },
+            "onButtonClick:": (button: any) => {
+                this.onClick(button);
+            },
+        }).getClassInstance();
     }
     // 切换是否显示
     toogle() {
@@ -31,13 +40,8 @@ export class MenuController {
     }
     show() {
         this.ctx.insertViewAfter(this.view);
-        const limitWidth = this.view.frame().size.width;
-        this.NSController.delegate = new MochaJSDelegate({
-            'viewWillLayoutSize:': (newSize: string) => {
-                this.emitter.emit(MENU_EVENT.WIIL_LAYOUT);
-                splitViewItemDisableRezise(this.ctx.stageView, this.view, limitWidth);
-            }
-        }).getClassInstance();
+        this.limitWidth = this.view.frame().size.width;
+        this.NSController.delegate = this.delegate;
     }
     hide() {
 
@@ -48,39 +52,27 @@ export class MenuController {
         this.NSController.delegate = null;
         this.emitter.emit(MENU_EVENT.MAIN_CLOSE);
     }
-    private addButtons() {
-        const parent = getSubviewById(this.view, 'headStack');
-        parent.addView_inGravity(createBoxSeparator(), 3);
-        options.forEach((option, index) => {
-            const button = createButton({
-                rect: NSMakeRect(0, 0, 40, 40),
-                size: NSMakeSize(40, 40),
-                tooltip: option.tooltip,
-                type: 2,
-                iconUrl: this.ctx.NSURL(`icons/${option.id}.png`),
-                activeIconUrl: this.ctx.NSURL(`icons/${option.id}-active.png`),
-                callAction: () => {
-                    this.onClick(option, button);
-                },
+
+    private onClick(button: any) {
+        try {
+            options.forEach(option => {
+                if (option.id == button.identifier().toString()) {
+                    if (option.event === MENU_EVENT.MAIN_CLICK) {
+
+                    } else if (option.event === MENU_EVENT.BUTTON_CLICK){
+
+                    } else if (option.event === MENU_EVENT.PANEL_CLICK){
+                        // 点击普通按钮时 如果总控Main未激活 则模拟激活 打开主面板
+                        if (button.state() === 1 && this.NSController.mainButton().state() !== 1) {
+                            this.NSController.mainButton().performClick('callAction:');
+                        }
+                    }
+                    this.emitter.emit(option.event, option, button);
+                }
             });
-            this.buttons[option.id] = button;
-            parent.addView_inGravity(button, option.gravity || 1);
-            parent.addView_inGravity(createBoxSeparator(), option.gravity || 1);
-        });
-    }
-
-    private onClick(option: MenuOption, view: any) {
-        if (option.event === MENU_EVENT.MAIN_CLICK) {
-
-        } else if (option.event === MENU_EVENT.BUTTON_CLICK){
-
-        } else if (option.event === MENU_EVENT.PANEL_CLICK){
-            // 点击普通按钮时 如果总控Main未激活 则模拟激活 打开主面板
-            if (this.buttons['main'] && view.state() === 1 && this.buttons['main'].state() !== 1) {
-                this.buttons['main'] && this.buttons['main'].performClick('callAction:');
-            }
+        } catch(e) {
+            console.log(e);
         }
-        this.emitter.emit(option.event, option, view);
     }
 
     on(event: MENU_EVENT, cb: any){
@@ -88,7 +80,7 @@ export class MenuController {
     }
 
     public setMainButtonState(state: number) {
-        this.buttons['main'] && this.buttons['main'].setState(state);
+        this.NSController.mainButton().setState(state);
     }
 }
 
@@ -127,12 +119,12 @@ const options : MenuOption[] = [{
 }, {
     tooltip: '设置',
     id: 'mask',
-    gravity: NSStackViewGravityBottom,
+    gravity: 3,
     event: MENU_EVENT.BUTTON_CLICK
 }, {
     tooltip: '用户',
     id: 'border',
-    gravity: NSStackViewGravityBottom,
+    gravity: 3,
     event: MENU_EVENT.BUTTON_CLICK
 }];
 

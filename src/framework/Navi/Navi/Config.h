@@ -1,19 +1,19 @@
 //
-//  MenuProtocol.h
+//  Config.h
 //  Navi
 //
-//  Created by Qian,Sicheng on 2020/9/17.
+//  Created by Qian,Sicheng on 2020/10/13.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol ResizeProtocol <NSObject>
+@interface Config : NSObject
 
-@optional
--(void)viewWillLayoutSize:(NSString*)newSize;
+    +(NSArray<NSDictionary*>*) MenuOption;
 
 @end
 

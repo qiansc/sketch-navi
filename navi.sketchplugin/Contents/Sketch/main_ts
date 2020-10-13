@@ -666,20 +666,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuController", function() { return MenuController; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MENU_EVENT", function() { return MENU_EVENT; });
 /* harmony import */ var _framework__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../framework */ "./src/framework.ts");
-/* harmony import */ var _element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./element */ "./src/components/element.ts");
-/* harmony import */ var _utils_view_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/view-utils */ "./src/utils/view-utils.ts");
-/* harmony import */ var _utils_resize_delegate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/resize-delegate */ "./src/utils/resize-delegate.ts");
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sketch */ "sketch");
-/* harmony import */ var sketch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sketch__WEBPACK_IMPORTED_MODULE_4__);
-
-
-
+/* harmony import */ var _utils_resize_delegate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/resize-delegate */ "./src/utils/resize-delegate.ts");
 
 
 var MochaJSDelegate = __webpack_require__(/*! mocha-js-delegate */ "./node_modules/mocha-js-delegate/index.js");
 var EventEmitter = __webpack_require__(/*! events */ "events");
 var MenuController = /** @class */ (function () {
     function MenuController(ctx) {
+        var _this = this;
         this.ctx = ctx;
         this.emitter = new EventEmitter();
         this.buttons = {};
@@ -688,9 +682,16 @@ var MenuController = /** @class */ (function () {
         this.NSController = NSMenu.viewControllerFromNIB();
         this.view = this.NSController.view();
         this.view.identifier = this.id;
-        this.NSController.initButton(options);
-        // console.log(this.ctx.NSURL(`icons/xxx.png`));
-        // this.addButtons();
+        this.limitWidth = this.view.frame().size.width;
+        this.delegate = new MochaJSDelegate({
+            "viewWillLayoutSize:": function (newSize) {
+                _this.emitter.emit(MENU_EVENT.WIIL_LAYOUT);
+                Object(_utils_resize_delegate__WEBPACK_IMPORTED_MODULE_1__["splitViewItemDisableRezise"])(_this.ctx.stageView, _this.view, _this.limitWidth);
+            },
+            "onButtonClick:": function (button) {
+                _this.onClick(button);
+            },
+        }).getClassInstance();
     }
     // 切换是否显示
     MenuController.prototype.toogle = function () {
@@ -698,15 +699,9 @@ var MenuController = /** @class */ (function () {
         index === -1 ? this.show() : this.hide();
     };
     MenuController.prototype.show = function () {
-        var _this = this;
         this.ctx.insertViewAfter(this.view);
-        var limitWidth = this.view.frame().size.width;
-        this.NSController.delegate = new MochaJSDelegate({
-            'viewWillLayoutSize:': function (newSize) {
-                _this.emitter.emit(MENU_EVENT.WIIL_LAYOUT);
-                Object(_utils_resize_delegate__WEBPACK_IMPORTED_MODULE_3__["splitViewItemDisableRezise"])(_this.ctx.stageView, _this.view, limitWidth);
-            }
-        }).getClassInstance();
+        this.limitWidth = this.view.frame().size.width;
+        this.NSController.delegate = this.delegate;
     };
     MenuController.prototype.hide = function () {
         this.setMainButtonState(0);
@@ -715,45 +710,34 @@ var MenuController = /** @class */ (function () {
         this.NSController.delegate = null;
         this.emitter.emit(MENU_EVENT.MAIN_CLOSE);
     };
-    MenuController.prototype.addButtons = function () {
+    MenuController.prototype.onClick = function (button) {
         var _this = this;
-        var parent = Object(_utils_view_utils__WEBPACK_IMPORTED_MODULE_2__["getSubviewById"])(this.view, 'headStack');
-        parent.addView_inGravity(Object(_element__WEBPACK_IMPORTED_MODULE_1__["createBoxSeparator"])(), 3);
-        options.forEach(function (option, index) {
-            var button = Object(_element__WEBPACK_IMPORTED_MODULE_1__["createButton"])({
-                rect: NSMakeRect(0, 0, 40, 40),
-                size: NSMakeSize(40, 40),
-                tooltip: option.tooltip,
-                type: 2,
-                iconUrl: _this.ctx.NSURL("icons/" + option.id + ".png"),
-                activeIconUrl: _this.ctx.NSURL("icons/" + option.id + "-active.png"),
-                callAction: function () {
-                    _this.onClick(option, button);
-                },
+        try {
+            options.forEach(function (option) {
+                if (option.id == button.identifier().toString()) {
+                    if (option.event === MENU_EVENT.MAIN_CLICK) {
+                    }
+                    else if (option.event === MENU_EVENT.BUTTON_CLICK) {
+                    }
+                    else if (option.event === MENU_EVENT.PANEL_CLICK) {
+                        // 点击普通按钮时 如果总控Main未激活 则模拟激活 打开主面板
+                        if (button.state() === 1 && _this.NSController.mainButton().state() !== 1) {
+                            _this.NSController.mainButton().performClick('callAction:');
+                        }
+                    }
+                    _this.emitter.emit(option.event, option, button);
+                }
             });
-            _this.buttons[option.id] = button;
-            parent.addView_inGravity(button, option.gravity || 1);
-            parent.addView_inGravity(Object(_element__WEBPACK_IMPORTED_MODULE_1__["createBoxSeparator"])(), option.gravity || 1);
-        });
-    };
-    MenuController.prototype.onClick = function (option, view) {
-        if (option.event === MENU_EVENT.MAIN_CLICK) {
         }
-        else if (option.event === MENU_EVENT.BUTTON_CLICK) {
+        catch (e) {
+            console.log(e);
         }
-        else if (option.event === MENU_EVENT.PANEL_CLICK) {
-            // 点击普通按钮时 如果总控Main未激活 则模拟激活 打开主面板
-            if (this.buttons['main'] && view.state() === 1 && this.buttons['main'].state() !== 1) {
-                this.buttons['main'] && this.buttons['main'].performClick('callAction:');
-            }
-        }
-        this.emitter.emit(option.event, option, view);
     };
     MenuController.prototype.on = function (event, cb) {
         this.emitter.on(event, cb);
     };
     MenuController.prototype.setMainButtonState = function (state) {
-        this.buttons['main'] && this.buttons['main'].setState(state);
+        this.NSController.mainButton().setState(state);
     };
     return MenuController;
 }());
@@ -784,12 +768,12 @@ var options = [{
     }, {
         tooltip: '设置',
         id: 'mask',
-        gravity: sketch__WEBPACK_IMPORTED_MODULE_4__["NSStackViewGravityBottom"],
+        gravity: 3,
         event: MENU_EVENT.BUTTON_CLICK
     }, {
         tooltip: '用户',
         id: 'border',
-        gravity: sketch__WEBPACK_IMPORTED_MODULE_4__["NSStackViewGravityBottom"],
+        gravity: 3,
         event: MENU_EVENT.BUTTON_CLICK
     }];
 // toolbar.addView_inGravity(createImageView(NSMakeRect(0, 0, 40, 8), this.ctx.NSURL('icons/transparent.png')), 3);
@@ -1338,17 +1322,6 @@ function getSubviewById(rootView, identifier) {
 /***/ (function(module, exports) {
 
 module.exports = require("events");
-
-/***/ }),
-
-/***/ "sketch":
-/*!*************************!*\
-  !*** external "sketch" ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("sketch");
 
 /***/ }),
 
