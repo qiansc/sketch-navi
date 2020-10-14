@@ -96,7 +96,7 @@ NSMutableArray<NSButton*>* panelButtons;
         NSDictionary* info = @{
             @"documentId": _documentId,
             @"panelId": option[@"id"],
-            @"states": [self buttonStates],
+            @"states": [self panelButtonStates],
         };
         if (button.state) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"OPEN_PANEL" object:nil userInfo:info];
@@ -114,7 +114,7 @@ NSMutableArray<NSButton*>* panelButtons;
     }
 }
 
--(NSDictionary*)buttonStates {
+-(NSDictionary*)panelButtonStates {
     NSMutableDictionary *states = [[NSMutableDictionary alloc]init];
     NSLog(@"NAVIL panelButtons %@", panelButtons);
     for(NSButton* button in panelButtons) {
