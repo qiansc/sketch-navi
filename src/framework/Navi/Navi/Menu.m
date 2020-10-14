@@ -12,6 +12,7 @@
 @implementation Menu
 
 NSString* _documentId;
+NSMutableArray<NSButton*>* panelButtons;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,6 +48,8 @@ NSString* _documentId;
 }
 
 - (void)initButton {
+    
+    panelButtons = [[NSMutableArray alloc]init];
 
     [self.headStack addView:[Util separtorBox] inGravity: NSStackViewGravityBottom];
 
@@ -73,8 +76,11 @@ NSString* _documentId;
         [button setTarget:self];
         [button setAction:@selector(buttonClick:)];
 
-        if([id  isEqual: @"main"]) {
+        if([option[@"type"] isEqual: @"MAIN"]) {
             self.mainButton = button;
+        }
+        else if([option[@"type"] isEqual:@"PANEL"]) {
+            [panelButtons addObject: button];
         }
 
     }
@@ -87,11 +93,15 @@ NSString* _documentId;
             // 点击普通按钮时 如果总控Main未激活 则模拟激活 打开主面板
             [[self mainButton] performClick:@"callAction:"];
         }
-        NSDictionary* opt = @{@"id": option[@"id"],@"documentId": _documentId};
+        NSDictionary* info = @{
+            @"documentId": _documentId,
+            @"panelId": option[@"id"],
+            @"states": [self buttonStates],
+        };
         if (button.state) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"OPEN_PANEL" object:opt];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"OPEN_PANEL" object:nil userInfo:info];
         } else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"HIDE_PANEL" object:opt];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"HIDE_PANEL" object:nil userInfo:info];
         }
     }
 
@@ -102,6 +112,15 @@ NSString* _documentId;
             @"option": option
         }];
     }
+}
+
+-(NSDictionary*)buttonStates {
+    NSMutableDictionary *states = [[NSMutableDictionary alloc]init];
+    NSLog(@"NAVIL panelButtons %@", panelButtons);
+    for(NSButton* button in panelButtons) {
+        [states setValue:@(button.state) forKey:button.identifier];
+    }
+    return states;
 }
 
 - (NSButton*)createButton:(NSString*) name icon: (NSURL *) iconUrl activeIcon:(NSURL *) activeIconUrl {

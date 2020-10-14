@@ -678,11 +678,8 @@ var MenuController = /** @class */ (function () {
         this.ctx = ctx;
         this.emitter = new EventEmitter();
         var NSMenu = _framework__WEBPACK_IMPORTED_MODULE_0__["framework"].getClass('Menu');
-        console.log('0000');
         this.NSController = NSMenu.generateWithDocumentId(ctx.documentId);
-        console.log('222');
         this.NSController.updateLimitWidth();
-        console.log('3333');
         this.view = this.NSController.view();
         this.delegate = new MochaJSDelegate({
             "viewWillLayoutSize:": function (option) {
@@ -699,7 +696,6 @@ var MenuController = /** @class */ (function () {
                 }
             },
         }).getClassInstance();
-        console.log('9999999');
     }
     // 切换是否显示
     MenuController.prototype.toogle = function () {
@@ -735,13 +731,7 @@ var MENU_EVENT;
     MENU_EVENT["OPEN_PANEL"] = "OPEN_PANEL";
     MENU_EVENT["OPEN_WINDOW"] = "OPEN_WINDOW";
 })(MENU_EVENT || (MENU_EVENT = {}));
-// toolbar.addView_inGravity(createImageView(NSMakeRect(0, 0, 40, 8), this.ctx.NSURL('icons/transparent.png')), 3);
 // this.nib.buttonMain.image = NSImage.alloc().initByReferencingFile(`${this.ctx.resourcesPath()}/icons/icon-main.png`);
-// // this.buttonMainChanged = this.buttonMainChanged.bind(this);
-// // this.nib.buttonMain.setCOSJSTargetFunction(this.buttonMainChanged);
-// this.nib.buttonMain.setCOSJSTargetFunction(function(sender: any){
-//     console.log('XXXXXX!!HAHAHAHA');
-// });
 
 
 /***/ }),

@@ -12,6 +12,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePanel:) name:@"OPEN_PANEL" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePanel:) name:@"HIDE_PANEL" object:nil];
 }
 -  (void)viewWillLayout {
 //    [self setPreferredContentSize:CGSizeMake(40, 450)];
@@ -21,6 +23,10 @@
         [self.delegate viewWillLayoutSize:[NSString stringWithFormat:@"%f,%f", self.view.frame.size.width, self.view.frame.size.height]];
     }
 }
+-(void)changePanel:(NSNotification*)notification{
+    NSLog(@"NAVIL openPanel => %@", notification.userInfo);
+}
+
 
 + (instancetype)viewControllerFromNIB {
     // 从NIB里创建view及controller
