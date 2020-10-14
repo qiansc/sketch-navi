@@ -12,34 +12,49 @@
 
 @implementation Config
 
-+(NSArray<NSDictionary*>*) MenuOption {
++(NSArray<NSDictionary*>*) MenuOptions {
     return @[@{
         @"name": @"全部",
-        @"id": @"main",
+        @"id": @"Main",
+        @"icon": @"main",
         @"gravity": @1,
         @"type": @"MAIN"
     }, @{
         @"name": @"颜色",
-        @"id": @"color",
+        @"id": @"Color",
+        @"icon": @"color",
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
         @"name": @"文本",
-        @"id": @"text",
+        @"id": @"Text",
+        @"icon": @"text",
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
         @"name": @"设置",
-        @"id": @"mask",
+        @"id": @"Setting",
+        @"icon": @"mask",
         @"gravity": @3,
-        @"type": @"BUTTON"
+        @"type": @"WINDOW"
     }, @{
         @"name": @"用户",
-        @"id": @"border",
+        @"id": @"User",
+        @"icon": @"border",
         @"gravity": @3,
-        @"type": @"BUTTON"
+        @"type": @"WINDOW"
     }];
 }
+
++(NSDictionary*) MenuOption:(NSString*) id {
+    for (NSDictionary* option in [self MenuOptions]) {
+        if([option[@"id"] isEqual:id]) {
+            return option;
+        }
+    }
+    return nil;
+}
+
     // MenuOption* mainOption = [[MenuOption alloc] init];
 //    NSArray<MenuOption*>* menuOptions = [[NSArray alloc]initWithObjects:
 //                                         ,

@@ -9,7 +9,7 @@
 */
 const MochaJSDelegate = require('mocha-js-delegate');
 
-export function splitViewItemDisableRezise(NSSplitViewInstance: any, subview: any, limitWidth: number) {
+export function splitViewItemDisableRezise(NSSplitViewInstance: any, subview: any, limitWidth: any) {
     try{
         let index = -1;
         const views = NSSplitViewInstance.subviews();
@@ -23,7 +23,7 @@ export function splitViewItemDisableRezise(NSSplitViewInstance: any, subview: an
             const nextWidth = NSSplitViewInstance.subviews()[index+1].frame().size.width;
             const nextPos = NSSplitViewInstance.maxPossiblePositionOfDividerAtIndex(index);
             // const prevWidth = NSSplitViewInstance.subviews()[index-1].frame().size.width;
-            NSSplitViewInstance.setPosition_ofDividerAtIndex(nextPos - nextWidth - limitWidth - 1, index - 1);
+            NSSplitViewInstance.setPosition_ofDividerAtIndex(nextPos - nextWidth - limitWidth * 1 - 1, index - 1);
 
             // 防止前侧面板大小变化
             // if (NSSplitViewInstance.subviews()[index-1].identifier().indexOf('-navi-') > 0) {

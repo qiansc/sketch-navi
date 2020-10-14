@@ -1,14 +1,14 @@
 /** 对context上下文进行一些封装 */
 export class SketchContext {
     public document: any;
-    public documentID: string;
+    public documentId: string;
     public version: string;
     public plugin: Plugin;
     public contentView: any;
     public stageView: any;
     constructor(private context: any) {
         this.document = context.document || (context.actionContext && context.actionContext.document) || (MSDocument as any).currentDocument();
-        this.documentID = this.document.documentData().objectID();
+        this.documentId = this.document.documentData().objectID();
         this.version = new String(context.plugin.version()).toString();
         this.plugin = context.plugin;
         this.contentView = this.context.document.documentWindow().contentView();
@@ -28,12 +28,12 @@ export class SketchContext {
     }
 
     /** NS资源定位符 */
-    public NSURL(path?: string) {
-        let url = this.context.plugin.url()
-        .URLByAppendingPathComponent('Contents')
-        .URLByAppendingPathComponent('Resources');
-        return path? url.URLByAppendingPathComponent(path) : url;
-    }
+    // public NSURL(path?: string) {
+    //     let url = this.context.plugin.url()
+    //     .URLByAppendingPathComponent('Contents')
+    //     .URLByAppendingPathComponent('Resources');
+    //     return path? url.URLByAppendingPathComponent(path) : url;
+    // }
 
     /** 从缓存里查找是否有可复用的上下文 */
     // static getOrCreate(context: any){
@@ -117,5 +117,5 @@ export class SketchContext {
 }
 
 function compare(str: string, str0: string) {
-    return ''.concat(str) === ''.concat(str0);
+    return ''.concat(str.toString()) === ''.concat(str0.toString());
 };

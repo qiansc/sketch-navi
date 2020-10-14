@@ -13,11 +13,11 @@ export function onStart(context: any) {
     const threadDictionary = NSThread.mainThread().threadDictionary();
 
     // 从内存中恢复 因为每次插件调用onStart都是重新执行
-    let runtime: Runtime = threadDictionary[`${ctx.documentID}-navi-runtime`];
+    let runtime: Runtime = threadDictionary[`${ctx.documentId}-navi-runtime`];
 
     if (!runtime) {
         // 创建并写入内存
-        runtime = threadDictionary[`${ctx.documentID}-navi-runtime`] = getRuntime(ctx);
+        runtime = threadDictionary[`${ctx.documentId}-navi-runtime`] = getRuntime(ctx);
     }
 
     runtime.menuController.toogle();
@@ -35,15 +35,15 @@ function getRuntime(ctx: SketchContext) {
 
     // 下面开始把不同controller的事件和处理过程串联起来
 
-    menuController.on(MENU_EVENT.MAIN_CLOSE, (option: MenuOption, target: any) => {
+    menuController.on(MENU_EVENT.CLOSE_MAIN, (option: MenuOption, target: any) => {
         panelController.hide();
     });
 
-    menuController.on(MENU_EVENT.MAIN_CLICK, (option: MenuOption, target: any) => {
+    menuController.on(MENU_EVENT.OPEN_MAIN, (option: MenuOption, target: any) => {
         target.state() ? panelController.show() : panelController.hide();
     });
 
-    menuController.on(MENU_EVENT.PANEL_CLICK, (option: MenuOption, target: any) => {
+    menuController.on(MENU_EVENT.OPEN_PANEL, (option: MenuOption, target: any) => {
         // 全部按钮点击时展开面板
         // target.state() ? panelController.show() : panelController.hide();
     });
@@ -53,8 +53,8 @@ function getRuntime(ctx: SketchContext) {
         panelController.lockSize();
     });
 
-    panelController.on(PANEL_EVENT.WINDOW_CLOSE, () => menuController.setMainButtonState(0));
-    panelController.on(PANEL_EVENT.PANEL_SHOW, () => menuController.setMainButtonState(1));
+    panelController.on(PANEL_EVENT.CLOSE_WINDOW, () => menuController.setMainButtonState(0));
+    panelController.on(PANEL_EVENT.SHOW_PANEL, () => menuController.setMainButtonState(1));
 
     // panelController.on(PANEL_EVENT.COLOR_CHANGE, (colorCode: string) => changeColor(colorCode));
 

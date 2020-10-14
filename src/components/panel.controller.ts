@@ -18,7 +18,7 @@ export class PanelController {
     public colorController: any; // 临时对象
     public sectionInfo: any;
     constructor(private ctx: SketchContext) {
-        this.id = `${ctx.documentID}-navi-tools-panel`;
+        this.id = `${ctx.documentId}-navi-tools-panel`;
         const NSPanel = framework.framework.getClass('Panel');
         this.NSController = NSPanel.viewControllerFromNIB();
         this.view = this.NSController.view();
@@ -45,7 +45,7 @@ export class PanelController {
     show() {
         this.NSController.layoutSection();
         this.floatButton.state() === 0 ? this.showWindow() : this.showSlider();
-        this.emitter.emit(PANEL_EVENT.PANEL_SHOW);
+        this.emitter.emit(PANEL_EVENT.SHOW_PANEL);
     }
     hide() {
         if (this.window) {
@@ -58,7 +58,7 @@ export class PanelController {
     private showSlider() {
         if (this.ctx.findView(this.id) === -1) {
             // 插入到目录左侧
-            this.ctx.insertViewBefore(this.view, `${this.ctx.documentID}-navi-menu-panel`);
+            this.ctx.insertViewBefore(this.view, `${this.ctx.documentId}-navi-menu-panel`);
             this.floatButton.setState(1);
             // 下面这个代理方法主要实现限制menu宽度，策略1限制最小宽度，策略2限制在lockSize时间段内，不发生size变化
             this.NSController.delegate = new MochaJSDelegate({
@@ -84,7 +84,7 @@ export class PanelController {
         });
         window.setDelegate(new MochaJSDelegate({
             'windowWillClose:': () => {
-                this.emitter.emit(PANEL_EVENT.WINDOW_CLOSE);
+                this.emitter.emit(PANEL_EVENT.CLOSE_WINDOW);
                 return NSApp.stopModal();
             }
         }).getClassInstance());
@@ -105,8 +105,8 @@ export class PanelController {
 }
 
 export enum PANEL_EVENT {
-    'WINDOW_CLOSE' = 1,
+    'CLOSE_WINDOW' = 1,
     'WIIL_LAYOUT' = 10,
-    'PANEL_SHOW' = 11,
+    'SHOW_PANEL' = 11,
     'COLOR_CHANGE' = 21,
 }

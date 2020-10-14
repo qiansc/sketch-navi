@@ -11,6 +11,8 @@
 
 @implementation Menu
 
+NSString* _documentId;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setPreferredContentSize:CGSizeMake(40, 450)];
@@ -22,20 +24,14 @@
 //    self.view.window.contentMinSize = CGSizeMake(40, 450);
 //    self.view.window.contentMaxSize = CGSizeMake(40, 450);
     if (self.delegate) {
-        [self.delegate viewWillLayoutSize:[NSString stringWithFormat:@"%f,%f", self.view.frame.size.width, self.view.frame.size.height]];
+        [self.delegate viewWillLayoutSize: @{
+            @"width": @(self.view.frame.size.width),
+            @"height": @(self.view.frame.size.height),
+            @"limitWidth": @(self.limitWidth)
+        }];
     }
 }
 
-+ (instancetype)viewControllerFromNIB {
-    
-    // 这里一般都写 bundle:[NSBundle mainBundle] 但是以framework形式加载时候会出错
-    NSString* const frameworkBundleID  = @"com.baidu.Navi";
-    NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
-    
-    return[[Menu alloc] initWithNibName:@"Menu" bundle:resourceBundlePath];
-    // return [[MenuController alloc] initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle mainBundle]];
-    // [[NSBundle mainBundle] loadNibNamed:@"MenuBtn" owner:self topLevelObjects:nil];
-}
 - (void)viewDidAppear{
 //    [self.view setFrameSize:NSMakeSize(40, 450)];
 //    [self setPreferredContentSize:CGSizeMake(40, 450)];
@@ -56,13 +52,14 @@
 
     NSBundle *frameworkBundle = [NSBundle bundleForClass:[Menu class]];
 
-    NSArray<NSDictionary*>* options = [Config MenuOption];
+    NSArray<NSDictionary*>* options = [Config MenuOptions];
     
     for(NSDictionary *option in options) {
-
+        
         NSString *id = option[@"id"];
-        NSURL *iconUrl = [NSURL fileURLWithPath:[frameworkBundle pathForResource: id ofType:@"png"]];
-        NSURL *activeUrl = [NSURL fileURLWithPath:[frameworkBundle pathForResource:  [id stringByAppendingFormat:@"%@", @"-active"] ofType:@"png"]];
+        NSString *icon = option[@"icon"];
+        NSURL *iconUrl = [NSURL fileURLWithPath:[frameworkBundle pathForResource: icon ofType:@"png"]];
+        NSURL *activeUrl = [NSURL fileURLWithPath:[frameworkBundle pathForResource:  [icon stringByAppendingFormat:@"%@", @"-active"] ofType:@"png"]];
 
         NSButton *button = [self createButton:option[@"name"] icon: iconUrl activeIcon: activeUrl];
 
@@ -84,8 +81,26 @@
 }
 
 -(void)buttonClick:(NSButton*)button {
+    NSDictionary* option = [Config MenuOption: button.identifier];
+    if ([option[@"type"] isEqual:@"PANEL"]) {
+        if (button.state && ![self mainButton].state) {
+            // 点击普通按钮时 如果总控Main未激活 则模拟激活 打开主面板
+            [[self mainButton] performClick:@"callAction:"];
+        }
+        NSDictionary* opt = @{@"id": option[@"id"],@"documentId": _documentId};
+        if (button.state) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"OPEN_PANEL" object:opt];
+        } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"HIDE_PANEL" object:opt];
+        }
+    }
+
+    
     if (self.delegate) {
-        [self.delegate onButtonClick: button];
+        [self.delegate onButtonClick: @{
+            @"view": button,
+            @"option": option
+        }];
     }
 }
 
@@ -98,6 +113,33 @@
     [button setToolTip: name];
     [button setButtonType: NSButtonTypeToggle]; //NSButtonTypeMomentaryChange
     return button;
+}
+
+- (void)setDocumentId:(NSString*) documentId {
+    self.view.identifier = [documentId stringByAppendingString:@"-navi-menu-panel"];
+    _documentId = documentId;
+}
+
+- (void)updateLimitWidth {
+    self.limitWidth = self.view.frame.size.width * 1;
+}
+
++ (instancetype)generateWithDocumentId:(NSString*) documentId {
+    Menu* menu = [self viewControllerFromNIB];
+    [menu setDocumentId:documentId];
+    // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationFirst:) name:@"First" object:nil];
+    return menu;
+}
+
++ (instancetype)viewControllerFromNIB {
+    // 从NIB里创建view及controller
+    // 这里一般都写 bundle:[NSBundle mainBundle] 但是以framework形式加载时候会出错
+    NSString* const frameworkBundleID  = @"com.baidu.Navi";
+    NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
+    
+    return[[Menu alloc] initWithNibName:@"Menu" bundle:resourceBundlePath];
+    // return [[MenuController alloc] initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle mainBundle]];
+    // [[NSBundle mainBundle] loadNibNamed:@"MenuBtn" owner:self topLevelObjects:nil];
 }
 
 @end

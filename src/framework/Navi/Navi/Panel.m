@@ -23,6 +23,7 @@
 }
 
 + (instancetype)viewControllerFromNIB {
+    // 从NIB里创建view及controller
     // 这里一般都写 bundle:[NSBundle mainBundle] 但是以framework形式加载时候会出错
     NSString* const frameworkBundleID  = @"com.baidu.Navi";
     NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];

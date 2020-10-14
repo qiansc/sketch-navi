@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Config : NSObject
 
-    +(NSArray<NSDictionary*>*) MenuOption;
+    +(NSArray<NSDictionary*>*) MenuOptions;
+    +(NSDictionary*) MenuOption:(NSString*) id;
 
 @end
 
