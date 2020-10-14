@@ -50,11 +50,10 @@
 }
 
 + (instancetype)viewControllerFromNIB {
-    
+
     // 这里一般都写 bundle:[NSBundle mainBundle] 但是以framework形式加载时候会出错
     NSString* const frameworkBundleID  = @"com.baidu.Navi";
     NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
-    
     return [[ColorPanel alloc] initWithNibName:@"ColorPanel" bundle:resourceBundlePath];
 }
 
@@ -76,7 +75,7 @@
     if (self.selectedCode == button.toolTip) {
         return;
     }
-    
+
     [self select:button.toolTip];
 }
 

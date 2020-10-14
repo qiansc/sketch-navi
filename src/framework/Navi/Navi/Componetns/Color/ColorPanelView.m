@@ -17,7 +17,7 @@
 
     self.colorPanelController = [ColorPanel viewControllerFromNIB];
     self.view = self.colorPanelController.view;
-    
+
     NSRect contentFrame = NSMakeRect(0, 0, self.frame.size.width, self.frame.size.height);
     self.view.frame = contentFrame;
 
@@ -44,7 +44,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
-    
+
     // Drawing code here.
 }
 

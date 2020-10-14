@@ -30,6 +30,7 @@ export function getSubviewsById(rootView: any, identifier: string) {
           result.push(view);
         }
       });
+    console.log('---reuslt---', result.length);
     return result;
 }
 

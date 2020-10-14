@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 - (void)colorChange:(NSString *) colorCode;
 
+@optional
+- (void)lineChange:(NSString *) lineCode;
+
 @end
 
 NS_ASSUME_NONNULL_END

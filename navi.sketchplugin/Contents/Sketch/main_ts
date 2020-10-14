@@ -850,6 +850,19 @@ var PanelController = /** @class */ (function () {
             }
         }).getClassInstance();
         // 颜色测试代码结束
+        // 以下是线条测试代码
+        var linep = Object(_utils_view_utils__WEBPACK_IMPORTED_MODULE_2__["getSubviewById"])(Object(_utils_view_utils__WEBPACK_IMPORTED_MODULE_2__["getSubviewById"])(this.view, 'section'), 'linep');
+        console.log('-----', linep.toString());
+        console.log('-----', colorp.toString());
+        this.lineController = linep.linePanelController();
+        console.log('--this.lineController---', this.lineController);
+        this.lineController.delegate = new MochaJSDelegate({
+            'lineChange:': function () {
+                _this.sectionInfo.setTitle('line changed');
+                // this.emitter.emit(PANEL_EVENT.COLOR_CHANGE, colorCode);
+            }
+        }).getClassInstance();
+        // 线条测试代码结束
     }
     PanelController.prototype.show = function () {
         this.floatButton.state() === 0 ? this.showWindow() : this.showSlider();
@@ -1049,7 +1062,6 @@ function onSelectionChanged(context) {
         if (layerData) {
             var colorCode = layerData['com.baidu.Navi'].style.fills[0].colorCode; // 选中颜色的编码
             selection[0].style.fills[0].color = "#" + color[colorCode]; // 修复颜色
-            console.log('colorCode', colorCode);
             runtime.panelController.colorController.select(colorCode);
         }
         else {
@@ -1317,6 +1329,7 @@ function getSubviewsById(rootView, identifier) {
             result.push(view);
         }
     });
+    console.log('---reuslt---', result.length);
     return result;
 }
 function getSubviewById(rootView, identifier) {

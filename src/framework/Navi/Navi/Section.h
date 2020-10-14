@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ColorPanelView.h"
+#import "LinePanelView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong) IBOutlet NSView *view;
 @property (strong) IBOutlet NSButton *pluginTitle;
 @property (strong) IBOutlet ColorPanelView * colorPanelView;
+@property (strong) IBOutlet LinePanelView * linePanelView;
 
 + (instancetype)viewControllerFromNIB;
 

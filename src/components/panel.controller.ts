@@ -16,6 +16,7 @@ export class PanelController {
     private floatButton: any;
     private minWidth: number;
     public colorController: any; // 临时对象
+    public lineController: any; // 临时对象
     public sectionInfo: any;
     constructor(private ctx: SketchContext) {
         this.id = `${ctx.documentID}-navi-tools-panel`;
@@ -41,6 +42,20 @@ export class PanelController {
             }
         }).getClassInstance();
         // 颜色测试代码结束
+
+        // 以下是线条测试代码
+        const linep = getSubviewById(getSubviewById(this.view, 'section'), 'linep');
+        console.log('-----', linep.toString())
+        console.log('-----', colorp.toString())
+        this.lineController = linep.linePanelController();
+        console.log('--this.lineController---', this.lineController)
+        this.lineController.delegate = new MochaJSDelegate({
+            'lineChange:': () => {
+                this.sectionInfo.setTitle('line changed');
+                // this.emitter.emit(PANEL_EVENT.COLOR_CHANGE, colorCode);
+            }
+        }).getClassInstance();
+        // 线条测试代码结束
     }
     show() {
         this.floatButton.state() === 0 ? this.showWindow() : this.showSlider();

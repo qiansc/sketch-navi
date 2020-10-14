@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301AA3CA25300C8800554ED7 /* LinePanelView.h in Headers */ = {isa = PBXBuildFile; fileRef = 301AA3C825300C8800554ED7 /* LinePanelView.h */; };
+		301AA3CB25300C8800554ED7 /* LinePanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 301AA3C925300C8800554ED7 /* LinePanelView.m */; };
+		301AA3D325303CBB00554ED7 /* LinePanel.h in Headers */ = {isa = PBXBuildFile; fileRef = 301AA3D025303CBB00554ED7 /* LinePanel.h */; };
+		301AA3D425303CBB00554ED7 /* LinePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 301AA3D125303CBB00554ED7 /* LinePanel.m */; };
+		301AA3D525303CBB00554ED7 /* LinePanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301AA3D225303CBB00554ED7 /* LinePanel.xib */; };
+		301AA3D8253196C800554ED7 /* LineCellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 301AA3D6253196C800554ED7 /* LineCellView.h */; };
+		301AA3D9253196C800554ED7 /* LineCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 301AA3D7253196C800554ED7 /* LineCellView.m */; };
 		A32ED9942511D4E100EBCE68 /* Menu.h in Headers */ = {isa = PBXBuildFile; fileRef = A32ED9922511D4E100EBCE68 /* Menu.h */; };
 		A32ED9952511D4E100EBCE68 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = A32ED9932511D4E100EBCE68 /* Menu.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A38993F9250B85A000211D90 /* Navi.h in Headers */ = {isa = PBXBuildFile; fileRef = A38993F7250B859F00211D90 /* Navi.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,6 +38,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		301AA3C825300C8800554ED7 /* LinePanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinePanelView.h; sourceTree = "<group>"; };
+		301AA3C925300C8800554ED7 /* LinePanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinePanelView.m; sourceTree = "<group>"; };
+		301AA3D025303CBB00554ED7 /* LinePanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinePanel.h; sourceTree = "<group>"; };
+		301AA3D125303CBB00554ED7 /* LinePanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinePanel.m; sourceTree = "<group>"; };
+		301AA3D225303CBB00554ED7 /* LinePanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinePanel.xib; sourceTree = "<group>"; };
+		301AA3D6253196C800554ED7 /* LineCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineCellView.h; sourceTree = "<group>"; };
+		301AA3D7253196C800554ED7 /* LineCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineCellView.m; sourceTree = "<group>"; };
 		A32ED9922511D4E100EBCE68 /* Menu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		A32ED9932511D4E100EBCE68 /* Menu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		A38993F4250B859F00211D90 /* Navi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +82,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		301AA3C7253006BC00554ED7 /* Line */ = {
+			isa = PBXGroup;
+			children = (
+				301AA3C825300C8800554ED7 /* LinePanelView.h */,
+				301AA3C925300C8800554ED7 /* LinePanelView.m */,
+				301AA3D025303CBB00554ED7 /* LinePanel.h */,
+				301AA3D125303CBB00554ED7 /* LinePanel.m */,
+				301AA3D225303CBB00554ED7 /* LinePanel.xib */,
+				301AA3D6253196C800554ED7 /* LineCellView.h */,
+				301AA3D7253196C800554ED7 /* LineCellView.m */,
+			);
+			path = Line;
+			sourceTree = "<group>";
+		};
 		A38993EA250B859F00211D90 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +147,7 @@
 		A3B148E425162C0E00939B36 /* Componetns */ = {
 			isa = PBXGroup;
 			children = (
+				301AA3C7253006BC00554ED7 /* Line */,
 				A3EB367425188D85006B01F0 /* Color */,
 			);
 			path = Componetns;
@@ -153,7 +182,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				301AA3D8253196C800554ED7 /* LineCellView.h in Headers */,
 				B23CA2962519855E00FB2416 /* HexColor.h in Headers */,
+				301AA3CA25300C8800554ED7 /* LinePanelView.h in Headers */,
 				A32ED9942511D4E100EBCE68 /* Menu.h in Headers */,
 				A3EB367D25188E75006B01F0 /* ColorPanelView.h in Headers */,
 				A3EB367125188D6E006B01F0 /* ColorPanel.h in Headers */,
@@ -161,6 +192,7 @@
 				A38993F9250B85A000211D90 /* Navi.h in Headers */,
 				B25BF9AC25176C5800D44DFA /* SectionView.h in Headers */,
 				A397ACC825148BEA00286C6E /* Panel.h in Headers */,
+				301AA3D325303CBB00554ED7 /* LinePanel.h in Headers */,
 				A397ACC42513456500286C6E /* RezieseProtocol.h in Headers */,
 				A3EB36812518986D006B01F0 /* ColorMiniButtonView.h in Headers */,
 			);
@@ -225,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3E6094425109AB500C98536 /* Panel.xib in Resources */,
+				301AA3D525303CBB00554ED7 /* LinePanel.xib in Resources */,
 				A3B148F02516349E00939B36 /* Section.xib in Resources */,
 				B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */,
 				A3EB367325188D6E006B01F0 /* ColorPanel.xib in Resources */,
@@ -238,11 +271,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				301AA3D425303CBB00554ED7 /* LinePanel.m in Sources */,
 				A3EB367E25188E75006B01F0 /* ColorPanelView.m in Sources */,
 				B25BF9AD25176C5800D44DFA /* SectionView.m in Sources */,
 				A32ED9952511D4E100EBCE68 /* Menu.m in Sources */,
+				301AA3D9253196C800554ED7 /* LineCellView.m in Sources */,
 				A3EB36822518986D006B01F0 /* ColorMiniButtonView.m in Sources */,
 				A3EB367225188D6E006B01F0 /* ColorPanel.m in Sources */,
+				301AA3CB25300C8800554ED7 /* LinePanelView.m in Sources */,
 				A3B148EF2516349E00939B36 /* Section.m in Sources */,
 				A397ACC925148BEA00286C6E /* Panel.m in Sources */,
 			);
