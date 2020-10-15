@@ -11,14 +11,12 @@
 
 @implementation Menu
 
-NSString* _documentId;
-NSMutableArray<NSButton*>* panelButtons;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setPreferredContentSize:CGSizeMake(40, 450)];
     [self.view setAutoresizingMask:NSViewNotSizable];
     [self initButton];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangePanel:) name:@"DID_CHANGE_PANEL_ON" object:nil];
 }
 -  (void)viewWillLayout {
 //    [self setPreferredContentSize:CGSizeMake(40, 450)];
@@ -49,7 +47,7 @@ NSMutableArray<NSButton*>* panelButtons;
 
 - (void)initButton {
     
-    panelButtons = [[NSMutableArray alloc]init];
+    self.panelButtons = [[NSMutableDictionary alloc]init];
 
     [self.headStack addView:[Util separtorBox] inGravity: NSStackViewGravityBottom];
 
@@ -80,7 +78,8 @@ NSMutableArray<NSButton*>* panelButtons;
             self.mainButton = button;
         }
         else if([option[@"type"] isEqual:@"PANEL"]) {
-            [panelButtons addObject: button];
+            button.state = YES;
+            [self.panelButtons setValue:button forKey:id];
         }
 
     }
@@ -94,7 +93,7 @@ NSMutableArray<NSButton*>* panelButtons;
             [[self mainButton] performClick:@"callAction:"];
         }
         NSDictionary* info = @{
-            @"documentId": _documentId,
+            @"documentId": self.documentId,
             @"panelId": option[@"id"],
             @"states": [self panelButtonStates],
         };
@@ -116,10 +115,12 @@ NSMutableArray<NSButton*>* panelButtons;
 
 -(NSDictionary*)panelButtonStates {
     NSMutableDictionary *states = [[NSMutableDictionary alloc]init];
-    NSLog(@"NAVIL panelButtons %@", panelButtons);
-    for(NSButton* button in panelButtons) {
-        [states setValue:@(button.state) forKey:button.identifier];
+    
+    for(NSString* key in [self.panelButtons allKeys]){
+        NSButton *button = self.panelButtons[key];
+        [states setValue:@(button.state) forKey:key];
     }
+    
     return states;
 }
 
@@ -141,6 +142,16 @@ NSMutableArray<NSButton*>* panelButtons;
 
 - (void)updateLimitWidth {
     self.limitWidth = self.view.frame.size.width * 1;
+}
+
+- (void)didChangePanel:(NSNotification*)notification{
+
+    NSString *id = notification.userInfo[@"panelId"];
+    NSButton *button = self.panelButtons[id];
+    NSLog(@"NAVIL MENU:::HIDEPANEL %@  %@  %ld", id, button, (long)button.state);
+    if (button.state != [notification.userInfo[@"state"] intValue]) {
+        [button setNextState];
+    }
 }
 
 + (instancetype)generateWithDocumentId:(NSString*) documentId {

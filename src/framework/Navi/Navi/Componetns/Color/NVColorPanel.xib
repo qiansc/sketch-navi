@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NVColorPanel">
+            <connections>
+                <outlet property="headerView" destination="eV9-9d-w5m" id="Ehb-Up-fhp"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-9d-w5m" customClass="PanelHeaderView">
+                    <rect key="frame" x="0.0" y="266" width="240" height="34"/>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="eV9-9d-w5m" secondAttribute="trailing" id="gcU-zX-X7W"/>
+                <constraint firstItem="eV9-9d-w5m" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="tc0-5c-UGG"/>
+                <constraint firstItem="eV9-9d-w5m" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="wiN-Tm-fje"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="154"/>
+        </customView>
+    </objects>
+</document>

@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Panel">
             <connections>
+                <outlet property="stackView" destination="brd-or-Ora" id="DKQ-by-VVK"/>
                 <outlet property="view" destination="c22-O7-iKe" id="Cvx-Qs-siN"/>
             </connections>
         </customObject>
@@ -50,39 +51,54 @@
                     <rect key="frame" x="12" y="537" width="190" height="5"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </box>
-                <button identifier="floatButton" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IcM-R5-uSt">
-                    <rect key="frame" x="214" y="543" width="13" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                <button identifier="floatButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IcM-R5-uSt">
+                    <rect key="frame" x="216" y="547" width="10" height="14"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSLockUnlockedTemplate" imagePosition="overlaps" alignment="center" alternateImage="NSLockLockedTemplate" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="ovi-2K-kDt">
                         <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5A-1j-KMD">
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="e5A-1j-KMD">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="537"/>
-                    <clipView key="contentView" id="51B-74-XdU">
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="51B-74-XdU" customClass="FlippedClipView">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="537"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view id="LEp-ug-epk">
-                                <rect key="frame" x="0.0" y="0.0" width="225" height="522"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <view translatesAutoresizingMaskIntoConstraints="NO" id="LEp-ug-epk">
+                                <rect key="frame" x="0.0" y="537" width="240" height="0.0"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="brd-or-Ora">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="0.0"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="brd-or-Ora" secondAttribute="trailing" id="Adc-tt-HqM"/>
+                                    <constraint firstItem="brd-or-Ora" firstAttribute="leading" secondItem="LEp-ug-epk" secondAttribute="leading" id="ZW3-1K-eDT"/>
+                                    <constraint firstItem="brd-or-Ora" firstAttribute="top" secondItem="LEp-ug-epk" secondAttribute="top" id="kkN-Ll-RiX"/>
+                                    <constraint firstAttribute="bottom" secondItem="brd-or-Ora" secondAttribute="bottom" id="uyT-1c-gQj"/>
+                                </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                        <constraints>
+                            <constraint firstItem="LEp-ug-epk" firstAttribute="leading" secondItem="51B-74-XdU" secondAttribute="leading" id="MD6-MU-daA"/>
+                            <constraint firstItem="LEp-ug-epk" firstAttribute="top" secondItem="51B-74-XdU" secondAttribute="top" id="UVT-M6-777"/>
+                            <constraint firstAttribute="trailing" secondItem="LEp-ug-epk" secondAttribute="trailing" id="j9l-kN-crz"/>
+                        </constraints>
                     </clipView>
                     <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="6Q4-zI-fed">
                         <rect key="frame" x="-100" y="-100" width="225" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="vyx-EJ-qOI">
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="vyx-EJ-qOI" customClass="CustomScroller">
                         <rect key="frame" x="225" y="0.0" width="15" height="537"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
             </subviews>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="IcM-R5-uSt" secondAttribute="trailing" constant="14" id="7bu-dK-rqP"/>
                 <constraint firstItem="e5A-1j-KMD" firstAttribute="top" secondItem="mc5-Na-xp3" secondAttribute="bottom" constant="2" id="9rE-Eg-QhD"/>
+                <constraint firstItem="IcM-R5-uSt" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="11" id="WTR-uQ-dx5"/>
                 <constraint firstItem="e5A-1j-KMD" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="agZ-CH-mY7"/>
                 <constraint firstAttribute="bottom" secondItem="e5A-1j-KMD" secondAttribute="bottom" id="iu6-S8-Bx9"/>
                 <constraint firstAttribute="trailing" secondItem="e5A-1j-KMD" secondAttribute="trailing" id="zQ4-yM-ydb"/>

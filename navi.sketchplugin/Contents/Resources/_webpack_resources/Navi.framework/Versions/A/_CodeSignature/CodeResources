@@ -16,13 +16,29 @@
 		<data>
 		VLWJxnJJHs0bg8VF9yjd867ADew=
 		</data>
+		<key>Resources/NVColorPanel.nib</key>
+		<data>
+		vdizUZby25nSUGPNGbGp5qBtBA8=
+		</data>
+		<key>Resources/NVLinePanel.nib</key>
+		<data>
+		NCtif9d6nsa/qUJphPikglGBC5Y=
+		</data>
+		<key>Resources/NVMaskPanel.nib</key>
+		<data>
+		Zox6HiE/JctwS1C/2RWAbcZUL90=
+		</data>
+		<key>Resources/NVTextPanel.nib</key>
+		<data>
+		y/4Xh9m0W5U/UTNPNT+zyVrH9pA=
+		</data>
 		<key>Resources/Panel.nib</key>
 		<data>
-		lGKBzuINmctvUEBMDRPo2rIma6s=
+		6vGvPaRi4oLRB+Sg/loRO3ASLW8=
 		</data>
-		<key>Resources/Section.nib</key>
+		<key>Resources/PanelHeader.nib</key>
 		<data>
-		38wmYPkMXHkNYtJSGTR3eQlm9ww=
+		q642KR1mBGzj4HVhJG+079vtGSc=
 		</data>
 		<key>Resources/border-active.png</key>
 		<data>
@@ -162,18 +178,46 @@
 			V7l4FxVCcs3pdeFeosC5LVLF3sO4e/+gkk3Xd9V2MRA=
 			</data>
 		</dict>
+		<key>Resources/NVColorPanel.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			5VE78ziIw5ZLmSFSs13E/bVrh3t43g7sFaYRDor2sXM=
+			</data>
+		</dict>
+		<key>Resources/NVLinePanel.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lRSEGvqx0ccEhipn+OpgetsvlBGyEfynqXbnUR7tFK4=
+			</data>
+		</dict>
+		<key>Resources/NVMaskPanel.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			WshABHPjsDV5q5IQc4jbsCzRs+WwpJdR5wYIQItmGdY=
+			</data>
+		</dict>
+		<key>Resources/NVTextPanel.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			7e8ziNuqCxkFVX4UI9I4f/INIkrhMIo/QMiMyiwNPy0=
+			</data>
+		</dict>
 		<key>Resources/Panel.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			8FR3ZXn439Z1pCP8FjD2tA4jv88Fd3HgSxcMnaQAJgk=
+			psCtgcjhvs3dgvYqCrlD5B/PAhV6fhS20/u5BODVXkg=
 			</data>
 		</dict>
-		<key>Resources/Section.nib</key>
+		<key>Resources/PanelHeader.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			r86M1iVsQOct0FFoESM/4i1UNeanADoMWDue7ii9gJ8=
+			qv5Kk9p7BDOp+6ISyQlJO/NuSSbXCk0akNZpo6ilZHI=
 			</data>
 		</dict>
 		<key>Resources/border-active.png</key>

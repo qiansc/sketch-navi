@@ -767,9 +767,9 @@ var PanelController = /** @class */ (function () {
         this.lockWidth = 0; // 锁定宽度
         this.id = ctx.documentId + "-navi-tools-panel";
         var NSPanel = _framework__WEBPACK_IMPORTED_MODULE_0__["framework"].getClass('Panel');
-        this.NSController = NSPanel.viewControllerFromNIB();
+        this.NSController = NSPanel.generateWithDocumentId(ctx.documentId);
         this.view = this.NSController.view();
-        this.view.identifier = this.id;
+        this.id = this.view.identifier();
         this.floatButton = Object(_utils_view_utils__WEBPACK_IMPORTED_MODULE_2__["getSubviewById"])(this.view, 'floatButton');
         this.floatButton.setCOSJSTargetFunction(function () {
             _this.hide();

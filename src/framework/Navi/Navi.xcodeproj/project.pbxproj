@@ -7,13 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A300365125386EAF0093395D /* NVTextPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = A300364E25386EAF0093395D /* NVTextPanel.h */; };
+		A300365225386EAF0093395D /* NVTextPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A300364F25386EAF0093395D /* NVTextPanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A300365325386EAF0093395D /* NVTextPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A300365025386EAF0093395D /* NVTextPanel.xib */; };
+		A3003659253870E00093395D /* NVLinePanel.h in Headers */ = {isa = PBXBuildFile; fileRef = A3003656253870E00093395D /* NVLinePanel.h */; };
+		A300365A253870E00093395D /* NVLinePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3003657253870E00093395D /* NVLinePanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A300365B253870E00093395D /* NVLinePanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3003658253870E00093395D /* NVLinePanel.xib */; };
+		A300365F253870F40093395D /* NVMaskPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = A300365C253870F40093395D /* NVMaskPanel.h */; };
+		A3003660253870F40093395D /* NVMaskPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A300365D253870F40093395D /* NVMaskPanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3003661253870F40093395D /* NVMaskPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A300365E253870F40093395D /* NVMaskPanel.xib */; };
+		A3003664253873300093395D /* CustomScroller.h in Headers */ = {isa = PBXBuildFile; fileRef = A3003662253873300093395D /* CustomScroller.h */; };
+		A3003665253873300093395D /* CustomScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = A3003663253873300093395D /* CustomScroller.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A32ED9942511D4E100EBCE68 /* Menu.h in Headers */ = {isa = PBXBuildFile; fileRef = A32ED9922511D4E100EBCE68 /* Menu.h */; };
 		A32ED9952511D4E100EBCE68 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = A32ED9932511D4E100EBCE68 /* Menu.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3453B5C2535C5E2007AFFCC /* Config.h in Headers */ = {isa = PBXBuildFile; fileRef = A3453B5A2535C5E2007AFFCC /* Config.h */; };
-		A3453B5D2535C5E2007AFFCC /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = A3453B5B2535C5E2007AFFCC /* Config.m */; };
+		A3453B5D2535C5E2007AFFCC /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = A3453B5B2535C5E2007AFFCC /* Config.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3453B6825381A19007AFFCC /* FlippedClipView.h in Headers */ = {isa = PBXBuildFile; fileRef = A3453B6625381A19007AFFCC /* FlippedClipView.h */; };
+		A3453B6925381A19007AFFCC /* FlippedClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3453B6725381A19007AFFCC /* FlippedClipView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A34728A3253886B700EC18ED /* NVPanelController.h in Headers */ = {isa = PBXBuildFile; fileRef = A34728A1253886B700EC18ED /* NVPanelController.h */; };
+		A34728A4253886B700EC18ED /* NVPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34728A2253886B700EC18ED /* NVPanelController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A38993F9250B85A000211D90 /* Navi.h in Headers */ = {isa = PBXBuildFile; fileRef = A38993F7250B859F00211D90 /* Navi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A396D0EA25346F990061CC73 /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = A396D0E825346F990061CC73 /* Util.h */; };
-		A396D0EB25346F990061CC73 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A396D0E925346F990061CC73 /* Util.m */; };
+		A396D0EB25346F990061CC73 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A396D0E925346F990061CC73 /* Util.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A396D11225347F8C0061CC73 /* mask-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D0F825347F8B0061CC73 /* mask-active.png */; };
 		A396D11325347F8C0061CC73 /* border-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D0F925347F8B0061CC73 /* border-active.png */; };
 		A396D11425347F8C0061CC73 /* text-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D0FA25347F8B0061CC73 /* text-active.png */; };
@@ -41,9 +56,14 @@
 		A396D12A25347F8C0061CC73 /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D11025347F8B0061CC73 /* text.png */; };
 		A397ACC825148BEA00286C6E /* Panel.h in Headers */ = {isa = PBXBuildFile; fileRef = A397ACC625148BEA00286C6E /* Panel.h */; };
 		A397ACC925148BEA00286C6E /* Panel.m in Sources */ = {isa = PBXBuildFile; fileRef = A397ACC725148BEA00286C6E /* Panel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		A3B148EE2516349E00939B36 /* Section.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B148EB2516349E00939B36 /* Section.h */; };
-		A3B148EF2516349E00939B36 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B148EC2516349E00939B36 /* Section.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		A3B148F02516349E00939B36 /* Section.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3B148ED2516349E00939B36 /* Section.xib */; };
+		A3B5E221253828C40048F526 /* NVColorPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B5E21E253828C40048F526 /* NVColorPanel.h */; };
+		A3B5E222253828C40048F526 /* NVColorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B5E21F253828C40048F526 /* NVColorPanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3B5E223253828C40048F526 /* NVColorPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3B5E220253828C40048F526 /* NVColorPanel.xib */; };
+		A3B5E22825382B460048F526 /* PanelHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B5E22525382B460048F526 /* PanelHeader.h */; };
+		A3B5E22925382B470048F526 /* PanelHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B5E22625382B460048F526 /* PanelHeader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3B5E22A25382B470048F526 /* PanelHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3B5E22725382B460048F526 /* PanelHeader.xib */; };
+		A3B5E22D25382BE70048F526 /* PanelHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B5E22B25382BE70048F526 /* PanelHeaderView.h */; };
+		A3B5E22E25382BE70048F526 /* PanelHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B5E22C25382BE70048F526 /* PanelHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3E6094425109AB500C98536 /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3E6094325109AB500C98536 /* Panel.xib */; };
 		A3EB367125188D6E006B01F0 /* ColorPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = A3EB366E25188D6E006B01F0 /* ColorPanel.h */; };
 		A3EB367225188D6E006B01F0 /* ColorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB366F25188D6E006B01F0 /* ColorPanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -53,16 +73,29 @@
 		A3EB36812518986D006B01F0 /* ColorMiniButtonView.h in Headers */ = {isa = PBXBuildFile; fileRef = A3EB367F2518986D006B01F0 /* ColorMiniButtonView.h */; };
 		A3EB36822518986D006B01F0 /* ColorMiniButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EB36802518986D006B01F0 /* ColorMiniButtonView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B23CA2962519855E00FB2416 /* HexColor.h in Headers */ = {isa = PBXBuildFile; fileRef = B23CA2942519855E00FB2416 /* HexColor.h */; };
-		B25BF9AC25176C5800D44DFA /* SectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = B25BF9AA25176C5800D44DFA /* SectionView.h */; };
-		B25BF9AD25176C5800D44DFA /* SectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B25BF9AB25176C5800D44DFA /* SectionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A1D897250EE6CA004E59A4 /* Menu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A300364E25386EAF0093395D /* NVTextPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVTextPanel.h; sourceTree = "<group>"; };
+		A300364F25386EAF0093395D /* NVTextPanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVTextPanel.m; sourceTree = "<group>"; };
+		A300365025386EAF0093395D /* NVTextPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVTextPanel.xib; sourceTree = "<group>"; };
+		A3003656253870E00093395D /* NVLinePanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVLinePanel.h; sourceTree = "<group>"; };
+		A3003657253870E00093395D /* NVLinePanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVLinePanel.m; sourceTree = "<group>"; };
+		A3003658253870E00093395D /* NVLinePanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVLinePanel.xib; sourceTree = "<group>"; };
+		A300365C253870F40093395D /* NVMaskPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVMaskPanel.h; sourceTree = "<group>"; };
+		A300365D253870F40093395D /* NVMaskPanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVMaskPanel.m; sourceTree = "<group>"; };
+		A300365E253870F40093395D /* NVMaskPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVMaskPanel.xib; sourceTree = "<group>"; };
+		A3003662253873300093395D /* CustomScroller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomScroller.h; sourceTree = "<group>"; };
+		A3003663253873300093395D /* CustomScroller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomScroller.m; sourceTree = "<group>"; };
 		A32ED9922511D4E100EBCE68 /* Menu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		A32ED9932511D4E100EBCE68 /* Menu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		A3453B5A2535C5E2007AFFCC /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		A3453B5B2535C5E2007AFFCC /* Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
+		A3453B6625381A19007AFFCC /* FlippedClipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlippedClipView.h; sourceTree = "<group>"; };
+		A3453B6725381A19007AFFCC /* FlippedClipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlippedClipView.m; sourceTree = "<group>"; };
+		A34728A1253886B700EC18ED /* NVPanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVPanelController.h; sourceTree = "<group>"; };
+		A34728A2253886B700EC18ED /* NVPanelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVPanelController.m; sourceTree = "<group>"; };
 		A38993F4250B859F00211D90 /* Navi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38993F7250B859F00211D90 /* Navi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Navi.h; sourceTree = "<group>"; };
 		A38993F8250B85A000211D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,9 +129,14 @@
 		A396D11025347F8B0061CC73 /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text.png; sourceTree = "<group>"; };
 		A397ACC625148BEA00286C6E /* Panel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Panel.h; sourceTree = "<group>"; };
 		A397ACC725148BEA00286C6E /* Panel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Panel.m; sourceTree = "<group>"; };
-		A3B148EB2516349E00939B36 /* Section.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
-		A3B148EC2516349E00939B36 /* Section.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
-		A3B148ED2516349E00939B36 /* Section.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Section.xib; sourceTree = "<group>"; };
+		A3B5E21E253828C40048F526 /* NVColorPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVColorPanel.h; sourceTree = "<group>"; };
+		A3B5E21F253828C40048F526 /* NVColorPanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVColorPanel.m; sourceTree = "<group>"; };
+		A3B5E220253828C40048F526 /* NVColorPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVColorPanel.xib; sourceTree = "<group>"; };
+		A3B5E22525382B460048F526 /* PanelHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PanelHeader.h; sourceTree = "<group>"; };
+		A3B5E22625382B460048F526 /* PanelHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PanelHeader.m; sourceTree = "<group>"; };
+		A3B5E22725382B460048F526 /* PanelHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PanelHeader.xib; sourceTree = "<group>"; };
+		A3B5E22B25382BE70048F526 /* PanelHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PanelHeaderView.h; sourceTree = "<group>"; };
+		A3B5E22C25382BE70048F526 /* PanelHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PanelHeaderView.m; sourceTree = "<group>"; };
 		A3E6094325109AB500C98536 /* Panel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Panel.xib; sourceTree = "<group>"; };
 		A3EB366E25188D6E006B01F0 /* ColorPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorPanel.h; sourceTree = "<group>"; };
 		A3EB366F25188D6E006B01F0 /* ColorPanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorPanel.m; sourceTree = "<group>"; };
@@ -108,8 +146,6 @@
 		A3EB367F2518986D006B01F0 /* ColorMiniButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorMiniButtonView.h; sourceTree = "<group>"; };
 		A3EB36802518986D006B01F0 /* ColorMiniButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorMiniButtonView.m; sourceTree = "<group>"; };
 		B23CA2942519855E00FB2416 /* HexColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
-		B25BF9AA25176C5800D44DFA /* SectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionView.h; sourceTree = "<group>"; };
-		B25BF9AB25176C5800D44DFA /* SectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SectionView.m; sourceTree = "<group>"; };
 		B2A1D897250EE6CA004E59A4 /* Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Menu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,6 +160,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A300364D25386E530093395D /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				A300364E25386EAF0093395D /* NVTextPanel.h */,
+				A300364F25386EAF0093395D /* NVTextPanel.m */,
+				A300365025386EAF0093395D /* NVTextPanel.xib */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		A3003654253870750093395D /* Mask */ = {
+			isa = PBXGroup;
+			children = (
+				A300365C253870F40093395D /* NVMaskPanel.h */,
+				A300365D253870F40093395D /* NVMaskPanel.m */,
+				A300365E253870F40093395D /* NVMaskPanel.xib */,
+			);
+			path = Mask;
+			sourceTree = "<group>";
+		};
+		A3003655253870820093395D /* Line */ = {
+			isa = PBXGroup;
+			children = (
+				A3003656253870E00093395D /* NVLinePanel.h */,
+				A3003657253870E00093395D /* NVLinePanel.m */,
+				A3003658253870E00093395D /* NVLinePanel.xib */,
+			);
+			path = Line;
+			sourceTree = "<group>";
+		};
 		A38993EA250B859F00211D90 = {
 			isa = PBXGroup;
 			children = (
@@ -155,11 +221,6 @@
 				A397ACC625148BEA00286C6E /* Panel.h */,
 				A397ACC725148BEA00286C6E /* Panel.m */,
 				A3E6094325109AB500C98536 /* Panel.xib */,
-				A3B148EB2516349E00939B36 /* Section.h */,
-				A3B148EC2516349E00939B36 /* Section.m */,
-				A3B148ED2516349E00939B36 /* Section.xib */,
-				B25BF9AA25176C5800D44DFA /* SectionView.h */,
-				B25BF9AB25176C5800D44DFA /* SectionView.m */,
 				A3453B5A2535C5E2007AFFCC /* Config.h */,
 				A3453B5B2535C5E2007AFFCC /* Config.m */,
 			);
@@ -217,14 +278,39 @@
 		A3B148E425162C0E00939B36 /* Componetns */ = {
 			isa = PBXGroup;
 			children = (
+				A3B5E22425382A8F0048F526 /* Common */,
 				A3EB367425188D85006B01F0 /* Color */,
+				A300364D25386E530093395D /* Text */,
+				A3003655253870820093395D /* Line */,
+				A3003654253870750093395D /* Mask */,
 			);
 			path = Componetns;
+			sourceTree = "<group>";
+		};
+		A3B5E22425382A8F0048F526 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A3453B6625381A19007AFFCC /* FlippedClipView.h */,
+				A3453B6725381A19007AFFCC /* FlippedClipView.m */,
+				A3B5E22525382B460048F526 /* PanelHeader.h */,
+				A3B5E22625382B460048F526 /* PanelHeader.m */,
+				A3B5E22725382B460048F526 /* PanelHeader.xib */,
+				A3B5E22B25382BE70048F526 /* PanelHeaderView.h */,
+				A3B5E22C25382BE70048F526 /* PanelHeaderView.m */,
+				A3003662253873300093395D /* CustomScroller.h */,
+				A3003663253873300093395D /* CustomScroller.m */,
+				A34728A1253886B700EC18ED /* NVPanelController.h */,
+				A34728A2253886B700EC18ED /* NVPanelController.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		A3EB367425188D85006B01F0 /* Color */ = {
 			isa = PBXGroup;
 			children = (
+				A3B5E21E253828C40048F526 /* NVColorPanel.h */,
+				A3B5E21F253828C40048F526 /* NVColorPanel.m */,
+				A3B5E220253828C40048F526 /* NVColorPanel.xib */,
 				A3EB366E25188D6E006B01F0 /* ColorPanel.h */,
 				A3EB366F25188D6E006B01F0 /* ColorPanel.m */,
 				A3EB367025188D6E006B01F0 /* ColorPanel.xib */,
@@ -256,14 +342,21 @@
 				B23CA2962519855E00FB2416 /* HexColor.h in Headers */,
 				A32ED9942511D4E100EBCE68 /* Menu.h in Headers */,
 				A396D0EA25346F990061CC73 /* Util.h in Headers */,
+				A34728A3253886B700EC18ED /* NVPanelController.h in Headers */,
+				A300365F253870F40093395D /* NVMaskPanel.h in Headers */,
 				A3EB367D25188E75006B01F0 /* ColorPanelView.h in Headers */,
 				A3EB367125188D6E006B01F0 /* ColorPanel.h in Headers */,
-				A3B148EE2516349E00939B36 /* Section.h in Headers */,
+				A3003659253870E00093395D /* NVLinePanel.h in Headers */,
 				A38993F9250B85A000211D90 /* Navi.h in Headers */,
-				B25BF9AC25176C5800D44DFA /* SectionView.h in Headers */,
+				A300365125386EAF0093395D /* NVTextPanel.h in Headers */,
+				A3B5E22825382B460048F526 /* PanelHeader.h in Headers */,
 				A397ACC825148BEA00286C6E /* Panel.h in Headers */,
 				A3EB36812518986D006B01F0 /* ColorMiniButtonView.h in Headers */,
+				A3B5E22D25382BE70048F526 /* PanelHeaderView.h in Headers */,
+				A3B5E221253828C40048F526 /* NVColorPanel.h in Headers */,
+				A3453B6825381A19007AFFCC /* FlippedClipView.h in Headers */,
 				A3453B5C2535C5E2007AFFCC /* Config.h in Headers */,
+				A3003664253873300093395D /* CustomScroller.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,9 +420,11 @@
 			files = (
 				A396D12125347F8C0061CC73 /* color.png in Resources */,
 				A396D11425347F8C0061CC73 /* text-active.png in Resources */,
+				A3B5E223253828C40048F526 /* NVColorPanel.xib in Resources */,
 				A396D12725347F8C0061CC73 /* mask.png in Resources */,
 				A396D12425347F8C0061CC73 /* text-margin-active.png in Resources */,
 				A396D11525347F8C0061CC73 /* main-active.png in Resources */,
+				A3B5E22A25382B470048F526 /* PanelHeader.xib in Resources */,
 				A396D11E25347F8C0061CC73 /* margin-v-active.png in Resources */,
 				A396D12525347F8C0061CC73 /* shadow.png in Resources */,
 				A396D12925347F8C0061CC73 /* margin-v.png in Resources */,
@@ -342,15 +437,17 @@
 				A396D11D25347F8C0061CC73 /* line-active.png in Resources */,
 				A396D11F25347F8C0061CC73 /* layout.png in Resources */,
 				A396D12825347F8C0061CC73 /* transparent.png in Resources */,
-				A3B148F02516349E00939B36 /* Section.xib in Resources */,
 				A396D11225347F8C0061CC73 /* mask-active.png in Resources */,
 				A396D12625347F8C0061CC73 /* line.png in Resources */,
 				A396D11825347F8C0061CC73 /* icon.png in Resources */,
 				B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */,
 				A396D11A25347F8C0061CC73 /* margin-h.png in Resources */,
 				A396D11B25347F8C0061CC73 /* main.png in Resources */,
+				A300365325386EAF0093395D /* NVTextPanel.xib in Resources */,
 				A396D12325347F8C0061CC73 /* color-active.png in Resources */,
 				A396D12A25347F8C0061CC73 /* text.png in Resources */,
+				A3003661253870F40093395D /* NVMaskPanel.xib in Resources */,
+				A300365B253870E00093395D /* NVLinePanel.xib in Resources */,
 				A3EB367325188D6E006B01F0 /* ColorPanel.xib in Resources */,
 				A396D11625347F8C0061CC73 /* border.png in Resources */,
 				A396D11925347F8C0061CC73 /* shadow-active.png in Resources */,
@@ -365,13 +462,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3EB367E25188E75006B01F0 /* ColorPanelView.m in Sources */,
-				B25BF9AD25176C5800D44DFA /* SectionView.m in Sources */,
+				A3B5E22925382B470048F526 /* PanelHeader.m in Sources */,
 				A32ED9952511D4E100EBCE68 /* Menu.m in Sources */,
 				A3EB36822518986D006B01F0 /* ColorMiniButtonView.m in Sources */,
 				A3EB367225188D6E006B01F0 /* ColorPanel.m in Sources */,
-				A3B148EF2516349E00939B36 /* Section.m in Sources */,
+				A300365A253870E00093395D /* NVLinePanel.m in Sources */,
+				A34728A4253886B700EC18ED /* NVPanelController.m in Sources */,
+				A3003660253870F40093395D /* NVMaskPanel.m in Sources */,
+				A3B5E22E25382BE70048F526 /* PanelHeaderView.m in Sources */,
 				A397ACC925148BEA00286C6E /* Panel.m in Sources */,
+				A3453B6925381A19007AFFCC /* FlippedClipView.m in Sources */,
 				A3453B5D2535C5E2007AFFCC /* Config.m in Sources */,
+				A300365225386EAF0093395D /* NVTextPanel.m in Sources */,
+				A3003665253873300093395D /* CustomScroller.m in Sources */,
+				A3B5E222253828C40048F526 /* NVColorPanel.m in Sources */,
 				A396D0EB25346F990061CC73 /* Util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

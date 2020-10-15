@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Menu.h"
+#import "NVPanelController.h"
 
 
 // MenuControl 暴露的代理接口
@@ -23,9 +24,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Panel : NSViewController
 
 @property (nonatomic,weak) id<PanelControlProtocol> delegate;
-@property (strong) IBOutlet NSView *view;
-// Convenience Method
-+ (instancetype)viewControllerFromNIB;
+@property (nonatomic) int limitWidth;
+
+@property (nonatomic,weak) NSString* documentId;
+@property (weak) IBOutlet NSStackView *stackView;
+@property (nonatomic,weak) NSMutableDictionary* panelControllers;
+
++ (instancetype)generateWithDocumentId:(NSString*) documentId;
 
 @end
 

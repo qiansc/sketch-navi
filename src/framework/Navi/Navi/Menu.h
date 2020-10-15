@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong) IBOutlet NSStackView *headStack;
 @property (nonatomic, weak) NSButton *mainButton;
 @property (nonatomic) int limitWidth;
+@property (nonatomic) NSString* documentId;
+@property (nonatomic,weak) NSMutableDictionary* panelButtons;
 
 
 // Convenience Method

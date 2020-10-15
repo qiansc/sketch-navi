@@ -20,9 +20,9 @@ export class PanelController {
     constructor(private ctx: SketchContext) {
         this.id = `${ctx.documentId}-navi-tools-panel`;
         const NSPanel = framework.framework.getClass('Panel');
-        this.NSController = NSPanel.viewControllerFromNIB();
+        this.NSController = NSPanel.generateWithDocumentId(ctx.documentId);
         this.view = this.NSController.view();
-        this.view.identifier = this.id;
+        this.id = this.view.identifier();
         this.floatButton = getSubviewById(this.view, 'floatButton');
         this.floatButton.setCOSJSTargetFunction(() => {
             this.hide();
