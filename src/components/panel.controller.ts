@@ -49,11 +49,11 @@ export class PanelController {
             this.NSController.delegate = null;
             this.window.setContentView(null);
             this.window.close();
-        }
-        this.ctx.removeView(this.view.id);
+        }``
+        this.ctx.removeView(this.view.identifier());
     }
     private showSlider() {
-        if (this.ctx.findView(this.view.id) === -1) {
+        if (this.ctx.findView(this.view.identifier()) === -1) {
             // 插入到目录左侧
             this.ctx.insertViewBefore(this.view, `${this.ctx.documentId}-navi-menu-panel`);
             this.floatButton.setState(1);

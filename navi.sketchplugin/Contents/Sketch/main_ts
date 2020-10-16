@@ -798,11 +798,12 @@ var PanelController = /** @class */ (function () {
             this.window.setContentView(null);
             this.window.close();
         }
-        this.ctx.removeView(this.view.id);
+        "";
+        this.ctx.removeView(this.view.identifier());
     };
     PanelController.prototype.showSlider = function () {
         var _this = this;
-        if (this.ctx.findView(this.view.id) === -1) {
+        if (this.ctx.findView(this.view.identifier()) === -1) {
             // 插入到目录左侧
             this.ctx.insertViewBefore(this.view, this.ctx.documentId + "-navi-menu-panel");
             this.floatButton.setState(1);

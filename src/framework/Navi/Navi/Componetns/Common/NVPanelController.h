@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype) initWithId:(NSString*) id;
 - (void)setOpenStateSlient:(NSControlStateValue)state;
-
+- (int)height; // 插件展开高度算法，需要自行子类实现
 
 @end
 

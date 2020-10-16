@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString* documentId;
 @property (nonatomic, strong) id<PanelControlProtocol> delegate;
-@property (weak) IBOutlet NSStackView *stackView;
+@property (strong) IBOutlet NSStackView *stackView;
 
 + (instancetype)generateWithDocumentId:(NSString*) documentId;
 

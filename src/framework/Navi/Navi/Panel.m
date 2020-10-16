@@ -24,6 +24,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePanel:) name:@"HIDE_PANEL" object:nil];
     // Panel按下传递的事件
     [self initAllPanel];
+//    [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskKeyUp handler:^NSEvent*(NSEvent* event){
+//        NSLog(@"NAVIL %@", event);
+//        return event;
+//    }];
 }
 -  (void)viewWillLayout {
 //    [self setPreferredContentSize:CGSizeMake(40, 450)];
