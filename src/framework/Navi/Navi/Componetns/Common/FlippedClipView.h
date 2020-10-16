@@ -1,8 +1,8 @@
 //
-//  SectionView.h
+//  FlippedClipView.h
 //  Navi
 //
-//  Created by QIANSC on 2020/9/20.
+//  Created by Qian,Sicheng on 2020/10/15.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SectionView : NSView
-
-@property (strong) IBOutlet NSView *view;
+@interface FlippedClipView : NSClipView
 
 @end
 

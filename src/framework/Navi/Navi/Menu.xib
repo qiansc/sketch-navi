@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Menu">
             <connections>
+                <outlet property="headStack" destination="cmz-99-C6R" id="gTY-YM-Puc"/>
                 <outlet property="view" destination="c22-O7-iKe" id="kfp-Zj-lcN"/>
             </connections>
         </customObject>
@@ -16,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="40" height="650"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES"/>
             <subviews>
-                <stackView identifier="headStack" orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmz-99-C6R">
+                <stackView orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmz-99-C6R">
                     <rect key="frame" x="0.0" y="0.0" width="40" height="650"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                 </stackView>

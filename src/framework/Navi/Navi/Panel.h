@@ -7,16 +7,30 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "Headers/RezieseProtocol.h"
+#import "Menu.h"
+#import "NVPanelController.h"
+
+
+// MenuControl 暴露的代理接口
+@protocol PanelControlProtocol <NSObject>
+
+@optional
+    -(void)viewWillLayoutSize:(NSString*)newSize;
+@end
+
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Panel : NSViewController
+@interface Panel : NSViewController<PanelStateChangeProtocol> {
+    int limitWidth;
+    NSMutableDictionary* panelControllers;
+}
 
-@property (nonatomic,weak) id<ResizeProtocol> delegate;
-@property (strong) IBOutlet NSView *view;
-// Convenience Method
-+ (instancetype)viewControllerFromNIB;
+@property (nonatomic, strong) NSString* documentId;
+@property (nonatomic, strong) id<PanelControlProtocol> delegate;
+@property (weak) IBOutlet NSStackView *stackView;
+
++ (instancetype)generateWithDocumentId:(NSString*) documentId;
 
 @end
 
