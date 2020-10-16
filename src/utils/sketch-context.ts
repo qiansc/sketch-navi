@@ -117,5 +117,8 @@ export class SketchContext {
 }
 
 function compare(str: string, str0: string) {
+    if (!str || !str0 || !str.toString || !str0.toString) {
+        return false;
+    }
     return ''.concat(str.toString()) === ''.concat(str0.toString());
 };

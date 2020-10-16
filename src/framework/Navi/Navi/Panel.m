@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.panelControllers = [[NSMutableDictionary alloc] init];
+    panelControllers = [[NSMutableDictionary alloc] init];
     // Menu按下传递的事件
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePanel:) name:@"OPEN_PANEL" object:nil];
     // Menu按下传递的事件
@@ -35,12 +35,9 @@
 }
 -(void)changePanel:(NSNotification*)notification{
     NSString *id = notification.userInfo[@"documentId"];
-
-    NSLog(@"NAVIL openPanel => %@", notification.userInfo);
     if ([id isEqual:self.documentId]) {
         NSString *panelId = notification.userInfo[@"panelId"];
-        NVPanelController *c = self.panelControllers[panelId];
-        NSLog(@"NAVIL openPPPPP >> %@  %@", c,  self.panelControllers);
+        NVPanelController *c = panelControllers[panelId];
         if(c) {
             NSMutableDictionary *states = notification.userInfo[@"states"];
             [c setOpenStateSlient: [states[panelId] intValue]];
@@ -68,6 +65,7 @@
 
 // 初始化所有Panel到StackView中
 - (void)initAllPanel {
+    
     NSArray<NSDictionary*>* options = [Config MenuOptions];
     for(NSDictionary* option in options) {
         if([option[@"type"] isEqual:@"PANEL"]) {
@@ -87,10 +85,21 @@
             if (c) {
                 [self.stackView addArrangedSubview:c.view];
                 c.headerView.titleLabel.stringValue = option[@"name"];
-                [self.panelControllers setValue:c forKey:id];
+                c.stateChangeDelegate = self;
+                [panelControllers setValue:c forKey:id];
             }
 
         }
+    }
+}
+- (void)panel:(NSString *)panelId changeState:(NSControlStateValue)state {
+    NVPanelController *c = panelControllers[panelId];
+    if (c) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DID_TOOGLE_PANEL" object:nil userInfo:@{
+                @"documentId": self.documentId,
+                @"state": @(state),
+                @"panelId": panelId
+            }];
     }
 }
 

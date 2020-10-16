@@ -16,15 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.openState = 0;
+    openState = 0;
     [self.headerView.toggleButton setTarget:self];
     [self.headerView.toggleButton setAction:@selector(toogle:)];
     [self toogle:nil];
 }
 
 -(void)setOpenStateSlient:(NSControlStateValue)state {
-     self.openState = state;
-    if (self.openState != self.headerView.toggleButton.state) {
+     openState = state;
+    if (openState != self.headerView.toggleButton.state) {
         [self.headerView.toggleButton setNextState];
     }
      [self resetConstraint];
@@ -32,25 +32,24 @@
 
 - (void)resetConstraint {
     // 首次或者每次重绘必须执行此句，来保证在NSStack视图中位置ok
-    [self.view removeConstraint:self.constraintHeight];
-    if (self.openState == YES){
+    [self.view removeConstraint:constraintHeight];
+    if (openState == YES){
         // 展开状态
-        self.constraintHeight = [self.view.heightAnchor constraintEqualToConstant:self.headerView.frame.size.height + 100];
+        constraintHeight = [self.view.heightAnchor constraintEqualToConstant:self.headerView.frame.size.height + 100];
     } else {
         // 隐藏状态
-        self.constraintHeight = [self.view.heightAnchor constraintEqualToConstant:self.headerView.frame.size.height];
+        constraintHeight = [self.view.heightAnchor constraintEqualToConstant:self.headerView.frame.size.height];
     }
     // 已经关闭
-    [self.view addConstraint:self.constraintHeight];
+    [self.view addConstraint:constraintHeight];
 }
 
 - (void)toogle:(NSButton*) button{
-    self.openState = self.headerView.toggleButton.state;
+    openState = self.headerView.toggleButton.state;
     [self resetConstraint];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"DID_CHANGE_PANEL_ON" object:nil userInfo:@{
-        @"state": @(self.openState),
-        @"panelId": self.panelId
-    }];
+    if (self.stateChangeDelegate) {
+        [self.stateChangeDelegate panel:self.panelId changeState:openState];
+    }
 }
 
 - (instancetype) initWithId:(NSString*) id {

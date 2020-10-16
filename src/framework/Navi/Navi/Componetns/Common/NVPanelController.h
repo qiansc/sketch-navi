@@ -11,16 +11,27 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NVPanelController : NSViewController
+@protocol PanelStateChangeProtocol <NSObject>
+
+@required
+- (void)panel:(NSString*) panelId changeState:(NSControlStateValue) state;
+
+@end
+
+@interface NVPanelController : NSViewController {
+    NSControlStateValue openState;
+    NSLayoutConstraint* constraintHeight;
+
+}
 
 @property (strong) IBOutlet PanelHeaderView *headerView;
 @property (strong) NSString *panelId;
-
-@property (nonatomic) NSControlStateValue openState;
-@property (nonatomic) NSLayoutConstraint* constraintHeight;
+@property (nonatomic, strong) id<PanelStateChangeProtocol> stateChangeDelegate;
 
 - (instancetype) initWithId:(NSString*) id;
 - (void)setOpenStateSlient:(NSControlStateValue)state;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

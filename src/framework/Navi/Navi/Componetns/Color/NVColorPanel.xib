@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,6 +21,14 @@
                 <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-9d-w5m" customClass="PanelHeaderView">
                     <rect key="frame" x="0.0" y="266" width="240" height="34"/>
                 </customView>
+                <collectionView translatesAutoresizingMaskIntoConstraints="NO" id="O7Y-wI-bVg" customClass="ColorCollectionView">
+                    <rect key="frame" x="1" y="0.0" width="238" height="266"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="wKP-HW-sh3">
+                        <size key="itemSize" width="50" height="50"/>
+                    </collectionViewFlowLayout>
+                    <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                </collectionView>
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="eV9-9d-w5m" secondAttribute="trailing" id="gcU-zX-X7W"/>

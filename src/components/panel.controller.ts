@@ -1,6 +1,6 @@
 import { SketchContext } from "../utils/sketch-context";
 import * as framework from '../framework';
-import { createButton, createImageView, createBoxSeparator, createWindow } from './element';
+import { createWindow } from './element';
 import { getSubviewById } from "../utils/view-utils";
 import { splitViewItemLimitRezise } from "../utils/resize-delegate";
 const MochaJSDelegate = require('mocha-js-delegate');
@@ -8,7 +8,6 @@ const EventEmitter = require('events');
 
 /** 插件面板区 */
 export class PanelController {
-    public id: string;
     public view: any;
     private window: any;
     private emitter = new EventEmitter();
@@ -18,11 +17,9 @@ export class PanelController {
     public colorController: any; // 临时对象
     public sectionInfo: any;
     constructor(private ctx: SketchContext) {
-        this.id = `${ctx.documentId}-navi-tools-panel`;
         const NSPanel = framework.framework.getClass('Panel');
         this.NSController = NSPanel.generateWithDocumentId(ctx.documentId);
         this.view = this.NSController.view();
-        this.id = this.view.identifier();
         this.floatButton = getSubviewById(this.view, 'floatButton');
         this.floatButton.setCOSJSTargetFunction(() => {
             this.hide();
@@ -43,7 +40,7 @@ export class PanelController {
         // 颜色测试代码结束
     }
     show() {
-        this.NSController.layoutSection();
+        // this.NSController.layoutSection();
         this.floatButton.state() === 0 ? this.showWindow() : this.showSlider();
         this.emitter.emit(PANEL_EVENT.SHOW_PANEL);
     }
@@ -53,10 +50,10 @@ export class PanelController {
             this.window.setContentView(null);
             this.window.close();
         }
-        this.ctx.removeView(this.id);
+        this.ctx.removeView(this.view.id);
     }
     private showSlider() {
-        if (this.ctx.findView(this.id) === -1) {
+        if (this.ctx.findView(this.view.id) === -1) {
             // 插入到目录左侧
             this.ctx.insertViewBefore(this.view, `${this.ctx.documentId}-navi-menu-panel`);
             this.floatButton.setState(1);

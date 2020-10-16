@@ -15,20 +15,20 @@
 @protocol PanelControlProtocol <NSObject>
 
 @optional
--(void)viewWillLayoutSize:(NSString*)newSize;
+    -(void)viewWillLayoutSize:(NSString*)newSize;
 @end
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Panel : NSViewController
+@interface Panel : NSViewController<PanelStateChangeProtocol> {
+    int limitWidth;
+    NSMutableDictionary* panelControllers;
+}
 
-@property (nonatomic,weak) id<PanelControlProtocol> delegate;
-@property (nonatomic) int limitWidth;
-
-@property (nonatomic,weak) NSString* documentId;
+@property (nonatomic, strong) NSString* documentId;
+@property (nonatomic, strong) id<PanelControlProtocol> delegate;
 @property (weak) IBOutlet NSStackView *stackView;
-@property (nonatomic,weak) NSMutableDictionary* panelControllers;
 
 + (instancetype)generateWithDocumentId:(NSString*) documentId;
 

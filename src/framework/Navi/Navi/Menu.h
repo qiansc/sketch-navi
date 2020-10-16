@@ -19,16 +19,16 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)viewWillLayoutSize:(NSDictionary*)option;
 @end
 
-@interface Menu : NSViewController
+@interface Menu : NSViewController {
+    int limitWidth;
+    NSMutableDictionary* panelButtons;
+}
     
-@property (nonatomic,weak) id<MenuControlProtocol> delegate;
-@property (strong) IBOutlet NSView *view;
+@property (nonatomic,strong) id<MenuControlProtocol> delegate;
 @property (strong) IBOutlet NSStackView *headStack;
-@property (nonatomic, weak) NSButton *mainButton;
-@property (nonatomic) int limitWidth;
-@property (nonatomic) NSString* documentId;
-@property (nonatomic,weak) NSMutableDictionary* panelButtons;
+@property (nonatomic, strong) NSButton *mainButton;
 
+@property (nonatomic, strong) NSString* documentId;
 
 // Convenience Method
 + (instancetype)generateWithDocumentId:(NSString*) documentId;

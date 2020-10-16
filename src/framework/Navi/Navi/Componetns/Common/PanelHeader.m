@@ -30,6 +30,7 @@
     view.layer.backgroundColor = [NSColor greenColor].CGColor;
 }
 
+
 + (instancetype)viewControllerFromNIB {
     NSString* const frameworkBundleID  = @"com.baidu.Navi";
     NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];

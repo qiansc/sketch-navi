@@ -16,7 +16,7 @@
     [self setPreferredContentSize:CGSizeMake(40, 450)];
     [self.view setAutoresizingMask:NSViewNotSizable];
     [self initButton];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangePanel:) name:@"DID_CHANGE_PANEL_ON" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangePanelState:) name:@"DID_TOOGLE_PANEL" object:nil];
 }
 -  (void)viewWillLayout {
 //    [self setPreferredContentSize:CGSizeMake(40, 450)];
@@ -26,7 +26,7 @@
         [self.delegate viewWillLayoutSize: @{
             @"width": @(self.view.frame.size.width),
             @"height": @(self.view.frame.size.height),
-            @"limitWidth": @(self.limitWidth)
+            @"limitWidth": @(limitWidth)
         }];
     }
 }
@@ -47,7 +47,7 @@
 
 - (void)initButton {
     
-    self.panelButtons = [[NSMutableDictionary alloc]init];
+    panelButtons = [[NSMutableDictionary alloc]init];
 
     [self.headStack addView:[Util separtorBox] inGravity: NSStackViewGravityBottom];
 
@@ -79,7 +79,7 @@
         }
         else if([option[@"type"] isEqual:@"PANEL"]) {
             button.state = YES;
-            [self.panelButtons setValue:button forKey:id];
+            [panelButtons setValue:button forKey:id];
         }
 
     }
@@ -116,8 +116,8 @@
 -(NSDictionary*)panelButtonStates {
     NSMutableDictionary *states = [[NSMutableDictionary alloc]init];
     
-    for(NSString* key in [self.panelButtons allKeys]){
-        NSButton *button = self.panelButtons[key];
+    for(NSString* key in [panelButtons allKeys]){
+        NSButton *button = panelButtons[key];
         [states setValue:@(button.state) forKey:key];
     }
     
@@ -141,16 +141,16 @@
 }
 
 - (void)updateLimitWidth {
-    self.limitWidth = self.view.frame.size.width * 1;
+    limitWidth = self.view.frame.size.width * 1;
 }
 
-- (void)didChangePanel:(NSNotification*)notification{
-
-    NSString *id = notification.userInfo[@"panelId"];
-    NSButton *button = self.panelButtons[id];
-    NSLog(@"NAVIL MENU:::HIDEPANEL %@  %@  %ld", id, button, (long)button.state);
-    if (button.state != [notification.userInfo[@"state"] intValue]) {
-        [button setNextState];
+- (void)didChangePanelState:(NSNotification*)notification{
+    if ([self.documentId isEqual:notification.userInfo[@"documentId"]]) {
+        NSString *id = notification.userInfo[@"panelId"];
+        NSButton *button = panelButtons[id];
+        if (button.state != [notification.userInfo[@"state"] intValue]) {
+            [button setNextState];
+        }
     }
 }
 

@@ -19,7 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)viewControllerFromNIB;
 
-
 - (void)select:(NSString *) colorCode;
 - (void)reset;
 

@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PanelHeader : NSViewController
 
-@property (strong) IBOutlet NSView *view;
 @property (weak) IBOutlet NSTextField *titleLabel;
 @property (strong) IBOutlet NSButton *infoButton;
 @property (strong) IBOutlet NSButton *toggleButton;

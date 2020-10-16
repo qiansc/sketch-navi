@@ -4,13 +4,17 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/ColorCollectionItem.nib</key>
+		<data>
+		eUz6y8MSNY0CDX9PZ0cVMfonmxw=
+		</data>
 		<key>Resources/ColorPanel.nib</key>
 		<data>
 		CGFysta/1x3fpPKOj/FpBbAWLj0=
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		n73YZQT97wbjE4hokBi50xUf3vM=
+		TBZvPiy8lyGLY/2roP6m6WaJitg=
 		</data>
 		<key>Resources/Menu.nib</key>
 		<data>
@@ -18,7 +22,7 @@
 		</data>
 		<key>Resources/NVColorPanel.nib</key>
 		<data>
-		vdizUZby25nSUGPNGbGp5qBtBA8=
+		UwPgb2xw+tvSLQ0AyFE9wRLja/U=
 		</data>
 		<key>Resources/NVLinePanel.nib</key>
 		<data>
@@ -157,6 +161,13 @@
 			QAXYBKbrhbo5pDUpEH/eH2CgBgDf7TJTjDaINfp7sz4=
 			</data>
 		</dict>
+		<key>Resources/ColorCollectionItem.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			yy/1nxAdgzeYNthcUB++31CGDw1TdN++Fr/7d80QBBU=
+			</data>
+		</dict>
 		<key>Resources/ColorPanel.nib</key>
 		<dict>
 			<key>hash2</key>
@@ -168,7 +179,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TIRs4yVYyMkSzFtrusN9wIbwiJ3YkLxLgeJx54bMezs=
+			2boMvxqNd9DeIumQwGQ0PL0VGQZIai971ELL0YvejUo=
 			</data>
 		</dict>
 		<key>Resources/Menu.nib</key>
@@ -182,7 +193,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5VE78ziIw5ZLmSFSs13E/bVrh3t43g7sFaYRDor2sXM=
+			t8LSd33CAx8e6PnxSr/uLX9M/DXu8cpesBhnsTRBm5A=
 			</data>
 		</dict>
 		<key>Resources/NVLinePanel.nib</key>
