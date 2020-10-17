@@ -18,6 +18,8 @@
     [super viewDidLoad];
     [self.toggleButton setTarget:self];
     [self.toggleButton setAction:@selector(toogle:)];
+    self.view.wantsLayer = true;
+    self.view.layer.backgroundColor = [NSColor orangeColor].CGColor;
     // self.toggleButton
     // Do view setup here.
 }

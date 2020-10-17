@@ -19,4 +19,8 @@
     // Do view setup here.
 }
 
+- (int)height {
+    return 200;
+}
+
 @end

@@ -16,10 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    openState = 0;
     [self.headerView.toggleButton setTarget:self];
     [self.headerView.toggleButton setAction:@selector(toogle:)];
-    [self toogle:nil];
+    openState = self.headerView.toggleButton.state;
+    [self resetConstraint];
+    self.view.wantsLayer = true;
+    self.view.layer.backgroundColor = [NSColor purpleColor].CGColor;
 }
 
 
@@ -28,7 +30,7 @@
     if (openState != self.headerView.toggleButton.state) {
         [self.headerView.toggleButton setNextState];
     }
-     [self resetConstraint];
+    [self resetConstraint];
 }
 
 - (void)resetConstraint {
@@ -41,9 +43,10 @@
         // 隐藏状态
         constraintHeight = [self.view.heightAnchor constraintEqualToConstant:self.headerView.frame.size.height];
     }
-    NSLog(@"NAVIL RESC%@, %@", self.panelId, constraintHeight);
+    NSLog(@"NAVIL RES C%@, %@, %f", self.panelId, constraintHeight, self.view.frame.size.height);
     // 已经关闭
     [self.view addConstraint:constraintHeight];
+    NSLog(@"NAVIL ENDDDD %f", self.view.frame.size.height);
 }
 
 - (void)toogle:(NSButton*) button{
@@ -59,10 +62,6 @@
     NSString* const frameworkBundleID  = @"com.baidu.Navi";
     NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
     return [self initWithNibName:[NSString stringWithFormat:@"NV%@Panel", id] bundle: resourceBundlePath];
-}
-
-- (int)height {
-    return 200;
 }
 
 @end

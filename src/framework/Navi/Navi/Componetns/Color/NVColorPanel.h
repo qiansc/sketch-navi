@@ -10,12 +10,15 @@
 #import "PanelHeaderView.h"
 #import "NVPanelController.h"
 #import "ColorCollectionView.h"
+#import "FlippedClipView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NVColorPanel : NVPanelController
 
-@property (strong) IBOutlet ColorCollectionView *collectionView;
+@property (strong) IBOutlet FlippedClipView *clipView;
+@property (nonatomic,strong) ColorCollectionView *collectionView;
+@property (strong) IBOutlet NSView *bView;
 
 @end
 

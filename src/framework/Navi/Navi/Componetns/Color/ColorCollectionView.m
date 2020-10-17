@@ -12,6 +12,7 @@
 @implementation ColorCollectionView
 
 -(void)viewDidMoveToWindow {
+    [super viewDidMoveToWindow];
     self.delegate = self;
     self.dataSource = self;
     arr = [[NSMutableArray alloc] init];
@@ -19,9 +20,21 @@
     for (int num = 0; num < 5; num++) {
         [arr addObject:[NSString stringWithFormat:@"%@%d",@"hello",num]];
     }
-    NSLog(@"NAVIL ColorCollectionView1 %f, %f", self.frame.size.height, self.superview.frame.size.height);
-    self.wantsLayer = true;
-    self.layer.backgroundColor  = [NSColor yellowColor].CGColor;
+    NSLog(@"NAVIL ColorCollectionView1 %@ %f, %f", self.superview, self.frame.size.height, self.superview.frame.size.height);
+    
+//    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self.superview attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem: self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0]];
+//    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self.superview attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem: self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0]];
+    
+//    NSCollectionView *view = self;
+//    NSArray<NSLayoutConstraint *> * c = [NSLayoutConstraint constraintsWithVisualFormat: @"H:|[view]|" options:0 metrics:nil views:
+//                                             [NSDictionary dictionaryWithObject:view forKey:@"view"]];
+//
+////    [self removeConstraints:self.constraints];
+//    [self.superview addConstraints:c];
+    
+     self.wantsLayer = true;
+     self.layer.backgroundColor  = [NSColor yellowColor].CGColor;
+    // [self reloadData];
 }
 
 

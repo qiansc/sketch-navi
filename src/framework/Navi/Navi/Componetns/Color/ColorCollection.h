@@ -10,7 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^DidLayoutHandler)(float num);
+
 @interface ColorCollection : NSViewController
+
+@property (nonatomic, strong) DidLayoutHandler layoutHandler;
 
 @end
 

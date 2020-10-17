@@ -28,6 +28,8 @@
 //        NSLog(@"NAVIL %@", event);
 //        return event;
 //    }];
+    self.stackView.superview.superview.wantsLayer = true;
+    self.stackView.superview.superview.layer.backgroundColor = [NSColor purpleColor].CGColor;
 }
 -  (void)viewWillLayout {
 //    [self setPreferredContentSize:CGSizeMake(40, 450)];
