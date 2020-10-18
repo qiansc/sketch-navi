@@ -21,7 +21,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Panel : NSViewController<PanelStateChangeProtocol> {
+@interface Panel : NSViewController<NVPanelProtocol> {
     int limitWidth;
     NSMutableDictionary* panelControllers;
 }
@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString* documentId;
 @property (nonatomic, strong) id<PanelControlProtocol> delegate;
 @property (strong) IBOutlet NSStackView *stackView;
+@property (nonatomic, strong) IBOutlet NSScrollView* scrollView;
 
 + (instancetype)generateWithDocumentId:(NSString*) documentId;
 

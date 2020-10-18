@@ -47,13 +47,17 @@
     // 已经关闭
     [self.view addConstraint:constraintHeight];
     NSLog(@"NAVIL ENDDDD %f", self.view.frame.size.height);
+    if (self.panelDelegate) {
+        [self.panelDelegate panelDidResize:self.panelId];
+    }
+    
 }
 
 - (void)toogle:(NSButton*) button{
     openState = self.headerView.toggleButton.state;
     [self resetConstraint];
-    if (self.stateChangeDelegate) {
-        [self.stateChangeDelegate panel:self.panelId changeState:openState];
+    if (self.panelDelegate) {
+        [self.panelDelegate panel:self.panelId changeState:openState];
     }
 }
 
@@ -62,6 +66,19 @@
     NSString* const frameworkBundleID  = @"com.baidu.Navi";
     NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
     return [self initWithNibName:[NSString stringWithFormat:@"NV%@Panel", id] bundle: resourceBundlePath];
+}
+
+- (int)height {
+    // float height = 0;
+    float addHeight = 0;
+    for(NSView* view in self.view.subviews) {
+//        NSLog(@"XXXXXXXIIIII %@ %f, %f", self.panelId, view.frame.size.height, view.frame.origin.y);
+//        float h = view.frame.size.height + view.frame.origin.y;
+//        height = h > height ? h : height;
+        addHeight += view.frame.size.height;
+    }
+    // height = height < 50 ? addHeight : height;
+    return addHeight;
 }
 
 @end

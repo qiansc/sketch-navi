@@ -17,6 +17,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
+    NSLog(@"NAVIL FFFFFFFF %f", self.frame.size.width);
     
     // Drawing code here.
 }

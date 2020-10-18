@@ -7,7 +7,6 @@
 //
 
 #import "ColorCollectionView.h"
-#import "ColorCollection.h"
 
 @implementation ColorCollectionView
 
@@ -20,8 +19,6 @@
     for (int num = 0; num < 5; num++) {
         [arr addObject:[NSString stringWithFormat:@"%@%d",@"hello",num]];
     }
-    NSLog(@"NAVIL ColorCollectionView1 %@ %f, %f", self.superview, self.frame.size.height, self.superview.frame.size.height);
-    
 //    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self.superview attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem: self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0]];
 //    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self.superview attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem: self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0]];
     
@@ -40,14 +37,10 @@
 
 
 -(NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"NAVIL  === %@", indexPath);
     ColorCollectionItem *item = [collectionView makeItemWithIdentifier:@"ColorCollectionItem" forIndexPath:indexPath];
-    NSLog(@"NAVIL %@ %@", item, indexPath);
     item.textFiled.stringValue = @"HELLO!";
     item.view.wantsLayer = true;
     item.view.layer.backgroundColor  = [NSColor greenColor].CGColor;
-    NSLog(@"NAVIL ITEMMMMM");
-    NSLog(@"NAVIL ColorCollectionView2 %f, %f", self.frame.size.height, self.superview.frame.size.height);
     return item;
 }
 //
@@ -102,12 +95,11 @@
     
 }
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    return NSMakeSize(0, 60);
+    return NSMakeSize(0, 0);
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
-    NSLog(@"NAVIL ColorCollectionViewRR %f, %f", self.frame.size.height, self.superview.frame.size.height);
 }
 
 

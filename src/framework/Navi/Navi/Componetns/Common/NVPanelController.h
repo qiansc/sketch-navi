@@ -11,10 +11,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol PanelStateChangeProtocol <NSObject>
+@protocol NVPanelProtocol <NSObject>
 
 @required
 - (void)panel:(NSString*) panelId changeState:(NSControlStateValue) state;
+
+@optional
+- (void)panelDidResize:(NSString*) panelId;
 
 @end
 
@@ -26,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong) IBOutlet PanelHeaderView *headerView;
 @property (strong) NSString *panelId;
-@property (nonatomic, strong) id<PanelStateChangeProtocol> stateChangeDelegate;
+@property (nonatomic, strong) id<NVPanelProtocol> panelDelegate;
 
 - (instancetype) initWithId:(NSString*) id;
 - (void)setOpenStateSlient:(NSControlStateValue)state;
