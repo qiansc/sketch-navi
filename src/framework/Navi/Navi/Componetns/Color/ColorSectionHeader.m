@@ -10,16 +10,14 @@
 
 @implementation ColorSectionHeader
 
-//- (void)willMoveToSuperview:(NSView *)superview{
-//    [super viewWillMoveToSuperview:superview];
-//    NSTextField *textField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 100, 20)];
-//    textField.stringValue = @"Header Title";
-//    [self addSubview: textField];
-//}
+
+- (void)viewWillMoveToSuperview:(NSView *)superview{
+    [super viewWillMoveToSuperview:superview];
+}
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
-    
+
     // Drawing code here.
 }
 

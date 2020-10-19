@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="System colors introduced in macOS 10.13" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Panel">
             <connections>
+                <outlet property="clipView" destination="51B-74-XdU" id="YHC-NH-ImK"/>
+                <outlet property="scrollView" destination="e5A-1j-KMD" id="0Te-Hw-lfI"/>
                 <outlet property="stackView" destination="brd-or-Ora" id="DKQ-by-VVK"/>
                 <outlet property="view" destination="c22-O7-iKe" id="Cvx-Qs-siN"/>
             </connections>
@@ -52,13 +55,13 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </box>
                 <button identifier="floatButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IcM-R5-uSt">
-                    <rect key="frame" x="216" y="547" width="10" height="14"/>
+                    <rect key="frame" x="216" y="546" width="10" height="15"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSLockUnlockedTemplate" imagePosition="overlaps" alignment="center" alternateImage="NSLockLockedTemplate" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="ovi-2K-kDt">
                         <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="e5A-1j-KMD">
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="e5A-1j-KMD">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="537"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="51B-74-XdU" customClass="FlippedClipView">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="537"/>
@@ -84,13 +87,15 @@
                             <constraint firstItem="LEp-ug-epk" firstAttribute="top" secondItem="51B-74-XdU" secondAttribute="top" id="UVT-M6-777"/>
                             <constraint firstAttribute="trailing" secondItem="LEp-ug-epk" secondAttribute="trailing" id="j9l-kN-crz"/>
                         </constraints>
+                        <color key="backgroundColor" name="findHighlightColor" catalog="System" colorSpace="catalog"/>
+                        <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                     </clipView>
                     <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="6Q4-zI-fed">
                         <rect key="frame" x="-100" y="-100" width="225" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="vyx-EJ-qOI" customClass="CustomScroller">
-                        <rect key="frame" x="225" y="0.0" width="15" height="537"/>
+                        <rect key="frame" x="-100" y="-100" width="15" height="537"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>

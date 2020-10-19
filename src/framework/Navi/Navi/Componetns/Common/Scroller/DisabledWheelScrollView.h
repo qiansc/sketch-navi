@@ -1,8 +1,8 @@
 //
-//  CustomScroller.h
+//  DisabledWheelScrollView.h
 //  Navi
 //
-//  Created by Qian,Sicheng on 2020/10/15.
+//  Created by QIANSC on 2020/10/18.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CustomScroller : NSScroller
+@interface DisabledWheelScrollView : NSScrollView
 
 @end
 

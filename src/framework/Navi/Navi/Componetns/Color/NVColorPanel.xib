@@ -8,6 +8,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NVColorPanel">
             <connections>
+                <outlet property="bView" destination="Z6p-fL-ann" id="1mD-2X-7Bt"/>
+                <outlet property="clipView" destination="DNr-Bb-8Dn" id="b4M-JE-QSO"/>
+                <outlet property="collectionView" destination="Avc-R6-vFW" id="6wC-YI-W2x"/>
                 <outlet property="headerView" destination="eV9-9d-w5m" id="Ehb-Up-fhp"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -16,24 +19,44 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
             <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
             <subviews>
                 <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-9d-w5m" customClass="PanelHeaderView">
                     <rect key="frame" x="0.0" y="266" width="240" height="34"/>
                 </customView>
-                <collectionView translatesAutoresizingMaskIntoConstraints="NO" id="O7Y-wI-bVg" customClass="ColorCollectionView">
-                    <rect key="frame" x="1" y="0.0" width="238" height="266"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="wKP-HW-sh3">
-                        <size key="itemSize" width="50" height="50"/>
-                    </collectionViewFlowLayout>
-                    <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                </collectionView>
+                <scrollView wantsLayer="YES" ambiguous="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="Z6p-fL-ann" customClass="NVCollectionWrapper">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>
+                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="DNr-Bb-8Dn" customClass="NVClipView">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView allowsEmptySelection="NO" id="Avc-R6-vFW" customClass="ColorCollectionView">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="5" minimumLineSpacing="5" id="emh-Sh-897">
+                                    <size key="itemSize" width="50" height="50"/>
+                                </collectionViewFlowLayout>
+                                <color key="primaryBackgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </collectionView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="ZKs-qQ-uuF">
+                        <rect key="frame" x="-100" y="-100" width="233" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="9wp-8Z-krf">
+                        <rect key="frame" x="-100" y="-100" width="15" height="264"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="eV9-9d-w5m" secondAttribute="trailing" id="gcU-zX-X7W"/>
-                <constraint firstItem="eV9-9d-w5m" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="tc0-5c-UGG"/>
-                <constraint firstItem="eV9-9d-w5m" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="wiN-Tm-fje"/>
+                <constraint firstItem="Z6p-fL-ann" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="BOu-nG-pqr"/>
+                <constraint firstAttribute="trailing" secondItem="eV9-9d-w5m" secondAttribute="trailing" id="DDH-wd-DtO"/>
+                <constraint firstItem="eV9-9d-w5m" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="O2D-n1-Zak"/>
+                <constraint firstItem="Z6p-fL-ann" firstAttribute="top" secondItem="eV9-9d-w5m" secondAttribute="bottom" id="wzH-JN-nQY"/>
+                <constraint firstItem="eV9-9d-w5m" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="yDk-YY-Gjt"/>
+                <constraint firstAttribute="trailing" secondItem="Z6p-fL-ann" secondAttribute="trailing" id="z7Y-ZO-sxs"/>
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>
