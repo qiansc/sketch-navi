@@ -37,8 +37,7 @@
 		A3522957253D6C3A00F42D58 /* NVCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3522955253D6C3A00F42D58 /* NVCollectionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A352295E253DA5D400F42D58 /* NVColorSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A352295C253DA5D400F42D58 /* NVColorSource.h */; };
 		A352295F253DA5D400F42D58 /* NVColorSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A352295D253DA5D400F42D58 /* NVColorSource.m */; };
-		A3522962253DA8B900F42D58 /* NVPanelSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A3522960253DA8B900F42D58 /* NVPanelSource.h */; };
-		A3522963253DA8B900F42D58 /* NVPanelSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A3522961253DA8B900F42D58 /* NVPanelSource.m */; };
+		A3522962253DA8B900F42D58 /* NVSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A3522960253DA8B900F42D58 /* NVSource.h */; };
 		A38993F9250B85A000211D90 /* Navi.h in Headers */ = {isa = PBXBuildFile; fileRef = A38993F7250B859F00211D90 /* Navi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A396D0EA25346F990061CC73 /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = A396D0E825346F990061CC73 /* Util.h */; };
 		A396D0EB25346F990061CC73 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A396D0E925346F990061CC73 /* Util.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -121,8 +120,7 @@
 		A3522955253D6C3A00F42D58 /* NVCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVCollectionView.m; sourceTree = "<group>"; };
 		A352295C253DA5D400F42D58 /* NVColorSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVColorSource.h; sourceTree = "<group>"; };
 		A352295D253DA5D400F42D58 /* NVColorSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVColorSource.m; sourceTree = "<group>"; };
-		A3522960253DA8B900F42D58 /* NVPanelSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVPanelSource.h; sourceTree = "<group>"; };
-		A3522961253DA8B900F42D58 /* NVPanelSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVPanelSource.m; sourceTree = "<group>"; };
+		A3522960253DA8B900F42D58 /* NVSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVSource.h; sourceTree = "<group>"; };
 		A38993F4250B859F00211D90 /* Navi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38993F7250B859F00211D90 /* Navi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Navi.h; sourceTree = "<group>"; };
 		A38993F8250B85A000211D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -325,8 +323,7 @@
 				A3B5E22525382B460048F526 /* PanelHeader.h */,
 				A3B5E22625382B460048F526 /* PanelHeader.m */,
 				A3B5E22725382B460048F526 /* PanelHeader.xib */,
-				A3522960253DA8B900F42D58 /* NVPanelSource.h */,
-				A3522961253DA8B900F42D58 /* NVPanelSource.m */,
+				A3522960253DA8B900F42D58 /* NVSource.h */,
 				A34728A1253886B700EC18ED /* NVPanelController.h */,
 				A34728A2253886B700EC18ED /* NVPanelController.m */,
 			);
@@ -413,7 +410,7 @@
 				A300365125386EAF0093395D /* NVTextPanel.h in Headers */,
 				A34728AE2539897200EC18ED /* ColorSectionHeader.h in Headers */,
 				B226FF5C253CB447009DD159 /* NVCollectionController.h in Headers */,
-				A3522962253DA8B900F42D58 /* NVPanelSource.h in Headers */,
+				A3522962253DA8B900F42D58 /* NVSource.h in Headers */,
 				A3B5E22825382B460048F526 /* PanelHeader.h in Headers */,
 				A397ACC825148BEA00286C6E /* Panel.h in Headers */,
 				A3B5E22D25382BE70048F526 /* PanelHeaderView.h in Headers */,
@@ -540,7 +537,6 @@
 				A34728AF2539897200EC18ED /* ColorSectionHeader.m in Sources */,
 				A3522957253D6C3A00F42D58 /* NVCollectionView.m in Sources */,
 				B226FF5D253CB447009DD159 /* NVCollectionController.m in Sources */,
-				A3522963253DA8B900F42D58 /* NVPanelSource.m in Sources */,
 				B2012D1D253C5B2A0003715E /* DisabledWheelScrollView.m in Sources */,
 				A3453B6925381A19007AFFCC /* FlippedClipView.m in Sources */,
 				A3453B5D2535C5E2007AFFCC /* Config.m in Sources */,

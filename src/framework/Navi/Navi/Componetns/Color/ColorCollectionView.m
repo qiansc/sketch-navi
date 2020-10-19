@@ -16,6 +16,10 @@
 -(instancetype)initWithCoder:(NSCoder *)coder{
     ColorCollectionView *view = [super initWithCoder:coder];
     view.source = [[NVColorSource alloc]init];
+    [view.source onUpdated: ^void(){
+        NSLog(@"NAVIL SHOWWWWW");
+        [self reloadData];
+    }];
     return view;
 }
 
@@ -31,6 +35,7 @@
 - (void)viewDidMoveToSuperview {
     [super viewDidMoveToSuperview];
 }
+
 
 
 -(NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{

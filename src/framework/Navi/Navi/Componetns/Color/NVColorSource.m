@@ -7,9 +7,13 @@
 //
 
 #import "NVColorSource.h"
+#import "NVSource.h"
 
 @implementation NVColorSource {
+    NVSourceUpdateCallback updatedCallback;
+    NSString *searchQuery;
     NSMutableDictionary *dims;
+    
 }
 
 // hex: "EEEEEE", alpha: 100, specCode: "SAM_001", desc: "语义描述001",
@@ -27,7 +31,16 @@
             // NSLog(@"NAVIL COLORIIIIII %hhd %f %@", s.borderMode, s.alpha, s.hex);
         }
     }
-   NSLog(@"NAVIL COLORIIIIII %@", dims);
+    updatedCallback();
+}
+
+- (void)onUpdated:(NVSourceUpdateCallback) callback {
+    updatedCallback = callback;
+}
+
+- (void)setQuery:(NSString *) query {
+    searchQuery = query;
+    updatedCallback();
 }
 
 -(NSArray<NSString*>*)getDims{
@@ -37,6 +50,7 @@
 -(NSArray<NSDictionary*>*)getSpecsWith:(NSString *)dim{
     return dims[dim];
 }
+
 -(NSArray<NSDictionary*>*)getSpecsIn:(long) section{
     NSString *dim = [self getDims][section];
     return dims[dim];

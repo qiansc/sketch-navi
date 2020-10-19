@@ -8,7 +8,7 @@
 
 #import "Panel.h"
 #import "Config.h"
-#import "NVPanelSource.h"
+#import "NVSource.h"
 #import "NVColorPanel.h"
 #import "NVTextPanel.h"
 #import "NVLinePanel.h"
@@ -116,9 +116,10 @@
     _documentId = documentId;
 }
 
+/* 更新规范接口 */
 - (void)updateSpec:(NSDictionary *) specs{
     for(NSString * key in [specs allKeys]) {
-        NVPanelSource *source = panelSources[key];
+        NSObject<NVSource> *source = panelSources[key];
         if (source) {
             [source update:specs[key]];
         }

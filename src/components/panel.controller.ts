@@ -43,30 +43,7 @@ export class PanelController {
         // this.NSController.layoutSection();
         this.floatButton.state() === 0 ? this.showWindow() : this.showSlider();
         this.emitter.emit(PANEL_EVENT.SHOW_PANEL);
-        this.NSController.updateSpec({
-            Color: [{
-                hex: "EEEEEE", alpha: 100, specCode: "SAM_001", desc: "语义描述001",
-                dim: ["背景色"], fillMode: true, borderMode: true,
-            }, {
-                hex: "DDDDDD", alpha: 100, specCode: "SAM_002", desc: "语义描述002",
-                dim: ["背景色"], fillMode: true, borderMode: true,
-            }, {
-                hex: "BBBBBB", alpha: 100, specCode: "SAM_003", desc: "语义描述003",
-                dim: ["背景色"], fillMode: true, borderMode: true,
-            }, {
-                hex: "AAAAAA", alpha: 100, specCode: "SAM_004", desc: "语义描述004",
-                dim: ["文字色"], fillMode: true, borderMode: true,
-            }, {
-                hex: "999999", alpha: 100, specCode: "SAM_005", desc: "语义描述005",
-                dim: ["文字色"], fillMode: true, borderMode: true,
-            }, {
-                hex: "AAAAAA", alpha: 100, specCode: "SAM_006", desc: "语义描述006",
-                dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
-            }, {
-                hex: "999999", alpha: 100, specCode: "SAM_007", desc: "语义描述007",
-                dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
-            }]
-        });
+        this.updateSpecs();
     }
     hide() {
         if (this.window) {
@@ -122,6 +99,32 @@ export class PanelController {
     }
     on(event: PANEL_EVENT, cb: any){
         this.emitter.on(event, cb);
+    }
+    private updateSpecs() {
+        this.NSController.updateSpec({
+            Color: [{
+                hex: "EEEEEE", alpha: 100, specCode: "SAM_001", desc: "语义描述001",
+                dim: ["背景色"], fillMode: true, borderMode: true,
+            }, {
+                hex: "DDDDDD", alpha: 100, specCode: "SAM_002", desc: "语义描述002",
+                dim: ["背景色"], fillMode: true, borderMode: true,
+            }, {
+                hex: "BBBBBB", alpha: 100, specCode: "SAM_003", desc: "语义描述003",
+                dim: ["背景色"], fillMode: true, borderMode: true,
+            }, {
+                hex: "AAAAAA", alpha: 100, specCode: "SAM_004", desc: "语义描述004",
+                dim: ["文字色"], fillMode: true, borderMode: true,
+            }, {
+                hex: "999999", alpha: 100, specCode: "SAM_005", desc: "语义描述005",
+                dim: ["文字色"], fillMode: true, borderMode: true,
+            }, {
+                hex: "AAAAAA", alpha: 100, specCode: "SAM_006", desc: "语义描述006",
+                dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
+            }, {
+                hex: "999999", alpha: 100, specCode: "SAM_007", desc: "语义描述007",
+                dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
+            }]
+        });
     }
 }
 

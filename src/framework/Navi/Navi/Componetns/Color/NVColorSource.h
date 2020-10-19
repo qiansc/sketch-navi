@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
+#import "NVSource.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,12 +23,12 @@ struct NVColorSpec {
 };
 typedef struct NVColorSpec NVColorSpec;
 
-@interface NVColorSource : NSObject
+@interface NVColorSource : NSObject<NVSource>
 
 -(NSArray<NSString*>*)getDims;
 
 -(NSArray<NSDictionary*>*)getSpecsWith:(NSString *)dim;
--(NSArray<NSDictionary*>*)getSpecsIn:(int) section;
+-(NSArray<NSDictionary*>*)getSpecsIn:(long) section;
 -(NVColorSpec)getSpecAt:(NSIndexPath *) indexPath;
 
 +(NVColorSpec)value:(NSDictionary*) specDict;

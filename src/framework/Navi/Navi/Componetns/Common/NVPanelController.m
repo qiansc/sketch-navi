@@ -79,7 +79,7 @@
     return addHeight;
 }
 
-- (NVPanelSource *)generatePanelSource {
-    return [NVPanelSource new];
+- (NSObject<NVSource> *)generatePanelSource {
+    return [NSObject new];
 }
 @end

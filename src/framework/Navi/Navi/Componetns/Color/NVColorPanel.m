@@ -27,7 +27,7 @@
  
 }
 
--(NVPanelSource *)generatePanelSource{
+-(NSObject<NVSource> *)generatePanelSource{
     // collectionView.source 直接就是 panelSource给外界
     return self.collectionView.source;
 }
