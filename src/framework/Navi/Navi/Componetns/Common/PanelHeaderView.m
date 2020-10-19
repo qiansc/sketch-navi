@@ -25,7 +25,7 @@
     self.infoButton = controller.infoButton;
     self.titleLabel = controller.titleLabel;
     self.toggleButton = controller.toggleButton;
-    
+
 // 没有no-arc之前必须加约束才出来
 //    [self addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
 //    [self addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem: self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0]];
@@ -37,7 +37,6 @@
 
 
 - (id)initWithFrame:(NSRect)frameRect {
-    NSLog(@"NAVIL INIT HEADERFFFF");
     self = [super initWithFrame:frameRect];
     PanelHeader *controller = [PanelHeader viewControllerFromNIB];
     controller.view.frame = self.bounds;

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,10 +30,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView id="Avc-R6-vFW" customClass="ColorCollectionView">
+                            <collectionView allowsEmptySelection="NO" id="Avc-R6-vFW" customClass="ColorCollectionView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="emh-Sh-897">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="5" minimumLineSpacing="5" id="emh-Sh-897">
                                     <size key="itemSize" width="50" height="50"/>
                                 </collectionViewFlowLayout>
                                 <color key="primaryBackgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>

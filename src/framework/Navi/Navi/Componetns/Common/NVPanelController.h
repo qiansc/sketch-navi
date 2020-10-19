@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "PanelHeaderView.h"
+#import "NVPanelSource.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -33,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype) initWithId:(NSString*) id;
 - (void)setOpenStateSlient:(NSControlStateValue)state;
+- (NVPanelSource *)generatePanelSource;
 - (int)height; // 插件展开高度算法，需要自行子类实现
 
 @end

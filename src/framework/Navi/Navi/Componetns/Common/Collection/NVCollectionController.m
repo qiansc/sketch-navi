@@ -57,4 +57,8 @@
     // Do view setup here.
 }
 
++ (void)initWithNVPanelController {
+    
+}
+
 @end

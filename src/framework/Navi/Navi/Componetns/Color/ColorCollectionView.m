@@ -7,40 +7,40 @@
 //
 
 #import "ColorCollectionView.h"
+#import "HexColor.h"
 
-@implementation ColorCollectionView
+@implementation ColorCollectionView {
+    NSMutableArray *arr;
+}
+
+-(instancetype)initWithCoder:(NSCoder *)coder{
+    ColorCollectionView *view = [super initWithCoder:coder];
+    view.source = [[NVColorSource alloc]init];
+    return view;
+}
 
 -(void)viewDidMoveToWindow {
     [super viewDidMoveToWindow];
     self.delegate = self;
     self.dataSource = self;
     arr = [[NSMutableArray alloc] init];
-    dict = [NSMutableDictionary new];
     for (int num = 0; num < 5; num++) {
         [arr addObject:[NSString stringWithFormat:@"%@%d",@"hello",num]];
     }
-//    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self.superview attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem: self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0]];
-//    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self.superview attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem: self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0]];
-    
-//    NSCollectionView *view = self;
-//    NSArray<NSLayoutConstraint *> * c = [NSLayoutConstraint constraintsWithVisualFormat: @"H:|[view]|" options:0 metrics:nil views:
-//                                             [NSDictionary dictionaryWithObject:view forKey:@"view"]];
-//
-////    [self removeConstraints:self.constraints];
-//    [self.superview addConstraints:c];
-    
-     self.wantsLayer = true;
-     self.layer.backgroundColor  = [NSColor yellowColor].CGColor;
-    // [self reloadData];
 }
-
+- (void)viewDidMoveToSuperview {
+    [super viewDidMoveToSuperview];
+}
 
 
 -(NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
     ColorCollectionItem *item = [collectionView makeItemWithIdentifier:@"ColorCollectionItem" forIndexPath:indexPath];
-    item.textFiled.stringValue = @"HELLO!";
+    NVColorSpec spec = [self.source getSpecAt:indexPath];
+    item.textFiled.stringValue = spec.specCode;
     item.view.wantsLayer = true;
-    item.view.layer.backgroundColor  = [NSColor greenColor].CGColor;
+    item.view.layer.backgroundColor  = NSColorFromRGBString(spec.hex).CGColor;
+    // [NSColor greenColor].CGColor;
+    NSLog(@"NAVIL ITEM %ld", (long)indexPath.item);
     return item;
 }
 //
@@ -51,47 +51,36 @@
 }
 
 -(NSInteger)collectionView:(NSCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 8;
+    // NSLog(@"NAVIL numberOfItemsInSection %@", [self.source getDims]);
+    return [[self.source getSpecsIn:section] count];
     // return [arr count];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(NSCollectionView *)collectionView{
-    return 3;
+    return [[self.source getDims] count];
 }
 
 - (NSView *)collectionView:(NSCollectionView *)collectionView viewForSupplementaryElementOfKind:(NSCollectionViewSupplementaryElementKind)kind atIndexPath:(NSIndexPath *)indexPath {
-
     if (kind == NSCollectionElementKindSectionHeader) {
-        ColorSectionHeader *oldview = dict[[NSString stringWithFormat:@"Header-%ld" , (long)indexPath.section]];
-
-        if (oldview != nil) {
-            // NSLog(@"REMOVE>%@", oldview);
-            [oldview removeFromSuperview];
-        }
-        ColorSectionHeader *view = [self makeSupplementaryViewOfKind:kind withIdentifier: @"ColorSectionHeader" forIndexPath:indexPath];
-        view.wantsLayer = true;
-        view.layer.backgroundColor = [NSColor blueColor].CGColor;
-        // view.titleTextField.stringValue = @"Header";
-        // [view.button setTarget:self];
-        // [view.button setAction:@selector(buttonClick:)];
-        [dict setObject:view forKey:[ NSString stringWithFormat:@"Header-%ld" , (long)indexPath.section]];
-    } else if (kind == NSCollectionElementKindSectionFooter) {
+        ColorSectionHeader *view =
+        [self makeSupplementaryViewOfKind:kind withIdentifier: @"ColorSectionHeader" forIndexPath:indexPath];
         
-        NSLog(@"NAVIL ColorCollectionView3 %f, %f", self.frame.size.height, self.superview.frame.size.height);
+        NSTextField *textField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 100, 20)];
+        textField.stringValue = [self.source getDims][indexPath.section];
+        textField.editable = NO;
+        textField.bordered = NO;
+        [view addSubview: textField];
+        
+//    } else if (kind == NSCollectionElementKindSectionFooter) {
     }
     return nil;
-}
-
--(void)buttonClick:(NSButton*) sender {
-    [arr addObject:[NSString stringWithFormat:@"%@",@"hello MORE"]];
-    [self reloadData];
 }
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return NSMakeSize(50, 50);
 }
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return NSMakeSize(0, 60);
+    return NSMakeSize(0, 26);
     
 }
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
@@ -101,7 +90,5 @@
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
 }
-
-
 
 @end

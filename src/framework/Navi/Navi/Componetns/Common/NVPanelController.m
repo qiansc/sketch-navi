@@ -20,8 +20,8 @@
     [self.headerView.toggleButton setAction:@selector(toogle:)];
     openState = self.headerView.toggleButton.state;
     [self resetConstraint];
-    self.view.wantsLayer = true;
-    self.view.layer.backgroundColor = [NSColor purpleColor].CGColor;
+//    self.view.wantsLayer = true;
+//    self.view.layer.backgroundColor = [NSColor purpleColor].CGColor;
 }
 
 
@@ -43,14 +43,12 @@
         // 隐藏状态
         constraintHeight = [self.view.heightAnchor constraintEqualToConstant:self.headerView.frame.size.height];
     }
-    NSLog(@"NAVIL RES C%@, %@, %f", self.panelId, constraintHeight, self.view.frame.size.height);
     // 已经关闭
     [self.view addConstraint:constraintHeight];
-    NSLog(@"NAVIL ENDDDD %f", self.view.frame.size.height);
     if (self.panelDelegate) {
         [self.panelDelegate panelDidResize:self.panelId];
     }
-    
+
 }
 
 - (void)toogle:(NSButton*) button{
@@ -81,4 +79,7 @@
     return addHeight;
 }
 
+- (NVPanelSource *)generatePanelSource {
+    return [NVPanelSource new];
+}
 @end

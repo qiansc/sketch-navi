@@ -8,16 +8,22 @@
 
 #import "Panel.h"
 #import "Config.h"
+#import "NVPanelSource.h"
 #import "NVColorPanel.h"
 #import "NVTextPanel.h"
 #import "NVLinePanel.h"
 #import "NVMaskPanel.h"
 
-@implementation Panel
+@implementation Panel {
+    int limitWidth;
+    NSMutableDictionary* panelControllers;
+    NSMutableDictionary* panelSources;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     panelControllers = [[NSMutableDictionary alloc] init];
+    panelSources = [[NSMutableDictionary alloc] init];
     // Menu按下传递的事件
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePanel:) name:@"OPEN_PANEL" object:nil];
     // Menu按下传递的事件
@@ -54,6 +60,7 @@
                 c.headerView.titleLabel.stringValue = option[@"name"];
                 c.panelDelegate = self;
                 [panelControllers setValue:c forKey:id];
+                [panelSources setValue:[c generatePanelSource] forKey:id];
 
             }
 
@@ -107,6 +114,15 @@
 - (void)setDocumentId:(NSString*) documentId {
     self.view.identifier = [documentId stringByAppendingString:@"-navi-tools-panel"];
     _documentId = documentId;
+}
+
+- (void)updateSpec:(NSDictionary *) specs{
+    for(NSString * key in [specs allKeys]) {
+        NVPanelSource *source = panelSources[key];
+        if (source) {
+            [source update:specs[key]];
+        }
+    }
 }
 
 + (instancetype)generateWithDocumentId:(NSString*) documentId {
