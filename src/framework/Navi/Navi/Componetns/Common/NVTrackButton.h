@@ -1,8 +1,8 @@
 //
-//  ColorSectionHeader.h
+//  NVTrackButton.h
 //  Navi
 //
-//  Created by Qian,Sicheng on 2020/10/16.
+//  Created by Qian,Sicheng on 2020/10/20.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ColorSectionHeader : NSView
+@interface NVTrackButton : NSButton
 
 @end
 

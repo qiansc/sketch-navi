@@ -1,5 +1,5 @@
 //
-//  ColorCollectionItem.h
+//  NVColorSectionHeader.h
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/10/16.
@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ColorCollectionItem : NSCollectionViewItem
+@interface NVColorSectionHeader : NSView
 
-@property (weak) IBOutlet NSTextField *textFiled;
+-(void)setTitle:(NSString *) title;
 
 @end
 

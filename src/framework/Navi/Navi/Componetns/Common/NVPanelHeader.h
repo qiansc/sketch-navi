@@ -1,5 +1,5 @@
 //
-//  PanelHeader.h
+//  NVPanelHeader.h
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/10/15.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PanelHeader : NSViewController
+@interface NVPanelHeader : NSViewController
 
 @property (weak) IBOutlet NSTextField *titleLabel;
 @property (strong) IBOutlet NSButton *infoButton;

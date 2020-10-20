@@ -1,15 +1,15 @@
 //
-//  PanelHeaderView.m
+//  NVPanelHeaderView.m
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/10/15.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "PanelHeaderView.h"
-#import "PanelHeader.h"
+#import "NVPanelHeaderView.h"
+#import "NVPanelHeader.h"
 
-@implementation PanelHeaderView
+@implementation NVPanelHeaderView
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
@@ -18,7 +18,7 @@
 
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
-    PanelHeader *controller = [PanelHeader viewControllerFromNIB];
+    NVPanelHeader *controller = [NVPanelHeader viewControllerFromNIB];
     NSRect contentFrame = NSMakeRect(0, 0, self.frame.size.width, self.frame.size.height);
     controller.view.frame = contentFrame;
     [self addSubview: controller.view];
@@ -38,7 +38,7 @@
 
 - (id)initWithFrame:(NSRect)frameRect {
     self = [super initWithFrame:frameRect];
-    PanelHeader *controller = [PanelHeader viewControllerFromNIB];
+    NVPanelHeader *controller = [NVPanelHeader viewControllerFromNIB];
     controller.view.frame = self.bounds;
 //    NSRect contentFrame = NSMakeRect(0, 0, frameRect.size.width, frameRect.size.height);
 //    view.frame = contentFrame;

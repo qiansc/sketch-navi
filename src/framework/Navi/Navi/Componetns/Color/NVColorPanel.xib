@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-9d-w5m" customClass="PanelHeaderView">
+                <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-9d-w5m" customClass="NVPanelHeaderView">
                     <rect key="frame" x="0.0" y="266" width="240" height="34"/>
                 </customView>
                 <scrollView wantsLayer="YES" ambiguous="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="Z6p-fL-ann" customClass="NVCollectionWrapper">
@@ -30,10 +30,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView allowsEmptySelection="NO" id="Avc-R6-vFW" customClass="ColorCollectionView">
+                            <collectionView allowsEmptySelection="NO" id="Avc-R6-vFW" customClass="NVColorCollectionView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="5" minimumLineSpacing="5" id="emh-Sh-897">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="5" id="emh-Sh-897">
                                     <size key="itemSize" width="50" height="50"/>
                                 </collectionViewFlowLayout>
                                 <color key="primaryBackgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>

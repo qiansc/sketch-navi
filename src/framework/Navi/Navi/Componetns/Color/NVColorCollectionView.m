@@ -1,20 +1,20 @@
 //
-//  ColorCollectionView.m
+//  NVColorCollectionView.m
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/10/16.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "ColorCollectionView.h"
+#import "NVColorCollectionView.h"
 #import "HexColor.h"
 
-@implementation ColorCollectionView {
+@implementation NVColorCollectionView {
     NSMutableArray *arr;
 }
 
 -(instancetype)initWithCoder:(NSCoder *)coder{
-    ColorCollectionView *view = [super initWithCoder:coder];
+    NVColorCollectionView *view = [super initWithCoder:coder];
     view.source = [[NVColorSource alloc]init];
     [view.source onUpdated: ^void(){
         NSLog(@"NAVIL SHOWWWWW");
@@ -32,6 +32,7 @@
         [arr addObject:[NSString stringWithFormat:@"%@%d",@"hello",num]];
     }
 }
+
 - (void)viewDidMoveToSuperview {
     [super viewDidMoveToSuperview];
 }
@@ -39,15 +40,12 @@
 
 
 -(NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
-    ColorCollectionItem *item = [collectionView makeItemWithIdentifier:@"ColorCollectionItem" forIndexPath:indexPath];
     NVColorSpec spec = [self.source getSpecAt:indexPath];
-    item.textFiled.stringValue = spec.specCode;
-    item.view.wantsLayer = true;
-    item.view.layer.backgroundColor  = NSColorFromRGBString(spec.hex).CGColor;
-    // [NSColor greenColor].CGColor;
-    NSLog(@"NAVIL ITEM %ld", (long)indexPath.item);
-    return item;
+    NVColorCollectionItem *cell = [collectionView makeItemWithIdentifier:@"NVColorCollectionItem" forIndexPath:indexPath];
+    [cell initWithSpec:spec];
+    return cell;
 }
+
 //
 -(void)collectionView:(NSCollectionView *)collectionView willDisplayItem:(NSCollectionViewItem *)item forRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
 }
@@ -67,26 +65,19 @@
 
 - (NSView *)collectionView:(NSCollectionView *)collectionView viewForSupplementaryElementOfKind:(NSCollectionViewSupplementaryElementKind)kind atIndexPath:(NSIndexPath *)indexPath {
     if (kind == NSCollectionElementKindSectionHeader) {
-        ColorSectionHeader *view =
-        [self makeSupplementaryViewOfKind:kind withIdentifier: @"ColorSectionHeader" forIndexPath:indexPath];
-        
-        NSTextField *textField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 100, 20)];
-        textField.stringValue = [self.source getDims][indexPath.section];
-        textField.editable = NO;
-        textField.bordered = NO;
-        [view addSubview: textField];
-        
-//    } else if (kind == NSCollectionElementKindSectionFooter) {
+        NVColorSectionHeader *view =
+        [self makeSupplementaryViewOfKind:kind withIdentifier: @"NVColorSectionHeader" forIndexPath:indexPath];
+        [view setTitle:[self.source getDims][indexPath.section]];
     }
     return nil;
 }
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return NSMakeSize(50, 50);
+    return NSMakeSize(31, 31);
 }
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     return NSMakeSize(0, 26);
-    
+
 }
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
     return NSMakeSize(0, 0);

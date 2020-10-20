@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="240" height="170"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QPO-xI-fUW" customClass="PanelHeaderView">
+                <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QPO-xI-fUW" customClass="NVPanelHeaderView">
                     <rect key="frame" x="0.0" y="136" width="240" height="34"/>
                 </customView>
             </subviews>

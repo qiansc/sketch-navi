@@ -1,5 +1,5 @@
 //
-//  ColorCollectionView.h
+//  NVColorCollectionView.h
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/10/16.
@@ -7,14 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ColorSectionHeader.h"
-#import "ColorCollectionItem.h"
+#import "NVColorSectionHeader.h"
+#import "NVColorCollectionItem.h"
 #import "NVColorSource.h"
 #import "NVCollectionView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ColorCollectionView : NVCollectionView<NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout>
+@interface NVColorCollectionView : NVCollectionView<NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong) NVColorSource *source;
 

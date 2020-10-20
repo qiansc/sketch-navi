@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "PanelHeaderView.h"
+#import "NVPanelHeaderView.h"
 #import "NVSource.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 }
 
-@property (strong) IBOutlet PanelHeaderView *headerView;
+@property (strong) IBOutlet NVPanelHeaderView *headerView;
 @property (strong) NSString *panelId;
 @property (nonatomic, strong) id<NVPanelProtocol> panelDelegate;
 
