@@ -1,5 +1,5 @@
 //
-//  PanelHeaderView.h
+//  NVPanelHeaderView.h
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/10/15.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PanelHeaderView : NSView
+@interface NVPanelHeaderView : NSView
 
 @property (nonatomic, strong) NSTextField *titleTextField;
 @property (nonatomic, strong) NSButton *button;

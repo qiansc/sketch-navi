@@ -36,9 +36,8 @@
 + (instancetype)viewControllerFromNIB {
     NSString* const frameworkBundleID  = @"com.baidu.Navi";
     NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
-    return [[PanelHeader alloc] initWithNibName:@"NVPanelHeader" bundle:resourceBundlePath];
+    return [[NVPanelHeader alloc] initWithNibName:@"NVPanelHeader" bundle:resourceBundlePath];
 }
-
 
 
 @end

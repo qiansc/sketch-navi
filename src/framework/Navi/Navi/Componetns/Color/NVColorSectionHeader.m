@@ -1,5 +1,5 @@
 //
-//  ColorSectionHeader.m
+//  NVColorSectionHeader.m
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/10/16.
@@ -8,7 +8,7 @@
 
 #import "NVColorSectionHeader.h"
 
-@implementation ColorSectionHeader {
+@implementation NVColorSectionHeader {
     NSTextField *textField;
 }
 
@@ -23,6 +23,8 @@
         textField.stringValue = @"title";
         textField.textColor = [NSColor grayColor];
         textField.drawsBackground = NO;
+        [textField setFont:[NSFont systemFontOfSize: 10]];
+        // textField.cell.font.pointSize
         [self addSubview:textField];
     }
 }

@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="240" height="178"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="evV-Ja-LP7" customClass="PanelHeaderView">
+                <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="evV-Ja-LP7" customClass="NVPanelHeaderView">
                     <rect key="frame" x="0.0" y="144" width="240" height="34"/>
                 </customView>
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Mn-Yf-Iev">

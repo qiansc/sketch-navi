@@ -8,8 +8,6 @@
 
 #import "Config.h"
 
-
-
 @implementation Config
 
 +(NSArray<NSDictionary*>*) MenuOptions {

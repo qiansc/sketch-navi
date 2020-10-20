@@ -7,15 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "PanelHeaderView.h"
+#import "NVPanelHeaderView.h"
 #import "NVPanelController.h"
-#import "ColorCollectionView.h"
+#import "NVColorCollectionView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NVColorPanel : NVPanelController
 
-@property (nonatomic,strong) IBOutlet ColorCollectionView *collectionView;
+@property (nonatomic,strong) IBOutlet NVColorCollectionView *collectionView;
 
 @end
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="System colors introduced in macOS 10.13" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,23 +56,23 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </box>
                 <button identifier="floatButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IcM-R5-uSt">
-                    <rect key="frame" x="216" y="546" width="10" height="15"/>
+                    <rect key="frame" x="216" y="547" width="10" height="14"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSLockUnlockedTemplate" imagePosition="overlaps" alignment="center" alternateImage="NSLockLockedTemplate" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="ovi-2K-kDt">
                         <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
                 <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="e5A-1j-KMD">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="537"/>
+                    <rect key="frame" x="10" y="0.0" width="222" height="537"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="51B-74-XdU" customClass="FlippedClipView">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="537"/>
+                        <rect key="frame" x="0.0" y="0.0" width="222" height="537"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view translatesAutoresizingMaskIntoConstraints="NO" id="LEp-ug-epk">
-                                <rect key="frame" x="0.0" y="537" width="240" height="0.0"/>
+                                <rect key="frame" x="0.0" y="537" width="222" height="0.0"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="brd-or-Ora">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="222" height="0.0"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -104,9 +105,9 @@
                 <constraint firstAttribute="trailing" secondItem="IcM-R5-uSt" secondAttribute="trailing" constant="14" id="7bu-dK-rqP"/>
                 <constraint firstItem="e5A-1j-KMD" firstAttribute="top" secondItem="mc5-Na-xp3" secondAttribute="bottom" constant="2" id="9rE-Eg-QhD"/>
                 <constraint firstItem="IcM-R5-uSt" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="11" id="WTR-uQ-dx5"/>
-                <constraint firstItem="e5A-1j-KMD" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="agZ-CH-mY7"/>
+                <constraint firstItem="e5A-1j-KMD" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="10" id="agZ-CH-mY7"/>
                 <constraint firstAttribute="bottom" secondItem="e5A-1j-KMD" secondAttribute="bottom" id="iu6-S8-Bx9"/>
-                <constraint firstAttribute="trailing" secondItem="e5A-1j-KMD" secondAttribute="trailing" id="zQ4-yM-ydb"/>
+                <constraint firstAttribute="trailing" secondItem="e5A-1j-KMD" secondAttribute="trailing" constant="8" id="zQ4-yM-ydb"/>
             </constraints>
             <point key="canvasLocation" x="140" y="4"/>
         </customView>

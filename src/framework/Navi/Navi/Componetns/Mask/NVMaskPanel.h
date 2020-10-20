@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "PanelHeaderView.h"
+#import "NVPanelHeaderView.h"
 #import "NVPanelController.h"
 
 NS_ASSUME_NONNULL_BEGIN

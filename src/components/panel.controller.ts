@@ -103,25 +103,52 @@ export class PanelController {
     private updateSpecs() {
         this.NSController.updateSpec({
             Color: [{
-                hex: "EEEEEE", alpha: 100, specCode: "SAM_001", desc: "语义描述001",
+                hex: "FFFFFF", alpha: 100, specCode: "SAM_001", desc: "语义描述001",
                 dim: ["背景色"], fillMode: true, borderMode: true,
             }, {
-                hex: "DDDDDD", alpha: 100, specCode: "SAM_002", desc: "语义描述002",
+                hex: "FFFFFF", alpha: 100, specCode: "SAM_002", desc: "语义描述002",
                 dim: ["背景色"], fillMode: true, borderMode: true,
             }, {
-                hex: "BBBBBB", alpha: 100, specCode: "SAM_003", desc: "语义描述003",
+                hex: "FFFFFF", alpha: 100, specCode: "SAM_003", desc: "语义描述003",
                 dim: ["背景色"], fillMode: true, borderMode: true,
             }, {
-                hex: "AAAAAA", alpha: 100, specCode: "SAM_004", desc: "语义描述004",
+                hex: "CFC0FF", alpha: 100, specCode: "SAM_013", desc: "语义描述013",
+                dim: ["背景色"], fillMode: true, borderMode: true,
+            }, {
+                hex: "CBF8FF", alpha: 100, specCode: "SAM_014", desc: "语义描述014",
+                dim: ["背景色"], fillMode: true, borderMode: true,
+            }, {
+                hex: "FBE98A", alpha: 100, specCode: "SAM_015", desc: "语义描述015",
+                dim: ["背景色"], fillMode: true, borderMode: true,
+            }, {
+                hex: "FFFFFF", alpha: 100, specCode: "SAM_101", desc: "语义描述101",
+                dim: ["背景色"], fillMode: true, borderMode: true,
+            }, {
+                hex: "FFFFFF", alpha: 100, specCode: "SAM_102", desc: "语义描述102",
+                dim: ["背景色"], fillMode: true, borderMode: true,
+            }, {
+                hex: "FFFFFF", alpha: 100, specCode: "SAM_103", desc: "语义描述103",
+                dim: ["背景色"], fillMode: true, borderMode: true,
+            }, {
+                hex: "CFC0FF", alpha: 100, specCode: "SAM_113", desc: "语义描述113",
+                dim: ["背景色"], fillMode: true, borderMode: true,
+            }, {
+                hex: "CBF8FF", alpha: 100, specCode: "SAM_114", desc: "语义描述114",
+                dim: ["背景色"], fillMode: true, borderMode: true,
+            }, {
+                hex: "FBE98A", alpha: 100, specCode: "SAM_115", desc: "语义描述115",
+                dim: ["背景色"], fillMode: true, borderMode: true,
+            }, {
+                hex: "222222", alpha: 100, specCode: "SAM_004", desc: "语义描述004",
                 dim: ["文字色"], fillMode: true, borderMode: true,
             }, {
-                hex: "999999", alpha: 100, specCode: "SAM_005", desc: "语义描述005",
+                hex: "444444", alpha: 100, specCode: "SAM_005", desc: "语义描述005",
                 dim: ["文字色"], fillMode: true, borderMode: true,
             }, {
-                hex: "AAAAAA", alpha: 100, specCode: "SAM_006", desc: "语义描述006",
+                hex: "000000", alpha: 100, specCode: "SAM_006", desc: "语义描述006",
                 dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
             }, {
-                hex: "999999", alpha: 100, specCode: "SAM_007", desc: "语义描述007",
+                hex: "222222", alpha: 100, specCode: "SAM_007", desc: "语义描述007",
                 dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
             }]
         });
