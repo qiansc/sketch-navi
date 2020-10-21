@@ -36,6 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setOpenStateSlient:(NSControlStateValue)state;
 - (NSObject<NVSource>*)generatePanelSource;
 - (int)height; // 插件展开高度算法，需要自行子类实现
+- (void)resetConstraint;
 
 @end
 

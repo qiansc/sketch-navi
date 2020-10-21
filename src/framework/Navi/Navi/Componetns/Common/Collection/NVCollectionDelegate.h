@@ -12,12 +12,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^OnChangeCallback)(NVToggleBox* box);
+
 @interface NVCollectionDelegate : NSObject
 
 @property (nonatomic, strong) NVCollectionView *collectionView;
 
 -(void)setActive:(NSIndexPath *)indexPath;
+-(void)onChange:(OnChangeCallback) onChangeCallback;
 
 @end
+
 
 NS_ASSUME_NONNULL_END

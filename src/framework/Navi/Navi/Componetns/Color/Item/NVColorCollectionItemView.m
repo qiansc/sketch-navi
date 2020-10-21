@@ -34,6 +34,7 @@
     [self drawStyle];
     textFiled.stringValue = self.spec.specCode;
     frontBox.fillColor = NSColorFromRGBString(self.spec.hex);
+    self.toolTip = [NSString stringWithFormat:@"%@ - %@", self.spec.specCode, self.spec.desc];
 }
 
 - (void)drawRect:(NSRect)dirtyRect {

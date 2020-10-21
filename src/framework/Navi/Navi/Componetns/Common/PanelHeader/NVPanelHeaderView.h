@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NVPanelInfoButton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,9 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSTextField *titleTextField;
 @property (nonatomic, strong) NSButton *button;
 
-@property (nonatomic) NSTextField *titleLabel;
-@property (nonatomic) NSButton *infoButton;
-@property (nonatomic) NSButton *toggleButton;
+@property (nonatomic, strong) NSTextField *titleLabel;
+@property (nonatomic, strong) NVPanelInfoButton *infoButton;
+@property (nonatomic, strong) NSButton *toggleButton;
 
 @end
 

@@ -7,13 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NVPanelInfoButton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NVPanelHeader : NSViewController
 
 @property (weak) IBOutlet NSTextField *titleLabel;
-@property (strong) IBOutlet NSButton *infoButton;
+@property (strong) IBOutlet NVPanelInfoButton *infoButton;
 @property (strong) IBOutlet NSButton *toggleButton;
 
 + (instancetype)viewControllerFromNIB;
