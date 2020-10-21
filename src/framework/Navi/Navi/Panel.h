@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)generateWithDocumentId:(NSString*) documentId;
 - (void)updateSpec:(NSDictionary *) object;
+- (void)selectionChange;
 
 @end
 

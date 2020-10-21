@@ -171,6 +171,11 @@
 		A3B5E22B25382BE70048F526 /* NVPanelHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVPanelHeaderView.h; sourceTree = "<group>"; };
 		A3B5E22C25382BE70048F526 /* NVPanelHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVPanelHeaderView.m; sourceTree = "<group>"; };
 		A3E6094325109AB500C98536 /* Panel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Panel.xib; sourceTree = "<group>"; };
+		A3EE0FE5254059E900C3998D /* MSDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSDocument.h; sourceTree = "<group>"; };
+		A3EE0FE625405AEE00C3998D /* MSLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSLayer.h; sourceTree = "<group>"; };
+		A3EE0FE72540612E00C3998D /* MSStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSStyle.h; sourceTree = "<group>"; };
+		A3EE0FE82540614600C3998D /* MSStyleFill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSStyleFill.h; sourceTree = "<group>"; };
+		A3EE0FE92540649F00C3998D /* MSColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSColor.h; sourceTree = "<group>"; };
 		A3EEF7EA253F033500C3998D /* NVCollectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVCollectionDelegate.h; sourceTree = "<group>"; };
 		A3EEF7EB253F033500C3998D /* NVCollectionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVCollectionDelegate.m; sourceTree = "<group>"; };
 		A3EEF7F62540017300C3998D /* NVColorCollectionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVColorCollectionItem.h; sourceTree = "<group>"; };
@@ -316,6 +321,7 @@
 		A3B148E3251628D500939B36 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				A3EE0FE4254059D600C3998D /* Sketch */,
 				A396D0D2251DE63B0061CC73 /* DataChangeProtocol.h */,
 			);
 			path = Headers;
@@ -363,6 +369,18 @@
 				A34728AD2539897200EC18ED /* NVColorSectionHeader.m */,
 			);
 			path = Color;
+			sourceTree = "<group>";
+		};
+		A3EE0FE4254059D600C3998D /* Sketch */ = {
+			isa = PBXGroup;
+			children = (
+				A3EE0FE5254059E900C3998D /* MSDocument.h */,
+				A3EE0FE625405AEE00C3998D /* MSLayer.h */,
+				A3EE0FE72540612E00C3998D /* MSStyle.h */,
+				A3EE0FE82540614600C3998D /* MSStyleFill.h */,
+				A3EE0FE92540649F00C3998D /* MSColor.h */,
+			);
+			path = Sketch;
 			sourceTree = "<group>";
 		};
 		A3EEF7FA2540044F00C3998D /* Item */ = {

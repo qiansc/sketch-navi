@@ -50,8 +50,11 @@ export class PanelController {
             this.NSController.delegate = null;
             this.window.setContentView(null);
             this.window.close();
-        }``
+        }
         this.ctx.removeView(this.view.identifier());
+    }
+    public selectionChange() {
+        this.NSController.selectionChange();
     }
     private showSlider() {
         if (this.ctx.findView(this.view.identifier()) === -1) {
