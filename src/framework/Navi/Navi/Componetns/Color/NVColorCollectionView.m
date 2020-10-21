@@ -13,8 +13,8 @@
 
 @implementation NVColorCollectionView {
     NSMutableArray *arr;
-    NVCollectionDelegate *toggleDelegate;
-    
+
+
 }
 
 -(instancetype)initWithCoder:(NSCoder *)coder{
@@ -25,8 +25,8 @@
         [self reloadData];
     }];
     
-    toggleDelegate = [NVCollectionDelegate new];
-    toggleDelegate.collectionView = view;
+    self.toggleDelegate = [NVCollectionDelegate new];
+    self.toggleDelegate.collectionView = view;
     return view;
 }
 
@@ -53,7 +53,7 @@
     item.spec = spec;
     item.indexPath = indexPath;
     [item onMouseDown:^void(NSEvent* event, NSBox* box) {
-        [toggleDelegate setActive:((NVToggleBox *)box).indexPath];
+        [self.toggleDelegate setActive:((NVToggleBox *)box).indexPath];
     }];
     return cell;
 }

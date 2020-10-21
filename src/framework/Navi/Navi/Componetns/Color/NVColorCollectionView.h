@@ -10,12 +10,14 @@
 #import "NVColorSectionHeader.h"
 #import "NVColorSource.h"
 #import "NVCollectionView.h"
+#import "NVCollectionDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NVColorCollectionView : NVCollectionView<NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout>
 
 @property (nonatomic,strong) NVColorSource *source;
+@property (nonatomic,strong) NVCollectionDelegate *toggleDelegate;
 
 @end
 

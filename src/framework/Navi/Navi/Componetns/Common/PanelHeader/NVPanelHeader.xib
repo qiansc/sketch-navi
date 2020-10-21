@@ -31,7 +31,7 @@
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uSP-NM-zQb">
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uSP-NM-zQb" customClass="NVPanelInfoButton">
                             <rect key="frame" x="44" y="1" width="58" height="14"/>
                             <buttonCell key="cell" type="inline" title="T_012345" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="J0h-sH-S2O">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

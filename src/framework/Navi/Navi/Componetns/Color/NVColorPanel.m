@@ -9,12 +9,15 @@
 #import "NVColorPanel.h"
 #import "NVCollectionController.h"
 #import "NVColorSource.h"
+#import "NVColorCollectionItemView.h"
 
 @interface NVColorPanel ()
 
 @end
 
-@implementation NVColorPanel
+@implementation NVColorPanel {
+    NVColorSpec spec;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,8 +28,15 @@
     c.afterResize = ^(float width, float height) {
         [self resetConstraint];
     };
-    
- 
+    [self.collectionView.toggleDelegate onChange:^(NVToggleBox * _Nonnull box) {
+        spec = ((NVColorCollectionItemView *)box).spec;
+        [self update];
+    }];
+    [self update];
+}
+
+-(void)update {
+    self.headerView.infoButton.title = spec.specCode;
 }
 
 -(NSObject<NVSource> *)generatePanelSource{
