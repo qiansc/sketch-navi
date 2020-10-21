@@ -7,10 +7,14 @@
 //
 
 #import "NVColorCollectionView.h"
+#import "NVCollectionDelegate.h"
+#import "NVColorCollectionItemView.h"
 #import "HexColor.h"
 
 @implementation NVColorCollectionView {
     NSMutableArray *arr;
+    NVCollectionDelegate *toggleDelegate;
+    
 }
 
 -(instancetype)initWithCoder:(NSCoder *)coder{
@@ -20,6 +24,9 @@
         NSLog(@"NAVIL SHOWWWWW");
         [self reloadData];
     }];
+    
+    toggleDelegate = [NVCollectionDelegate new];
+    toggleDelegate.collectionView = view;
     return view;
 }
 
@@ -41,8 +48,13 @@
 
 -(NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
     NVColorSpec spec = [self.source getSpecAt:indexPath];
-    NVColorCollectionItem *cell = [collectionView makeItemWithIdentifier:@"NVColorCollectionItem" forIndexPath:indexPath];
-    [cell initWithSpec:spec];
+    NSCollectionViewItem *cell = [collectionView makeItemWithIdentifier:@"NVColorCollectionItem" forIndexPath:indexPath];
+    NVColorCollectionItemView *item = cell.view;
+    item.spec = spec;
+    item.indexPath = indexPath;
+    [item onMouseDown:^void(NSEvent* event, NSBox* box) {
+        [toggleDelegate setActive:((NVToggleBox *)box).indexPath];
+    }];
     return cell;
 }
 

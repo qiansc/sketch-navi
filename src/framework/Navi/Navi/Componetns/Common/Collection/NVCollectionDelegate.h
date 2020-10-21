@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NVCollectionView.h"
+#import "NVToggleBox.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NVCollectionDelegate : NSObject
 
-//
+@property (nonatomic, strong) NVCollectionView *collectionView;
+
+-(void)setActive:(NSIndexPath *)indexPath;
 
 @end
 
