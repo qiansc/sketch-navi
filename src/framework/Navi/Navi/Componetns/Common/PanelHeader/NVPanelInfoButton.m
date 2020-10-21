@@ -19,6 +19,7 @@
     [super drawRect:dirtyRect];
     // Drawing code here.
 }
+
 -(void)setTitle:(NSString *)newTitle{
     if (newTitle) {
         [super setTitle:newTitle];
@@ -28,4 +29,5 @@
         [self setHidden:YES];
     }
 }
+
 @end

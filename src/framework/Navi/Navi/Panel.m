@@ -13,6 +13,7 @@
 #import "NVTextPanel.h"
 #import "NVLinePanel.h"
 #import "NVMaskPanel.h"
+#import "MSDocument.h"
 
 @implementation Panel {
     int limitWidth;
@@ -30,6 +31,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePanel:) name:@"HIDE_PANEL" object:nil];
     // Panel按下传递的事件
     [self initAllPanel];
+
 //    [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskKeyUp handler:^NSEvent*(NSEvent* event){
 //        NSLog(@"NAVIL %@", event);
 //        return event;
@@ -124,6 +126,26 @@
             [source update:specs[key]];
         }
     }
+}
+
+- (void)selectionChange {
+    MSDocument *document = [[NSDocumentController sharedDocumentController] currentDocument];
+    NSArray<MSLayer*>* layers = document.selectedLayers;
+    for (MSLayer* layer in layers) {
+        NSLog(@"NAVIL SSSSSSSS %@", [layer.style.fills[0].color className]);
+        layer.style.fills[0].color.alpha = 0.5;
+        // [[NSColor greenColor]];
+        // [layer.style.fills[0].color setValue: @"FF8833"];
+    }
+    
+    
+    ;
+//    NSLog(@"NAVIL MAINDDD %@ %@", document.selectedLayers, [document.selectedLayers className]);
+    
+//    for(NSDictionary *layer in layers) {
+//        //NSLog(@"@NAVIL layer %@", layer[@"style"][@"fills"][0][@"color"]);
+//        //layer[@"style"][@"fills"][0][@"color"] = @"#989831";
+//    }
 }
 
 + (instancetype)generateWithDocumentId:(NSString*) documentId {

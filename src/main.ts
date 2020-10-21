@@ -65,62 +65,44 @@ function getRuntime(ctx: SketchContext) {
     };
 }
 
-
-/** 以下代码是颜色测试代码 */
-
-function  changeColor(colorCode: string) {
-    var document = require('sketch/dom').getSelectedDocument();
-    var selection = document.selectedLayers.layers;
-    if (selection[0]) {
-        selection[0].style.fills[0].color = `#${color[colorCode]}`;
-        try {
-            selection[0].sketchObject.userInfo = {
-                'com.baidu.Navi': {style: {fills:[{colorCode: colorCode}]}}
-            }
-            // console.log('jsondata', jsonData);
-            // console.log( '___>', selection[0].sketchObject.userInfo());
-        }catch(err) {
-            console.log(err);
-        }
-    }
-}
-
 export function onSelectionChanged(context: any) {
 
     var document = require('sketch/dom').getSelectedDocument();
-    var selection = document.selectedLayers.layers;
-    var command = context.command;
-
-
     const threadDictionary = NSThread.mainThread().threadDictionary();
     let runtime: Runtime = threadDictionary[`${document.id}-navi-runtime`];
-
-    if (runtime && selection && selection[0]) {
-        // console.log(selection[0].style.id, selection[0].style.fills[0].color);
-
-        // var layerData = selection[0].sketchObject.userInfo();
-
-        // if (layerData) {
-        //     const colorCode = layerData['com.baidu.Navi'].style.fills[0].colorCode; // 选中颜色的编码
-        //     selection[0].style.fills[0].color = `#${color[colorCode]}`; // 修复颜色
-        //     runtime.panelController.colorController.select(colorCode);
-        // } else {
-        //     runtime.panelController.colorController.reset();
-        //     runtime.panelController.sectionInfo.setTitle(selection[0].style.fills[0].color);
-        // }
-
+    if (runtime) {
+        runtime.panelController.selectionChange();
     }
-
 }
 
-const color: {[index: string]: string} = {
-    "SAM_001": "4C4BF3FF",
-    "SAM_002": "4E6EF2FF",
-    "SAM_003": "D089FFFF",
-    "SAM_004": "CFC0FFFF",
-    "SAM_005": "CBF8FFFF",
-    "SAM_006": "FBE98AFF",
-    "SAM_007": "4C4BDDFF",
-    "SAM_008": "4E6EFFFF",
-};
+
+/** 以下代码是颜色测试代码 */
+
+// function  changeColor(colorCode: string) {
+//     var document = require('sketch/dom').getSelectedDocument();
+//     var selection = document.selectedLayers.layers;
+//     if (selection[0]) {
+//         selection[0].style.fills[0].color = `#${color[colorCode]}`;
+//         try {
+//             selection[0].sketchObject.userInfo = {
+//                 'com.baidu.Navi': {style: {fills:[{colorCode: colorCode}]}}
+//             }
+//             // console.log('jsondata', jsonData);
+//             // console.log( '___>', selection[0].sketchObject.userInfo());
+//         }catch(err) {
+//             console.log(err);
+//         }
+//     }
+// }
+
+// const color: {[index: string]: string} = {
+//     "SAM_001": "4C4BF3FF",
+//     "SAM_002": "4E6EF2FF",
+//     "SAM_003": "D089FFFF",
+//     "SAM_004": "CFC0FFFF",
+//     "SAM_005": "CBF8FFFF",
+//     "SAM_006": "FBE98AFF",
+//     "SAM_007": "4C4BDDFF",
+//     "SAM_008": "4E6EFFFF",
+// };
 /** 以上代码是颜色测试代码 */

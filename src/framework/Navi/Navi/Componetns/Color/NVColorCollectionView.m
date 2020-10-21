@@ -21,10 +21,9 @@
     NVColorCollectionView *view = [super initWithCoder:coder];
     view.source = [[NVColorSource alloc]init];
     [view.source onUpdated: ^void(){
-        NSLog(@"NAVIL SHOWWWWW");
         [self reloadData];
     }];
-    
+
     self.toggleDelegate = [NVCollectionDelegate new];
     self.toggleDelegate.collectionView = view;
     return view;
