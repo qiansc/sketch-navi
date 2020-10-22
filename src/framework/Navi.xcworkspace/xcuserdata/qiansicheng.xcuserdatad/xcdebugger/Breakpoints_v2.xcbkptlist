@@ -142,10 +142,10 @@
             filePath = "Navi/Navi/Componetns/Common/NVPanelController.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "NVPanelController"
-            landmarkType = "2">
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "headerView"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

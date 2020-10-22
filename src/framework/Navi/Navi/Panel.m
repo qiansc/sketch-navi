@@ -130,22 +130,9 @@
 
 - (void)selectionChange {
     MSDocument *document = [[NSDocumentController sharedDocumentController] currentDocument];
-    NSArray<MSLayer*>* layers = document.selectedLayers;
-    for (MSLayer* layer in layers) {
-        NSLog(@"NAVIL SSSSSSSS %@", [layer.style.fills[0].color className]);
-        layer.style.fills[0].color.alpha = 0.5;
-        // [[NSColor greenColor]];
-        // [layer.style.fills[0].color setValue: @"FF8833"];
+    for(NVPanelController *c in [panelControllers allValues]){
+        [c selectionChange: document.selectedLayers];
     }
-    
-    
-    ;
-//    NSLog(@"NAVIL MAINDDD %@ %@", document.selectedLayers, [document.selectedLayers className]);
-    
-//    for(NSDictionary *layer in layers) {
-//        //NSLog(@"@NAVIL layer %@", layer[@"style"][@"fills"][0][@"color"]);
-//        //layer[@"style"][@"fills"][0][@"color"] = @"#989831";
-//    }
 }
 
 + (instancetype)generateWithDocumentId:(NSString*) documentId {

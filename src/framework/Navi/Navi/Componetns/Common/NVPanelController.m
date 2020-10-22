@@ -82,4 +82,9 @@
 - (NSObject<NVSource> *)generatePanelSource {
     return [NSObject new];
 }
+
+- (void)selectionChange:(NSArray<MSLayer*>*) layers {
+    // do sth
+}
+
 @end

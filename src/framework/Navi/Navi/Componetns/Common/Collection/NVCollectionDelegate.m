@@ -31,6 +31,18 @@
         }
     }
 };
+
+-(void)clearActive {
+    for(NSView *view in self.collectionView.subviews){
+        if([view isKindOfClass:[NVToggleBox class]]) {
+            [(NVToggleBox *)view setBased];
+        }
+    }
+    for(OnChangeCallback cb in onChangeCallbacks) {
+        cb(nil);
+    }
+};
+
 -(void)onChange:(OnChangeCallback) onChangeCallback {
     if (onChangeCallbacks == nil) onChangeCallbacks = [NSMutableArray new];
     [onChangeCallbacks addObject:onChangeCallback];

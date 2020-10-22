@@ -11,5 +11,7 @@
 @interface MSLayer: NSObject
 
 @property (nonatomic, strong) MSStyle *style;
+@property (nonatomic, strong) NSDictionary *userInfo;
+
 
 @end
