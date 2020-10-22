@@ -20,7 +20,7 @@ typedef void (^OnChangeCallback)(NVToggleBox* box);
 
 -(void)setActive:(NSIndexPath *)indexPath;
 -(void)onChange:(OnChangeCallback) onChangeCallback;
-
+-(void)clearActive;
 @end
 
 

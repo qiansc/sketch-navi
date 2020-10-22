@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NVColorPanel : NVPanelController
 
 @property (nonatomic,strong) IBOutlet NVColorCollectionView *collectionView;
+@property (nonatomic,strong) NSArray<MSLayer*> *selections;
 
 @end
 
