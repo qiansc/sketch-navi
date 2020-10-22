@@ -12,17 +12,21 @@
     NSMutableArray<OnChangeCallback>* onChangeCallbacks;
 }
 
+/* setActive并不是排他性的 */
 -(void)setActive:(NSIndexPath *)indexPath {
-    NVToggleBox *selectedItem;
+    NVToggleBox *selectedItem = nil;
     for(NSView *view in self.collectionView.subviews){
         if([view isKindOfClass:[NVToggleBox class]]) {
             NVToggleBox *item = view;
             if ([indexPath isEqual: item.indexPath]) {
-                [item setSelected];
-                 selectedItem = item;
-            } else {
-                [item setBased];
+                if (!item.isSelected) {
+                    [item setSelected];
+                }
+                selectedItem = item;
             }
+//            else {
+//                [item setBased];
+//            }
         }
     }
     if (selectedItem != nil && onChangeCallbacks != nil) {
@@ -30,7 +34,30 @@
             cb(selectedItem);
         }
     }
-};
+}
+
+/* setActives是排他性的 */
+-(void)setActives:(NSArray<NSIndexPath*>*) indexPaths {
+    for(NSView *view in self.collectionView.subviews){
+        if([view isKindOfClass:[NVToggleBox class]]) {
+            NVToggleBox *item = view;
+            BOOL find = NO;
+            for(NSIndexPath * indexPath in indexPaths) {
+                if ([indexPath isEqual: item.indexPath]) {
+                    find = YES;
+                }
+            }
+            if (find) {
+                if (!item.isSelected) {
+                    [item setSelected];
+                }
+
+            } else {
+                [item setBased];
+            }
+        }
+    }
+}
 
 -(void)clearActive {
     for(NSView *view in self.collectionView.subviews){

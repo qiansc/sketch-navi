@@ -17,8 +17,7 @@
 @end
 
 @implementation NVColorPanel {
-    NVColorSpec spec;
-    
+    // NVColorSpec spec;
 }
 
 - (void)viewDidLoad {
@@ -32,32 +31,18 @@
     };
     [self.collectionView.toggleDelegate onChange:^(NVToggleBox * box) {
         if (box == nil) {
-            spec.specCode = nil;
+            [self updateTitle:nil];
         }else{
-            /**下面代码临时实现 还要重构 */
-            spec = ((NVColorCollectionItemView *)box).spec;
-            if (self.selections) {
-                for(MSLayer *layer in self.selections) {
-                    NSMutableDictionary *d = [NSMutableDictionary new];
-                    d[@"colorCode"] = spec.specCode;
-                    layer.userInfo = d;
-                    NSColor *color = NSColorFromRGBString(spec.hex);
-                    if (layer.style.fills[0]) {
-                        layer.style.fills[0].color.red = color.redComponent;
-                        layer.style.fills[0].color.green = color.greenComponent;
-                        layer.style.fills[0].color.blue = color.blueComponent;
-                    }
-                }
-            }
+            [self applySpecToSelections: ((NVColorCollectionItemView *)box).spec];
+            [self updateTitle: ((NVColorCollectionItemView *)box).spec.specCode];
         }
-        [self update];
     }];
     if (self.selections == nil) self.selections = @[];
-    [self update];
+    [self updateTitle:nil];
 }
 
--(void)update {
-    self.headerView.infoButton.title = spec.specCode;
+-(void)updateTitle:(NSString*) title{
+    self.headerView.infoButton.title = title;
 }
 
 -(NSObject<NVSource> *)generatePanelSource{
@@ -67,34 +52,62 @@
 
 - (void)selectionChange:(NSArray<MSLayer*>*) layers {
     /*下面代码临时实现 还要重构 */
+    // NSIndexPath *indexPath = nil;
     self.selections = layers;
-
-    NSIndexPath *indexPath = nil;
+    NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
+    NSString *title = nil;
     for(MSLayer *layer in layers) {
         if(layer.userInfo && layer.userInfo[@"colorCode"]) {
             NSString *colorCode = layer.userInfo[@"colorCode"];
             for(NSView *view in self.collectionView.subviews) {
                 if ([view isKindOfClass:[NVColorCollectionItemView class]]) {
-                    if([((NVColorCollectionItemView *)view).spec.specCode isEqual:colorCode]) {
-                        indexPath = ((NVColorCollectionItemView *)view).indexPath;
+                    NVColorCollectionItemView *item = ((NVColorCollectionItemView *)view);
+                    if([item.spec.specCode isEqual:colorCode]) {
+                        // 找到和specCode对应的indexPath
+                        [indexPaths addObject: item.indexPath];
+                        // 校准一下颜色
+                        [self applyColor:NSColorFromRGBString(item.spec.hex) toLayer:layer];
+                        title = item.spec.specCode;
                     }
                 }
             }
-            
-            NSColor *color = NSColorFromRGBString(colorCode);
-            if (layer.style.fills[0]) {
-                layer.style.fills[0].color.red = color.redComponent;
-                layer.style.fills[0].color.green = color.greenComponent;
-                layer.style.fills[0].color.blue = color.blueComponent;
-            }
         }
     }
-    
-    if (indexPath) {
-        [self.collectionView.toggleDelegate setActive:indexPath];
-    } else {
 
-        [self.collectionView.toggleDelegate clearActive];
+    [self.collectionView.toggleDelegate clearActive];
+    if (indexPaths.count > 0) {
+        [self.collectionView.toggleDelegate setActives:indexPaths];
+        if (indexPaths.count == 1) // 当选中项>2时候 不显示title
+            [self updateTitle:title];
+    }
+        
+
+}
+
+/* 应用spec到图层上 */
+-(void)applySpecToSelections:(NVColorSpec) spec {
+    if (self.selections) {
+        for(MSLayer *layer in self.selections) {
+            [self applySpec:spec toLayer:layer];
+        }
+    }
+}
+
+/* 应用spec到图层上 */
+-(void)applySpec:(NVColorSpec) spec toLayer:(MSLayer*) layer{
+    NSMutableDictionary *d = [NSMutableDictionary new];
+    d[@"colorCode"] = spec.specCode;
+    layer.userInfo = d;
+    [self applyColor:NSColorFromRGBString(spec.hex) toLayer:layer];
+
+}
+
+/* 应用color到图层上 */
+-(void)applyColor:(NSColor*) color toLayer:(MSLayer*) layer{
+    if (layer.style.fills[0]) {
+        layer.style.fills[0].color.red = color.redComponent;
+        layer.style.fills[0].color.green = color.greenComponent;
+        layer.style.fills[0].color.blue = color.blueComponent;
     }
 }
 
