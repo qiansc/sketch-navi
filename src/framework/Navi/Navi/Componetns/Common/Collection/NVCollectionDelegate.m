@@ -12,7 +12,7 @@
     NSMutableArray<OnChangeCallback>* onChangeCallbacks;
 }
 
-/* setActive并不是排他性的 */
+/* setActive并不是排他性的 有值回调 */
 -(void)setActive:(NSIndexPath *)indexPath {
     NVToggleBox *selectedItem = nil;
     for(NSView *view in self.collectionView.subviews){
@@ -36,7 +36,7 @@
     }
 }
 
-/* setActives是排他性的 */
+/* setActives是排他性的 没有回调 */
 -(void)setActives:(NSArray<NSIndexPath*>*) indexPaths {
     for(NSView *view in self.collectionView.subviews){
         if([view isKindOfClass:[NVToggleBox class]]) {
@@ -59,6 +59,7 @@
     }
 }
 
+/* 有回调 */
 -(void)clearActive {
     for(NSView *view in self.collectionView.subviews){
         if([view isKindOfClass:[NVToggleBox class]]) {

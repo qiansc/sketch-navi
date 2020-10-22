@@ -18,8 +18,11 @@ typedef void (^OnChangeCallback)(NVToggleBox* box);
 
 @property (nonatomic, strong) NVCollectionView *collectionView;
 
+/* setActive并不是排他性的 有值回调 */
 -(void)setActive:(NSIndexPath *)indexPath;
+/* setActives是排他性的 没有回调 */
 -(void)setActives:(NSArray<NSIndexPath*>*) indexPaths;
+/* 有回调 */
 -(void)onChange:(OnChangeCallback) onChangeCallback;
 -(void)clearActive;
 @end
