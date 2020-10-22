@@ -52,6 +52,7 @@
     item.spec = spec;
     item.indexPath = indexPath;
     [item onMouseDown:^void(NSEvent* event, NSBox* box) {
+        [self.toggleDelegate clearActive];
         [self.toggleDelegate setActive:((NVToggleBox *)box).indexPath];
     }];
     return cell;

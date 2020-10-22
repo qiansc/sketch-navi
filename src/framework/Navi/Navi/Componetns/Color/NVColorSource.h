@@ -21,6 +21,7 @@ struct NVColorSpec {
     BOOL fillMode;
     BOOL borderMode;
 };
+
 typedef struct NVColorSpec NVColorSpec;
 
 @interface NVColorSource : NSObject<NVSource>
