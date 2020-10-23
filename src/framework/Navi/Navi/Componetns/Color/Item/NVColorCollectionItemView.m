@@ -22,6 +22,7 @@
     view.borderType = NSLineBorder;
     view.borderWidth = 1;
     view.cornerRadius = 3;
+    view.wantsLayer = YES;
     for(NSView *v in view.subviews) {
         if ([v.identifier isEqual:@"FrontBox"]) frontBox = v;
         if ([v.identifier isEqual:@"ItemTitle"]) textFiled = v;

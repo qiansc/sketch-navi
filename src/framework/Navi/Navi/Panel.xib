@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="clipView" destination="51B-74-XdU" id="YHC-NH-ImK"/>
                 <outlet property="scrollView" destination="e5A-1j-KMD" id="0Te-Hw-lfI"/>
+                <outlet property="searchField" destination="Jyc-lD-M6d" id="5WV-8m-uHt"/>
                 <outlet property="stackView" destination="brd-or-Ora" id="DKQ-by-VVK"/>
                 <outlet property="view" destination="c22-O7-iKe" id="Cvx-Qs-siN"/>
             </connections>
@@ -26,11 +27,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSTouchBarSearchTemplate" id="ev3-fL-gz6"/>
                 </imageView>
-                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jyc-lD-M6d">
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jyc-lD-M6d" customClass="NVTextField">
                     <rect key="frame" x="32" y="544" width="154" height="16"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="left" title="所有资源" id="6lh-Sz-xFZ">
-                        <font key="font" metaFont="message" size="11"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="left" placeholderString="所有资源" id="6lh-Sz-xFZ">
+                        <font key="font" metaFont="controlContent" size="11"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -48,7 +49,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSTouchBarGoDownTemplate" imagePosition="overlaps" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="38U-GS-dqA">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="message" size="11"/>
+                        <font key="font" metaFont="controlContent" size="11"/>
                     </buttonCell>
                 </button>
                 <box verticalHuggingPriority="750" boxType="separator" id="mc5-Na-xp3">

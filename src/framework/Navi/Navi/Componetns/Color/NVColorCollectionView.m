@@ -21,7 +21,10 @@
     NVColorCollectionView *view = [super initWithCoder:coder];
     view.source = [[NVColorSource alloc]init];
     [view.source onUpdated: ^void(){
+        [self.toggleDelegate clearActive];
+        NSLog(@"NAVIL onUpdated %@", [view.source getDims]);
         [self reloadData];
+//      [self deleteSections: [NSIndexSet indexSetWithIndex:0]];
     }];
 
     self.toggleDelegate = [NVCollectionDelegate new];
@@ -39,7 +42,7 @@
     }
 }
 
-- (void)viewDidMoveToSuperview {
+- (void)viewDidMoveToSupervijjew {
     [super viewDidMoveToSuperview];
 }
 
@@ -72,6 +75,7 @@
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(NSCollectionView *)collectionView{
+    NSLog(@"NAVIL numberOfSectionsInCollectionView %@", [self.source getDims]);
     return [[self.source getDims] count];
 }
 

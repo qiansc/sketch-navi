@@ -80,7 +80,7 @@
 }
 
 - (NSObject<NVSource> *)generatePanelSource {
-    return [NSObject new];
+    return nil;
 }
 
 - (void)selectionChange:(NSArray<MSLayer*>*) layers {

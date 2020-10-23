@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) id<PanelControlProtocol> delegate;
 @property (strong) IBOutlet NSStackView *stackView;
 @property (nonatomic, strong) IBOutlet NSScrollView* scrollView;
+@property (strong) IBOutlet NSTextField *searchField;
 
 + (instancetype)generateWithDocumentId:(NSString*) documentId;
 - (void)updateSpec:(NSDictionary *) object;
