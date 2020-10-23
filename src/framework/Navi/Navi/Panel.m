@@ -31,6 +31,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePanel:) name:@"HIDE_PANEL" object:nil];
     // Panel按下传递的事件
     [self initAllPanel];
+    self.searchField.delegate = self;
+    self.searchField.placeholderString = @"全部资源";
 
 //    [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskKeyUp handler:^NSEvent*(NSEvent* event){
 //        NSLog(@"NAVIL %@", event);
@@ -38,6 +40,19 @@
 //    }];
 }
 
+-(void)controlTextDidChange:(NSNotification *)obj{
+    for(NSObject<NVSource> *source in [panelSources allValues]) {
+        if (source) {
+            [source setQuery: self.searchField.stringValue];
+        }
+    }
+}
+//-(void)controlTextDidBeginEditing:(NSNotification *)obj{
+//    if (self.searchField.placeholderString
+//}
+//-(void)controlTextDidEndEditing:(NSNotification *)obj{
+//    
+//}
 
 /* 初始化所有Panel到StackView中 */
 - (void)initAllPanel {
