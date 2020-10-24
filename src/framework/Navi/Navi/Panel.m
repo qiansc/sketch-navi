@@ -87,6 +87,7 @@
 
 /* OPEN_PANEL Hanlder */
 -(void)changePanel:(NSNotification*)notification{
+    NSLog(@"-------changePanle-------");
     NSString *id = notification.userInfo[@"documentId"];
     if ([id isEqual:self.documentId]) {
         NSString *panelId = notification.userInfo[@"panelId"];
