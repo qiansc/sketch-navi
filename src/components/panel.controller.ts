@@ -153,6 +153,30 @@ export class PanelController {
             }, {
                 hex: "222222", alpha: 100, specCode: "SAM_007", desc: "语义描述007",
                 dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
+            }, {
+                hex: "000000", alpha: 100, specCode: "SAM_006", desc: "语义描述006",
+                dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
+            }, {
+                hex: "222222", alpha: 100, specCode: "SAM_007", desc: "语义描述007",
+                dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
+            }, {
+                hex: "000000", alpha: 100, specCode: "SAM_806", desc: "语义描述006",
+                dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
+            }, {
+                hex: "222222", alpha: 100, specCode: "SAM_827", desc: "语义描述007",
+                dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
+            }, {
+                hex: "000000", alpha: 100, specCode: "SAM_886", desc: "语义描述006",
+                dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
+            }, {
+                hex: "222222", alpha: 100, specCode: "SAM_8017", desc: "语义描述007",
+                dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
+            }, {
+                hex: "000000", alpha: 100, specCode: "SAM_826", desc: "语义描述006",
+                dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
+            }, {
+                hex: "222222", alpha: 100, specCode: "SAM_837", desc: "语义描述007",
+                dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
             }]
         });
     }

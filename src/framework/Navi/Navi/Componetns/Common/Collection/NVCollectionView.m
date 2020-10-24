@@ -10,11 +10,15 @@
 
 /* 主要解决Header、Footer View绘制时进程卡死问题 */
 @implementation NVCollectionView {
-        NSMutableDictionary* headers;
+    NSMutableDictionary* headers;
+    NSLayoutConstraint* wrapperConstraint;
+    float tm;
+    float width, height0, height1;
 }
 
 -(void)viewDidMoveToWindow {
     [super viewDidMoveToWindow];
+    [self setWrapperHeight:1];
     [self resetHeaders];
 }
 
@@ -46,6 +50,38 @@
     } else {
         return [super makeSupplementaryViewOfKind:elementKind withIdentifier:identifier forIndexPath:indexPath];
     }
+}
+
+- (void)reloadData {
+    [self resetHeaders];
+    [super reloadData];
+}
+
+- (void)setWrapperHeight:(float) height {
+    float ct = [[NSDate date]timeIntervalSince1970] * 1000;
+    NSScrollView *scrollView = [self enclosingScrollView];
+    if (ct - tm < 100) {
+        if (width != scrollView.frame.size.width) {
+            
+        } else if (height != height0 && height != height1){
+            
+        } else {
+            return;
+        }
+    }
+    // NSLog(@"NAVIL CollectionView setWrapperHeight: %f %f %f %f %f %f" , height, width, height0, height1, [self enclosingScrollView].frame.size.width, [self enclosingScrollView].frame.size.height);
+    width = scrollView.frame.size.width;
+    height0 = height1;
+    height1 = height;
+    tm = ct;
+    
+
+
+    if (wrapperConstraint) {
+        [scrollView removeConstraint:wrapperConstraint];
+    }
+    wrapperConstraint = [scrollView.heightAnchor constraintEqualToConstant: height];
+    [scrollView addConstraint:wrapperConstraint];
 }
 
 @end

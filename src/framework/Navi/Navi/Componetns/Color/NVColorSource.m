@@ -58,7 +58,6 @@
 }
 
 - (void)setQuery:(NSString *) query {
-    NSLog(@"NAVIL SETQUERY %@", query);
     searchQuery = query;
     [self update: specs];
     updatedCallback();

@@ -12,9 +12,6 @@
 #import "HexColor.h"
 
 @implementation NVColorCollectionView {
-    NSMutableArray *arr;
-
-
 }
 
 -(instancetype)initWithCoder:(NSCoder *)coder{
@@ -22,7 +19,6 @@
     view.source = [[NVColorSource alloc]init];
     [view.source onUpdated: ^void(){
         [self.toggleDelegate clearActive];
-        NSLog(@"NAVIL onUpdated %@", [view.source getDims]);
         [self reloadData];
 //      [self deleteSections: [NSIndexSet indexSetWithIndex:0]];
     }];
@@ -33,13 +29,9 @@
 }
 
 -(void)viewDidMoveToWindow {
-    [super viewDidMoveToWindow];
     self.delegate = self;
     self.dataSource = self;
-    arr = [[NSMutableArray alloc] init];
-    for (int num = 0; num < 5; num++) {
-        [arr addObject:[NSString stringWithFormat:@"%@%d",@"hello",num]];
-    }
+    [super viewDidMoveToWindow];
 }
 
 - (void)viewDidMoveToSupervijjew {
@@ -75,7 +67,6 @@
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(NSCollectionView *)collectionView{
-    NSLog(@"NAVIL numberOfSectionsInCollectionView %@", [self.source getDims]);
     return [[self.source getDims] count];
 }
 

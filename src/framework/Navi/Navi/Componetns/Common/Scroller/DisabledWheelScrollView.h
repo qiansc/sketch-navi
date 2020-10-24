@@ -7,10 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "RFOverlayScrollView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DisabledWheelScrollView : NSScrollView
+@interface DisabledWheelScrollView : RFOverlayScrollView
 
 @end
 

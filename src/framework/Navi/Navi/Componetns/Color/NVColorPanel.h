@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong) IBOutlet NVColorCollectionView *collectionView;
 @property (nonatomic,strong) NSArray<MSLayer*> *selections;
+@property (nonatomic,strong) IBOutlet NSButton *button;
 
 @end
 

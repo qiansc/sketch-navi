@@ -51,7 +51,7 @@
 //    if (self.searchField.placeholderString
 //}
 //-(void)controlTextDidEndEditing:(NSNotification *)obj{
-//    
+//
 //}
 
 /* 初始化所有Panel到StackView中 */

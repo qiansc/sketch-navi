@@ -27,7 +27,7 @@
     [c setCollectionView: self.collectionView];
     // 绑定重绘
     c.afterResize = ^(float width, float height) {
-        [self resetConstraint];
+         [self resetConstraint];
     };
     [self.collectionView.toggleDelegate onChange:^(NVToggleBox * box) {
         if (box == nil) {
@@ -40,6 +40,7 @@
     if (self.selections == nil) self.selections = @[];
     [self updateTitle:nil];
 }
+
 
 -(void)updateTitle:(NSString*) title{
     self.headerView.infoButton.title = title;

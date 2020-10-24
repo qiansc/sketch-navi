@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="System colors introduced in macOS 10.13" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -57,23 +56,23 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </box>
                 <button identifier="floatButton" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IcM-R5-uSt">
-                    <rect key="frame" x="216" y="547" width="10" height="14"/>
+                    <rect key="frame" x="216" y="546" width="10" height="15"/>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSLockUnlockedTemplate" imagePosition="overlaps" alignment="center" alternateImage="NSLockLockedTemplate" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="ovi-2K-kDt">
                         <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="e5A-1j-KMD">
-                    <rect key="frame" x="10" y="0.0" width="222" height="537"/>
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="5" horizontalPageScroll="15" verticalLineScroll="5" verticalPageScroll="5" hasHorizontalScroller="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="e5A-1j-KMD" customClass="RFOverlayScrollView">
+                    <rect key="frame" x="10" y="0.0" width="231" height="537"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="51B-74-XdU" customClass="FlippedClipView">
-                        <rect key="frame" x="0.0" y="0.0" width="222" height="537"/>
+                        <rect key="frame" x="0.0" y="0.0" width="231" height="537"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view translatesAutoresizingMaskIntoConstraints="NO" id="LEp-ug-epk">
-                                <rect key="frame" x="0.0" y="537" width="222" height="0.0"/>
+                                <rect key="frame" x="0.0" y="537" width="219" height="0.0"/>
                                 <subviews>
-                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="brd-or-Ora">
-                                        <rect key="frame" x="0.0" y="0.0" width="222" height="0.0"/>
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" translatesAutoresizingMaskIntoConstraints="NO" id="brd-or-Ora">
+                                        <rect key="frame" x="0.0" y="0.0" width="219" height="0.0"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -87,18 +86,18 @@
                         <constraints>
                             <constraint firstItem="LEp-ug-epk" firstAttribute="leading" secondItem="51B-74-XdU" secondAttribute="leading" id="MD6-MU-daA"/>
                             <constraint firstItem="LEp-ug-epk" firstAttribute="top" secondItem="51B-74-XdU" secondAttribute="top" id="UVT-M6-777"/>
-                            <constraint firstAttribute="trailing" secondItem="LEp-ug-epk" secondAttribute="trailing" id="j9l-kN-crz"/>
+                            <constraint firstAttribute="trailing" secondItem="LEp-ug-epk" secondAttribute="trailing" constant="12" id="j9l-kN-crz"/>
                         </constraints>
                         <color key="backgroundColor" name="findHighlightColor" catalog="System" colorSpace="catalog"/>
                         <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                     </clipView>
-                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="6Q4-zI-fed">
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="6Q4-zI-fed" customClass="RFOverlayScroller">
                         <rect key="frame" x="-100" y="-100" width="225" height="15"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     </scroller>
-                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="vyx-EJ-qOI" customClass="CustomScroller">
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="vyx-EJ-qOI" customClass="RFOverlayScroller">
                         <rect key="frame" x="-100" y="-100" width="15" height="537"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     </scroller>
                 </scrollView>
             </subviews>
@@ -108,7 +107,7 @@
                 <constraint firstItem="IcM-R5-uSt" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="11" id="WTR-uQ-dx5"/>
                 <constraint firstItem="e5A-1j-KMD" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="10" id="agZ-CH-mY7"/>
                 <constraint firstAttribute="bottom" secondItem="e5A-1j-KMD" secondAttribute="bottom" id="iu6-S8-Bx9"/>
-                <constraint firstAttribute="trailing" secondItem="e5A-1j-KMD" secondAttribute="trailing" constant="8" id="zQ4-yM-ydb"/>
+                <constraint firstAttribute="trailing" secondItem="e5A-1j-KMD" secondAttribute="trailing" constant="-1" id="zQ4-yM-ydb"/>
             </constraints>
             <point key="canvasLocation" x="140" y="4"/>
         </customView>
