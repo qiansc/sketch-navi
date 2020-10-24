@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		TBZvPiy8lyGLY/2roP6m6WaJitg=
+		LYzFaXak7WUOk8RE9ZKpQpLuyTo=
 		</data>
 		<key>Resources/Menu.nib</key>
 		<data>
@@ -20,9 +20,13 @@
 		<data>
 		BVpkmKd1VfjKPH07xLQF/elP8Mk=
 		</data>
+		<key>Resources/NVLineCollectionItem.nib</key>
+		<data>
+		4AGFQigcbDZJYb4ELJ8VmOg5Fnc=
+		</data>
 		<key>Resources/NVLinePanel.nib</key>
 		<data>
-		0wvDBqALrt5uE+NfAgWBpKJetG8=
+		4S6G+MgBe0hrm5UnnTPPkUyLkB0=
 		</data>
 		<key>Resources/NVMaskPanel.nib</key>
 		<data>
@@ -161,7 +165,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2boMvxqNd9DeIumQwGQ0PL0VGQZIai971ELL0YvejUo=
+			g7kQduFHVYpg1PoMtN6lltedQSLoIE0yVwG9+uZQ6i0=
 			</data>
 		</dict>
 		<key>Resources/Menu.nib</key>
@@ -185,11 +189,18 @@
 			JH2advo8gX3Be8U8yEAGbhLNg6fNu7+mVIHOk0ulmA4=
 			</data>
 		</dict>
+		<key>Resources/NVLineCollectionItem.nib</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QJQ9QQ2cQaQqBcIkd5gzmWRoGfPjQJMg4FFWp5kTfKc=
+			</data>
+		</dict>
 		<key>Resources/NVLinePanel.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			gqmql3asaB+tyOrriLYF83wULrf7Vhb6nuFyo41FSbg=
+			4p6YG6zY+4gZ/TslfDO+vjeBSVOxRHNx10AnUvQHekI=
 			</data>
 		</dict>
 		<key>Resources/NVMaskPanel.nib</key>

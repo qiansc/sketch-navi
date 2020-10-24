@@ -86,9 +86,13 @@
 }
 
 -(void)buttonClick:(NSButton*)button {
+    NSLog(@"-------buton--click0-------");
     NSDictionary* option = [Config MenuOption: button.identifier];
+    NSLog(@"-------buton--click0-----aaaaaa--");
     if ([option[@"type"] isEqual:@"PANEL"]) {
+        NSLog(@"-------1-------");
         if (button.state && ![self mainButton].state) {
+            NSLog(@"-------2-------");
             // 点击普通按钮时 如果总控Main未激活 则模拟激活 打开主面板
             [[self mainButton] performClick:@"callAction:"];
         }
@@ -97,20 +101,26 @@
             @"panelId": option[@"id"],
             @"states": [self panelButtonStates],
         };
+        NSLog(@"-------3-------");
         if (button.state) {
+            NSLog(@"-------4-------");
             [[NSNotificationCenter defaultCenter] postNotificationName:@"OPEN_PANEL" object:nil userInfo:info];
         } else {
+            NSLog(@"-------5-------");
             [[NSNotificationCenter defaultCenter] postNotificationName:@"HIDE_PANEL" object:nil userInfo:info];
         }
     }
 
-    
+    NSLog(@"-------6-------");
     if (self.delegate) {
+        NSLog(@"-------7-------");
         [self.delegate onButtonClick: @{
             @"view": button,
             @"option": option
         }];
+        NSLog(@"-------8-------");
     }
+    NSLog(@"-------9-------");
 }
 
 -(NSDictionary*)panelButtonStates {

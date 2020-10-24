@@ -688,12 +688,18 @@ var MenuController = /** @class */ (function () {
             },
             "onButtonClick:": function (_a) {
                 var view = _a.view, option = _a.option;
+                console.log('----------ts onButtonClick------', view);
+                console.log('----------ts onButtonClick------', option);
                 try {
+                    console.log('**************1*********');
                     _this.emitter.emit(MENU_EVENT["OPEN_" + option.type], option, view);
+                    console.log('**************2*********');
                 }
                 catch (e) {
+                    console.log('----------e------', e);
                     console.log(e);
                 }
+                console.log('***********************');
             },
         }).getClassInstance();
     }
