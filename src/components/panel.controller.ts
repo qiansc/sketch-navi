@@ -177,6 +177,19 @@ export class PanelController {
             }, {
                 hex: "222222", alpha: 100, specCode: "SAM_837", desc: "语义描述007",
                 dim: ["模板标题（业务可配）"], fillMode: true, borderMode: true,
+            }],
+            Line: [{
+                weight: '1', specCode: 'SAM_010', desc: '线条描述1', dim: ['维度1'],
+            }, {
+                weight: '2', specCode: 'SAM_011', desc: '线条描述2', dim: ['维度1'],
+            }, {
+                weight: '3', specCode: 'SAM_012', desc: '线条描述3', dim: ['维度1'],
+            }, {
+                weight: '1', specCode: 'SAM_010', desc: '线条描述1', dim: ['维度2'],
+            }, {
+                weight: '2', specCode: 'SAM_011', desc: '线条描述2', dim: ['维度2'],
+            }, {
+                weight: '3', specCode: 'SAM_012', desc: '线条描述3', dim: ['维度2'],
             }]
         });
     }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NVLineCollectionItem">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="KLo-yD-XRD"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY" customClass="NVLineCollectionItemView">
+            <rect key="frame" x="0.0" y="0.0" width="206" height="48"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="nRP-8J-vc6">
+                    <rect key="frame" x="151" y="16" width="31" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="线条" id="N6x-Vi-o2E">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <box identifier="LineBox" ambiguous="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="LhM-sM-WBZ">
+                    <rect key="frame" x="10" y="10" width="120" height="28"/>
+                    <view key="contentView" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Whr-KB-6WE">
+                        <rect key="frame" x="1" y="1" width="118" height="26"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="kOe-0d-Gp3"/>
+                    </constraints>
+                </box>
+            </subviews>
+            <constraints>
+                <constraint firstItem="LhM-sM-WBZ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="wwn-R3-lxg"/>
+            </constraints>
+            <connections>
+                <outlet property="lineHeight" destination="kOe-0d-Gp3" id="vJc-9t-UX2"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="154"/>
+        </customView>
+        <customObject id="Pbs-b8-m9c" customClass="NVLineCollectionItem">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="8BS-Co-xCf"/>
+            </connections>
+        </customObject>
+    </objects>
+</document>
