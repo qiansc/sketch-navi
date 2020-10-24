@@ -32,6 +32,7 @@
     self.delegate = self;
     self.dataSource = self;
     [super viewDidMoveToWindow];
+
 }
 
 - (void)viewDidMoveToSupervijjew {

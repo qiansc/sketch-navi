@@ -16,10 +16,11 @@
     float width, height0, height1;
 }
 
+
 -(void)viewDidMoveToWindow {
     [super viewDidMoveToWindow];
-    [self setWrapperHeight:1];
     [self resetHeaders];
+    [self setWrapperHeight:height1 ? height1 : 1];
 }
 
 - (void)resetHeaders {
