@@ -3,7 +3,7 @@
   "icon": "icon.png",
   "commands": [
     {
-        "name": "Navi",
+        "name": "无极Sketch UIkit",
         "identifier": "navi.main-identifier",
         "script": "main.ts",
         "shortcut": "ctrl command n",

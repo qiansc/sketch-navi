@@ -25,6 +25,7 @@ export class PanelController {
             this.hide();
             this.show();
         });
+        this.updateSpecs();
         this.minWidth = this.view.frame().size.width;
         // 以下是颜色测试代码
         // const section = getSubviewById(this.view, 'section');
@@ -43,7 +44,6 @@ export class PanelController {
         // this.NSController.layoutSection();
         this.floatButton.state() === 0 ? this.showWindow() : this.showSlider();
         this.emitter.emit(PANEL_EVENT.SHOW_PANEL);
-        this.updateSpecs();
     }
     hide() {
         if (this.window) {

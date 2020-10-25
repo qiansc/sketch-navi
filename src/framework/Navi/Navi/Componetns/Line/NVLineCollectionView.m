@@ -15,7 +15,6 @@
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
-    NSLog(@"------line---collection---view----");
     NVLineCollectionView *view = [super initWithCoder:coder];
     view.source = [[NVLineSource alloc]init];
     [view.source onUpdated: ^void(){

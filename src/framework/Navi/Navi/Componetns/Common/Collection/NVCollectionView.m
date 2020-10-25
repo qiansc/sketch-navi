@@ -75,14 +75,16 @@
     height0 = height1;
     height1 = height;
     tm = ct;
-    
-
 
     if (wrapperConstraint) {
         [scrollView removeConstraint:wrapperConstraint];
     }
+    NSRect frame = scrollView.frame;
+    scrollView.frame = NSMakeRect(frame.origin.x, frame.origin.y, frame.size.width, height);
     wrapperConstraint = [scrollView.heightAnchor constraintEqualToConstant: height];
     [scrollView addConstraint:wrapperConstraint];
+
+    
 }
 
 @end

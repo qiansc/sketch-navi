@@ -21,7 +21,7 @@
     [super viewDidLoad];
     NVCollectionController *collectionController = [[NVCollectionController alloc] init];
     [collectionController setCollectionView:self.collectionView];
-    
+
     collectionController.afterResize = ^(float width, float height) {
         [self resetConstraint];
     };
@@ -46,7 +46,7 @@
 }
 
 - (void)selectionChange:(NSArray<MSLayer*>*) layers{
-    
+
 }
 
 - (void) applySpecToSelections:(NVLineSpec)spec {
@@ -65,7 +65,6 @@
 }
 
 - (void)applyLine:(NSString *) line toLayer:(MSLayer *) layer {
-    NSLog(@"apply line to layer");
 }
 
 @end

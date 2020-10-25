@@ -24,7 +24,7 @@
                 <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-9d-w5m" customClass="NVPanelHeaderView">
                     <rect key="frame" x="0.0" y="266" width="240" height="34"/>
                 </customView>
-                <scrollView wantsLayer="YES" ambiguous="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="Z6p-fL-ann">
+                <scrollView wantsLayer="YES" ambiguous="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="Z6p-fL-ann" customClass="DisabledWheelScrollView">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>
                     <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="DNr-Bb-8Dn" customClass="NVClipView">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>

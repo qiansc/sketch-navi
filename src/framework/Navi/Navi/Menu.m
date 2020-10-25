@@ -42,11 +42,11 @@
     // Dispose of any resources that can be recreated.
 }
 - (void)viewWillTransitionToSize:(NSSize)newSize {
-    
+
 }
 
 - (void)initButton {
-    
+
     panelButtons = [[NSMutableDictionary alloc]init];
 
     [self.headStack addView:[Util separtorBox] inGravity: NSStackViewGravityBottom];
@@ -54,9 +54,9 @@
     NSBundle *frameworkBundle = [NSBundle bundleForClass:[Menu class]];
 
     NSArray<NSDictionary*>* options = [Config MenuOptions];
-    
+
     for(NSDictionary *option in options) {
-        
+
         NSString *id = option[@"id"];
         NSString *icon = option[@"icon"];
         NSURL *iconUrl = [NSURL fileURLWithPath:[frameworkBundle pathForResource: icon ofType:@"png"]];
@@ -86,13 +86,9 @@
 }
 
 -(void)buttonClick:(NSButton*)button {
-    NSLog(@"-------buton--click0-------");
     NSDictionary* option = [Config MenuOption: button.identifier];
-    NSLog(@"-------buton--click0-----aaaaaa--");
     if ([option[@"type"] isEqual:@"PANEL"]) {
-        NSLog(@"-------1-------");
         if (button.state && ![self mainButton].state) {
-            NSLog(@"-------2-------");
             // 点击普通按钮时 如果总控Main未激活 则模拟激活 打开主面板
             [[self mainButton] performClick:@"callAction:"];
         }
@@ -101,36 +97,29 @@
             @"panelId": option[@"id"],
             @"states": [self panelButtonStates],
         };
-        NSLog(@"-------3-------");
         if (button.state) {
-            NSLog(@"-------4-------");
             [[NSNotificationCenter defaultCenter] postNotificationName:@"OPEN_PANEL" object:nil userInfo:info];
         } else {
-            NSLog(@"-------5-------");
             [[NSNotificationCenter defaultCenter] postNotificationName:@"HIDE_PANEL" object:nil userInfo:info];
         }
     }
 
-    NSLog(@"-------6-------");
     if (self.delegate) {
-        NSLog(@"-------7-------");
         [self.delegate onButtonClick: @{
             @"view": button,
             @"option": option
         }];
-        NSLog(@"-------8-------");
     }
-    NSLog(@"-------9-------");
 }
 
 -(NSDictionary*)panelButtonStates {
     NSMutableDictionary *states = [[NSMutableDictionary alloc]init];
-    
+
     for(NSString* key in [panelButtons allKeys]){
         NSButton *button = panelButtons[key];
         [states setValue:@(button.state) forKey:key];
     }
-    
+
     return states;
 }
 
@@ -176,7 +165,7 @@
     // 这里一般都写 bundle:[NSBundle mainBundle] 但是以framework形式加载时候会出错
     NSString* const frameworkBundleID  = @"com.baidu.Navi";
     NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
-    
+
     return[[Menu alloc] initWithNibName:@"Menu" bundle:resourceBundlePath];
     // return [[MenuController alloc] initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle mainBundle]];
     // [[NSBundle mainBundle] loadNibNamed:@"MenuBtn" owner:self topLevelObjects:nil];

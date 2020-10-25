@@ -21,18 +21,12 @@ export class MenuController {
                 splitViewItemDisableRezise(this.ctx.stageView, this.view, option.limitWidth);
             },
             "onButtonClick:": ({view, option}: any) => {
-                console.log('----------ts onButtonClick------', view);
-                console.log('----------ts onButtonClick------', option);
                 try {
-                    console.log('**************1*********');
                     this.emitter.emit(MENU_EVENT[`OPEN_${option.type}` as any], option, view);
-                    console.log('**************2*********');
                 }
                 catch(e) {
-                    console.log('----------e------', e);
                     console.log(e);
                 }
-                console.log('***********************');
             },
         }).getClassInstance();
     }

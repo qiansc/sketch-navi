@@ -45,7 +45,7 @@
         if (self.afterResize) {
             height = maxVisableBottom;
             width = w;
-            [self.view setWrapperHeight:maxVisableBottom];
+            [self.view setWrapperHeight:maxVisableBottom > 0 ? maxVisableBottom : 1];
             // Solution.003 同步高度到其他关心的容器
             self.afterResize(width, maxVisableBottom);
         }
