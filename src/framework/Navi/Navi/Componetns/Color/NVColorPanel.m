@@ -6,11 +6,12 @@
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
+#import "HexColor.h"
 #import "NVColorPanel.h"
 #import "NVCollectionController.h"
 #import "NVColorSource.h"
 #import "NVColorCollectionItemView.h"
-#import "HexColor.h"
+#import "NVLayer.h"
 
 @interface NVColorPanel ()
 
@@ -39,6 +40,13 @@
     }];
     if (self.selections == nil) self.selections = @[];
     [self updateTitle:nil];
+    // 切换模式
+    [self.modeButton setTarget:self];
+    [self.modeButton setAction:@selector(modeButtonClick:)];
+}
+
+-(void)modeButtonClick:(NSSegmentedControl*) button{
+    [self.collectionView.source setMode: button.selectedSegment];
 }
 
 
@@ -58,8 +66,8 @@
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
     NSString *title = nil;
     for(MSLayer *layer in layers) {
-        if(layer.userInfo && layer.userInfo[@"colorCode"]) {
-            NSString *colorCode = layer.userInfo[@"colorCode"];
+
+        for(NSString *colorCode in [NVLayer getFillsColorCodeIn:layer]) {
             for(NSView *view in self.collectionView.subviews) {
                 if ([view isKindOfClass:[NVColorCollectionItemView class]]) {
                     NVColorCollectionItemView *item = ((NVColorCollectionItemView *)view);
@@ -73,6 +81,23 @@
                 }
             }
         }
+
+
+//        if(layer.userInfo && layer.userInfo[@"colorCode"]) {
+//            NSString *colorCode = layer.userInfo[@"colorCode"];
+//            for(NSView *view in self.collectionView.subviews) {
+//                if ([view isKindOfClass:[NVColorCollectionItemView class]]) {
+//                    NVColorCollectionItemView *item = ((NVColorCollectionItemView *)view);
+//                    if([item.spec.specCode isEqual:colorCode]) {
+//                        // 找到和specCode对应的indexPath
+//                        [indexPaths addObject: item.indexPath];
+//                        // 校准一下颜色
+//                        [self applyColor:NSColorFromRGBString(item.spec.hex) toLayer:layer];
+//                        title = item.spec.specCode;
+//                    }
+//                }
+//            }
+//        }
     }
 
     [self.collectionView.toggleDelegate clearActive];
@@ -81,7 +106,7 @@
         if (indexPaths.count == 1) // 当选中项>2时候 不显示title
             [self updateTitle:title];
     }
-        
+
 
 }
 
@@ -89,26 +114,23 @@
 -(void)applySpecToSelections:(NVColorSpec) spec {
     if (self.selections) {
         for(MSLayer *layer in self.selections) {
-            [self applySpec:spec toLayer:layer];
+            if (layer.style.fills) {
+                for(NSInteger i = 0; i < [layer.style.fills count]; i++) {
+                    [NVLayer set:layer colorCode:spec.specCode at: i];
+                }
+            }
+            [self applyColor:NSColorFromRGBString(spec.hex) toLayer:layer];
         }
     }
 }
-
-/* 应用spec到图层上 */
--(void)applySpec:(NVColorSpec) spec toLayer:(MSLayer*) layer{
-    NSMutableDictionary *d = [NSMutableDictionary new];
-    d[@"colorCode"] = spec.specCode;
-    layer.userInfo = d;
-    [self applyColor:NSColorFromRGBString(spec.hex) toLayer:layer];
-
-}
-
 /* 应用color到图层上 */
 -(void)applyColor:(NSColor*) color toLayer:(MSLayer*) layer{
-    if (layer.style.fills[0]) {
-        layer.style.fills[0].color.red = color.redComponent;
-        layer.style.fills[0].color.green = color.greenComponent;
-        layer.style.fills[0].color.blue = color.blueComponent;
+    if (layer.style.fills) {
+        for(MSStyleFill *fill in layer.style.fills) {
+            fill.color.red = color.redComponent;
+            fill.color.green = color.greenComponent;
+            fill.color.blue = color.blueComponent;
+        }
     }
 }
 

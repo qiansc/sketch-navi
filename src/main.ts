@@ -68,10 +68,20 @@ function getRuntime(ctx: SketchContext) {
 export function onSelectionChanged(context: any) {
 
     var document = require('sketch/dom').getSelectedDocument();
+    var documentId = context.actionContext.document.hash().toString();
     const threadDictionary = NSThread.mainThread().threadDictionary();
-    let runtime: Runtime = threadDictionary[`${document.id}-navi-runtime`];
+    let runtime: Runtime = threadDictionary[`${documentId}-navi-runtime`];
     if (runtime) {
         runtime.panelController.selectionChange();
+        if(document.selectedLayers && document.selectedLayers.layers && document.selectedLayers.layers[0]) {
+            const info =  document.selectedLayers.layers[0].sketchObject.userInfo();
+            if (info && info['Navi']) {
+                // console.log(info['Navi']['style']);
+            }
+
+
+        }
+
     }
 }
 
@@ -106,3 +116,19 @@ export function onSelectionChanged(context: any) {
 //     "SAM_008": "4E6EFFFF",
 // };
 /** 以上代码是颜色测试代码 */
+
+// fills:
+// [ Fill {
+//     fillType: 'Color',
+//     color: '#d8d8d8ff',
+//     gradient: [Gradient],
+//     pattern: [Object],
+//     enabled: true } ],
+// borders:
+// [ Border {
+//     fillType: 'Color',
+//     position: 'Inside',
+//     color: '#979797ff',
+//     gradient: [Gradient],
+//     thickness: 1,
+//     enabled: true } ],

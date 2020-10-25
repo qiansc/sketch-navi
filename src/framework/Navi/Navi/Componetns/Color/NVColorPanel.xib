@@ -12,6 +12,7 @@
                 <outlet property="clipView" destination="DNr-Bb-8Dn" id="b4M-JE-QSO"/>
                 <outlet property="collectionView" destination="Avc-R6-vFW" id="6wC-YI-W2x"/>
                 <outlet property="headerView" destination="eV9-9d-w5m" id="Ehb-Up-fhp"/>
+                <outlet property="modeButton" destination="aOA-id-4JO" id="c9l-JV-C6n"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -23,6 +24,22 @@
             <subviews>
                 <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eV9-9d-w5m" customClass="NVPanelHeaderView">
                     <rect key="frame" x="0.0" y="266" width="240" height="34"/>
+                    <subviews>
+                        <segmentedControl verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aOA-id-4JO">
+                            <rect key="frame" x="147.5" y="6" width="63" height="16"/>
+                            <segmentedCell key="cell" controlSize="mini" borderStyle="border" alignment="left" style="texturedRounded" trackingMode="selectOne" id="CGC-yA-kAA">
+                                <font key="font" metaFont="miniSystem"/>
+                                <segments>
+                                    <segment label="填充" width="28" selected="YES"/>
+                                    <segment label="描边" width="28" tag="1"/>
+                                </segments>
+                            </segmentedCell>
+                        </segmentedControl>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="aOA-id-4JO" firstAttribute="top" secondItem="eV9-9d-w5m" secondAttribute="top" constant="10" id="Kob-6S-F1p"/>
+                        <constraint firstAttribute="trailing" secondItem="aOA-id-4JO" secondAttribute="trailing" constant="30" id="aTm-WT-BD0"/>
+                    </constraints>
                 </customView>
                 <scrollView wantsLayer="YES" ambiguous="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="Z6p-fL-ann" customClass="DisabledWheelScrollView">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>

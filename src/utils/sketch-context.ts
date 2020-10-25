@@ -8,7 +8,7 @@ export class SketchContext {
     public stageView: any;
     constructor(private context: any) {
         this.document = context.document || (context.actionContext && context.actionContext.document) || (MSDocument as any).currentDocument();
-        this.documentId = this.document.documentData().objectID();
+        this.documentId = this.document.hash().toString();// this.document.documentData().objectID();
         this.version = new String(context.plugin.version()).toString();
         this.plugin = context.plugin;
         this.contentView = this.context.document.documentWindow().contentView();

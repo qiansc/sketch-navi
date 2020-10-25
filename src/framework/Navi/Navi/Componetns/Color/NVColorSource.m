@@ -14,7 +14,8 @@
     NSString *searchQuery;
     NSMutableDictionary *dims;
     NSArray<NSDictionary*> *specs;
-    
+    NSInteger mod;
+
 }
 
 // hex: "EEEEEE", alpha: 100, specCode: "SAM_001", desc: "语义描述001",
@@ -39,6 +40,13 @@
 }
 
 -(BOOL)filter:(NSDictionary*) specDict {
+
+    if (mod == 1 && [specDict[@"borderMode"] boolValue] == NO) {
+        return false;
+    } else if(mod != 1 && [specDict[@"fillMode"] boolValue] == NO) {
+        return false;
+    }
+
     if (searchQuery == nil || searchQuery.length == 0) {
         return true;
 //    } else if ([specDict[@"dim"] containsString:searchQuery]) {
@@ -59,6 +67,12 @@
 
 - (void)setQuery:(NSString *) query {
     searchQuery = query;
+    [self update: specs];
+    updatedCallback();
+}
+
+- (void)setMode:(NSInteger) mode {
+    mod = mode;
     [self update: specs];
     updatedCallback();
 }

@@ -34,6 +34,7 @@ typedef struct NVColorSpec NVColorSpec;
 
 +(NVColorSpec)value:(NSDictionary*) specDict;
 
+- (void)setMode:(NSInteger) mode;
 @end
 
 NS_ASSUME_NONNULL_END
