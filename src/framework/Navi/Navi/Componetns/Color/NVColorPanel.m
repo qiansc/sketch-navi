@@ -47,6 +47,11 @@
 
 -(void)modeButtonClick:(NSSegmentedControl*) button{
     [self.collectionView.source setMode: button.selectedSegment];
+    // 这里必须加一个timer 不然collectionView没来得及更新 正常时序解不了
+    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(modeButtonClickTrigger) userInfo:nil repeats:NO];
+}
+-(void)modeButtonClickTrigger{
+    [self selectionChange:self.selections];
 }
 
 
@@ -66,8 +71,8 @@
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
     NSString *title = nil;
     for(MSLayer *layer in layers) {
-
-        for(NSString *colorCode in [NVLayer getFillsColorCodeIn:layer]) {
+        NSArray<NSString*>* colorCodes = self.modeButton.selectedSegment ? [NVLayer getBordersColorCodeIn:layer] : [NVLayer getFillsColorCodeIn:layer];
+        for(NSString *colorCode in colorCodes) {
             for(NSView *view in self.collectionView.subviews) {
                 if ([view isKindOfClass:[NVColorCollectionItemView class]]) {
                     NVColorCollectionItemView *item = ((NVColorCollectionItemView *)view);
@@ -81,23 +86,6 @@
                 }
             }
         }
-
-
-//        if(layer.userInfo && layer.userInfo[@"colorCode"]) {
-//            NSString *colorCode = layer.userInfo[@"colorCode"];
-//            for(NSView *view in self.collectionView.subviews) {
-//                if ([view isKindOfClass:[NVColorCollectionItemView class]]) {
-//                    NVColorCollectionItemView *item = ((NVColorCollectionItemView *)view);
-//                    if([item.spec.specCode isEqual:colorCode]) {
-//                        // 找到和specCode对应的indexPath
-//                        [indexPaths addObject: item.indexPath];
-//                        // 校准一下颜色
-//                        [self applyColor:NSColorFromRGBString(item.spec.hex) toLayer:layer];
-//                        title = item.spec.specCode;
-//                    }
-//                }
-//            }
-//        }
     }
 
     [self.collectionView.toggleDelegate clearActive];
@@ -114,9 +102,13 @@
 -(void)applySpecToSelections:(NVColorSpec) spec {
     if (self.selections) {
         for(MSLayer *layer in self.selections) {
-            if (layer.style.fills) {
+            if (self.modeButton.selectedSegment == 0 && layer.style.fills) {
                 for(NSInteger i = 0; i < [layer.style.fills count]; i++) {
-                    [NVLayer set:layer colorCode:spec.specCode at: i];
+                    [NVLayer set:layer fillColorCode:spec.specCode at: i];
+                }
+            } else if (self.modeButton.selectedSegment == 1 && layer.style.borders) {
+                for(NSInteger i = 0; i < [layer.style.borders count]; i++) {
+                    [NVLayer set:layer borderColorCode:spec.specCode at: i];
                 }
             }
             [self applyColor:NSColorFromRGBString(spec.hex) toLayer:layer];
@@ -125,11 +117,17 @@
 }
 /* 应用color到图层上 */
 -(void)applyColor:(NSColor*) color toLayer:(MSLayer*) layer{
-    if (layer.style.fills) {
+    if (self.modeButton.selectedSegment == 0 && layer.style.fills) {
         for(MSStyleFill *fill in layer.style.fills) {
             fill.color.red = color.redComponent;
             fill.color.green = color.greenComponent;
             fill.color.blue = color.blueComponent;
+        }
+    } else if (self.modeButton.selectedSegment == 1 && layer.style.borders) {
+        for(MSStyleBorder *border in layer.style.borders) {
+            border.color.red = color.redComponent;
+            border.color.green = color.greenComponent;
+            border.color.blue = color.blueComponent;
         }
     }
 }

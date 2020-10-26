@@ -208,6 +208,7 @@
 		A3EEF7F72540017300C3998D /* NVColorCollectionItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVColorCollectionItem.m; sourceTree = "<group>"; };
 		A3EEF7FC25402F9900C3998D /* NVPanelInfoButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVPanelInfoButton.h; sourceTree = "<group>"; };
 		A3EEF7FD25402F9900C3998D /* NVPanelInfoButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVPanelInfoButton.m; sourceTree = "<group>"; };
+		A3F982D0254668C200072AAA /* MSStyleBorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSStyleBorder.h; sourceTree = "<group>"; };
 		A3FB36FF253EC1F0001D152C /* NVTrackButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVTrackButton.h; sourceTree = "<group>"; };
 		A3FB3700253EC1F0001D152C /* NVTrackButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVTrackButton.m; sourceTree = "<group>"; };
 		A3FB3703253EC2E2001D152C /* NVToggleBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVToggleBox.h; sourceTree = "<group>"; };
@@ -427,6 +428,7 @@
 				A3EE0FE625405AEE00C3998D /* MSLayer.h */,
 				A3EE0FE72540612E00C3998D /* MSStyle.h */,
 				A3EE0FE82540614600C3998D /* MSStyleFill.h */,
+				A3F982D0254668C200072AAA /* MSStyleBorder.h */,
 				A3EE0FE92540649F00C3998D /* MSColor.h */,
 			);
 			path = Sketch;

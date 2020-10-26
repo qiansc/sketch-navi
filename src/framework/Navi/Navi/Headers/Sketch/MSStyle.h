@@ -7,10 +7,12 @@
 //
 
 #import "MSStyleFill.h"
+#import "MSStyleBorder.h"
 
 @interface MSStyle: NSObject
 
 @property (nonatomic, strong) NSArray<MSStyleFill*> *fills;
+@property (nonatomic, strong) NSArray<MSStyleBorder*> *borders;
 
 @end
 

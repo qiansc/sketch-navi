@@ -58,9 +58,19 @@
     }
     return arr;
 }
++(NSArray<NSString *>*)getBordersColorCodeIn:(MSLayer*)layer {
+    NSDictionary *nlayer = [NVLayer fromLayer:layer];
+    NSMutableArray *arr = [NSMutableArray new];
+    for(NSDictionary* d in nlayer[@"style"][@"borders"]) {
+        if (d[@"colorCode"]) {
+            [arr addObject:d[@"colorCode"]];
+        }
+    }
+    return arr;
+}
 
 
-+(void)set:(MSLayer*)layer colorCode:(NSString *) colorCode at:(NSInteger) index{
++(void)set:(MSLayer*)layer fillColorCode:(NSString *) colorCode at:(NSInteger) index{
     NSMutableDictionary *nlayer = [NVLayer fromLayer:layer];
     NSMutableArray* fills = nlayer[@"style"][@"fills"];
     if ([fills count]>index) {
@@ -71,8 +81,18 @@
         [fills addObject:@{@"colorCode": colorCode}];
     }
     [NVLayer save:nlayer to:layer];
-    
-
+}
++(void)set:(MSLayer*)layer borderColorCode:(NSString *) colorCode at:(NSInteger) index{
+    NSMutableDictionary *nlayer = [NVLayer fromLayer:layer];
+    NSMutableArray* fills = nlayer[@"style"][@"borders"];
+    if ([fills count]>index) {
+        NSMutableDictionary *fill = [fills[index] mutableCopy]; // 很关键！！
+        fill[@"colorCode"] = colorCode;
+        fills[index] = fill;
+    } else {
+        [fills addObject:@{@"colorCode": colorCode}];
+    }
+    [NVLayer save:nlayer to:layer];
 }
 
 @end
