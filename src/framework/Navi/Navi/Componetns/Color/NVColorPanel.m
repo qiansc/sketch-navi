@@ -30,7 +30,15 @@
     c.afterResize = ^(float width, float height) {
          [self resetConstraint];
     };
+
+    [self.collectionView.toggleDelegate afterReload:^(void){
+//         NSLog(@"NAVIL PPPPP %@", self);
+        // 一般是数据更新时 整体重绘 需要根据选中项重新选择
+         [self selectionChange:self.selections];
+    }];
+
     [self.collectionView.toggleDelegate onChange:^(NVToggleBox * box) {
+        // 选择变化时 应用到selections 且改更新title
         if (box == nil) {
             [self updateTitle:nil];
         }else{
@@ -47,13 +55,7 @@
 
 -(void)modeButtonClick:(NSSegmentedControl*) button{
     [self.collectionView.source setMode: button.selectedSegment];
-    // 这里必须加一个timer 不然collectionView没来得及更新 正常时序解不了
-    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(modeButtonClickTrigger) userInfo:nil repeats:NO];
 }
--(void)modeButtonClickTrigger{
-    [self selectionChange:self.selections];
-}
-
 
 -(void)updateTitle:(NSString*) title{
     self.headerView.infoButton.title = title;
@@ -67,6 +69,7 @@
 - (void)selectionChange:(NSArray<MSLayer*>*) layers {
     /*下面代码临时实现 还要重构 */
     // NSIndexPath *indexPath = nil;
+    NSLog(@"NAVIL selectionChange");
     self.selections = layers;
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
     NSString *title = nil;

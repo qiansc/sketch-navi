@@ -16,8 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.toggleButton setTarget:self];
-    [self.toggleButton setAction:@selector(toogle:)];
+//    [self.toggleButton setTarget:self];
+//    [self.toggleButton setAction:@selector(toogle:)];
     // self.view.wantsLayer = true;
     // self.view.layer.backgroundColor = [NSColor orangeColor].CGColor;
     // self.toggleButton
@@ -25,11 +25,9 @@
 }
 
 - (void)toogle:(NSButton*) sender{
-    NSView* view = self.view.superview.superview;
-    NSRect contentFrame = NSMakeRect(0, 0, view.frame.size.width, self.view.frame.size.height);
-    view.frame = contentFrame;
-    view.wantsLayer = true;
-    view.layer.backgroundColor = [NSColor greenColor].CGColor;
+//    NSView* view = self.view.superview.superview;
+//    NSRect contentFrame = NSMakeRect(0, 0, view.frame.size.width, self.view.frame.size.height);
+//    view.frame = contentFrame;
 }
 
 

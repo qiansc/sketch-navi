@@ -7,10 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NVCollectionDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface NVCollectionView : NSCollectionView
+
+@property (nonatomic,strong) NVCollectionDelegate *toggleDelegate;
 
 - (void)setWrapperHeight:(float) height;
 

@@ -56,6 +56,12 @@
 - (void)reloadData {
     [self resetHeaders];
     [super reloadData];
+    // 这里必须加一个timer 不然collectionView没来得及更新 正常时序解不了
+    if (self.toggleDelegate) {
+            [NSTimer scheduledTimerWithTimeInterval:0.1 target:self.toggleDelegate selector:@selector(triggerAfterReload) userInfo:nil repeats:NO];
+    }
+
+    
 }
 
 - (void)setWrapperHeight:(float) height {

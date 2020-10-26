@@ -134,11 +134,6 @@
     return button;
 }
 
-- (void)setDocumentId:(NSString*) documentId {
-    self.view.identifier = [documentId stringByAppendingString:@"-navi-menu-panel"];
-    _documentId = documentId;
-}
-
 - (void)updateLimitWidth {
     limitWidth = self.view.frame.size.width * 1;
 }
@@ -155,7 +150,8 @@
 
 + (instancetype)generateWithDocumentId:(NSString*) documentId {
     Menu* menu = [self viewControllerFromNIB];
-    [menu setDocumentId:documentId];
+    menu.view.identifier = [documentId stringByAppendingString:@"-navi-menu-panel"];
+    menu.documentId = documentId;
     // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationFirst:) name:@"First" object:nil];
     return menu;
 }

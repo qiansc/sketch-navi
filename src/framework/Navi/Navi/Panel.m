@@ -128,11 +128,6 @@
     self.view.frame = NSMakeRect(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width - 1, self.view.frame.size.height);
 }
 
-- (void)setDocumentId:(NSString*) documentId {
-    self.view.identifier = [documentId stringByAppendingString:@"-navi-tools-panel"];
-    _documentId = documentId;
-}
-
 /* 更新规范接口 */
 - (void)updateSpec:(NSDictionary *) specs{
     for(NSString * key in [specs allKeys]) {
@@ -152,7 +147,9 @@
 
 + (instancetype)generateWithDocumentId:(NSString*) documentId {
     Panel* panel = [self viewControllerFromNIB];
-    [panel setDocumentId:documentId];
+    panel.view.identifier = [documentId stringByAppendingString:@"-navi-tools-panel"];
+    panel.documentId = documentId;
+    // [panel setDocumentId:documentId];
     // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationFirst:) name:@"First" object:nil];
     return panel;
 }

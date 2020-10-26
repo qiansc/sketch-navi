@@ -10,6 +10,7 @@
 
 @implementation NVCollectionDelegate {
     NSMutableArray<OnChangeCallback>* onChangeCallbacks;
+    NSMutableArray<AfterReloadCallback>* afterReloadCallbacks;
 }
 
 /* setActive并不是排他性的 有值回调 */
@@ -74,6 +75,18 @@
 -(void)onChange:(OnChangeCallback) onChangeCallback {
     if (onChangeCallbacks == nil) onChangeCallbacks = [NSMutableArray new];
     [onChangeCallbacks addObject:onChangeCallback];
+}
+
+- (void)triggerAfterReload {
+    if (afterReloadCallbacks != nil) {
+        for(AfterReloadCallback cb in afterReloadCallbacks) {
+            cb();
+        }
+    }
+}
+- (void)afterReload:(AfterReloadCallback) afterReloadCallback{
+    if (afterReloadCallbacks == nil) afterReloadCallbacks = [NSMutableArray new];
+    [afterReloadCallbacks addObject:afterReloadCallback];
 }
 
 @end

@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NVCollectionView.h"
 #import "NVToggleBox.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^OnChangeCallback)(NVToggleBox* box);
+typedef void (^AfterReloadCallback)(void);
 
 @interface NVCollectionDelegate : NSObject
 
-@property (nonatomic, strong) NVCollectionView *collectionView;
+@property (nonatomic, strong) NSCollectionView *collectionView;
 
 /* setActive并不是排他性的 有值回调 */
 -(void)setActive:(NSIndexPath *)indexPath;
@@ -25,6 +25,11 @@ typedef void (^OnChangeCallback)(NVToggleBox* box);
 /* 有回调 */
 -(void)onChange:(OnChangeCallback) onChangeCallback;
 -(void)clearActive;
+
+
+- (void)afterReload:(AfterReloadCallback) afterReloadCallback;
+- (void)triggerAfterReload;
+
 @end
 
 
