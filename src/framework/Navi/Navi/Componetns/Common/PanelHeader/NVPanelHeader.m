@@ -7,6 +7,7 @@
 //
 
 #import "NVPanelHeader.h"
+#import "MSDocument.h"
 
 @interface NVPanelHeader ()
 
@@ -22,6 +23,15 @@
     // self.view.layer.backgroundColor = [NSColor orangeColor].CGColor;
     // self.toggleButton
     // Do view setup here.
+    [self.infoButton setTarget:self];
+    [self.infoButton setAction:@selector(copyInfo:)];
+}
+
+-(void)copyInfo:(NSButton*) button{
+    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+    [pasteboard clearContents];  //必须清空，否则setString会失败。
+    [pasteboard setString:button.title forType:NSPasteboardTypeString];
+    [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"已复制 %@ 到剪切板", button.title]];
 }
 
 - (void)toogle:(NSButton*) sender{

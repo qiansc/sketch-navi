@@ -67,9 +67,6 @@
 }
 
 - (void)selectionChange:(NSArray<MSLayer*>*) layers {
-    /*下面代码临时实现 还要重构 */
-    // NSIndexPath *indexPath = nil;
-    NSLog(@"NAVIL selectionChange");
     self.selections = layers;
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
     NSString *title = nil;

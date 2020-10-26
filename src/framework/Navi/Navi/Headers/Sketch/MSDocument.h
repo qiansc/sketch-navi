@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) NSArray *selectedLayers;
 
+-(void)showMessage:(NSString *) text;
+
 @end
