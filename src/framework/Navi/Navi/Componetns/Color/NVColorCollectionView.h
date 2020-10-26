@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong) NVColorSource *source;
 @property (nonatomic,strong) NVCollectionDelegate *toggleDelegate;
+@property (nonatomic) BOOL semanticMode;
 
 @end
 

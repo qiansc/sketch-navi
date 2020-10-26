@@ -106,7 +106,7 @@
     } else if (self.isHover) {
         self.borderColor = [NSColor disabledControlTextColor];
     } else {
-        self.borderColor = [NSColor disabledControlTextColor];
+        self.borderColor = [NSColor systemGrayColor];
     }
 }
 //- (void)drawBorder:(NSRect)rect {

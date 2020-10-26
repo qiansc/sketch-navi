@@ -34,11 +34,19 @@
     [self initAllPanel];
     self.searchField.delegate = self;
     self.searchField.placeholderString = @"全部资源";
+    [self.semanticButton setTarget:self];
+    [self.semanticButton setAction:@selector(changeSemanticMode:)];
 
 //    [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskKeyUp handler:^NSEvent*(NSEvent* event){
 //        NSLog(@"NAVIL %@", event);
 //        return event;
 //    }];
+}
+
+-(void)changeSemanticMode:(NSButton*) button {
+    for(NVPanelController * c in [panelControllers allValues]) {
+        [c setSemanticMode:button.state];
+    }
 }
 
 -(void)controlTextDidChange:(NSNotification *)obj{

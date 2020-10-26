@@ -17,7 +17,7 @@
 - (instancetype)initWithCoder:(NSCoder *)coder {
     NVLineCollectionItemView *view = [super initWithCoder:coder];
     view.boxType = NSBoxCustom;
-    view.borderColor = [NSColor systemGrayColor];
+    view.borderColor = [NSColor disabledControlTextColor];
     view.borderType = NSLineBorder;
     view.borderWidth = 1;
     view.cornerRadius = 3;
@@ -51,9 +51,9 @@
     if (self.isSelected) {
         self.borderColor = [NSColor controlAccentColor];
     } else if (self.isHover) {
-        self.borderColor = [NSColor disabledControlTextColor];
+        self.borderColor = [NSColor systemGrayColor];
     } else {
-        self.borderColor = [NSColor clearColor];
+        self.borderColor = [NSColor disabledControlTextColor];
     }
 }
 

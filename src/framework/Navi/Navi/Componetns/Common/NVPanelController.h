@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NVPanelController : NSViewController {
     NSControlStateValue openState;
     NSLayoutConstraint* constraintHeight;
-
+    BOOL semanticMode;
 }
 
 @property (strong) IBOutlet NVPanelHeaderView *headerView;
@@ -39,6 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (int)height; // 插件展开高度算法，需要自行子类实现
 - (void)resetConstraint;
 - (void)selectionChange:(NSArray<MSLayer*>*) layers;
+- (void)setSemanticMode:(BOOL)mode;
 
 @end
 
