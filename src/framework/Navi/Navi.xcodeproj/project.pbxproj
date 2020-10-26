@@ -110,6 +110,12 @@
 		B286F6BB2543BDA400984F2A /* RFOverlayScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = B286F6B72543BDA300984F2A /* RFOverlayScroller.m */; };
 		B286F6BC2543BDA400984F2A /* RFOverlayScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = B286F6B82543BDA400984F2A /* RFOverlayScrollView.h */; };
 		B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A1D897250EE6CA004E59A4 /* Menu.xib */; };
+		B2D54D3C25471622002E1D91 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3625471620002E1D91 /* setting.png */; };
+		B2D54D3D25471622002E1D91 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3725471621002E1D91 /* user.png */; };
+		B2D54D3E25471622002E1D91 /* user-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3825471621002E1D91 /* user-active.png */; };
+		B2D54D3F25471622002E1D91 /* android-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3925471621002E1D91 /* android-active.png */; };
+		B2D54D4025471622002E1D91 /* setting-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3A25471622002E1D91 /* setting-active.png */; };
+		B2D54D4125471622002E1D91 /* android.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3B25471622002E1D91 /* android.png */; };
 		B2E02AD825459FA700BBE87F /* NVLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E02AD625459FA700BBE87F /* NVLayer.h */; };
 		B2E02AD925459FA700BBE87F /* NVLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E02AD725459FA700BBE87F /* NVLayer.m */; };
 /* End PBXBuildFile section */
@@ -228,6 +234,12 @@
 		B286F6B72543BDA300984F2A /* RFOverlayScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFOverlayScroller.m; sourceTree = "<group>"; };
 		B286F6B82543BDA400984F2A /* RFOverlayScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFOverlayScrollView.h; sourceTree = "<group>"; };
 		B2A1D897250EE6CA004E59A4 /* Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Menu.xib; sourceTree = "<group>"; };
+		B2D54D3625471620002E1D91 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting.png; path = Assets/icons/setting.png; sourceTree = "<group>"; };
+		B2D54D3725471621002E1D91 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user.png; path = Assets/icons/user.png; sourceTree = "<group>"; };
+		B2D54D3825471621002E1D91 /* user-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-active.png"; path = "Assets/icons/user-active.png"; sourceTree = "<group>"; };
+		B2D54D3925471621002E1D91 /* android-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "android-active.png"; path = "Assets/icons/android-active.png"; sourceTree = "<group>"; };
+		B2D54D3A25471622002E1D91 /* setting-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting-active.png"; path = "Assets/icons/setting-active.png"; sourceTree = "<group>"; };
+		B2D54D3B25471622002E1D91 /* android.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = android.png; path = Assets/icons/android.png; sourceTree = "<group>"; };
 		B2E02AD625459FA700BBE87F /* NVLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVLayer.h; sourceTree = "<group>"; };
 		B2E02AD725459FA700BBE87F /* NVLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -325,6 +337,12 @@
 				A3E6094325109AB500C98536 /* Panel.xib */,
 				A3453B5A2535C5E2007AFFCC /* Config.h */,
 				A3453B5B2535C5E2007AFFCC /* Config.m */,
+				B2D54D3925471621002E1D91 /* android-active.png */,
+				B2D54D3B25471622002E1D91 /* android.png */,
+				B2D54D3A25471622002E1D91 /* setting-active.png */,
+				B2D54D3625471620002E1D91 /* setting.png */,
+				B2D54D3825471621002E1D91 /* user-active.png */,
+				B2D54D3725471621002E1D91 /* user.png */,
 			);
 			path = Navi;
 			sourceTree = "<group>";
@@ -615,7 +633,10 @@
 			files = (
 				A34728B52539918500EC18ED /* NVColorCollectionItem.xib in Resources */,
 				A396D12125347F8C0061CC73 /* color.png in Resources */,
+				B2D54D3D25471622002E1D91 /* user.png in Resources */,
+				B2D54D3E25471622002E1D91 /* user-active.png in Resources */,
 				A396D11425347F8C0061CC73 /* text-active.png in Resources */,
+				B2D54D3C25471622002E1D91 /* setting.png in Resources */,
 				A3B5E223253828C40048F526 /* NVColorPanel.xib in Resources */,
 				A396D12725347F8C0061CC73 /* mask.png in Resources */,
 				A396D12425347F8C0061CC73 /* text-margin-active.png in Resources */,
@@ -633,10 +654,13 @@
 				A396D12225347F8C0061CC73 /* icon-active.png in Resources */,
 				A396D11D25347F8C0061CC73 /* line-active.png in Resources */,
 				A396D11F25347F8C0061CC73 /* layout.png in Resources */,
+				B2D54D4125471622002E1D91 /* android.png in Resources */,
 				A396D12825347F8C0061CC73 /* transparent.png in Resources */,
 				A396D11225347F8C0061CC73 /* mask-active.png in Resources */,
+				B2D54D4025471622002E1D91 /* setting-active.png in Resources */,
 				A396D12625347F8C0061CC73 /* line.png in Resources */,
 				A396D11825347F8C0061CC73 /* icon.png in Resources */,
+				B2D54D3F25471622002E1D91 /* android-active.png in Resources */,
 				B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */,
 				A396D11A25347F8C0061CC73 /* margin-h.png in Resources */,
 				A396D11B25347F8C0061CC73 /* main.png in Resources */,

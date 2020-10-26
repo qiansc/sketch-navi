@@ -24,33 +24,57 @@
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
-        @"name": @"文本",
-        @"id": @"Text",
-        @"icon": @"text",
-        @"gravity": @1,
-        @"type": @"PANEL"
-    }, @{
         @"name": @"线条",
         @"id": @"Line",
         @"icon": @"line",
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
-        @"name": @"阴影",
+        @"name": @"文本",
+        @"id": @"Text",
+        @"icon": @"text",
+        @"gravity": @1,
+        @"type": @"PANEL"
+    }, @{
+        @"name": @"边角",
+        @"id": @"Border",
+        @"icon": @"border",
+        @"gravity": @1,
+        @"type": @"PANEL"
+    }, @{
+        @"name": @"间距",
+        @"id": @"Margin",
+        @"icon": @"margin-v",
+        @"gravity": @1,
+        @"type": @"PANEL"
+    }, @{
+        @"name": @"投影",
+        @"id": @"Shadow",
+        @"icon": @"shadow",
+        @"gravity": @1,
+        @"type": @"PANEL"
+    }, @{
+        @"name": @"蒙层",
         @"id": @"Mask",
         @"icon": @"mask",
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
+        @"name": @"切换",
+        @"id": @"Switch",
+        @"icon": @"android",
+        @"gravity": @3,
+        @"type": @"WINDOW"
+    }, @{
         @"name": @"设置",
         @"id": @"Setting",
-        @"icon": @"mask",
+        @"icon": @"setting",
         @"gravity": @3,
         @"type": @"WINDOW"
     }, @{
         @"name": @"用户",
         @"id": @"User",
-        @"icon": @"border",
+        @"icon": @"user",
         @"gravity": @3,
         @"type": @"WINDOW"
     }];

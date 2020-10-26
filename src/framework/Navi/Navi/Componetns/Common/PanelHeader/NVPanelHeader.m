@@ -23,6 +23,7 @@
     // self.view.layer.backgroundColor = [NSColor orangeColor].CGColor;
     // self.toggleButton
     // Do view setup here.
+    [self.infoButton setTitle:nil];
     [self.infoButton setTarget:self];
     [self.infoButton setAction:@selector(copyInfo:)];
 }

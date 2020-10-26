@@ -19,6 +19,7 @@
     int limitWidth;
     NSMutableDictionary* panelControllers;
     NSMutableDictionary* panelSources;
+    BOOL locked;
 }
 
 - (void)viewDidLoad {
@@ -124,9 +125,21 @@
 /** delegate 响应subview panelDidResize变化 */
 - (void)panelDidResize:(NSString *)panelId{
     // Solution.001 解决NVPanel变化时，滚动条消失，但docuemntView没重绘显示不完全问题
+    if (locked) return;
+    locked = YES;
     self.view.frame = NSMakeRect(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width + 1, self.view.frame.size.height);
-    self.view.frame = NSMakeRect(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width - 1, self.view.frame.size.height);
+    [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(fitResize) userInfo:nil repeats:NO];
+
 }
+// 触发重绘 副作用抖动后续重构
+-(void)fitResize{
+    self.view.frame = NSMakeRect(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width - 1, self.view.frame.size.height);
+    [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(endFit) userInfo:nil repeats:NO];
+}
+-(void)endFit{
+    locked = NO;
+}
+
 
 /* 更新规范接口 */
 - (void)updateSpec:(NSDictionary *) specs{

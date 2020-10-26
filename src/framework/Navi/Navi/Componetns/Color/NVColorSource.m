@@ -43,6 +43,16 @@
             }
          }
     }
+    NSMutableArray *others = [NSMutableArray new];
+    for(NSString *dim in [dims allKeys]) {
+        if ([((NSMutableArray*)dims[dim]) count] < 4) {
+            [others addObjectsFromArray:dims[dim]];
+            [dims removeObjectForKey:dim];
+        }
+    }
+    if ([others count] > 0) {
+        dims[@"其他"] = others;
+    }
     updatedCallback();
 }
 
@@ -67,7 +77,7 @@
         if ([dim containsString:searchQuery]) return true;
     }
     NVColorSpec spec = [NVColorSource value:specDict];
-    
+
     if ([spec.hex containsString:searchQuery]) {
         return true;
     } else if ([spec.specCode containsString:searchQuery]) {
