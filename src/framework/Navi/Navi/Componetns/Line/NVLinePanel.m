@@ -67,4 +67,9 @@
 - (void)applyLine:(NSString *) line toLayer:(MSLayer *) layer {
 }
 
+- (int)height {
+    int superHeight = [super height];
+    return superHeight + 20;
+}
+
 @end

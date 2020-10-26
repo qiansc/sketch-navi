@@ -58,7 +58,8 @@
     NVLineSpec spec = {
         .weight = specDict[@"weight"],
         .specCode = specDict[@"specCode"],
-        .desc = specDict[@"desc"]
+        .desc = specDict[@"desc"],
+        .text = specDict[@"text"],
     };
     return spec;
 }
