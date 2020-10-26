@@ -61,7 +61,7 @@
         @"type": @"PANEL"
     }, @{
         @"name": @"切换",
-        @"id": @"Switch",
+        @"id": @"Artboard",
         @"icon": @"android",
         @"gravity": @3,
         @"type": @"WINDOW"

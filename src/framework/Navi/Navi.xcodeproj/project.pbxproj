@@ -116,6 +116,9 @@
 		B2D54D3F25471622002E1D91 /* android-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3925471621002E1D91 /* android-active.png */; };
 		B2D54D4025471622002E1D91 /* setting-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3A25471622002E1D91 /* setting-active.png */; };
 		B2D54D4125471622002E1D91 /* android.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3B25471622002E1D91 /* android.png */; };
+		B2D54D462547294F002E1D91 /* NVArtboard.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D54D432547294F002E1D91 /* NVArtboard.h */; };
+		B2D54D472547294F002E1D91 /* NVArtboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D54D442547294F002E1D91 /* NVArtboard.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		B2D54D482547294F002E1D91 /* NVArtboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D452547294F002E1D91 /* NVArtboard.xib */; };
 		B2E02AD825459FA700BBE87F /* NVLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E02AD625459FA700BBE87F /* NVLayer.h */; };
 		B2E02AD925459FA700BBE87F /* NVLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E02AD725459FA700BBE87F /* NVLayer.m */; };
 /* End PBXBuildFile section */
@@ -240,6 +243,9 @@
 		B2D54D3925471621002E1D91 /* android-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "android-active.png"; path = "Assets/icons/android-active.png"; sourceTree = "<group>"; };
 		B2D54D3A25471622002E1D91 /* setting-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "setting-active.png"; path = "Assets/icons/setting-active.png"; sourceTree = "<group>"; };
 		B2D54D3B25471622002E1D91 /* android.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = android.png; path = Assets/icons/android.png; sourceTree = "<group>"; };
+		B2D54D432547294F002E1D91 /* NVArtboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVArtboard.h; sourceTree = "<group>"; };
+		B2D54D442547294F002E1D91 /* NVArtboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVArtboard.m; sourceTree = "<group>"; };
+		B2D54D452547294F002E1D91 /* NVArtboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVArtboard.xib; sourceTree = "<group>"; };
 		B2E02AD625459FA700BBE87F /* NVLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVLayer.h; sourceTree = "<group>"; };
 		B2E02AD725459FA700BBE87F /* NVLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -404,6 +410,7 @@
 				A300364D25386E530093395D /* Text */,
 				A3003655253870820093395D /* Line */,
 				A3003654253870750093395D /* Mask */,
+				B2D54D42254728E3002E1D91 /* Artboard */,
 			);
 			path = Componetns;
 			sourceTree = "<group>";
@@ -526,6 +533,16 @@
 			path = Lib;
 			sourceTree = "<group>";
 		};
+		B2D54D42254728E3002E1D91 /* Artboard */ = {
+			isa = PBXGroup;
+			children = (
+				B2D54D432547294F002E1D91 /* NVArtboard.h */,
+				B2D54D442547294F002E1D91 /* NVArtboard.m */,
+				B2D54D452547294F002E1D91 /* NVArtboard.xib */,
+			);
+			path = Artboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -550,6 +567,7 @@
 				A352295E253DA5D400F42D58 /* NVColorSource.h in Headers */,
 				B226FF58253CAAEE009DD159 /* NVClipView.h in Headers */,
 				A3003659253870E00093395D /* NVLinePanel.h in Headers */,
+				B2D54D462547294F002E1D91 /* NVArtboard.h in Headers */,
 				A38993F9250B85A000211D90 /* Navi.h in Headers */,
 				A300365125386EAF0093395D /* NVTextPanel.h in Headers */,
 				A34728AE2539897200EC18ED /* NVColorSectionHeader.h in Headers */,
@@ -652,6 +670,7 @@
 				A396D12025347F8C0061CC73 /* margin-h-active.png in Resources */,
 				A3E6094425109AB500C98536 /* Panel.xib in Resources */,
 				A396D12225347F8C0061CC73 /* icon-active.png in Resources */,
+				B2D54D482547294F002E1D91 /* NVArtboard.xib in Resources */,
 				A396D11D25347F8C0061CC73 /* line-active.png in Resources */,
 				A396D11F25347F8C0061CC73 /* layout.png in Resources */,
 				B2D54D4125471622002E1D91 /* android.png in Resources */,
@@ -689,6 +708,7 @@
 				A352295F253DA5D400F42D58 /* NVColorSource.m in Sources */,
 				A3EEF7FF25402F9900C3998D /* NVPanelInfoButton.m in Sources */,
 				B226FF59253CAAEE009DD159 /* NVClipView.m in Sources */,
+				B2D54D472547294F002E1D91 /* NVArtboard.m in Sources */,
 				A3EEF7ED253F033500C3998D /* NVCollectionDelegate.m in Sources */,
 				A3003660253870F40093395D /* NVMaskPanel.m in Sources */,
 				A3B5E22E25382BE70048F526 /* NVPanelHeaderView.m in Sources */,

@@ -8,8 +8,13 @@
 
 #import "Menu.h"
 #import "Config.h"
+// 临时代码
+#import "NVArtboard.h"
 
-@implementation Menu
+@implementation Menu {
+    NSWindow *artborad;
+    NSButton *artboradButton;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -81,6 +86,9 @@
             button.state = YES;
             [panelButtons setValue:button forKey:id];
         }
+        if ([id isEqual:@"Artboard"]){
+            artboradButton = button;
+        }
 
     }
 }
@@ -110,6 +118,36 @@
             @"option": option
         }];
     }
+    if([option[@"id"] isEqual:@"Artboard"]) {
+        if(button.state == YES) {
+            [self showAndroid];
+        } else {
+            [artborad close];
+        }
+    }
+    
+}
+
+-(void)showAndroid {
+    if (artborad) return;
+    NSRect frame = NSMakeRect(100, 400, 265, 180);
+    NSRect rect = [NSWindow contentRectForFrameRect:frame styleMask:NSWindowStyleMaskBorderless];
+    NSWindowStyleMask mask = NSWindowStyleMaskTitled | NSWindowStyleMaskResizable | NSWindowStyleMaskClosable;
+    artborad = [[NSWindow alloc] initWithContentRect:rect styleMask:mask backing:NSBackingStoreBuffered defer:false];
+    artborad.titleVisibility = NSWindowTitleVisible;
+    [artborad setTitle:@"无极Skecth UIKit 画板转换工具"];
+    [artborad center];
+    [artborad makeKeyAndOrderFront:artborad];
+    artborad.delegate = self;
+    NVArtboard *c = [NVArtboard viewControllerFromNIB];
+    c.window = artborad;
+    artborad.contentView= c.view;
+}
+
+- (void)windowWillClose:(NSNotification *)notification{
+    [NSApp stopModal];
+    [artboradButton setState:0];
+    artborad = nil;
 }
 
 -(NSDictionary*)panelButtonStates {
