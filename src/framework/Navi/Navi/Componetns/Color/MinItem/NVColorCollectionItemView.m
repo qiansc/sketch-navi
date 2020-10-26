@@ -18,7 +18,7 @@
     NVColorCollectionItemView *view = [super initWithCoder:coder];
     view.boxType = NSBoxCustom;
 //    view.alphaValue = 1;
-    view.borderColor = [NSColor systemGrayColor];
+    view.borderColor = [NSColor disabledControlTextColor];
     view.borderType = NSLineBorder;
     view.borderWidth = 1;
     view.cornerRadius = 3;
@@ -50,9 +50,11 @@
     } else if (self.isHover) {
         [frontBox setTransparent:NO];
         self.fillColor  = [NSColor clearColor];
+        self.borderColor = [NSColor systemGrayColor];
     } else {
         [frontBox setTransparent:YES];
         self.fillColor  = NSColorFromRGBString(self.spec.hex);
+        self.borderColor = [NSColor disabledControlTextColor];
     }
     
 }

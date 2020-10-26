@@ -143,6 +143,8 @@
 +(NVColorSpec)value:(NSDictionary*) specDict {
     NVColorSpec spec = {
         .hex = specDict[@"mods"][0][@"color"],
+        .hex1 = specDict[@"mods"][1][@"color"],
+        .hex2 = specDict[@"mods"][2][@"color"],
         .alpha = [specDict[@"mods"][0][@"opacity"] floatValue],
         .specCode = specDict[@"cnum"],
         .desc = specDict[@"cmeaning"],

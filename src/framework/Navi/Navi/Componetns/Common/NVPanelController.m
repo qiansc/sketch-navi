@@ -87,4 +87,9 @@
     // do sth
 }
 
+
+- (void)setSemanticMode:(BOOL)mode {
+    semanticMode = mode;
+}
+
 @end

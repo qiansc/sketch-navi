@@ -144,4 +144,10 @@
     }
 }
 
+- (void)setSemanticMode:(BOOL)mode {
+    [super setSemanticMode:mode];
+    self.collectionView.semanticMode = mode;
+    [self.collectionView reloadData];
+}
+
 @end

@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 struct NVColorSpec {
     NSString *hex;              // FFFFFF
+    NSString *hex1;
+    NSString *hex2;
     float alpha;               // 50.00
     NSString *specCode;         // SAM_001
     NSString *desc;             // 语义化

@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) NSArray<MSLayer*> *selections;
 @property (nonatomic,strong) IBOutlet NSSegmentedControl *modeButton;
 
+- (void)setSemanticMode:(BOOL)mode;
+
 @end
 
 NS_ASSUME_NONNULL_END

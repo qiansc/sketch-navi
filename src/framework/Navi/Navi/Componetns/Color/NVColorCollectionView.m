@@ -9,6 +9,7 @@
 #import "NVColorCollectionView.h"
 #import "NVCollectionDelegate.h"
 #import "NVColorCollectionItemView.h"
+#import "NVColorSemanticItemView.h"
 #import "HexColor.h"
 
 @implementation NVColorCollectionView {
@@ -25,6 +26,7 @@
 
     self.toggleDelegate = [NVCollectionDelegate new];
     self.toggleDelegate.collectionView = view;
+    self.semanticMode = NO;
     return view;
 }
 
@@ -43,14 +45,27 @@
 
 -(NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
     NVColorSpec spec = [self.source getSpecAt:indexPath];
-    NSCollectionViewItem *cell = [collectionView makeItemWithIdentifier:@"NVColorCollectionItem" forIndexPath:indexPath];
-    NVColorCollectionItemView *item = cell.view;
-    item.spec = spec;
-    item.indexPath = indexPath;
-    [item onMouseDown:^void(NSEvent* event, NSBox* box) {
-        [self.toggleDelegate clearActive];
-        [self.toggleDelegate setActive:((NVToggleBox *)box).indexPath];
-    }];
+    NSString * className= self.semanticMode ? @"NVColorSemanticItem" : @"NVColorCollectionItem";
+    NSCollectionViewItem *cell = [collectionView makeItemWithIdentifier:className forIndexPath:indexPath];
+    
+    if (self.semanticMode) {
+        NVColorSemanticItemView *item = cell.view;
+        item.spec = spec;
+        item.indexPath = indexPath;
+        [item onMouseDown:^void(NSEvent* event, NSBox* box) {
+            [self.toggleDelegate clearActive];
+            [self.toggleDelegate setActive:((NVToggleBox *)box).indexPath];
+        }];
+    }else {
+        NVColorCollectionItemView *item = cell.view;
+        item.spec = spec;
+        item.indexPath = indexPath;
+        [item onMouseDown:^void(NSEvent* event, NSBox* box) {
+            [self.toggleDelegate clearActive];
+            [self.toggleDelegate setActive:((NVToggleBox *)box).indexPath];
+        }];
+    }
+    // NSLog(@"NAVIL collectionView ITEM semanticMode %hhd", self.semanticMode);
     return cell;
 }
 
@@ -81,7 +96,12 @@
 }
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return NSMakeSize(31, 31);
+    if (self.semanticMode) {
+        return NSMakeSize(208, 31);
+    } else {
+        return NSMakeSize(31, 31);
+    }
+    
 }
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     return NSMakeSize(0, 26);
