@@ -11,9 +11,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NVLineCollectionItemView : NVToggleBox
+@interface NVLineCollectionItemView : NVToggleBox {
+    NSLayoutConstraint* constraintHeight;
+}
 
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *lineHeight;
 @property (nonatomic) NVLineSpec spec;
 
 @end

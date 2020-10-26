@@ -16,10 +16,19 @@
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     NVLineCollectionItemView *view = [super initWithCoder:coder];
-    view.fillColor = [NSColor blackColor];
+    view.boxType = NSBoxCustom;
+    view.borderColor = [NSColor systemGrayColor];
+    view.borderType = NSLineBorder;
+    view.borderWidth = 1;
+    view.cornerRadius = 3;
+    view.wantsLayer = YES;
+    view.fillColor = [NSColor whiteColor];
     for(NSView *v in view.subviews) {
         if ([v.identifier isEqual:@"LineBox"]) {
             lineBox = v;
+            lineBox.fillColor = [NSColor systemGrayColor];
+            lineBox.borderWidth = 0;
+            lineBox.cornerRadius = 0;
         }
         if ([v.identifier isEqual:@"ItemTitle"]) textField = v;
     }
@@ -27,22 +36,24 @@
 }
 
 - (void)setSpec:(NVLineSpec) lineSpec {
+    [lineBox removeConstraint: constraintHeight];
     _spec = lineSpec;
     [self drawStyle];
-    textField.stringValue = self.spec.specCode;
-    lineBox.fillColor = [NSColor blackColor];
+    textField.stringValue = self.spec.text;
+    CGFloat lineHeight = [((NSNumber *) self.spec.weight) doubleValue];
+    constraintHeight = [lineBox.heightAnchor constraintEqualToConstant: lineHeight];
+    [lineBox addConstraint:constraintHeight];
     self.toolTip = [NSString stringWithFormat:@"%@ - %@", self.spec.specCode, self.spec.desc];
 }
 
 -(void)drawStyle {
     [super drawStyle];
-    self.lineHeight = (NSNumber *) self.spec.weight;
-    if (self.isSelected || self.isHover) {
-        [lineBox setTransparent:NO];
-//        self.fillColor  = [NSColor clearColor];
+    if (self.isSelected) {
+        self.borderColor = [NSColor controlAccentColor];
+    } else if (self.isHover) {
+        self.borderColor = [NSColor disabledControlTextColor];
     } else {
-        [lineBox setTransparent:YES];
-//        self.fillColor  = NSColorFromRGBString(self.spec.hex);
+        self.borderColor = [NSColor clearColor];
     }
 }
 
