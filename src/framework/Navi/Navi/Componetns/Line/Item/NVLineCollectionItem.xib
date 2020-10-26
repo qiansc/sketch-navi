@@ -17,32 +17,31 @@
             <rect key="frame" x="0.0" y="0.0" width="206" height="48"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="nRP-8J-vc6">
-                    <rect key="frame" x="151" y="16" width="31" height="16"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <box identifier="LineBox" ambiguous="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="LhM-sM-WBZ">
+                    <rect key="frame" x="10" y="3" width="150" height="42"/>
+                    <view key="contentView" ambiguous="YES" id="Whr-KB-6WE">
+                        <rect key="frame" x="1" y="1" width="148" height="40"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="29m-If-M5P"/>
+                    </constraints>
+                </box>
+                <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" id="nRP-8J-vc6">
+                    <rect key="frame" x="168" y="16" width="30" height="16"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="线条" id="N6x-Vi-o2E">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <box identifier="LineBox" ambiguous="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="LhM-sM-WBZ">
-                    <rect key="frame" x="10" y="10" width="120" height="28"/>
-                    <view key="contentView" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Whr-KB-6WE">
-                        <rect key="frame" x="1" y="1" width="118" height="26"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="28" id="kOe-0d-Gp3"/>
-                    </constraints>
-                </box>
             </subviews>
             <constraints>
-                <constraint firstItem="LhM-sM-WBZ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="wwn-R3-lxg"/>
+                <constraint firstItem="LhM-sM-WBZ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="BlW-sO-X8n"/>
+                <constraint firstItem="LhM-sM-WBZ" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="mTF-U3-SwJ"/>
+                <constraint firstItem="nRP-8J-vc6" firstAttribute="leading" secondItem="LhM-sM-WBZ" secondAttribute="trailing" constant="10" id="tDp-NY-MTI"/>
             </constraints>
-            <connections>
-                <outlet property="lineHeight" destination="kOe-0d-Gp3" id="vJc-9t-UX2"/>
-            </connections>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>
         <customObject id="Pbs-b8-m9c" customClass="NVLineCollectionItem">
