@@ -85,7 +85,6 @@ declare var NSURL: any;
 declare var NSStackViewGravityTop: any;
 declare var NSStackViewGravityBottom: any;
 
-
 declare var EventEmitter: any;
 declare var __command: any;
 declare var NSJSONSerialization: any;

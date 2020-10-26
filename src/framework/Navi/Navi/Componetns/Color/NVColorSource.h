@@ -18,8 +18,8 @@ struct NVColorSpec {
     NSString *specCode;         // SAM_001
     NSString *desc;             // 语义化
 //    NSArray<NSString*>* dim;    // [@"背景色"]
-    BOOL fillMode;
-    BOOL borderMode;
+//    BOOL fillMode;
+//    BOOL borderMode;
 };
 
 typedef struct NVColorSpec NVColorSpec;
@@ -35,6 +35,9 @@ typedef struct NVColorSpec NVColorSpec;
 +(NVColorSpec)value:(NSDictionary*) specDict;
 
 - (void)setMode:(NSInteger) mode;
+- (void)setShapeMode:(NSString *) mode;
+- (void)setThemeMode:(NSString *) mode;
+
 @end
 
 NS_ASSUME_NONNULL_END

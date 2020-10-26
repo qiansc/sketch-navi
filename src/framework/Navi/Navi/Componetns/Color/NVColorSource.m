@@ -15,9 +15,18 @@
     NSMutableDictionary *dims;
     NSArray<NSDictionary*> *specs;
     NSInteger mod;
+    NSString *shapeMod; // Text / ShapePath / other
+    NSString *themeMod; // default /dark / night
 
 }
 
+-(instancetype)init{
+    NVColorSource *s = [super init];
+    mod = 0;
+    shapeMod = @"other";
+    themeMod = @"default";
+    return s;
+}
 // hex: "EEEEEE", alpha: 100, specCode: "SAM_001", desc: "语义描述001",
 // dim: ["背景色"], fillMode: true, borderMode: true,
 
@@ -31,8 +40,6 @@
                 NSString *dim = dimArr[0];
                 dims[dim] = dims[dim] == nil ? [NSMutableArray new] : dims[dim];
                 [dims[dim] addObject: spec];
-                // NVColorSpec s = [NVColorSource value:spec];
-                // NSLog(@"NAVIL COLORIIIIII %hhd %f %@", s.borderMode, s.alpha, s.hex);
             }
          }
     }
@@ -47,17 +54,28 @@
         return false;
     }
 
+    if ([shapeMod isEqual:@"Text"]) {
+        if (![specDict[@"shapeMode"] isEqual:@"Text"]) return false;
+    } else {
+        if ([specDict[@"shapeMode"] isEqual:@"Text"]) return false;
+    }
+
     if (searchQuery == nil || searchQuery.length == 0) {
         return true;
-//    } else if ([specDict[@"dim"] containsString:searchQuery]) {
-//        return true;
-    } else if ([specDict[@"desc"] containsString:searchQuery]) {
+    }
+    for(NSString *dim in specDict[@"dim"]) {
+        if ([dim containsString:searchQuery]) return true;
+    }
+    NVColorSpec spec = [NVColorSource value:specDict];
+    
+    if ([spec.hex containsString:searchQuery]) {
         return true;
-    } else if ([specDict[@"specCode"] containsString:searchQuery]) {
+    } else if ([spec.specCode containsString:searchQuery]) {
         return true;
-    } else if ([specDict[@"hex"] containsString:searchQuery]) {
+    } else if ([specDict[@"cname"] containsString:searchQuery]) {
         return true;
     }
+
     return false;
 }
 
@@ -75,6 +93,23 @@
     mod = mode;
     [self update: specs];
     updatedCallback();
+}
+
+- (void)setShapeMode:(NSString *) mode {
+    NSString *name = [mode isEqual:@"MSTextLayer"] ? @"Text" : @"Others";
+    if (![shapeMod isEqual:name]) {
+        shapeMod = name;
+        [self update: specs];
+        updatedCallback();
+    }
+}
+
+- (void)setThemeMode:(NSString *) mode {
+    if (![themeMod isEqual:mode]) {
+        themeMod = mode;
+        [self update: specs];
+        updatedCallback();
+    }
 }
 
 -(NSArray<NSString*>*)getDims{
@@ -97,13 +132,13 @@
 
 +(NVColorSpec)value:(NSDictionary*) specDict {
     NVColorSpec spec = {
-        .hex = specDict[@"hex"],
-        .alpha = [specDict[@"aplha"] floatValue],
-        .specCode = specDict[@"specCode"],
-        .desc = specDict[@"desc"],
+        .hex = specDict[@"mods"][0][@"color"],
+        .alpha = [specDict[@"mods"][0][@"opacity"] floatValue],
+        .specCode = specDict[@"cnum"],
+        .desc = specDict[@"cmeaning"],
 //        NSArray<NSString*>* dim;    // [@"背景色"]
-        .fillMode = [specDict[@"fillMode"] boolValue],
-        .borderMode = [specDict[@"borderMode"] boolValue]
+//        .fillMode = [specDict[@"fillMode"] boolValue],
+//        .borderMode = [specDict[@"borderMode"] boolValue]
     };
     return spec;
 }

@@ -10,8 +10,9 @@
 
 @interface MSLayer: NSObject
 
+@property (nonatomic, strong) NSString *type; // ShapePath / Text
 @property (nonatomic, strong) MSStyle *style;
 @property (nonatomic, strong) NSDictionary *userInfo;
-
+@property (nonatomic, strong) MSColor *textColor;
 
 @end

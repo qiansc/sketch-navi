@@ -20,3 +20,4 @@ coverage/
 .nyc_output
 .Sketch-Headers
 navi.sketchplugin/
+assets/data/

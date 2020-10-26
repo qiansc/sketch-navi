@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSArray<NSString *>*)getBordersColorCodeIn:(MSLayer*)layer;
 +(void)set:(MSLayer*)layer fillColorCode:(NSString *) colorCode at:(NSInteger) index;
 +(void)set:(MSLayer*)layer borderColorCode:(NSString *) colorCode at:(NSInteger) index;
++(void)set:(MSLayer*)layer textColorCode:(NSString *) colorCode;
 
 @end
 

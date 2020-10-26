@@ -155,6 +155,7 @@
 		A352295C253DA5D400F42D58 /* NVColorSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVColorSource.h; sourceTree = "<group>"; };
 		A352295D253DA5D400F42D58 /* NVColorSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVColorSource.m; sourceTree = "<group>"; };
 		A3522960253DA8B900F42D58 /* NVSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVSource.h; sourceTree = "<group>"; };
+		A36DBA892546DDCB00822312 /* MSLayerArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSLayerArray.h; sourceTree = "<group>"; };
 		A38993F4250B859F00211D90 /* Navi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38993F7250B859F00211D90 /* Navi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Navi.h; sourceTree = "<group>"; };
 		A38993F8250B85A000211D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -425,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				A3EE0FE5254059E900C3998D /* MSDocument.h */,
+				A36DBA892546DDCB00822312 /* MSLayerArray.h */,
 				A3EE0FE625405AEE00C3998D /* MSLayer.h */,
 				A3EE0FE72540612E00C3998D /* MSStyle.h */,
 				A3EE0FE82540614600C3998D /* MSStyleFill.h */,

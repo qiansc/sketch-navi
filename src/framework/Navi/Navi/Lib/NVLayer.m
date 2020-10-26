@@ -44,12 +44,16 @@
     layer[@"style"] = [NSMutableDictionary new];
     layer[@"style"][@"fills"] = [NSMutableArray new];
     layer[@"style"][@"borders"] = [NSMutableArray new];
+    layer[@"textColorCode"] = @"";
     return layer;
 }
 
 
 +(NSArray<NSString *>*)getFillsColorCodeIn:(MSLayer*)layer {
     NSDictionary *nlayer = [NVLayer fromLayer:layer];
+    if ([[layer className] isEqual:@"MSTextLayer"]){
+        return @[nlayer[@"textColorCode"]];
+    }
     NSMutableArray *arr = [NSMutableArray new];
     for(NSDictionary* d in nlayer[@"style"][@"fills"]) {
         if (d[@"colorCode"]) {
@@ -59,6 +63,9 @@
     return arr;
 }
 +(NSArray<NSString *>*)getBordersColorCodeIn:(MSLayer*)layer {
+    if ([[layer className] isEqual:@"MSTextLayer"]){
+        return @[];
+    }
     NSDictionary *nlayer = [NVLayer fromLayer:layer];
     NSMutableArray *arr = [NSMutableArray new];
     for(NSDictionary* d in nlayer[@"style"][@"borders"]) {
@@ -69,6 +76,13 @@
     return arr;
 }
 
+
+
++(void)set:(MSLayer*)layer textColorCode:(NSString *) colorCode {
+    NSMutableDictionary *nlayer = [NVLayer fromLayer:layer];
+    nlayer[@"textColorCode"] = colorCode;
+    [NVLayer save:nlayer to:layer];
+}
 
 +(void)set:(MSLayer*)layer fillColorCode:(NSString *) colorCode at:(NSInteger) index{
     NSMutableDictionary *nlayer = [NVLayer fromLayer:layer];

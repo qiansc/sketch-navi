@@ -12,6 +12,7 @@
 #import "NVColorSource.h"
 #import "NVColorCollectionItemView.h"
 #import "NVLayer.h"
+#import "MSLayerArray.h"
 
 @interface NVColorPanel ()
 
@@ -66,8 +67,12 @@
     return self.collectionView.source;
 }
 
-- (void)selectionChange:(NSArray<MSLayer*>*) layers {
+- (void)selectionChange:(MSLayerArray *) layers {
     self.selections = layers;
+    if (layers != nil && layers.firstLayer != nil){
+        [self.collectionView.source setShapeMode:[layers.firstLayer className]];
+    }
+    
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
     NSString *title = nil;
     for(MSLayer *layer in layers) {
@@ -79,7 +84,7 @@
                     if([item.spec.specCode isEqual:colorCode]) {
                         // 找到和specCode对应的indexPath
                         [indexPaths addObject: item.indexPath];
-                        // 校准一下颜色
+                        // 校准一下颜色s
                         [self applyColor:NSColorFromRGBString(item.spec.hex) toLayer:layer];
                         title = item.spec.specCode;
                     }
@@ -87,7 +92,6 @@
             }
         }
     }
-
     [self.collectionView.toggleDelegate clearActive];
     if (indexPaths.count > 0) {
         [self.collectionView.toggleDelegate setActives:indexPaths];
@@ -102,7 +106,9 @@
 -(void)applySpecToSelections:(NVColorSpec) spec {
     if (self.selections) {
         for(MSLayer *layer in self.selections) {
-            if (self.modeButton.selectedSegment == 0 && layer.style.fills) {
+            if ([[layer className] isEqual:@"MSTextLayer"]) {
+                [NVLayer set:layer textColorCode:spec.specCode];
+            } else if (self.modeButton.selectedSegment == 0 && layer.style.fills) {
                 for(NSInteger i = 0; i < [layer.style.fills count]; i++) {
                     [NVLayer set:layer fillColorCode:spec.specCode at: i];
                 }
@@ -117,7 +123,13 @@
 }
 /* 应用color到图层上 */
 -(void)applyColor:(NSColor*) color toLayer:(MSLayer*) layer{
-    if (self.modeButton.selectedSegment == 0 && layer.style.fills) {
+    if ([[layer className] isEqual:@"MSTextLayer"]) {
+        MSColor *c = layer.textColor;
+        c.red = color.redComponent;
+        c.green = color.greenComponent;
+        c.blue = color.blueComponent;
+        layer.textColor = c;
+    } else if (self.modeButton.selectedSegment == 0 && layer.style.fills) {
         for(MSStyleFill *fill in layer.style.fills) {
             fill.color.red = color.redComponent;
             fill.color.green = color.greenComponent;
