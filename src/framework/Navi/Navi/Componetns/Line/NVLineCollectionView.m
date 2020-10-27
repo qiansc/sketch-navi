@@ -18,6 +18,7 @@
     NVLineCollectionView *view = [super initWithCoder:coder];
     view.source = [[NVLineSource alloc]init];
     [view.source onUpdated: ^void(){
+        [self.toggleDelegate clearActive];
         [self reloadData];
     }];
 

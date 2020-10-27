@@ -27,7 +27,7 @@
 
 +(void)save:(NSMutableDictionary*) nvlayer to:(MSLayer*)layer {
     if (layer.userInfo == nil) {
-        
+
     } if ([layer.userInfo isKindOfClass:[NSDictionary class]]){
         NSMutableDictionary *n = [layer.userInfo mutableCopy];
         n[@"Navi"] = nvlayer;
@@ -76,6 +76,33 @@
     return arr;
 }
 
++ (NSArray<NSArray *>*)getLineWeightCodeIn:(MSLayer *) layer {
+    NSDictionary *nlayer = [NVLayer fromLayer:layer];
+    if (![[layer className] isEqual:@"MSShapePathLayer"]){
+        return @[];
+    }
+    NSMutableArray *arr = [NSMutableArray new];
+    for(NSDictionary* d in nlayer[@"style"][@"borders"]) {
+        if (d[@"lineWeightCode"]) {
+            [arr addObject:d[@"lineWeightCode"]];
+        }
+    }
+    return arr;
+}
+
++ (void)set:(MSLayer*)layer lineWeightCode:(nonnull NSString *) lineCode at:(NSInteger) index {
+    NSMutableDictionary *nlayer = [NVLayer fromLayer:layer];
+    NSMutableArray* borders = nlayer[@"style"][@"borders"];
+    if ([borders count]>index) {
+        NSMutableDictionary *border = [borders[index] mutableCopy];
+        border[@"lineWeightCode"] = lineCode;
+        borders[index] = border;
+    } else {
+        [borders addObject:@{@"lineWeightCode": lineCode}];
+    }
+    nlayer[@"style"][@"borders"] = borders;
+    [NVLayer save:nlayer to:layer];
+}
 
 
 +(void)set:(MSLayer*)layer textColorCode:(NSString *) colorCode {

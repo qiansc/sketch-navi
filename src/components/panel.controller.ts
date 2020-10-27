@@ -112,13 +112,12 @@ export class PanelController {
         this.NSController.updateSpec({
             Color: specData.getColorSpec(),
             Line: [{
-                weight: '18', text: '18', specCode: 'F_L_X01', desc: '粗分割线高度', dim: ['通栏模版'],
+                weight: '1', text: '1', specCode: 'F_L_X01', desc: '粗分割线高度', dim: ['通栏模版'],
             }, {
-                weight: '1', text: '1', specCode: 'F_L_X02', desc: '细分割线高度', dim: ['非通栏分割线'],
+                weight: '2', text: '2', specCode: 'F_L_X02', desc: '细分割线高度', dim: ['非通栏分割线'],
             }, {
-                weight: '1', text: '1', specCode: 'F_L_X03', desc: '细分割线高度', dim: ['通栏分割线'],
-            }],
-            Text: textSpec
+                weight: '6', text: '6', specCode: 'F_L_X03', desc: '细分割线高度', dim: ['通栏分割线'],
+            }]
         });
     }
 }

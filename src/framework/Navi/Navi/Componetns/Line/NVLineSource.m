@@ -12,19 +12,37 @@
     NVSourceUpdateCallback updatedCallback;
     NSString *searchQuery;
     NSMutableDictionary *dims;
+    NSArray<NSDictionary*> *specs;
 }
 
-- (void)update:(NSArray<NSDictionary*> *) specs {
+- (void)update:(NSArray<NSDictionary*> *) newSpecs {
+    specs = newSpecs;
     dims = [NSMutableDictionary new];
-    for(NSDictionary* spec in specs) {
-        NSArray *dimArr = spec[@"dim"];
-        if ([dimArr count]) {
-            NSString *dim = dimArr[0];
-            dims[dim] = dims[dim] == nil ? [NSMutableArray new] : dims[dim];
-            [dims[dim] addObject: spec];
+    if (searchQuery.length > 0) {
+        for (NSDictionary* spec in specs) {
+            NSArray *dimArr = spec[@"dim"];
+            if ([self filter:spec] && [dimArr count]) {
+                NSString *dim = dimArr[0];
+                dims[dim] = dims[dim] == nil ? [NSMutableArray new] : dims[dim];
+                [dims[dim] addObject:spec];
+            }
+        }
+    } else {
+        for(NSDictionary* spec in specs) {
+            NSArray *dimArr = spec[@"dim"];
+            if ([dimArr count]) {
+                NSString *dim = dimArr[0];
+                dims[dim] = dims[dim] == nil ? [NSMutableArray new] : dims[dim];
+                [dims[dim] addObject: spec];
+            }
         }
     }
     updatedCallback();
+}
+
+- (BOOL)filter:(NSDictionary *) specDict {
+    NVLineSpec spec = [NVLineSource value:specDict];
+    return [spec.weight containsString:searchQuery] || [spec.desc containsString: searchQuery] || [spec.specCode containsString:searchQuery] || [spec.text containsString:searchQuery];
 }
 
 - (void)onUpdated:(NVSourceUpdateCallback) callback {
@@ -33,6 +51,7 @@
 
 - (void)setQuery:(NSString *) query {
     searchQuery = query;
+    [self update: specs];
     updatedCallback();
 }
 
