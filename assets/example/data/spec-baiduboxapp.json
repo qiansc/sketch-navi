@@ -1,1 +1,136 @@
-{"status":0,"data":[{"_id":"5f958c96c531587ee80a3849","id":1,"code":"F_Txt_X1","cline":"FEED","cclass":"按钮文本","cmeaning":"按钮一级文本","elementCode":"Txt_X091","fontId":1,"iosFont":400,"androidFont":400,"h5Font":400,"fontSizeId":15,"iosFontSize":20,"androidFontSize":18,"h5FontSize":63,"camId":"CAM_X350","defaultValue":{"color":"000000","opacity":1,"rgba":"0, 0, 0, 1"},"darkValue":{"color":"FFFFFF","opacity":1,"rgba":"255, 255, 255, 1"},"nightValue":{"color":"666666","opacity":1,"rgba":"102, 102, 102, 1"},"dim":["按钮文本","按钮一级文本"]},{"_id":"5f958cb8c531587ee80a384a","id":2,"code":"F_Txt_X2","cline":"FEED","cclass":"按钮文本","cmeaning":"按钮二级文本","elementCode":"Txt_X039","fontId":1,"iosFont":400,"androidFont":400,"h5Font":400,"fontSizeId":10,"iosFontSize":24,"androidFontSize":31,"h5FontSize":72,"camId":"CAM_X350","defaultValue":{"color":"000000","opacity":1,"rgba":"0, 0, 0, 1"},"darkValue":{"color":"FFFFFF","opacity":1,"rgba":"255, 255, 255, 1"},"nightValue":{"color":"666666","opacity":1,"rgba":"102, 102, 102, 1"},"dim":["按钮文本","按钮二级文本"]},{"_id":"5f958d05c531587ee80a384b","id":3,"code":"F_Txt_X3","cline":"FEED","cclass":"标题基础模板","cmeaning":"横滑内容标题","elementCode":"Txt_X091","fontId":1,"iosFont":400,"androidFont":400,"h5Font":400,"fontSizeId":15,"iosFontSize":20,"androidFontSize":18,"h5FontSize":63,"camId":"CAM_X350","defaultValue":{"color":"000000","opacity":1,"rgba":"0, 0, 0, 1"},"darkValue":{"color":"FFFFFF","opacity":1,"rgba":"255, 255, 255, 1"},"nightValue":{"color":"666666","opacity":1,"rgba":"102, 102, 102, 1"},"dim":["标题基础模板","横滑内容标题"]},{"_id":"5f958d36c531587ee80a384c","id":4,"code":"F_Txt_X4","cline":"FEED","cclass":"标题基础模板","cmeaning":"模块弱化标题","elementCode":"Txt_X010","fontId":1,"iosFont":400,"androidFont":400,"h5Font":400,"fontSizeId":3,"iosFontSize":17,"androidFontSize":15,"h5FontSize":51,"camId":"CAM_X350","defaultValue":{"color":"000000","opacity":1,"rgba":"0, 0, 0, 1"},"darkValue":{"color":"FFFFFF","opacity":1,"rgba":"255, 255, 255, 1"},"nightValue":{"color":"666666","opacity":1,"rgba":"102, 102, 102, 1"},"dim":["标题基础模板","模块弱化标题"]}]}
+{
+	"status": 0,
+	"data": [{
+		"_id": "5f958c96c531587ee80a3849",
+		"id": 1,
+		"code": "F_Txt_X1",
+		"cline": "FEED",
+		"cclass": "按钮文本",
+		"cmeaning": "按钮一级文本",
+		"elementCode": "Txt_X091",
+		"fontId": 1,
+		"iosFont": 400,
+		"androidFont": 400,
+		"h5Font": 400,
+		"fontSizeId": 15,
+		"iosFontSize": 20,
+		"androidFontSize": 18,
+		"h5FontSize": 63,
+		"camId": "CAM_X350",
+		"defaultValue": {
+			"color": "000000",
+			"opacity": 1,
+			"rgba": "0, 0, 0, 1"
+		},
+		"darkValue": {
+			"color": "FFFFFF",
+			"opacity": 1,
+			"rgba": "255, 255, 255, 1"
+		},
+		"nightValue": {
+			"color": "666666",
+			"opacity": 1,
+			"rgba": "102, 102, 102, 1"
+		},
+		"dim": ["按钮文本", "按钮一级文本"]
+	}, {
+		"_id": "5f958cb8c531587ee80a384a",
+		"id": 2,
+		"code": "F_Txt_X2",
+		"cline": "FEED",
+		"cclass": "按钮文本",
+		"cmeaning": "按钮二级文本",
+		"elementCode": "Txt_X039",
+		"fontId": 1,
+		"iosFont": 700,
+		"androidFont": 700,
+		"h5Font": 700,
+		"fontSizeId": 10,
+		"iosFontSize": 36,
+		"androidFontSize": 48,
+		"h5FontSize": 108,
+		"camId": "CAM_X350",
+		"defaultValue": {
+			"color": "00A2F2",
+			"opacity": 1,
+			"rgba": "0, 0, 0, 1"
+		},
+		"darkValue": {
+			"color": "FFFFFF",
+			"opacity": 1,
+			"rgba": "255, 255, 255, 1"
+		},
+		"nightValue": {
+			"color": "666666",
+			"opacity": 1,
+			"rgba": "102, 102, 102, 1"
+		},
+		"dim": ["按钮文本", "按钮二级文本"]
+	}, {
+		"_id": "5f958d05c531587ee80a384b",
+		"id": 3,
+		"code": "F_Txt_X3",
+		"cline": "FEED",
+		"cclass": "标题基础模板",
+		"cmeaning": "横滑内容标题",
+		"elementCode": "Txt_X091",
+		"fontId": 1,
+		"iosFont": 400,
+		"androidFont": 400,
+		"h5Font": 400,
+		"fontSizeId": 15,
+		"iosFontSize": 20,
+		"androidFontSize": 18,
+		"h5FontSize": 63,
+		"camId": "CAM_X350",
+		"defaultValue": {
+			"color": "000000",
+			"opacity": 1,
+			"rgba": "0, 0, 0, 1"
+		},
+		"darkValue": {
+			"color": "FFFFFF",
+			"opacity": 1,
+			"rgba": "255, 255, 255, 1"
+		},
+		"nightValue": {
+			"color": "666666",
+			"opacity": 1,
+			"rgba": "102, 102, 102, 1"
+		},
+		"dim": ["标题基础模板", "横滑内容标题"]
+	}, {
+		"_id": "5f958d36c531587ee80a384c",
+		"id": 4,
+		"code": "F_Txt_X4",
+		"cline": "FEED",
+		"cclass": "标题基础模板",
+		"cmeaning": "模块弱化标题",
+		"elementCode": "Txt_X010",
+		"fontId": 1,
+		"iosFont": 400,
+		"androidFont": 400,
+		"h5Font": 400,
+		"fontSizeId": 3,
+		"iosFontSize": 17,
+		"androidFontSize": 15,
+		"h5FontSize": 51,
+		"camId": "CAM_X350",
+		"defaultValue": {
+			"color": "F20000",
+			"opacity": 1,
+			"rgba": "0, 0, 0, 1"
+		},
+		"darkValue": {
+			"color": "FFFFFF",
+			"opacity": 1,
+			"rgba": "255, 255, 255, 1"
+		},
+		"nightValue": {
+			"color": "666666",
+			"opacity": 1,
+			"rgba": "102, 102, 102, 1"
+		},
+		"dim": ["标题基础模板", "模块弱化标题"]
+	}]
+}

@@ -50,10 +50,14 @@
     [super drawStyle];
     if (self.isSelected) {
         self.borderColor = [NSColor controlAccentColor];
+        textField.textColor = [NSColor controlAccentColor];
     } else if (self.isHover) {
-        self.borderColor = [NSColor systemGrayColor];
-    } else {
         self.borderColor = [NSColor disabledControlTextColor];
+        textField.textColor = [NSColor disabledControlTextColor];
+    } else {
+        self.fillColor  = [NSColor controlBackgroundColor];
+        self.borderColor = [NSColor windowBackgroundColor];
+        textField.textColor = [NSColor windowBackgroundColor];
     }
 }
 

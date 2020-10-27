@@ -24,15 +24,15 @@
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
-        @"name": @"线条",
-        @"id": @"Line",
-        @"icon": @"line",
-        @"gravity": @1,
-        @"type": @"PANEL"
-    }, @{
         @"name": @"文本",
         @"id": @"Text",
         @"icon": @"text",
+        @"gravity": @1,
+        @"type": @"PANEL"
+    }, @{
+        @"name": @"线条",
+        @"id": @"Line",
+        @"icon": @"line",
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{

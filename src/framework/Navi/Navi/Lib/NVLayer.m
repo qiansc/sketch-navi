@@ -45,6 +45,7 @@
     layer[@"style"][@"fills"] = [NSMutableArray new];
     layer[@"style"][@"borders"] = [NSMutableArray new];
     layer[@"textColorCode"] = @"";
+    layer[@"textCode"] = @"";
     return layer;
 }
 
@@ -136,4 +137,17 @@
     [NVLayer save:nlayer to:layer];
 }
 
+
++(NSArray<NSString *>*)getTextCodeIn:(MSLayer*)layer {
+    NSDictionary *nlayer = [NVLayer fromLayer:layer];
+    if ([[layer className] isEqual:@"MSTextLayer"] && nlayer[@"textCode"]){
+        return @[nlayer[@"textCode"]];
+    }
+    return @[];
+}
++(void)set:(MSLayer*)layer textCode:(NSString *) textCode {
+    NSMutableDictionary *nlayer = [NVLayer fromLayer:layer];
+    nlayer[@"textCode"] = textCode;
+    [NVLayer save:nlayer to:layer];
+}
 @end

@@ -39,7 +39,7 @@
     }
     NSMutableArray *others = [NSMutableArray new];
     for(NSString *dim in [dims allKeys]) {
-        if ([((NSMutableArray*)dims[dim]) count] < 4) {
+        if ([((NSMutableArray*)dims[dim]) count] < 2) {
             [others addObjectsFromArray:dims[dim]];
             [dims removeObjectForKey:dim];
         }
@@ -74,6 +74,7 @@
 }
 
 - (void)setQuery:(NSString *) query {
+    
     searchQuery = query;
     [self update: specs];
     updatedCallback();
@@ -137,6 +138,7 @@
         .iosFontSize = [specDict[@"iosFontSize"] doubleValue],
         .androidFontSize = [specDict[@"androidFontSize"] doubleValue],
         .h5FontSize = [specDict[@"h5FontSize"] doubleValue],
+        .elementCode = specDict[@"elementCode"]
         
     };
     return spec;

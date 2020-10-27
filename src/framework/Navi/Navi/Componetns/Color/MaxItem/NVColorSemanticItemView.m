@@ -26,7 +26,6 @@
     view.borderWidth = 1;
     view.cornerRadius = 3;
     view.wantsLayer = YES;
-    NSLog(@"NAVIL HEREHRHER");
     for(NSView *v in view.subviews) {
         if ([v.identifier isEqual:@"cb0"]) cb0 = v;
         if ([v.identifier isEqual:@"cb1"]) cb1 = v;
@@ -50,7 +49,6 @@
 }
 
 -(void)setSpec:(NVColorSpec)colorSpec{
-    NSLog(@"NAVIL colorSpeccolorSpeccolorSpec %@", colorSpec.specCode);
     _spec = colorSpec;
     [self drawStyle];
     descText.stringValue = self.spec.desc;

@@ -32,7 +32,7 @@
         if ([v.identifier isEqual:@"line"]) line = v;
         if ([v isKindOfClass:[NSTextField class]]) cnameText =v;
     }
-    
+
     line.wantsLayer = true;
     line.boxType = NSBoxCustom;
     // line.fillColor = [NSColor yellowColor];
@@ -42,8 +42,8 @@
     line.borderColor = [NSColor clearColor];
     line.layer.borderColor = [NSColor clearColor].CGColor;
     line.layer.backgroundColor = [NSColor quaternaryLabelColor].CGColor;
-    
-    
+
+
     infoBox.wantsLayer = YES;
     infoBox.layer.borderColor = [NSColor quaternaryLabelColor].CGColor;
 //    infoBox.borderType = NSLineBorder;
@@ -52,20 +52,19 @@
     infoBox.layer.maskedCorners = kCALayerMinXMinYCorner | kCALayerMaxXMinYCorner;;
     infoBox.fillColor = [NSColor controlBackgroundColor];
 
-    
+
 
     return view;
-    
+
 }
 
 -(void)setSpec:(NVColorSpec)colorSpec{
     _spec = colorSpec;
     [self drawStyle];
-    NSLog(@"NAVIL cnameText %@ %@", cnameText, self.spec.cname);
     cnameText.stringValue = self.spec.cname;
     frontBox.fillColor = NSColorFromRGBString(self.spec.hex);
     self.toolTip = [NSString stringWithFormat:@"%@ - %@", self.spec.specCode, self.spec.desc];
-    
+
 
 }
 
@@ -93,7 +92,7 @@
         infoBox.layer.borderColor = [NSColor quaternaryLabelColor].CGColor;
         cnameText.textColor = [NSColor secondaryLabelColor];
     }
-    
+
 }
 
 @end

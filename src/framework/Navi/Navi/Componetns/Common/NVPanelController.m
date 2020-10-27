@@ -76,7 +76,7 @@
         addHeight += view.frame.size.height;
     }
     // height = height < 50 ? addHeight : height;
-    return addHeight;
+    return addHeight+10;
 }
 
 - (NSObject<NVSource> *)generatePanelSource {

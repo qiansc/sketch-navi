@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)set:(MSLayer*)layer textColorCode:(NSString *) colorCode;
 +(void)set:(MSLayer*)layer lineWeightCode: (NSString *) lineCode at:(NSInteger) index;
 
++(NSArray<NSString *>*)getTextCodeIn:(MSLayer*)layer;
++(void)set:(MSLayer*)layer textCode:(NSString *) textCode;
 @end
 
 NS_ASSUME_NONNULL_END

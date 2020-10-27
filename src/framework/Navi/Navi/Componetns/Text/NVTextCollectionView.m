@@ -96,11 +96,11 @@
 }
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.semanticMode) {
+//    if (self.semanticMode) {
         return NSMakeSize(215, 31);
-    } else {
-        return NSMakeSize(31, 31);
-    }
+//    } else {
+//        return NSMakeSize(31, 31);
+//    }
     
 }
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {

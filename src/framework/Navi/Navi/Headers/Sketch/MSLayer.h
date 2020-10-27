@@ -14,5 +14,6 @@
 @property (nonatomic, strong) MSStyle *style;
 @property (nonatomic, strong) NSDictionary *userInfo;
 @property (nonatomic, strong) MSColor *textColor;
-
+@property (nonatomic) double fontSize;
+@property (nonatomic, strong) NSFont *font;
 @end
