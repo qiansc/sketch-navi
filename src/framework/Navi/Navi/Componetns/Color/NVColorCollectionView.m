@@ -27,6 +27,7 @@
     self.toggleDelegate = [NVCollectionDelegate new];
     self.toggleDelegate.collectionView = view;
     self.semanticMode = NO;
+    
     return view;
 }
 
@@ -97,7 +98,7 @@
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.semanticMode) {
-        return NSMakeSize(208, 31);
+        return NSMakeSize(215, 31);
     } else {
         return NSMakeSize(31, 31);
     }

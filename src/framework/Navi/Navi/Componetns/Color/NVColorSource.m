@@ -77,8 +77,9 @@
         if ([dim containsString:searchQuery]) return true;
     }
     NVColorSpec spec = [NVColorSource value:specDict];
-
-    if ([spec.hex containsString:searchQuery]) {
+    if ([spec.cname containsString:searchQuery]) {
+        return true;
+    } else if ([spec.hex containsString:searchQuery]) {
         return true;
     } else if ([spec.specCode containsString:searchQuery]) {
         return true;
@@ -123,7 +124,17 @@
 }
 
 -(NSArray<NSString*>*)getDims{
-    return [dims allKeys];
+    NSArray<NSString*>* arr = [dims allKeys];
+    NSMutableArray<NSString*>* rs = [NSMutableArray new];
+    for(NSString * item in arr) {
+        if (![item isEqual:@"其他"]) [rs addObject:item];
+    }
+    if ([arr count] != [rs count]) {
+        [rs addObject:@"其他"];
+    }
+    
+    
+    return rs;
 }
 
 -(NSArray<NSDictionary*>*)getSpecsWith:(NSString *)dim{
@@ -148,6 +159,7 @@
         .alpha = [specDict[@"mods"][0][@"opacity"] floatValue],
         .specCode = specDict[@"cnum"],
         .desc = specDict[@"cmeaning"],
+        .cname = specDict[@"cname"]
 //        NSArray<NSString*>* dim;    // [@"背景色"]
 //        .fillMode = [specDict[@"fillMode"] boolValue],
 //        .borderMode = [specDict[@"borderMode"] boolValue]

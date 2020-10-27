@@ -48,6 +48,8 @@
 		A352295F253DA5D400F42D58 /* NVColorSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A352295D253DA5D400F42D58 /* NVColorSource.m */; };
 		A3522962253DA8B900F42D58 /* NVSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A3522960253DA8B900F42D58 /* NVSource.h */; };
 		A38993F9250B85A000211D90 /* Navi.h in Headers */ = {isa = PBXBuildFile; fileRef = A38993F7250B859F00211D90 /* Navi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A38C95BC25480BFD008C0A57 /* NVHalfBox.h in Headers */ = {isa = PBXBuildFile; fileRef = A38C95BA25480BFD008C0A57 /* NVHalfBox.h */; };
+		A38C95BD25480BFD008C0A57 /* NVHalfBox.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C95BB25480BFD008C0A57 /* NVHalfBox.m */; };
 		A396D0EA25346F990061CC73 /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = A396D0E825346F990061CC73 /* Util.h */; };
 		A396D0EB25346F990061CC73 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A396D0E925346F990061CC73 /* Util.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A396D11225347F8C0061CC73 /* mask-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D0F825347F8B0061CC73 /* mask-active.png */; };
@@ -173,6 +175,8 @@
 		A38993F4250B859F00211D90 /* Navi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38993F7250B859F00211D90 /* Navi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Navi.h; sourceTree = "<group>"; };
 		A38993F8250B85A000211D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A38C95BA25480BFD008C0A57 /* NVHalfBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVHalfBox.h; sourceTree = "<group>"; };
+		A38C95BB25480BFD008C0A57 /* NVHalfBox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVHalfBox.m; sourceTree = "<group>"; };
 		A396D0D2251DE63B0061CC73 /* DataChangeProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataChangeProtocol.h; sourceTree = "<group>"; };
 		A396D0E825346F990061CC73 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Util.h; path = Navi/lib/Util.h; sourceTree = SOURCE_ROOT; };
 		A396D0E925346F990061CC73 /* Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = Navi/lib/Util.m; sourceTree = SOURCE_ROOT; };
@@ -480,6 +484,8 @@
 				A34728B22539918500EC18ED /* NVColorCollectionItem.xib */,
 				A3FB3707253ECD46001D152C /* NVColorCollectionItemView.h */,
 				A3FB3708253ECD46001D152C /* NVColorCollectionItemView.m */,
+				A38C95BA25480BFD008C0A57 /* NVHalfBox.h */,
+				A38C95BB25480BFD008C0A57 /* NVHalfBox.m */,
 			);
 			path = MinItem;
 			sourceTree = "<group>";
@@ -587,6 +593,7 @@
 				B2012D1C253C5B2A0003715E /* DisabledWheelScrollView.h in Headers */,
 				A3FB3705253EC2E2001D152C /* NVToggleBox.h in Headers */,
 				A34728AA253988FC00EC18ED /* NVColorCollectionView.h in Headers */,
+				A38C95BC25480BFD008C0A57 /* NVHalfBox.h in Headers */,
 				A352295E253DA5D400F42D58 /* NVColorSource.h in Headers */,
 				B226FF58253CAAEE009DD159 /* NVClipView.h in Headers */,
 				A3003659253870E00093395D /* NVLinePanel.h in Headers */,
@@ -744,6 +751,7 @@
 				A34728AF2539897200EC18ED /* NVColorSectionHeader.m in Sources */,
 				A3FB3706253EC2E2001D152C /* NVToggleBox.m in Sources */,
 				B2E02AD925459FA700BBE87F /* NVLayer.m in Sources */,
+				A38C95BD25480BFD008C0A57 /* NVHalfBox.m in Sources */,
 				A3522957253D6C3A00F42D58 /* NVCollectionView.m in Sources */,
 				30D247A32542A7630027602C /* NVLineSectionHeader.m in Sources */,
 				A3FB3702253EC1F0001D152C /* NVTrackButton.m in Sources */,

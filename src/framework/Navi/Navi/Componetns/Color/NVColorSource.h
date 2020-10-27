@@ -19,6 +19,7 @@ struct NVColorSpec {
     float alpha;               // 50.00
     NSString *specCode;         // SAM_001
     NSString *desc;             // 语义化
+    NSString *cname; //业务编码
 //    NSArray<NSString*>* dim;    // [@"背景色"]
 //    BOOL fillMode;
 //    BOOL borderMode;

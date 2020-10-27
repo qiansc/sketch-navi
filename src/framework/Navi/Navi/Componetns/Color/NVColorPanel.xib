@@ -51,7 +51,7 @@
                             <collectionView allowsEmptySelection="NO" id="Avc-R6-vFW" customClass="NVColorCollectionView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="4" id="emh-Sh-897">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="3" id="emh-Sh-897">
                                     <size key="itemSize" width="50" height="50"/>
                                 </collectionViewFlowLayout>
                                 <color key="primaryBackgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>

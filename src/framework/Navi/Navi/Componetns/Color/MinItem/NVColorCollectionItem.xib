@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <capability name="System colors introduced in macOS 10.14" minToolsVersion="10.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,31 +16,55 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY" customClass="NVColorCollectionItemView">
-            <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
+            <rect key="frame" x="0.0" y="0.0" width="33" height="31"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <box identifier="FrontBox" boxType="custom" borderWidth="0.0" cornerRadius="2" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="dOM-1k-Rud">
-                    <rect key="frame" x="3" y="3" width="25" height="25"/>
+                    <rect key="frame" x="3" y="3" width="27" height="25"/>
                     <view key="contentView" id="9z5-c9-JnS">
-                        <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                        <rect key="frame" x="0.0" y="0.0" width="27" height="25"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
                     <color key="borderColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                 </box>
-                <textField identifier="ItemTitle" hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xlm-dq-9oA">
-                    <rect key="frame" x="-1" y="2" width="54" height="10"/>
+                <box identifier="InfoBox" boxType="custom" borderWidth="0.0" cornerRadius="2" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="hjQ-ib-ahb" userLabel="INFOBOX">
+                    <rect key="frame" x="0.0" y="0.0" width="33" height="13"/>
+                    <view key="contentView" id="7Uz-ta-bp6">
+                        <rect key="frame" x="0.0" y="0.0" width="33" height="13"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="13" id="wQd-f6-u5L"/>
+                    </constraints>
+                    <color key="borderColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                </box>
+                <textField identifier="CName" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xlm-dq-9oA">
+                    <rect key="frame" x="-2" y="2" width="35" height="10"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="uW1-Uf-GLU">
-                        <font key="font" metaFont="system" size="8"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" alignment="center" title="Label" id="uW1-Uf-GLU">
+                        <font key="font" metaFont="system" size="9"/>
+                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="unemphasizedSelectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <box identifier="line" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="MVv-ez-5j3">
+                    <rect key="frame" x="1" y="10" width="31" height="5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="31" id="4xp-sI-FCn"/>
+                        <constraint firstAttribute="height" constant="1" id="exQ-PG-QoG"/>
+                    </constraints>
+                </box>
             </subviews>
             <constraints>
                 <constraint firstItem="dOM-1k-Rud" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="3" id="6EY-Cb-9IE"/>
+                <constraint firstAttribute="bottom" secondItem="MVv-ez-5j3" secondAttribute="bottom" constant="12" id="8GU-FJ-jEG"/>
                 <constraint firstItem="dOM-1k-Rud" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="3" id="8XM-iE-hJb"/>
                 <constraint firstAttribute="trailing" secondItem="dOM-1k-Rud" secondAttribute="trailing" constant="3" id="AL9-0R-wgD"/>
+                <constraint firstAttribute="trailing" secondItem="MVv-ez-5j3" secondAttribute="trailing" constant="1" id="O8j-4g-Joe"/>
+                <constraint firstItem="hjQ-ib-ahb" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Tnx-5C-0fC"/>
+                <constraint firstAttribute="trailing" secondItem="hjQ-ib-ahb" secondAttribute="trailing" id="Z2j-PT-jeB"/>
+                <constraint firstAttribute="bottom" secondItem="hjQ-ib-ahb" secondAttribute="bottom" id="ckg-Et-WSZ"/>
+                <constraint firstItem="MVv-ez-5j3" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="1" id="dxT-Bb-CSe"/>
                 <constraint firstAttribute="bottom" secondItem="dOM-1k-Rud" secondAttribute="bottom" constant="3" id="yyq-n1-uU2"/>
             </constraints>
             <point key="canvasLocation" x="-75.5" y="42.5"/>
