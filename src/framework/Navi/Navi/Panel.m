@@ -50,11 +50,13 @@
 }
 
 -(void)controlTextDidChange:(NSNotification *)obj{
+    locked = YES;
     for(NSObject<NVSource> *source in [panelSources allValues]) {
         if (source) {
             [source setQuery: self.searchField.stringValue];
         }
     }
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(endFit) userInfo:nil repeats:NO];
 }
 //-(void)controlTextDidBeginEditing:(NSNotification *)obj{
 //    if (self.searchField.placeholderString
@@ -137,13 +139,13 @@
     if (locked) return;
     locked = YES;
     self.view.frame = NSMakeRect(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width + 1, self.view.frame.size.height);
-    [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(fitResize) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(fitResize) userInfo:nil repeats:NO];
 
 }
 // 触发重绘 副作用抖动后续重构
 -(void)fitResize{
     self.view.frame = NSMakeRect(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width - 1, self.view.frame.size.height);
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(endFit) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(endFit) userInfo:nil repeats:NO];
 }
 -(void)endFit{
     locked = NO;
