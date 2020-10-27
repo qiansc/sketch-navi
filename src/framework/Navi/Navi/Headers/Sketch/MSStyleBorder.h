@@ -11,6 +11,7 @@
 @interface MSStyleBorder: NSObject
 
 @property (nonatomic, strong) MSColor *color;
+@property (nonatomic) double thickness;
 
 @end
 
