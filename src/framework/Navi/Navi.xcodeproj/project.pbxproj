@@ -48,8 +48,17 @@
 		A352295F253DA5D400F42D58 /* NVColorSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A352295D253DA5D400F42D58 /* NVColorSource.m */; };
 		A3522962253DA8B900F42D58 /* NVSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A3522960253DA8B900F42D58 /* NVSource.h */; };
 		A38993F9250B85A000211D90 /* Navi.h in Headers */ = {isa = PBXBuildFile; fileRef = A38993F7250B859F00211D90 /* Navi.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A38C95BC25480BFD008C0A57 /* NVHalfBox.h in Headers */ = {isa = PBXBuildFile; fileRef = A38C95BA25480BFD008C0A57 /* NVHalfBox.h */; };
-		A38C95BD25480BFD008C0A57 /* NVHalfBox.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C95BB25480BFD008C0A57 /* NVHalfBox.m */; };
+		A38C95C1254835CF008C0A57 /* NVTextSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A38C95BF254835CF008C0A57 /* NVTextSource.h */; };
+		A38C95C2254835CF008C0A57 /* NVTextSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C95C0254835CF008C0A57 /* NVTextSource.m */; };
+		A38C95C525483A7B008C0A57 /* NVTextSectionHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = A38C95C325483A7B008C0A57 /* NVTextSectionHeader.h */; };
+		A38C95C625483A7B008C0A57 /* NVTextSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C95C425483A7B008C0A57 /* NVTextSectionHeader.m */; };
+		A38C95C925483B63008C0A57 /* NVTextCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A38C95C725483B63008C0A57 /* NVTextCollectionView.h */; };
+		A38C95CA25483B63008C0A57 /* NVTextCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C95C825483B63008C0A57 /* NVTextCollectionView.m */; };
+		A38C95CD25483BE3008C0A57 /* NVTextCollectionItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = A38C95CB25483BE3008C0A57 /* NVTextCollectionItemView.h */; };
+		A38C95CE25483BE3008C0A57 /* NVTextCollectionItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C95CC25483BE3008C0A57 /* NVTextCollectionItemView.m */; };
+		A38C95D325483C06008C0A57 /* NVTextCollectionItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A38C95D025483C06008C0A57 /* NVTextCollectionItem.h */; };
+		A38C95D425483C06008C0A57 /* NVTextCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C95D125483C06008C0A57 /* NVTextCollectionItem.m */; };
+		A38C95D525483C06008C0A57 /* NVTextCollectionItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = A38C95D225483C06008C0A57 /* NVTextCollectionItem.xib */; };
 		A396D0EA25346F990061CC73 /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = A396D0E825346F990061CC73 /* Util.h */; };
 		A396D0EB25346F990061CC73 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A396D0E925346F990061CC73 /* Util.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A396D11225347F8C0061CC73 /* mask-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D0F825347F8B0061CC73 /* mask-active.png */; };
@@ -175,8 +184,17 @@
 		A38993F4250B859F00211D90 /* Navi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38993F7250B859F00211D90 /* Navi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Navi.h; sourceTree = "<group>"; };
 		A38993F8250B85A000211D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A38C95BA25480BFD008C0A57 /* NVHalfBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVHalfBox.h; sourceTree = "<group>"; };
-		A38C95BB25480BFD008C0A57 /* NVHalfBox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVHalfBox.m; sourceTree = "<group>"; };
+		A38C95BF254835CF008C0A57 /* NVTextSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVTextSource.h; sourceTree = "<group>"; };
+		A38C95C0254835CF008C0A57 /* NVTextSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVTextSource.m; sourceTree = "<group>"; };
+		A38C95C325483A7B008C0A57 /* NVTextSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVTextSectionHeader.h; sourceTree = "<group>"; };
+		A38C95C425483A7B008C0A57 /* NVTextSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVTextSectionHeader.m; sourceTree = "<group>"; };
+		A38C95C725483B63008C0A57 /* NVTextCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVTextCollectionView.h; sourceTree = "<group>"; };
+		A38C95C825483B63008C0A57 /* NVTextCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVTextCollectionView.m; sourceTree = "<group>"; };
+		A38C95CB25483BE3008C0A57 /* NVTextCollectionItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVTextCollectionItemView.h; sourceTree = "<group>"; };
+		A38C95CC25483BE3008C0A57 /* NVTextCollectionItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVTextCollectionItemView.m; sourceTree = "<group>"; };
+		A38C95D025483C06008C0A57 /* NVTextCollectionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVTextCollectionItem.h; sourceTree = "<group>"; };
+		A38C95D125483C06008C0A57 /* NVTextCollectionItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVTextCollectionItem.m; sourceTree = "<group>"; };
+		A38C95D225483C06008C0A57 /* NVTextCollectionItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVTextCollectionItem.xib; sourceTree = "<group>"; };
 		A396D0D2251DE63B0061CC73 /* DataChangeProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataChangeProtocol.h; sourceTree = "<group>"; };
 		A396D0E825346F990061CC73 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Util.h; path = Navi/lib/Util.h; sourceTree = SOURCE_ROOT; };
 		A396D0E925346F990061CC73 /* Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = Navi/lib/Util.m; sourceTree = SOURCE_ROOT; };
@@ -293,6 +311,13 @@
 				A300364E25386EAF0093395D /* NVTextPanel.h */,
 				A300364F25386EAF0093395D /* NVTextPanel.m */,
 				A300365025386EAF0093395D /* NVTextPanel.xib */,
+				A38C95BE25483580008C0A57 /* Item */,
+				A38C95BF254835CF008C0A57 /* NVTextSource.h */,
+				A38C95C0254835CF008C0A57 /* NVTextSource.m */,
+				A38C95C725483B63008C0A57 /* NVTextCollectionView.h */,
+				A38C95C825483B63008C0A57 /* NVTextCollectionView.m */,
+				A38C95C325483A7B008C0A57 /* NVTextSectionHeader.h */,
+				A38C95C425483A7B008C0A57 /* NVTextSectionHeader.m */,
 			);
 			path = Text;
 			sourceTree = "<group>";
@@ -365,6 +390,18 @@
 				B2D54D3725471621002E1D91 /* user.png */,
 			);
 			path = Navi;
+			sourceTree = "<group>";
+		};
+		A38C95BE25483580008C0A57 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				A38C95D025483C06008C0A57 /* NVTextCollectionItem.h */,
+				A38C95D125483C06008C0A57 /* NVTextCollectionItem.m */,
+				A38C95D225483C06008C0A57 /* NVTextCollectionItem.xib */,
+				A38C95CB25483BE3008C0A57 /* NVTextCollectionItemView.h */,
+				A38C95CC25483BE3008C0A57 /* NVTextCollectionItemView.m */,
+			);
+			path = Item;
 			sourceTree = "<group>";
 		};
 		A396D0F525347F8B0061CC73 /* Assets */ = {
@@ -484,8 +521,6 @@
 				A34728B22539918500EC18ED /* NVColorCollectionItem.xib */,
 				A3FB3707253ECD46001D152C /* NVColorCollectionItemView.h */,
 				A3FB3708253ECD46001D152C /* NVColorCollectionItemView.m */,
-				A38C95BA25480BFD008C0A57 /* NVHalfBox.h */,
-				A38C95BB25480BFD008C0A57 /* NVHalfBox.m */,
 			);
 			path = MinItem;
 			sourceTree = "<group>";
@@ -587,13 +622,15 @@
 				30D2479625429B1B0027602C /* NVLineCollectionView.h in Headers */,
 				A3522956253D6C3A00F42D58 /* NVCollectionView.h in Headers */,
 				A396D0EA25346F990061CC73 /* Util.h in Headers */,
+				A38C95C925483B63008C0A57 /* NVTextCollectionView.h in Headers */,
+				A38C95CD25483BE3008C0A57 /* NVTextCollectionItemView.h in Headers */,
+				A38C95C1254835CF008C0A57 /* NVTextSource.h in Headers */,
 				A34728A3253886B700EC18ED /* NVPanelController.h in Headers */,
 				A300365F253870F40093395D /* NVMaskPanel.h in Headers */,
 				B286F6BA2543BDA400984F2A /* RFOverlayScroller.h in Headers */,
 				B2012D1C253C5B2A0003715E /* DisabledWheelScrollView.h in Headers */,
 				A3FB3705253EC2E2001D152C /* NVToggleBox.h in Headers */,
 				A34728AA253988FC00EC18ED /* NVColorCollectionView.h in Headers */,
-				A38C95BC25480BFD008C0A57 /* NVHalfBox.h in Headers */,
 				A352295E253DA5D400F42D58 /* NVColorSource.h in Headers */,
 				B226FF58253CAAEE009DD159 /* NVClipView.h in Headers */,
 				A3003659253870E00093395D /* NVLinePanel.h in Headers */,
@@ -602,11 +639,13 @@
 				A300365125386EAF0093395D /* NVTextPanel.h in Headers */,
 				A34728AE2539897200EC18ED /* NVColorSectionHeader.h in Headers */,
 				30D247A22542A7630027602C /* NVLineSectionHeader.h in Headers */,
+				A38C95C525483A7B008C0A57 /* NVTextSectionHeader.h in Headers */,
 				B2E02AD825459FA700BBE87F /* NVLayer.h in Headers */,
 				30D247A72542E7080027602C /* NVLineCollectionItemView.h in Headers */,
 				B226FF5C253CB447009DD159 /* NVCollectionController.h in Headers */,
 				A3FB3701253EC1F0001D152C /* NVTrackButton.h in Headers */,
 				A3522962253DA8B900F42D58 /* NVSource.h in Headers */,
+				A38C95D325483C06008C0A57 /* NVTextCollectionItem.h in Headers */,
 				A3B5E22825382B460048F526 /* NVPanelHeader.h in Headers */,
 				A397ACC825148BEA00286C6E /* Panel.h in Headers */,
 				A3B5E22D25382BE70048F526 /* NVPanelHeaderView.h in Headers */,
@@ -723,6 +762,7 @@
 				A300365B253870E00093395D /* NVLinePanel.xib in Resources */,
 				A396D11625347F8C0061CC73 /* border.png in Resources */,
 				A396D11925347F8C0061CC73 /* shadow-active.png in Resources */,
+				A38C95D525483C06008C0A57 /* NVTextCollectionItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,24 +780,28 @@
 				30D247A82542E7080027602C /* NVLineCollectionItemView.m in Sources */,
 				A34728A4253886B700EC18ED /* NVPanelController.m in Sources */,
 				A352295F253DA5D400F42D58 /* NVColorSource.m in Sources */,
+				A38C95D425483C06008C0A57 /* NVTextCollectionItem.m in Sources */,
 				A3EEF7FF25402F9900C3998D /* NVPanelInfoButton.m in Sources */,
 				B226FF59253CAAEE009DD159 /* NVClipView.m in Sources */,
 				B2D54D472547294F002E1D91 /* NVArtboard.m in Sources */,
 				A3EEF7ED253F033500C3998D /* NVCollectionDelegate.m in Sources */,
+				A38C95CA25483B63008C0A57 /* NVTextCollectionView.m in Sources */,
 				A3003660253870F40093395D /* NVMaskPanel.m in Sources */,
 				A3B5E22E25382BE70048F526 /* NVPanelHeaderView.m in Sources */,
 				A397ACC925148BEA00286C6E /* Panel.m in Sources */,
 				30D2479F25429FAD0027602C /* NVLineSource.m in Sources */,
+				A38C95C625483A7B008C0A57 /* NVTextSectionHeader.m in Sources */,
 				A34728AF2539897200EC18ED /* NVColorSectionHeader.m in Sources */,
 				A3FB3706253EC2E2001D152C /* NVToggleBox.m in Sources */,
 				B2E02AD925459FA700BBE87F /* NVLayer.m in Sources */,
-				A38C95BD25480BFD008C0A57 /* NVHalfBox.m in Sources */,
+				A38C95C2254835CF008C0A57 /* NVTextSource.m in Sources */,
 				A3522957253D6C3A00F42D58 /* NVCollectionView.m in Sources */,
 				30D247A32542A7630027602C /* NVLineSectionHeader.m in Sources */,
 				A3FB3702253EC1F0001D152C /* NVTrackButton.m in Sources */,
 				B226FF5D253CB447009DD159 /* NVCollectionController.m in Sources */,
 				B286F6B92543BDA400984F2A /* RFOverlayScrollView.m in Sources */,
 				B2012D1D253C5B2A0003715E /* DisabledWheelScrollView.m in Sources */,
+				A38C95CE25483BE3008C0A57 /* NVTextCollectionItemView.m in Sources */,
 				A3453B6925381A19007AFFCC /* FlippedClipView.m in Sources */,
 				A3EEF7F92540017300C3998D /* NVColorCollectionItem.m in Sources */,
 				A3453B5D2535C5E2007AFFCC /* Config.m in Sources */,

@@ -1,5 +1,5 @@
 //
-//  NVHalfBox.h
+//  NVTextCollectionItemView.h
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/10/27.
@@ -7,10 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NVToggleBox.h"
+#import "NVTextSource.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NVHalfBox : NSBox
+@interface NVTextCollectionItemView : NVToggleBox
+
+@property (nonatomic) NVTextSpec spec;
 
 @end
 
