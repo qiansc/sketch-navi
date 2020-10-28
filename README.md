@@ -1,8 +1,5 @@
 # sketch-navi
-[![Build Status](https://travis-ci.org/design-to-release/sketch-navi.svg?branch=master)](https://travis-ci.org/design-to-release/sketch-navi)
-[![Coveralls](https://img.shields.io/coveralls/design-to-release/sketch-navi.svg)](https://coveralls.io/github/design-to-release/sketch-navi)
-[![npm package](https://img.shields.io/npm/v/sketch-navi.svg)](https://www.npmjs.org/package/sketch-navi)
-[![npm downloads](http://img.shields.io/npm/dm/sketch-navi.svg)](https://www.npmjs.org/package/sketch-navi)
+[![Build Status](https://travis-ci.org/searchfe/user-agent.svg?branch=master)](https://travis-ci.org/searchfe/user-agent)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 ## Installation
