@@ -8,6 +8,7 @@
 
 #import "NVColorSource.h"
 #import "NVSource.h"
+#import "NVToggleBox.h"
 
 @implementation NVColorSource {
     NVSourceUpdateCallback updatedCallback;
@@ -25,6 +26,7 @@
     mod = 0;
     shapeMod = @"other";
     themeMod = @"default";
+    self.semanticMode = NO;
     return s;
 }
 // hex: "EEEEEE", alpha: 100, specCode: "SAM_001", desc: "语义描述001",
@@ -165,6 +167,31 @@
 //        .borderMode = [specDict[@"borderMode"] boolValue]
     };
     return spec;
+}
+
+
+#pragma mark NSCollectionViewDataSource
+
+- (NSInteger)collectionView:(NSCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    NSLog(@"### numberOfItems %lu", (unsigned long)[[self getSpecsIn:section] count]);
+    return [[self getSpecsIn:section] count];
+}
+- (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath {
+    return [collectionView makeItemWithIdentifier:@"Item" forIndexPath:indexPath];
+
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(NSCollectionView *)collectionView {
+    NSLog(@"### numberOfSections %lu", (unsigned long)[[self getDims] count]);
+    return [[self getDims] count];
+}
+
+- (NSView *)collectionView:(NSCollectionView *)collectionView viewForSupplementaryElementOfKind:(NSCollectionViewSupplementaryElementKind)kind atIndexPath:(NSIndexPath *)indexPath {
+    if (kind == NSCollectionElementKindSectionHeader) {
+        return [collectionView makeSupplementaryViewOfKind:kind withIdentifier: @"Header" forIndexPath:indexPath];
+//        [view setTitle:[self.source getDims][indexPath.section]];
+    }
+    return nil;
 }
 
 @end

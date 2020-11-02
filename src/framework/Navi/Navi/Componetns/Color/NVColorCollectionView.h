@@ -14,11 +14,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NVColorCollectionView : NVCollectionView<NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout>
+@interface NVColorCollectionView : NSCollectionView<NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout>
 
-@property (nonatomic,strong) NVColorSource *source;
-@property (nonatomic,strong) NVCollectionDelegate *toggleDelegate;
-@property (nonatomic) BOOL semanticMode;
+@property (nonatomic, strong) NVColorSource *dataSource;
+@property (nonatomic, strong) NVCollectionDelegate *toggleDelegate;
 
 @end
 

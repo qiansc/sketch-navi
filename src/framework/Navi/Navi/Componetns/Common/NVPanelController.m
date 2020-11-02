@@ -24,6 +24,16 @@
 //    self.view.layer.backgroundColor = [NSColor purpleColor].CGColor;
 }
 
+#pragma mark toogle state
+
+- (void)toogle:(NSButton*) button{
+    openState = self.headerView.toggleButton.state;
+    [self resetConstraint];
+    if (self.panelDelegate) {
+        [self.panelDelegate panel:self.panelId changeState:openState];
+    }
+}
+
 
 -(void)setOpenStateSlient:(NSControlStateValue)state {
      openState = state;
@@ -33,7 +43,14 @@
     [self resetConstraint];
 }
 
+- (void)setSemanticMode:(BOOL)mode {
+    semanticMode = mode;
+}
+
+#pragma mark layout
+
 - (void)resetConstraint {
+    NSLog(@"### resetConstraint");
     // 首次或者每次重绘必须执行此句，来保证在NSStack视图中位置ok
     [self.view removeConstraint:constraintHeight];
     if (openState == YES){
@@ -45,19 +62,14 @@
     }
     // 已经关闭
     [self.view addConstraint:constraintHeight];
-    if (self.panelDelegate) {
-        [self.panelDelegate panelDidResize:self.panelId];
-    }
+//    if (self.panelDelegate) {
+//        [self.panelDelegate panelDidResize:self.panelId];
+//    }
 
 }
 
-- (void)toogle:(NSButton*) button{
-    openState = self.headerView.toggleButton.state;
-    [self resetConstraint];
-    if (self.panelDelegate) {
-        [self.panelDelegate panel:self.panelId changeState:openState];
-    }
-}
+
+#pragma mark init
 
 - (instancetype) initWithId:(NSString*) id {
     self.panelId = id;
@@ -79,6 +91,9 @@
     return addHeight+10;
 }
 
+
+#pragma mark should to be complete
+
 - (NSObject<NVSource> *)generatePanelSource {
     return nil;
 }
@@ -87,9 +102,5 @@
     // do sth
 }
 
-
-- (void)setSemanticMode:(BOOL)mode {
-    semanticMode = mode;
-}
 
 @end

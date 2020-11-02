@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
-        <capability name="System colors introduced in macOS 10.13" minToolsVersion="9.0"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NVColorPanel">
             <connections>
-                <outlet property="bView" destination="Z6p-fL-ann" id="1mD-2X-7Bt"/>
-                <outlet property="clipView" destination="DNr-Bb-8Dn" id="b4M-JE-QSO"/>
-                <outlet property="collectionView" destination="Avc-R6-vFW" id="6wC-YI-W2x"/>
+                <outlet property="collectionView" destination="dDf-sA-fgd" id="7zN-eU-bep"/>
                 <outlet property="headerView" destination="eV9-9d-w5m" id="Ehb-Up-fhp"/>
                 <outlet property="modeButton" destination="aOA-id-4JO" id="c9l-JV-C6n"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -41,40 +39,24 @@
                         <constraint firstAttribute="trailing" secondItem="aOA-id-4JO" secondAttribute="trailing" constant="30" id="aTm-WT-BD0"/>
                     </constraints>
                 </customView>
-                <scrollView wantsLayer="YES" ambiguous="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="Z6p-fL-ann" customClass="DisabledWheelScrollView">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>
-                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="DNr-Bb-8Dn" customClass="NVClipView">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView allowsEmptySelection="NO" id="Avc-R6-vFW" customClass="NVColorCollectionView">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="264"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="3" id="emh-Sh-897">
-                                    <size key="itemSize" width="50" height="50"/>
-                                </collectionViewFlowLayout>
-                                <color key="primaryBackgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" name="findHighlightColor" catalog="System" colorSpace="catalog"/>
-                    </clipView>
-                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="ZKs-qQ-uuF" customClass="RFOverlayScroller">
-                        <rect key="frame" x="-100" y="-100" width="233" height="15"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </scroller>
-                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="9wp-8Z-krf" customClass="RFOverlayScroller">
-                        <rect key="frame" x="-100" y="-100" width="15" height="264"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </scroller>
-                </scrollView>
+                <collectionView ambiguous="YES" allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDf-sA-fgd" customClass="NVColorCollectionView">
+                    <rect key="frame" x="0.0" y="-34" width="240" height="300"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2000" id="QsU-QC-QTO"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="3" id="wWt-5n-rR2">
+                        <size key="itemSize" width="50" height="50"/>
+                    </collectionViewFlowLayout>
+                    <color key="primaryBackgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                </collectionView>
             </subviews>
             <constraints>
-                <constraint firstItem="Z6p-fL-ann" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="BOu-nG-pqr"/>
+                <constraint firstItem="dDf-sA-fgd" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="CnU-HQ-SZV"/>
                 <constraint firstAttribute="trailing" secondItem="eV9-9d-w5m" secondAttribute="trailing" id="DDH-wd-DtO"/>
                 <constraint firstItem="eV9-9d-w5m" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="O2D-n1-Zak"/>
-                <constraint firstItem="Z6p-fL-ann" firstAttribute="top" secondItem="eV9-9d-w5m" secondAttribute="bottom" id="wzH-JN-nQY"/>
+                <constraint firstAttribute="trailing" secondItem="dDf-sA-fgd" secondAttribute="trailing" id="eIz-aW-mNx"/>
+                <constraint firstItem="dDf-sA-fgd" firstAttribute="top" secondItem="eV9-9d-w5m" secondAttribute="bottom" id="fld-Tb-etG"/>
                 <constraint firstItem="eV9-9d-w5m" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="yDk-YY-Gjt"/>
-                <constraint firstAttribute="trailing" secondItem="Z6p-fL-ann" secondAttribute="trailing" id="z7Y-ZO-sxs"/>
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>

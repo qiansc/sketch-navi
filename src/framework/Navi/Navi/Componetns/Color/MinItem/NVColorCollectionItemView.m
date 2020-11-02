@@ -87,7 +87,9 @@
         cnameText.textColor = [NSColor secondaryLabelColor];
     } else {
         [frontBox setTransparent:YES];
-        self.fillColor  = NSColorFromRGBString(self.spec.hex);
+        if (self.spec.hex) { // datasource 初始化完 一瞬间是没有spec的
+            self.fillColor  = NSColorFromRGBString(self.spec.hex);
+        }
         self.borderColor = [NSColor quaternaryLabelColor];
         infoBox.layer.borderColor = [NSColor quaternaryLabelColor].CGColor;
         cnameText.textColor = [NSColor secondaryLabelColor];

@@ -125,7 +125,7 @@
             [artborad close];
         }
     }
-    
+
 }
 
 -(void)showAndroid {
@@ -206,3 +206,6 @@
 }
 
 @end
+
+//NSString *nibPath = [[[NSBundle bundleForClass:[self class]] bundlePath]
+//       stringByAppendingString:@"/Contents/Resources/.nib"];

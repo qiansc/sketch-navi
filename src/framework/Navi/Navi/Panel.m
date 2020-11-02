@@ -56,14 +56,8 @@
             [source setQuery: self.searchField.stringValue];
         }
     }
-    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(endFit) userInfo:nil repeats:NO];
+//    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(endFit) userInfo:nil repeats:NO];
 }
-//-(void)controlTextDidBeginEditing:(NSNotification *)obj{
-//    if (self.searchField.placeholderString
-//}
-//-(void)controlTextDidEndEditing:(NSNotification *)obj{
-//
-//}
 
 /* 初始化所有Panel到StackView中 */
 - (void)initAllPanel {
@@ -136,20 +130,20 @@
 - (void)panelDidResize:(NSString *)panelId{
 //    return;
     // Solution.001 解决NVPanel变化时，滚动条消失，但docuemntView没重绘显示不完全问题
-    if (locked) return;
-    locked = YES;
-    self.view.frame = NSMakeRect(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width + 1, self.view.frame.size.height);
-    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(fitResize) userInfo:nil repeats:NO];
+//    if (locked) return;
+//    locked = YES;
+//    self.view.frame = NSMakeRect(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width + 1, self.view.frame.size.height);
+//    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(fitResize) userInfo:nil repeats:NO];
 
 }
 // 触发重绘 副作用抖动后续重构
--(void)fitResize{
-    self.view.frame = NSMakeRect(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width - 1, self.view.frame.size.height);
-    [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(endFit) userInfo:nil repeats:NO];
-}
--(void)endFit{
-    locked = NO;
-}
+//-(void)fitResize{
+//    self.view.frame = NSMakeRect(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width - 1, self.view.frame.size.height);
+//    [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(endFit) userInfo:nil repeats:NO];
+//}
+//-(void)endFit{
+//    locked = NO;
+//}
 
 
 /* 更新规范接口 */
