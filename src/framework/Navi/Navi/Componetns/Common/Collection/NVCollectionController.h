@@ -19,7 +19,6 @@ typedef void (^AfterResizeHandler)(float width, float height);
 @property (nonatomic, strong) AfterResizeHandler afterResize;
 @property (strong) NVCollectionView* view;
 @property (strong) NVClipView* clipView;
-@property (strong) NSScrollView* wrapper;
 
 -(void)setCollectionView:(NSCollectionView *) view;
 
