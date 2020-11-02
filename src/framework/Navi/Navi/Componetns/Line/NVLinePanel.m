@@ -7,7 +7,6 @@
 //
 
 #import "NVLinePanel.h"
-#import "NVCollectionController.h"
 #import "NVLineSource.h"
 #import "NVLineCollectionItemView.h"
 #import "NVLayer.h"
@@ -21,13 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NVCollectionController *collectionController = [[NVCollectionController alloc] init];
-    [collectionController setCollectionView:self.collectionView];
-
-    collectionController.afterResize = ^(float width, float height) {
-        [self resetConstraint];
-    };
-
     [self.collectionView.toggleDelegate afterReload:^(void){
         [self selectionChange:self.selections];
     }];

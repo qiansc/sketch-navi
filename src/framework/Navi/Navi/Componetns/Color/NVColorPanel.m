@@ -8,7 +8,6 @@
 
 #import "HexColor.h"
 #import "NVColorPanel.h"
-#import "NVCollectionController.h"
 #import "NVColorSource.h"
 #import "NVColorCollectionItemView.h"
 #import "NVLayer.h"
@@ -24,34 +23,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 创建NVCollectionController 并把他的视图指向到xib存在的那个collectionView上去
-//    NVCollectionController *c = [[NVCollectionController alloc]init];
-//    [c setCollectionView: self.collectionView];
-//    // 绑定重绘
-//    c.afterResize = ^(float width, float height) {
-//         // [self resetConstraint];
-//    };
+    [self.collectionView.toggleDelegate afterReload:^(void){
+//         NSLog(@"NAVIL PPPPP %@", self);
+        // 一般是数据更新时 整体重绘 需要根据选中项重新选择
+         [self selectionChange:self.selections];
+    }];
 
-//    [self.collectionView.toggleDelegate afterReload:^(void){
-////         NSLog(@"NAVIL PPPPP %@", self);
-//        // 一般是数据更新时 整体重绘 需要根据选中项重新选择
-//         [self selectionChange:self.selections];
-//    }];
-//
-//    [self.collectionView.toggleDelegate onChange:^(NVToggleBox * box) {
-//        // 选择变化时 应用到selections 且改更新title
-//        if (box == nil) {
-//            [self updateTitle:nil];
-//        }else{
-//            [self applySpecToSelections: ((NVColorCollectionItemView *)box).spec];
-//            [self updateTitle: ((NVColorCollectionItemView *)box).spec.specCode];
-//        }
-//    }];
-//    if (self.selections == nil) self.selections = @[];
-//    [self updateTitle:nil];
-//    // 切换模式
-//    [self.modeButton setTarget:self];
-//    [self.modeButton setAction:@selector(modeButtonClick:)];
+    [self.collectionView.toggleDelegate onChange:^(NVToggleBox * box) {
+        // 选择变化时 应用到selections 且改更新title
+        if (box == nil) {
+            [self updateTitle:nil];
+        }else{
+            [self applySpecToSelections: ((NVColorCollectionItemView *)box).spec];
+            [self updateTitle: ((NVColorCollectionItemView *)box).spec.specCode];
+        }
+    }];
+    if (self.selections == nil) self.selections = @[];
+    [self updateTitle:nil];
+    // 切换模式
+    [self.modeButton setTarget:self];
+    [self.modeButton setAction:@selector(modeButtonClick:)];
 }
 
 -(void)modeButtonClick:(NSSegmentedControl*) button{
@@ -72,7 +63,7 @@
     if (layers != nil && layers.firstLayer != nil){
         [self.collectionView.dataSource setShapeMode:[layers.firstLayer className]];
     }
-    
+
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
     NSString *title = nil;
     for(MSLayer *layer in layers) {

@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NVCollectionView : NSCollectionView
 
 @property (nonatomic,strong) NVCollectionDelegate *toggleDelegate;
+@property (nonatomic) float displayHeight;
 
 //- (void)setWrapperHeight:(float) height;
 

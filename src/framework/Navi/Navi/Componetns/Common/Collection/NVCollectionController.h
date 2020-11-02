@@ -7,20 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "NVCollectionView.h"
-#import "NVClipView.h"
+//#import "NVCollectionView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^AfterResizeHandler)(float width, float height);
-
 @interface NVCollectionController : NSViewController
-
-@property (nonatomic, strong) AfterResizeHandler afterResize;
-@property (strong) NVCollectionView* view;
-@property (strong) NVClipView* clipView;
-
--(void)setCollectionView:(NSCollectionView *) view;
 
 @end
 

@@ -134,8 +134,8 @@
     if ([arr count] != [rs count]) {
         [rs addObject:@"其他"];
     }
-    
-    
+
+
     return rs;
 }
 
@@ -173,7 +173,6 @@
 #pragma mark NSCollectionViewDataSource
 
 - (NSInteger)collectionView:(NSCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSLog(@"### numberOfItems %lu", (unsigned long)[[self getSpecsIn:section] count]);
     return [[self getSpecsIn:section] count];
 }
 - (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath {
@@ -182,7 +181,6 @@
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(NSCollectionView *)collectionView {
-    NSLog(@"### numberOfSections %lu", (unsigned long)[[self getDims] count]);
     return [[self getDims] count];
 }
 
