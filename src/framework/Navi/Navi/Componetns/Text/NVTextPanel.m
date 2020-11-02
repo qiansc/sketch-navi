@@ -8,7 +8,6 @@
 
 #import "HexColor.h"
 #import "NVTextPanel.h"
-#import "NVCollectionController.h"
 #import "NVTextSource.h"
 #import "NVTextCollectionItemView.h"
 #import "NVLayer.h"
@@ -22,14 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 创建NVCollectionController 并把他的视图指向到xib存在的那个collectionView上去
-    NVCollectionController *c = [[NVCollectionController alloc]init];
-    [c setCollectionView: self.collectionView];
-    // 绑定重绘
-    c.afterResize = ^(float width, float height) {
-         [self resetConstraint];
-    };
-
     [self.collectionView.toggleDelegate afterReload:^(void){
 //         NSLog(@"NAVIL PPPPP %@", self);
         // 一般是数据更新时 整体重绘 需要根据选中项重新选择

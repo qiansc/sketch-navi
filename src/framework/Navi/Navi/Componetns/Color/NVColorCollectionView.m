@@ -25,19 +25,12 @@
     self.delegate = self;
     self.dataSource = [[NVColorSource alloc]init];
     [self.dataSource onUpdated: ^void(){
-//            [self.toggleDelegate clearActive];
-//            [self reloadData];
+            [self.toggleDelegate clearActive];
+            [self reloadData];
     }];
-    self.wantsLayer = YES;
-    self.layer.backgroundColor = [NSColor greenColor].CGColor;
-    NSLog(@"### NVColorCollectionView initWithCoder %@", self.dataSource);
     
-
     [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVColorCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item"];
-    
     [self registerClass:[NVColorSectionHeader class] forSupplementaryViewOfKind:NSCollectionElementKindSectionHeader withIdentifier:@"Header"];
-    
-    
 //    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVHeader" bundle:[NVBundle bundlePath]] forSupplementaryViewOfKind:NSCollectionElementKindSectionHeader withIdentifier:@"Header"];
     
     return view;
@@ -45,24 +38,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    NSLog(@"### NVColorCollectionView awakeFromNib %@", self.dataSource);
-//    NSRect f = self.collectionView.frame;
-//    self.collectionView.frame = NSMakeRect(f.origin.x, f.origin.y, f.size.width, f.size.height);
-    
-    
 }
-
-//-(void)viewDidMoveToWindow {
-//    [super viewDidMoveToWindow];
-//
-//}
-//
-//- (void)viewDidMoveToSupervijjew {
-//    [super viewDidMoveToSuperview];
-//}
-//
-//
 
 
 
@@ -75,10 +51,10 @@
         view.spec = spec;
         view.indexPath = indexPath;
     }
-//    [view onMouseDown:^void(NSEvent* event, NSBox* box) {
-//         [self.toggleDelegate clearActive];
-//         [self.toggleDelegate setActive:((NVToggleBox *)box).indexPath];
-//    }];
+    [view onMouseDown:^void(NSEvent* event, NSBox* box) {
+         [self.toggleDelegate clearActive];
+         [self.toggleDelegate setActive:((NVToggleBox *)box).indexPath];
+    }];
 }
 
 -(void)collectionView:(NSCollectionView *)collectionView didEndDisplayingItem:(NSCollectionViewItem *)item forRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
@@ -92,11 +68,6 @@
 }
 
 - (void)collectionView:(NSCollectionView *)collectionView didEndDisplayingSupplementaryView:(NSView *)view forElementOfKind:(NSCollectionViewSupplementaryElementKind)kind atIndexPath:(NSIndexPath *)indexPath {
-    if (kind == NSCollectionElementKindSectionHeader && view) {
-        // [view removeFromSuperview];
-        // NSLog(@"### didEndDisplayingSupplementaryView %@", kind);
-    }
-
 }
 
 

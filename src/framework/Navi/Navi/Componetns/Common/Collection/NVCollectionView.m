@@ -23,7 +23,6 @@
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
-    // Drawing code here.
 }
 
 
@@ -36,6 +35,17 @@
 //    }
 
     
+}
+
+-(float)displayHeight{
+    float  maxBottom = 1;
+    for(NSView *view in self.subviews) {
+        if (view.isHidden == NO) {
+            float h = view.frame.size.height + view.frame.origin.y; // + s.height;
+            maxBottom = h > maxBottom ? h : maxBottom;
+        }
+    }
+    return maxBottom;
 }
 
 //- (void)setWrapperHeight:(float) height {

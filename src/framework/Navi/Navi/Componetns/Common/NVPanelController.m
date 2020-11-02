@@ -7,6 +7,7 @@
 //
 
 #import "NVPanelController.h"
+#import "NVCollectionView.h"
 
 @interface NVPanelController ()
 
@@ -19,9 +20,6 @@
     [self.headerView.toggleButton setTarget:self];
     [self.headerView.toggleButton setAction:@selector(toogle:)];
     openState = self.headerView.toggleButton.state;
-    [self resetConstraint];
-//    self.view.wantsLayer = true;
-//    self.view.layer.backgroundColor = [NSColor purpleColor].CGColor;
 }
 
 #pragma mark toogle state
@@ -50,7 +48,6 @@
 #pragma mark layout
 
 - (void)resetConstraint {
-    NSLog(@"### resetConstraint");
     // 首次或者每次重绘必须执行此句，来保证在NSStack视图中位置ok
     [self.view removeConstraint:constraintHeight];
     if (openState == YES){
@@ -62,10 +59,6 @@
     }
     // 已经关闭
     [self.view addConstraint:constraintHeight];
-//    if (self.panelDelegate) {
-//        [self.panelDelegate panelDidResize:self.panelId];
-//    }
-
 }
 
 
@@ -79,16 +72,19 @@
 }
 
 - (int)height {
-    // float height = 0;
-    float addHeight = 0;
+    float newHeight = 0;
     for(NSView* view in self.view.subviews) {
-//        NSLog(@"XXXXXXXIIIII %@ %f, %f", self.panelId, view.frame.size.height, view.frame.origin.y);
-//        float h = view.frame.size.height + view.frame.origin.y;
-//        height = h > height ? h : height;
-        addHeight += view.frame.size.height;
+        if (view.isHidden == YES) continue;
+        float h = 0;
+        if ([view isKindOfClass: [NVCollectionView class]]) {
+            h = ((NVCollectionView*) view).displayHeight;
+        } else {
+            h = view.frame.size.height;
+        }
+        float offsetY = self.view.frame.size.height - view.frame.size.height - view.frame.origin.y;
+        newHeight = offsetY + h;
     }
-    // height = height < 50 ? addHeight : height;
-    return addHeight+10;
+    return newHeight+10;
 }
 
 
@@ -100,6 +96,11 @@
 
 - (void)selectionChange:(NSArray<MSLayer*>*) layers {
     // do sth
+}
+
+- (void)viewDidLayout{
+    [super viewDidLayout];
+    [self resetConstraint];
 }
 
 

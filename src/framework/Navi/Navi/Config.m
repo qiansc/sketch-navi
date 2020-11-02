@@ -53,12 +53,12 @@
 //        @"icon": @"shadow",
 //        @"gravity": @1,
 //        @"type": @"PANEL"
-//    }, @{
-//        @"name": @"蒙层",
-//        @"id": @"Mask",
-//        @"icon": @"mask",
-//        @"gravity": @1,
-//        @"type": @"PANEL"
+    }, @{
+        @"name": @"蒙层",
+        @"id": @"Mask",
+        @"icon": @"mask",
+        @"gravity": @1,
+        @"type": @"PANEL"
     }, @{
         @"name": @"切换",
         @"id": @"Artboard",

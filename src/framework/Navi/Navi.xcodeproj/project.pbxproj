@@ -45,7 +45,7 @@
 		A3522956253D6C3A00F42D58 /* NVCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A3522954253D6C3A00F42D58 /* NVCollectionView.h */; };
 		A3522957253D6C3A00F42D58 /* NVCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3522955253D6C3A00F42D58 /* NVCollectionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A352295E253DA5D400F42D58 /* NVColorSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A352295C253DA5D400F42D58 /* NVColorSource.h */; };
-		A352295F253DA5D400F42D58 /* NVColorSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A352295D253DA5D400F42D58 /* NVColorSource.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A352295F253DA5D400F42D58 /* NVColorSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A352295D253DA5D400F42D58 /* NVColorSource.m */; };
 		A3522962253DA8B900F42D58 /* NVSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A3522960253DA8B900F42D58 /* NVSource.h */; };
 		A38993F9250B85A000211D90 /* Navi.h in Headers */ = {isa = PBXBuildFile; fileRef = A38993F7250B859F00211D90 /* Navi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A38C95C1254835CF008C0A57 /* NVTextSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A38C95BF254835CF008C0A57 /* NVTextSource.h */; };
@@ -105,8 +105,6 @@
 		A3EEF7F92540017300C3998D /* NVColorCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF7F72540017300C3998D /* NVColorCollectionItem.m */; };
 		A3EEF7FE25402F9900C3998D /* NVPanelInfoButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A3EEF7FC25402F9900C3998D /* NVPanelInfoButton.h */; };
 		A3EEF7FF25402F9900C3998D /* NVPanelInfoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF7FD25402F9900C3998D /* NVPanelInfoButton.m */; };
-		A3FB3701253EC1F0001D152C /* NVTrackButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A3FB36FF253EC1F0001D152C /* NVTrackButton.h */; };
-		A3FB3702253EC1F0001D152C /* NVTrackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB3700253EC1F0001D152C /* NVTrackButton.m */; };
 		A3FB3705253EC2E2001D152C /* NVToggleBox.h in Headers */ = {isa = PBXBuildFile; fileRef = A3FB3703253EC2E2001D152C /* NVToggleBox.h */; };
 		A3FB3706253EC2E2001D152C /* NVToggleBox.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB3704253EC2E2001D152C /* NVToggleBox.m */; };
 		A3FB3709253ECD46001D152C /* NVColorCollectionItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = A3FB3707253ECD46001D152C /* NVColorCollectionItemView.h */; };
@@ -250,8 +248,6 @@
 		A3EEF7FC25402F9900C3998D /* NVPanelInfoButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVPanelInfoButton.h; sourceTree = "<group>"; };
 		A3EEF7FD25402F9900C3998D /* NVPanelInfoButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVPanelInfoButton.m; sourceTree = "<group>"; };
 		A3F982D0254668C200072AAA /* MSStyleBorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSStyleBorder.h; sourceTree = "<group>"; };
-		A3FB36FF253EC1F0001D152C /* NVTrackButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVTrackButton.h; sourceTree = "<group>"; };
-		A3FB3700253EC1F0001D152C /* NVTrackButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVTrackButton.m; sourceTree = "<group>"; };
 		A3FB3703253EC2E2001D152C /* NVToggleBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVToggleBox.h; sourceTree = "<group>"; };
 		A3FB3704253EC2E2001D152C /* NVToggleBox.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVToggleBox.m; sourceTree = "<group>"; };
 		A3FB3707253ECD46001D152C /* NVColorCollectionItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVColorCollectionItemView.h; sourceTree = "<group>"; };
@@ -476,8 +472,6 @@
 				A3EEF7FB25402F5000C3998D /* PanelHeader */,
 				B226FF51253CA23C009DD159 /* Collection */,
 				B226FF50253CA1F6009DD159 /* Scroller */,
-				A3FB36FF253EC1F0001D152C /* NVTrackButton.h */,
-				A3FB3700253EC1F0001D152C /* NVTrackButton.m */,
 				A3522960253DA8B900F42D58 /* NVSource.h */,
 				A34728A1253886B700EC18ED /* NVPanelController.h */,
 				A34728A2253886B700EC18ED /* NVPanelController.m */,
@@ -650,7 +644,6 @@
 				B2E02AD825459FA700BBE87F /* NVLayer.h in Headers */,
 				30D247A72542E7080027602C /* NVLineCollectionItemView.h in Headers */,
 				B226FF5C253CB447009DD159 /* NVCollectionController.h in Headers */,
-				A3FB3701253EC1F0001D152C /* NVTrackButton.h in Headers */,
 				A3522962253DA8B900F42D58 /* NVSource.h in Headers */,
 				A38C95D325483C06008C0A57 /* NVTextCollectionItem.h in Headers */,
 				A3B5E22825382B460048F526 /* NVPanelHeader.h in Headers */,
@@ -805,7 +798,6 @@
 				A38C95C2254835CF008C0A57 /* NVTextSource.m in Sources */,
 				A3522957253D6C3A00F42D58 /* NVCollectionView.m in Sources */,
 				30D247A32542A7630027602C /* NVLineSectionHeader.m in Sources */,
-				A3FB3702253EC1F0001D152C /* NVTrackButton.m in Sources */,
 				B226FF5D253CB447009DD159 /* NVCollectionController.m in Sources */,
 				B286F6B92543BDA400984F2A /* RFOverlayScrollView.m in Sources */,
 				B2012D1D253C5B2A0003715E /* DisabledWheelScrollView.m in Sources */,
