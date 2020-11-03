@@ -18,9 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 @required
 - (void)panel:(NSString*) panelId changeState:(NSControlStateValue) state;
 
-@optional
-- (void)panelDidResize:(NSString*) panelId;
-
 @end
 
 @interface NVPanel : NSViewController {

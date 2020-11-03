@@ -39,7 +39,7 @@ struct NVTextSpec {
 
 typedef struct NVTextSpec NVTextSpec;
 
-@interface NVTextSource : NSObject<NVSource>
+@interface NVTextSource : NSObject<NVSource, NSCollectionViewDataSource>
 
 @property (nonatomic) BOOL semanticMode;
 

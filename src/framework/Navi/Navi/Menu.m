@@ -8,6 +8,7 @@
 
 #import "Menu.h"
 #import "Config.h"
+#import "NVBundle.h"
 // 临时代码
 #import "NVArtboard.h"
 
@@ -195,14 +196,7 @@
 }
 
 + (instancetype)viewControllerFromNIB {
-    // 从NIB里创建view及controller
-    // 这里一般都写 bundle:[NSBundle mainBundle] 但是以framework形式加载时候会出错
-    NSString* const frameworkBundleID  = @"com.baidu.Navi";
-    NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
-
-    return[[Menu alloc] initWithNibName:@"Menu" bundle:resourceBundlePath];
-    // return [[MenuController alloc] initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle mainBundle]];
-    // [[NSBundle mainBundle] loadNibNamed:@"MenuBtn" owner:self topLevelObjects:nil];
+    return[[Menu alloc] initWithNibName:@"Menu" bundle:[NVBundle bundlePath]];
 }
 
 @end

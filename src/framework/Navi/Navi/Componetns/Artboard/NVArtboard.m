@@ -8,6 +8,7 @@
 
 #import "NVArtboard.h"
 #import "MSDocument.h"
+#import "NVBundle.h"
 
 @interface NVArtboard ()
 
@@ -38,9 +39,8 @@
 }
 
 + (instancetype)viewControllerFromNIB {
-    NSString* const frameworkBundleID  = @"com.baidu.Navi";
-    NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
-    return[[NVArtboard alloc] initWithNibName:@"NVArtboard" bundle:resourceBundlePath];
+
+    return[[NVArtboard alloc] initWithNibName:@"NVArtboard" bundle:[NVBundle bundlePath]];
 }
 
 @end

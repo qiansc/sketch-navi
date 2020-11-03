@@ -8,6 +8,7 @@
 
 #import "NVPanel.h"
 #import "NVCollectionView.h"
+#import "NVBundle.h"
 
 @interface NVPanel ()
 
@@ -62,9 +63,7 @@
 
 - (instancetype) initWithId:(NSString*) id {
     self.panelId = id;
-    NSString* const frameworkBundleID  = @"com.baidu.Navi";
-    NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
-    return [self initWithNibName:[NSString stringWithFormat:@"NV%@Panel", id] bundle: resourceBundlePath];
+    return [self initWithNibName:[NSString stringWithFormat:@"NV%@Panel", id] bundle: [NVBundle bundlePath]];
 }
 
 - (int)height {

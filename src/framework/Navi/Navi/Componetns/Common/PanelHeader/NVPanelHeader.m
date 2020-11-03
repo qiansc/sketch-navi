@@ -8,6 +8,7 @@
 
 #import "NVPanelHeader.h"
 #import "MSDocument.h"
+#import "NVBundle.h"
 
 @interface NVPanelHeader ()
 
@@ -43,9 +44,7 @@
 
 
 + (instancetype)viewControllerFromNIB {
-    NSString* const frameworkBundleID  = @"com.baidu.Navi";
-    NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
-    return [[NVPanelHeader alloc] initWithNibName:@"NVPanelHeader" bundle:resourceBundlePath];
+    return [[NVPanelHeader alloc] initWithNibName:@"NVPanelHeader" bundle:[NVBundle bundlePath]];
 }
 
 

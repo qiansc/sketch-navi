@@ -13,7 +13,10 @@
 #import "NVTextPanel.h"
 #import "NVLinePanel.h"
 #import "NVMaskPanel.h"
+#import "NVBorderPanel.h"
 #import "MSDocument.h"
+#import "NVBundle.h"
+#import "NVSource.h"
 
 @implementation Panel {
     int limitWidth;
@@ -56,7 +59,6 @@
             [source setQuery: self.searchField.stringValue];
         }
     }
-//    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(endFit) userInfo:nil repeats:NO];
 }
 
 /* 初始化所有Panel到StackView中 */
@@ -75,6 +77,8 @@
                 c = [[NVLinePanel alloc] initWithId:id];
             } else if([id isEqual: @"Mask"]) {
                 c = [[NVMaskPanel alloc] initWithId:id];
+            } else if([id isEqual: @"Border"]) {
+                c = [[NVBorderPanel alloc] initWithId:id];
             }
 
             if (c) {
@@ -82,7 +86,8 @@
                 c.headerView.titleLabel.stringValue = option[@"name"];
                 c.panelDelegate = self;
                 [panelControllers setValue:c forKey:id];
-                [panelSources setValue:[c generatePanelSource] forKey:id];
+                NSObject<NVSource> *source = [c generatePanelSource];
+                [panelSources setValue:source forKey:id];
 
             }
 
@@ -126,26 +131,6 @@
 
 }
 
-/** delegate 响应subview panelDidResize变化 */
-- (void)panelDidResize:(NSString *)panelId{
-//    return;
-    // Solution.001 解决NVPanel变化时，滚动条消失，但docuemntView没重绘显示不完全问题
-//    if (locked) return;
-//    locked = YES;
-//    self.view.frame = NSMakeRect(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width + 1, self.view.frame.size.height);
-//    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(fitResize) userInfo:nil repeats:NO];
-
-}
-// 触发重绘 副作用抖动后续重构
-//-(void)fitResize{
-//    self.view.frame = NSMakeRect(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width - 1, self.view.frame.size.height);
-//    [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(endFit) userInfo:nil repeats:NO];
-//}
-//-(void)endFit{
-//    locked = NO;
-//}
-
-
 /* 更新规范接口 */
 - (void)updateSpec:(NSDictionary *) specs{
     for(NSString * key in [specs allKeys]) {
@@ -173,11 +158,8 @@
 }
 
 + (instancetype)viewControllerFromNIB {
-    // 这里一般都写 bundle:[NSBundle mainBundle] 但是以framework形式加载时候会出错
-    NSString* const frameworkBundleID  = @"com.baidu.Navi";
-    NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
 
-    return[[Panel alloc] initWithNibName:@"Panel" bundle:resourceBundlePath];
+    return[[Panel alloc] initWithNibName:@"Panel" bundle:[NVBundle bundlePath]];
     // return [[MenuController alloc] initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle mainBundle]];
 }
 

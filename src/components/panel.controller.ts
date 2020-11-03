@@ -107,7 +107,8 @@ export class PanelController {
     private updateSpecs() {
         const specData = new SpecData(this.ctx.resourcesPath());
         const textSpec = specData.getTextSpec();
-        // console.log(textSpec);
+        const borderSpec = specData.getBorderSpec();
+        console.log(borderSpec);
 
         this.NSController.updateSpec({
             Color: specData.getColorSpec(),
@@ -118,7 +119,8 @@ export class PanelController {
             }, {
                 weight: '6', text: '6', specCode: 'F_L_X03', desc: '细分割线高度', dim: ['通栏分割线'],
             }],
-            Text: textSpec
+            Text: textSpec,
+            Border: borderSpec,
         });
     }
 }

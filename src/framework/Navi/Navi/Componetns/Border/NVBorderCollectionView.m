@@ -1,42 +1,41 @@
 //
-//  NVColorCollectionView.m
+//  NVBorderCollectionView.m
 //  Navi
 //
-//  Created by Qian,Sicheng on 2020/10/16.
+//  Created by Qian,Sicheng on 2020/11/3.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "NVColorCollectionView.h"
+#import "NVBorderCollectionView.h"
 #import "NVCollectionDelegate.h"
-#import "NVColorCollectionItemView.h"
-#import "NVColorSemanticItemView.h"
+#import "NVBorderCollectionItemView.h"
 #import "NVSectionHeader.h"
 #import "HexColor.h"
 #import "NVBundle.h"
 
-@implementation NVColorCollectionView {
+@implementation NVBorderCollectionView {
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
 
     self.delegate = self;
-    self.dataSource = [[NVColorSource alloc]init];
+    self.dataSource = [[NVBorderSource alloc]init];
     [self.dataSource onUpdated: ^void(){
         [self.toggleDelegate clearActive];
         [self reloadData];
     }];
 
-    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVColorSemanticItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
-    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVColorCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-0"];
+    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVBorderCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
+    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVBorderCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-0"];
     [self registerClass:[NVSectionHeader class] forSupplementaryViewOfKind:NSCollectionElementKindSectionHeader withIdentifier:@"Header"];
 }
 
 #pragma mark NSCollectionViewDelegate
 
 -(void)collectionView:(NSCollectionView *)collectionView willDisplayItem:(NSCollectionViewItem *)item forRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
-    NVColorSpec spec = [self.dataSource getSpecAt:indexPath];
-    NVColorCollectionItemView *view = item.view;
+    NVBorderSpec spec = [self.dataSource getSpecAt:indexPath];
+    NVBorderCollectionItemView *view = item.view;
     if (view.indexPath == nil) {
         view.spec = spec;
         view.indexPath = indexPath;
@@ -64,11 +63,11 @@
 #pragma mark NSCollectionViewDelegateFlowLayout
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.dataSource.semanticMode) {
+//    if (self.dataSource.semanticMode) {
         return NSMakeSize(215, 31);
-    } else {
-        return NSMakeSize(31, 31);
-    }
+//    } else {
+//        return NSMakeSize(31, 31);
+//    }
 
 }
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
