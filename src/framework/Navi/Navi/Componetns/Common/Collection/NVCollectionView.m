@@ -55,33 +55,6 @@
     return maxBottom;
 }
 
-//- (void)setWrapperHeight:(float) height {
-//    float ct = [[NSDate date]timeIntervalSince1970] * 1000;
-//    NSScrollView *scrollView = [self enclosingScrollView];
-//    if (ct - tm < 100) {
-//        if (width != scrollView.frame.size.width) {
-//            
-//        } else if (height != height0 && height != height1){
-//            
-//        } else {
-//            return;
-//        }
-//    }
-//    // NSLog(@"NAVIL CollectionView setWrapperHeight: %f %f %f %f %f %f" , height, width, height0, height1, [self enclosingScrollView].frame.size.width, [self enclosingScrollView].frame.size.height);
-//    width = scrollView.frame.size.width;
-//    height0 = height1;
-//    height1 = height;
-//    tm = ct;
-//
-//    if (wrapperConstraint) {
-//        [scrollView removeConstraint:wrapperConstraint];
-//    }
-//    NSRect frame = scrollView.frame;
-//    scrollView.frame = NSMakeRect(frame.origin.x, frame.origin.y, frame.size.width, height);
-//    wrapperConstraint = [scrollView.heightAnchor constraintEqualToConstant: height];
-//    [scrollView addConstraint:wrapperConstraint];
-//
-//    
-//}
+
 
 @end

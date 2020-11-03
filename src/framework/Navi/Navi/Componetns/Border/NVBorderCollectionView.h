@@ -8,12 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NVBorderSource.h"
-#import "NVCollectionView.h"
+#import "NVCollectionViewWithHeader.h"
 #import "NVCollectionDelegate.h"
 
-@interface NVBorderCollectionView : NVCollectionView<NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout>
+@interface NVBorderCollectionView : NVCollectionViewWithHeader<NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NVBorderSource *dataSource;
-@property (nonatomic, strong) NVCollectionDelegate *toggleDelegate;
 
 @end

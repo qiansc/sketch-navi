@@ -23,7 +23,7 @@ struct NVBorderSpec {
 
 typedef struct NVBorderSpec NVBorderSpec;
 
-@interface NVBorderSource : NSObject<NVSource>
+@interface NVBorderSource : NSObject<NVSource, NSCollectionViewDataSource>
 
 @property (nonatomic) BOOL semanticMode;
 

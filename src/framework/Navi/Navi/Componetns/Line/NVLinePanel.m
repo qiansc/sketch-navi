@@ -41,7 +41,7 @@
 }
 
 - (NSObject<NVSource> *)generatePanelSource {
-    return self.collectionView.source;
+    return self.collectionView.dataSource;
 }
 
 - (void)selectionChange:(NSArray<MSLayer*>*) layers{

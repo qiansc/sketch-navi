@@ -36,14 +36,4 @@
     [self drawKnob];
 }
 
-
-//背景色
-//-(NSColor *)backgroundColor{
-//    if (!_backgroundColor) {
-//        //        _backgroundColor = [NSColor whiteColor];
-//        _backgroundColor = [NSColor clearColor];
-//    }
-//    return [NSColor blackColor];
-//}
-
 @end

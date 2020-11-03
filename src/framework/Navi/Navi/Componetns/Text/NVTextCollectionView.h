@@ -7,19 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "NVTextSectionHeader.h"
 #import "NVTextSource.h"
-#import "NVCollectionView.h"
+#import "NVCollectionViewWithHeader.h"
 #import "NVCollectionDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NVTextCollectionView : NVCollectionView<NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout>
+@interface NVTextCollectionView : NVCollectionViewWithHeader<NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout>
 
-@property (nonatomic,strong) NVTextSource *source;
-@property (nonatomic,strong) NVCollectionDelegate *toggleDelegate;
-@property (nonatomic) BOOL semanticMode;
-
+@property (nonatomic,strong) NVTextSource *dataSource;
 @end
 
 NS_ASSUME_NONNULL_END

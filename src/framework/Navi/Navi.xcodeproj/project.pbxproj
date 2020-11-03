@@ -11,8 +11,6 @@
 		30D2479725429B1B0027602C /* NVLineCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D2479525429B1B0027602C /* NVLineCollectionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		30D2479E25429FAD0027602C /* NVLineSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 30D2479C25429FAD0027602C /* NVLineSource.h */; };
 		30D2479F25429FAD0027602C /* NVLineSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D2479D25429FAD0027602C /* NVLineSource.m */; };
-		30D247A22542A7630027602C /* NVLineSectionHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 30D247A02542A7630027602C /* NVLineSectionHeader.h */; };
-		30D247A32542A7630027602C /* NVLineSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D247A12542A7630027602C /* NVLineSectionHeader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		30D247A72542E7080027602C /* NVLineCollectionItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = 30D247A52542E7080027602C /* NVLineCollectionItemView.h */; };
 		30D247A82542E7080027602C /* NVLineCollectionItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D247A62542E7080027602C /* NVLineCollectionItemView.m */; };
 		30D247AC2542ECF00027602C /* NVLineCollectionItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 30D247A92542ECF00027602C /* NVLineCollectionItem.h */; };
@@ -59,13 +57,13 @@
 		A361672A2551373600FE0840 /* NVBorderCollectionItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = A36167272551373600FE0840 /* NVBorderCollectionItem.xib */; };
 		A361672D2551376000FE0840 /* NVBorderCollectionItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = A361672B2551376000FE0840 /* NVBorderCollectionItemView.h */; };
 		A361672E2551376000FE0840 /* NVBorderCollectionItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A361672C2551376000FE0840 /* NVBorderCollectionItemView.m */; };
+		A361673225516C9400FE0840 /* NVCollectionViewWithHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = A361673025516C9400FE0840 /* NVCollectionViewWithHeader.h */; };
+		A361673325516C9400FE0840 /* NVCollectionViewWithHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A361673125516C9400FE0840 /* NVCollectionViewWithHeader.m */; };
 		A38993F9250B85A000211D90 /* Navi.h in Headers */ = {isa = PBXBuildFile; fileRef = A38993F7250B859F00211D90 /* Navi.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A38C95C1254835CF008C0A57 /* NVTextSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A38C95BF254835CF008C0A57 /* NVTextSource.h */; };
 		A38C95C2254835CF008C0A57 /* NVTextSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C95C0254835CF008C0A57 /* NVTextSource.m */; };
-		A38C95C525483A7B008C0A57 /* NVTextSectionHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = A38C95C325483A7B008C0A57 /* NVTextSectionHeader.h */; };
-		A38C95C625483A7B008C0A57 /* NVTextSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C95C425483A7B008C0A57 /* NVTextSectionHeader.m */; };
 		A38C95C925483B63008C0A57 /* NVTextCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A38C95C725483B63008C0A57 /* NVTextCollectionView.h */; };
-		A38C95CA25483B63008C0A57 /* NVTextCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C95C825483B63008C0A57 /* NVTextCollectionView.m */; };
+		A38C95CA25483B63008C0A57 /* NVTextCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C95C825483B63008C0A57 /* NVTextCollectionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A38C95CD25483BE3008C0A57 /* NVTextCollectionItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = A38C95CB25483BE3008C0A57 /* NVTextCollectionItemView.h */; };
 		A38C95CE25483BE3008C0A57 /* NVTextCollectionItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A38C95CC25483BE3008C0A57 /* NVTextCollectionItemView.m */; };
 		A38C95D325483C06008C0A57 /* NVTextCollectionItem.h in Headers */ = {isa = PBXBuildFile; fileRef = A38C95D025483C06008C0A57 /* NVTextCollectionItem.h */; };
@@ -156,8 +154,6 @@
 		30D2479525429B1B0027602C /* NVLineCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVLineCollectionView.m; sourceTree = "<group>"; };
 		30D2479C25429FAD0027602C /* NVLineSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVLineSource.h; sourceTree = "<group>"; };
 		30D2479D25429FAD0027602C /* NVLineSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVLineSource.m; sourceTree = "<group>"; };
-		30D247A02542A7630027602C /* NVLineSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVLineSectionHeader.h; sourceTree = "<group>"; };
-		30D247A12542A7630027602C /* NVLineSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVLineSectionHeader.m; sourceTree = "<group>"; };
 		30D247A52542E7080027602C /* NVLineCollectionItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVLineCollectionItemView.h; sourceTree = "<group>"; };
 		30D247A62542E7080027602C /* NVLineCollectionItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVLineCollectionItemView.m; sourceTree = "<group>"; };
 		30D247A92542ECF00027602C /* NVLineCollectionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVLineCollectionItem.h; sourceTree = "<group>"; };
@@ -204,14 +200,14 @@
 		A36167272551373600FE0840 /* NVBorderCollectionItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVBorderCollectionItem.xib; sourceTree = "<group>"; };
 		A361672B2551376000FE0840 /* NVBorderCollectionItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVBorderCollectionItemView.h; sourceTree = "<group>"; };
 		A361672C2551376000FE0840 /* NVBorderCollectionItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVBorderCollectionItemView.m; sourceTree = "<group>"; };
+		A361673025516C9400FE0840 /* NVCollectionViewWithHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVCollectionViewWithHeader.h; sourceTree = "<group>"; };
+		A361673125516C9400FE0840 /* NVCollectionViewWithHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVCollectionViewWithHeader.m; sourceTree = "<group>"; };
 		A36DBA892546DDCB00822312 /* MSLayerArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSLayerArray.h; sourceTree = "<group>"; };
 		A38993F4250B859F00211D90 /* Navi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Navi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38993F7250B859F00211D90 /* Navi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Navi.h; sourceTree = "<group>"; };
 		A38993F8250B85A000211D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A38C95BF254835CF008C0A57 /* NVTextSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVTextSource.h; sourceTree = "<group>"; };
 		A38C95C0254835CF008C0A57 /* NVTextSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVTextSource.m; sourceTree = "<group>"; };
-		A38C95C325483A7B008C0A57 /* NVTextSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVTextSectionHeader.h; sourceTree = "<group>"; };
-		A38C95C425483A7B008C0A57 /* NVTextSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVTextSectionHeader.m; sourceTree = "<group>"; };
 		A38C95C725483B63008C0A57 /* NVTextCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVTextCollectionView.h; sourceTree = "<group>"; };
 		A38C95C825483B63008C0A57 /* NVTextCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVTextCollectionView.m; sourceTree = "<group>"; };
 		A38C95CB25483BE3008C0A57 /* NVTextCollectionItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVTextCollectionItemView.h; sourceTree = "<group>"; };
@@ -340,8 +336,6 @@
 				A38C95C0254835CF008C0A57 /* NVTextSource.m */,
 				A38C95C725483B63008C0A57 /* NVTextCollectionView.h */,
 				A38C95C825483B63008C0A57 /* NVTextCollectionView.m */,
-				A38C95C325483A7B008C0A57 /* NVTextSectionHeader.h */,
-				A38C95C425483A7B008C0A57 /* NVTextSectionHeader.m */,
 			);
 			path = Text;
 			sourceTree = "<group>";
@@ -359,16 +353,14 @@
 		A3003655253870820093395D /* Line */ = {
 			isa = PBXGroup;
 			children = (
-				30D247A42542E5FE0027602C /* Item */,
 				A3003656253870E00093395D /* NVLinePanel.h */,
 				A3003657253870E00093395D /* NVLinePanel.m */,
 				A3003658253870E00093395D /* NVLinePanel.xib */,
-				30D2479425429B1B0027602C /* NVLineCollectionView.h */,
-				30D2479525429B1B0027602C /* NVLineCollectionView.m */,
+				30D247A42542E5FE0027602C /* Item */,
 				30D2479C25429FAD0027602C /* NVLineSource.h */,
 				30D2479D25429FAD0027602C /* NVLineSource.m */,
-				30D247A02542A7630027602C /* NVLineSectionHeader.h */,
-				30D247A12542A7630027602C /* NVLineSectionHeader.m */,
+				30D2479425429B1B0027602C /* NVLineCollectionView.h */,
+				30D2479525429B1B0027602C /* NVLineCollectionView.m */,
 			);
 			path = Line;
 			sourceTree = "<group>";
@@ -398,6 +390,17 @@
 				A361672C2551376000FE0840 /* NVBorderCollectionItemView.m */,
 			);
 			path = MinItem;
+			sourceTree = "<group>";
+		};
+		A361672F25516C2500FE0840 /* Customization */ = {
+			isa = PBXGroup;
+			children = (
+				A361673025516C9400FE0840 /* NVCollectionViewWithHeader.h */,
+				A361673125516C9400FE0840 /* NVCollectionViewWithHeader.m */,
+				A36167112551177300FE0840 /* NVSectionHeader.h */,
+				A36167122551177300FE0840 /* NVSectionHeader.m */,
+			);
+			path = Customization;
 			sourceTree = "<group>";
 		};
 		A38993EA250B859F00211D90 = {
@@ -524,9 +527,8 @@
 				A3EEF7FB25402F5000C3998D /* PanelHeader */,
 				B226FF51253CA23C009DD159 /* Collection */,
 				B226FF50253CA1F6009DD159 /* Scroller */,
+				A361672F25516C2500FE0840 /* Customization */,
 				A3522960253DA8B900F42D58 /* NVSource.h */,
-				A36167112551177300FE0840 /* NVSectionHeader.h */,
-				A36167122551177300FE0840 /* NVSectionHeader.m */,
 				A34728A1253886B700EC18ED /* NVPanel.h */,
 				A34728A2253886B700EC18ED /* NVPanel.m */,
 			);
@@ -685,6 +687,7 @@
 				A300365F253870F40093395D /* NVMaskPanel.h in Headers */,
 				B286F6BA2543BDA400984F2A /* RFOverlayScroller.h in Headers */,
 				B2012D1C253C5B2A0003715E /* DisabledWheelScrollView.h in Headers */,
+				A361673225516C9400FE0840 /* NVCollectionViewWithHeader.h in Headers */,
 				A3FB3705253EC2E2001D152C /* NVToggleBox.h in Headers */,
 				A34728AA253988FC00EC18ED /* NVColorCollectionView.h in Headers */,
 				A352295E253DA5D400F42D58 /* NVColorSource.h in Headers */,
@@ -693,8 +696,6 @@
 				B2D54D462547294F002E1D91 /* NVArtboard.h in Headers */,
 				A38993F9250B85A000211D90 /* Navi.h in Headers */,
 				A300365125386EAF0093395D /* NVTextPanel.h in Headers */,
-				30D247A22542A7630027602C /* NVLineSectionHeader.h in Headers */,
-				A38C95C525483A7B008C0A57 /* NVTextSectionHeader.h in Headers */,
 				B2E02AD825459FA700BBE87F /* NVLayer.h in Headers */,
 				30D247A72542E7080027602C /* NVLineCollectionItemView.h in Headers */,
 				B226FF5C253CB447009DD159 /* NVCollectionController.h in Headers */,
@@ -843,6 +844,7 @@
 				A3EEF7FF25402F9900C3998D /* NVPanelInfoButton.m in Sources */,
 				B226FF59253CAAEE009DD159 /* NVClipView.m in Sources */,
 				A361671F2551347F00FE0840 /* NVBorderSource.m in Sources */,
+				A361673325516C9400FE0840 /* NVCollectionViewWithHeader.m in Sources */,
 				B2D54D472547294F002E1D91 /* NVArtboard.m in Sources */,
 				A3EEF7ED253F033500C3998D /* NVCollectionDelegate.m in Sources */,
 				A38C95CA25483B63008C0A57 /* NVTextCollectionView.m in Sources */,
@@ -851,14 +853,12 @@
 				A3616724255134AE00FE0840 /* NVBorderCollectionView.m in Sources */,
 				A397ACC925148BEA00286C6E /* Panel.m in Sources */,
 				30D2479F25429FAD0027602C /* NVLineSource.m in Sources */,
-				A38C95C625483A7B008C0A57 /* NVTextSectionHeader.m in Sources */,
 				A36167142551177300FE0840 /* NVSectionHeader.m in Sources */,
 				A3BFB1DB25500009009CB0C1 /* NVBundle.m in Sources */,
 				A3FB3706253EC2E2001D152C /* NVToggleBox.m in Sources */,
 				B2E02AD925459FA700BBE87F /* NVLayer.m in Sources */,
 				A38C95C2254835CF008C0A57 /* NVTextSource.m in Sources */,
 				A3522957253D6C3A00F42D58 /* NVCollectionView.m in Sources */,
-				30D247A32542A7630027602C /* NVLineSectionHeader.m in Sources */,
 				B226FF5D253CB447009DD159 /* NVCollectionController.m in Sources */,
 				B286F6B92543BDA400984F2A /* RFOverlayScrollView.m in Sources */,
 				B2012D1D253C5B2A0003715E /* DisabledWheelScrollView.m in Sources */,

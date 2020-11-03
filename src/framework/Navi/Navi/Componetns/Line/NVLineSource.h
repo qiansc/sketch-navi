@@ -22,7 +22,7 @@ struct NVLineSpec {
 typedef struct NVLineSpec NVLineSpec;
 
 
-@interface NVLineSource : NSObject<NVSource>
+@interface NVLineSource : NSObject<NVSource, NSCollectionViewDataSource>
 
 @property (nonatomic) BOOL semanticMode;
 

@@ -8,15 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NVColorSource.h"
-#import "NVCollectionView.h"
+#import "NVCollectionViewWithHeader.h"
 #import "NVCollectionDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NVColorCollectionView : NVCollectionView<NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout>
+@interface NVColorCollectionView : NVCollectionViewWithHeader<NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NVColorSource *dataSource;
-@property (nonatomic, strong) NVCollectionDelegate *toggleDelegate;
 
 @end
 

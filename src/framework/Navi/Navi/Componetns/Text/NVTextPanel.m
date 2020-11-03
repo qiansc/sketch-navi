@@ -22,7 +22,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.collectionView.toggleDelegate afterReload:^(void){
-//         NSLog(@"NAVIL PPPPP %@", self);
         // 一般是数据更新时 整体重绘 需要根据选中项重新选择
          [self selectionChange:self.selections];
     }];
@@ -53,13 +52,13 @@
 
 -(NSObject<NVSource> *)generatePanelSource{
     // collectionView.source 直接就是 panelSource给外界
-    return self.collectionView.source;
+    return self.collectionView.dataSource;
 }
 
 - (void)selectionChange:(MSLayerArray *) layers {
     self.selections = layers;
     if (layers != nil && layers.firstLayer != nil){
-        [self.collectionView.source setShapeMode:[layers.firstLayer className]];
+        [self.collectionView.dataSource setShapeMode:[layers.firstLayer className]];
     }
 
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];

@@ -15,6 +15,12 @@
     NSArray<NSDictionary*> *specs;
 }
 
+-(instancetype)init{
+    NVLineSource *s = [super init];
+    updatedCallback = ^void {};
+    return s;
+}
+
 - (void)update:(NSArray<NSDictionary*> *) newSpecs {
     specs = newSpecs;
     dims = [NSMutableDictionary new];
@@ -57,7 +63,7 @@
 
 - (void)setSemanticMode:(BOOL) mode {
     _semanticMode = mode;
-//    updatedCallback();
+    updatedCallback();
 }
 
 - (NSArray<NSString*>*)getDims {
@@ -86,6 +92,28 @@
         .text = specDict[@"text"],
     };
     return spec;
+}
+
+#pragma mark NSCollectionViewDataSource
+
+- (NSInteger)collectionView:(NSCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [[self getSpecsIn:section] count];
+}
+- (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *itemId = [NSString stringWithFormat:@"Item-%hhd", self.semanticMode];
+    return [collectionView makeItemWithIdentifier:itemId forIndexPath:indexPath];
+
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(NSCollectionView *)collectionView {
+    return [[self getDims] count];
+}
+
+- (NSView *)collectionView:(NSCollectionView *)collectionView viewForSupplementaryElementOfKind:(NSCollectionViewSupplementaryElementKind)kind atIndexPath:(NSIndexPath *)indexPath {
+    if (kind == NSCollectionElementKindSectionHeader) {
+        return [collectionView makeSupplementaryViewOfKind:kind withIdentifier: @"Header" forIndexPath:indexPath];
+    }
+    return nil;
 }
 
 @end

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NVLinePanel">
             <connections>
-                <outlet property="collectionView" destination="cbg-hF-hMR" id="rMi-7I-T7G"/>
+                <outlet property="collectionView" destination="tFd-1e-8kP" id="JrW-PM-mhU"/>
                 <outlet property="headerView" destination="2dQ-IO-cSa" id="gii-00-ir9"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -15,47 +16,37 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="240" height="250"/>
+            <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
             <subviews>
                 <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2dQ-IO-cSa" customClass="NVPanelHeaderView">
-                    <rect key="frame" x="0.0" y="216" width="240" height="34"/>
+                    <rect key="frame" x="0.0" y="266" width="240" height="34"/>
                 </customView>
-                <scrollView wantsLayer="YES" ambiguous="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="xJL-tu-LUW" customClass="DisabledWheelScrollView">
-                    <rect key="frame" x="0.0" y="3" width="240" height="214"/>
-                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="n8X-Os-BpJ" customClass="NVClipView">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="214"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView allowsEmptySelection="NO" id="cbg-hF-hMR" customClass="NVLineCollectionView">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="214"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="5" id="17I-zJ-3Qg">
-                                    <size key="itemSize" width="50" height="50"/>
-                                </collectionViewFlowLayout>
-                                <color key="primaryBackgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                            </collectionView>
-                        </subviews>
-                    </clipView>
-                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="EHJ-Wd-sa0" customClass="RFOverlayScroller">
-                        <rect key="frame" x="-100" y="-100" width="233" height="15"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </scroller>
-                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Kqt-Xp-O4u" customClass="RFOverlayScroller">
-                        <rect key="frame" x="224" y="0.0" width="16" height="214"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </scroller>
-                </scrollView>
+                <collectionView ambiguous="YES" allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tFd-1e-8kP" customClass="NVLineCollectionView">
+                    <rect key="frame" x="0.0" y="-34" width="240" height="300"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2000" id="F5e-0W-ifb"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="5" id="tPp-LG-Tyz">
+                        <size key="itemSize" width="50" height="50"/>
+                    </collectionViewFlowLayout>
+                    <color key="primaryBackgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                </collectionView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="xJL-tu-LUW" secondAttribute="trailing" id="40W-jY-mjg"/>
-                <constraint firstItem="xJL-tu-LUW" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="BfQ-KD-orF"/>
+                <constraint firstItem="tFd-1e-8kP" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="C7t-SQ-E28"/>
                 <constraint firstItem="2dQ-IO-cSa" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="FnI-cJ-noc"/>
                 <constraint firstItem="2dQ-IO-cSa" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="H0W-vP-q1p"/>
                 <constraint firstAttribute="trailing" secondItem="2dQ-IO-cSa" secondAttribute="trailing" id="REV-55-Ck5"/>
-                <constraint firstItem="xJL-tu-LUW" firstAttribute="top" secondItem="2dQ-IO-cSa" secondAttribute="bottom" id="b0D-gd-SlP"/>
+                <constraint firstAttribute="trailing" secondItem="tFd-1e-8kP" secondAttribute="trailing" id="iq2-6V-DUe"/>
+                <constraint firstItem="tFd-1e-8kP" firstAttribute="top" secondItem="2dQ-IO-cSa" secondAttribute="bottom" id="tBB-Ph-gOZ"/>
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>
+        <customObject id="Brs-Uy-cyA" customClass="NVCollectionController">
+            <connections>
+                <outlet property="view" destination="tFd-1e-8kP" id="eyz-Sk-wYI"/>
+            </connections>
+        </customObject>
     </objects>
 </document>

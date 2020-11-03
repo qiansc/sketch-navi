@@ -7,17 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "NVLineSectionHeader.h"
 #import "NVLineSource.h"
-#import "NVCollectionView.h"
+#import "NVCollectionViewWithHeader.h"
 #import "NVCollectionDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NVLineCollectionView : NVCollectionView<NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout>
+@interface NVLineCollectionView : NVCollectionViewWithHeader<NSCollectionViewDataSource, NSCollectionViewDelegate, NSCollectionViewDelegateFlowLayout>
 
-@property (nonatomic, strong) NVLineSource *source;
-@property (nonatomic, strong) NVCollectionDelegate *toggleDelegate;
+@property (nonatomic, strong) NVLineSource *dataSource;
 
 @end
 

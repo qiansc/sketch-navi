@@ -18,8 +18,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-
-    self.delegate = self;
     self.dataSource = [[NVBorderSource alloc]init];
     [self.dataSource onUpdated: ^void(){
         [self.toggleDelegate clearActive];
@@ -28,7 +26,7 @@
 
     [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVBorderCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
     [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVBorderCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-0"];
-    [self registerClass:[NVSectionHeader class] forSupplementaryViewOfKind:NSCollectionElementKindSectionHeader withIdentifier:@"Header"];
+
 }
 
 #pragma mark NSCollectionViewDelegate
@@ -46,17 +44,10 @@
     }];
 }
 
--(void)collectionView:(NSCollectionView *)collectionView didEndDisplayingItem:(NSCollectionViewItem *)item forRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
-}
-
-
 - (void)collectionView:(NSCollectionView *)collectionView willDisplaySupplementaryView:(NSView *)view forElementKind:(NSCollectionViewSupplementaryElementKind)kind atIndexPath:(NSIndexPath *) indexPath{
     if (kind == NSCollectionElementKindSectionHeader) {
         [(NVSectionHeader*)view setTitle:[self.dataSource getDims][indexPath.section]];
     }
-}
-
-- (void)collectionView:(NSCollectionView *)collectionView didEndDisplayingSupplementaryView:(NSView *)view forElementOfKind:(NSCollectionViewSupplementaryElementKind)kind atIndexPath:(NSIndexPath *)indexPath {
 }
 
 
@@ -69,13 +60,6 @@
 //        return NSMakeSize(31, 31);
 //    }
 
-}
-- (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return NSMakeSize(0, 26);
-
-}
-- (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    return NSMakeSize(0, 0);
 }
 
 @end
