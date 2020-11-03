@@ -1,8 +1,8 @@
 //
-//  NVColorSectionHeader.h
+//  NVSectionHeader.h
 //  Navi
 //
-//  Created by Qian,Sicheng on 2020/10/16.
+//  Created by Qian,Sicheng on 2020/11/3.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NVColorSectionHeader : NSView
+@interface NVSectionHeader : NSView
 
 -(void)setTitle:(NSString *) title;
 

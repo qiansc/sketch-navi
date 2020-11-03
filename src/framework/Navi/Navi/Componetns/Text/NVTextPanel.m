@@ -61,7 +61,7 @@
     if (layers != nil && layers.firstLayer != nil){
         [self.collectionView.source setShapeMode:[layers.firstLayer className]];
     }
-    
+
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
     NSString *title = nil;
     for(MSLayer *layer in layers) {
@@ -126,10 +126,5 @@
     }// fontSize //fontWeight
 }
 
-- (void)setSemanticMode:(BOOL)mode {
-    [super setSemanticMode:mode];
-    self.collectionView.semanticMode = mode;
-    [self.collectionView reloadData];
-}
 
 @end

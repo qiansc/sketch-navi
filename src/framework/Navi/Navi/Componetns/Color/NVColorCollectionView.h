@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "NVColorSectionHeader.h"
 #import "NVColorSource.h"
 #import "NVCollectionView.h"
 #import "NVCollectionDelegate.h"

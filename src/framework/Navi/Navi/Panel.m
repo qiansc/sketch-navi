@@ -44,7 +44,7 @@
 }
 
 -(void)changeSemanticMode:(NSButton*) button {
-    for(NVPanelController * c in [panelControllers allValues]) {
+    for(NSObject<NVSource> * c in [panelSources allValues]) {
         [c setSemanticMode:button.state];
     }
 }
@@ -65,7 +65,7 @@
     for(NSDictionary* option in options) {
         if([option[@"type"] isEqual:@"PANEL"]) {
             NSString *id = option[@"id"];
-            NVPanelController *c = nil;
+            NVPanel *c = nil;
 
             if ([id isEqual: @"Color"]) {
                 c = [[NVColorPanel alloc] initWithId:id];
@@ -95,7 +95,7 @@
     NSString *id = notification.userInfo[@"documentId"];
     if ([id isEqual:self.documentId]) {
         NSString *panelId = notification.userInfo[@"panelId"];
-        NVPanelController *c = panelControllers[panelId];
+        NVPanel *c = panelControllers[panelId];
         if(c) {
             NSMutableDictionary *states = notification.userInfo[@"states"];
             [c setOpenStateSlient: [states[panelId] intValue]];
@@ -115,7 +115,7 @@
 
 /** delegate 响应subview nvpanel的状态变化 */
 - (void)panel:(NSString *)panelId changeState:(NSControlStateValue)state {
-    NVPanelController *c = panelControllers[panelId];
+    NVPanel *c = panelControllers[panelId];
     if (c) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"DID_TOOGLE_PANEL" object:nil userInfo:@{
                 @"documentId": self.documentId,
@@ -158,7 +158,7 @@
 
 - (void)selectionChange {
     MSDocument *document = [[NSDocumentController sharedDocumentController] currentDocument];
-    for(NVPanelController *c in [panelControllers allValues]){
+    for(NVPanel *c in [panelControllers allValues]){
         [c selectionChange: document.selectedLayers];
     }
 }

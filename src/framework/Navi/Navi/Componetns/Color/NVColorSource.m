@@ -26,7 +26,7 @@
     mod = 0;
     shapeMod = @"other";
     themeMod = @"default";
-    self.semanticMode = NO;
+    _semanticMode = NO;
     return s;
 }
 // hex: "EEEEEE", alpha: 100, specCode: "SAM_001", desc: "语义描述001",
@@ -55,7 +55,7 @@
     if ([others count] > 0) {
         dims[@"其他"] = others;
     }
-    updatedCallback();
+    if(updatedCallback) updatedCallback();
 }
 
 -(BOOL)filter:(NSDictionary*) specDict {
@@ -96,16 +96,23 @@
     updatedCallback = callback;
 }
 
+#pragma mark set & updatedCallback
+
 - (void)setQuery:(NSString *) query {
     searchQuery = query;
     [self update: specs];
-    updatedCallback();
+    if(updatedCallback) updatedCallback();
+}
+
+- (void)setSemanticMode:(BOOL) mode {
+    _semanticMode = mode;
+    if(updatedCallback) updatedCallback();
 }
 
 - (void)setMode:(NSInteger) mode {
     mod = mode;
     [self update: specs];
-    updatedCallback();
+    if(updatedCallback) updatedCallback();
 }
 
 - (void)setShapeMode:(NSString *) mode {
@@ -113,7 +120,7 @@
     if (![shapeMod isEqual:name]) {
         shapeMod = name;
         [self update: specs];
-        updatedCallback();
+        if(updatedCallback) updatedCallback();
     }
 }
 
@@ -121,9 +128,12 @@
     if (![themeMod isEqual:mode]) {
         themeMod = mode;
         [self update: specs];
-        updatedCallback();
+        if(updatedCallback) updatedCallback();
     }
 }
+
+
+#pragma mark Dims & Data for Collection
 
 -(NSArray<NSString*>*)getDims{
     NSArray<NSString*>* arr = [dims allKeys];
@@ -162,9 +172,6 @@
         .specCode = specDict[@"cnum"],
         .desc = specDict[@"cmeaning"],
         .cname = specDict[@"cname"]
-//        NSArray<NSString*>* dim;    // [@"背景色"]
-//        .fillMode = [specDict[@"fillMode"] boolValue],
-//        .borderMode = [specDict[@"borderMode"] boolValue]
     };
     return spec;
 }
@@ -176,7 +183,8 @@
     return [[self getSpecsIn:section] count];
 }
 - (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath {
-    return [collectionView makeItemWithIdentifier:@"Item" forIndexPath:indexPath];
+    NSString *itemId = [NSString stringWithFormat:@"Item-%hhd", self.semanticMode];
+    return [collectionView makeItemWithIdentifier:itemId forIndexPath:indexPath];
 
 }
 
@@ -187,7 +195,6 @@
 - (NSView *)collectionView:(NSCollectionView *)collectionView viewForSupplementaryElementOfKind:(NSCollectionViewSupplementaryElementKind)kind atIndexPath:(NSIndexPath *)indexPath {
     if (kind == NSCollectionElementKindSectionHeader) {
         return [collectionView makeSupplementaryViewOfKind:kind withIdentifier: @"Header" forIndexPath:indexPath];
-//        [view setTitle:[self.source getDims][indexPath.section]];
     }
     return nil;
 }

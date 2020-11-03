@@ -10,37 +10,27 @@
 #import "NVCollectionDelegate.h"
 #import "NVColorCollectionItemView.h"
 #import "NVColorSemanticItemView.h"
+#import "NVSectionHeader.h"
 #import "HexColor.h"
 #import "NVBundle.h"
 
 @implementation NVColorCollectionView {
 }
 
--(instancetype)initWithCoder:(NSCoder *)coder{
-    NVColorCollectionView *view = [super initWithCoder:coder];
+- (void)awakeFromNib {
+    [super awakeFromNib];
 
-
-    self.toggleDelegate = [NVCollectionDelegate new];
-    self.toggleDelegate.collectionView = view;
     self.delegate = self;
     self.dataSource = [[NVColorSource alloc]init];
     [self.dataSource onUpdated: ^void(){
-            [self.toggleDelegate clearActive];
-            [self reloadData];
+        [self.toggleDelegate clearActive];
+        [self reloadData];
     }];
-    
-    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVColorCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item"];
-    [self registerClass:[NVColorSectionHeader class] forSupplementaryViewOfKind:NSCollectionElementKindSectionHeader withIdentifier:@"Header"];
-//    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVHeader" bundle:[NVBundle bundlePath]] forSupplementaryViewOfKind:NSCollectionElementKindSectionHeader withIdentifier:@"Header"];
-    
-    return view;
+
+    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVColorSemanticItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
+    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVColorCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-0"];
+    [self registerClass:[NVSectionHeader class] forSupplementaryViewOfKind:NSCollectionElementKindSectionHeader withIdentifier:@"Header"];
 }
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
-
 
 #pragma mark NSCollectionViewDelegate
 
@@ -63,7 +53,7 @@
 
 - (void)collectionView:(NSCollectionView *)collectionView willDisplaySupplementaryView:(NSView *)view forElementKind:(NSCollectionViewSupplementaryElementKind)kind atIndexPath:(NSIndexPath *) indexPath{
     if (kind == NSCollectionElementKindSectionHeader) {
-        [(NVColorSectionHeader*)view setTitle:[self.dataSource getDims][indexPath.section]];
+        [(NVSectionHeader*)view setTitle:[self.dataSource getDims][indexPath.section]];
     }
 }
 
@@ -74,11 +64,11 @@
 #pragma mark NSCollectionViewDelegateFlowLayout
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    if (self.dataSource.semanticMode) {
-//        return NSMakeSize(215, 31);
-//    } else {
+    if (self.dataSource.semanticMode) {
+        return NSMakeSize(215, 31);
+    } else {
         return NSMakeSize(31, 31);
-//    }
+    }
     
 }
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {

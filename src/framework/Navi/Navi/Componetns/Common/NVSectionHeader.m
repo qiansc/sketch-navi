@@ -1,14 +1,14 @@
 //
-//  NVColorSectionHeader.m
+//  NVSectionHeader.m
 //  Navi
 //
-//  Created by Qian,Sicheng on 2020/10/16.
+//  Created by Qian,Sicheng on 2020/11/3.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "NVColorSectionHeader.h"
+#import "NVSectionHeader.h"
 
-@implementation NVColorSectionHeader {
+@implementation NVSectionHeader{
     NSTextField *textField;
 }
 
@@ -38,4 +38,5 @@
 -(void)setTitle:(NSString *) title {
     textField.stringValue = title;
 }
+
 @end

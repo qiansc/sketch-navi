@@ -15,6 +15,13 @@
     float tm;
     float width, height0, height1;
 }
+-(instancetype)initWithCoder:(NSCoder *)coder{
+    NVCollectionView *view = [super initWithCoder:coder];
+    view.toggleDelegate = [NVCollectionDelegate new];
+    view.toggleDelegate.collectionView = view;
+    return view;
+}
+
 
 
 -(void)viewDidMoveToWindow {
@@ -30,9 +37,9 @@
 //    [self resetHeaders];
     [super reloadData];
     // 这里必须加一个timer 不然collectionView没来得及更新 正常时序解不了
-//    if (self.toggleDelegate) {
-//            [NSTimer scheduledTimerWithTimeInterval:0.5 target:self.toggleDelegate selector:@selector(triggerAfterReload) userInfo:nil repeats:NO];
-//    }
+    if (self.toggleDelegate) {
+        [NSTimer scheduledTimerWithTimeInterval:0 target:self.toggleDelegate selector:@selector(triggerAfterReload) userInfo:nil repeats:NO];
+    }
 
     
 }

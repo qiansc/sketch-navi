@@ -8,11 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NVPanelHeaderView.h"
-#import "NVPanelController.h"
+#import "NVPanel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NVMaskPanel : NVPanelController
+@interface NVMaskPanel : NVPanel
 
 @end
 

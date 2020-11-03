@@ -26,6 +26,9 @@ typedef void (^NVSourceUpdateCallback)(void);
 /* 检索词设置方法 */
 - (void)setQuery:(NSString *) query;
 
+/* 检索词设置方法 */
+- (void)setSemanticMode:(BOOL) mode;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -80,6 +80,11 @@
     updatedCallback();
 }
 
+- (void)setSemanticMode:(BOOL) mode {
+    _semanticMode = mode;
+//    updatedCallback();
+}
+
 - (void)setShapeMode:(NSString *) mode {
     NSString *name = [mode isEqual:@"MSTextLayer"] ? @"Text" : @"Others";
     if (![shapeMod isEqual:name]) {

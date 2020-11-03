@@ -24,7 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.collectionView.toggleDelegate afterReload:^(void){
-//         NSLog(@"NAVIL PPPPP %@", self);
         // 一般是数据更新时 整体重绘 需要根据选中项重新选择
          [self selectionChange:self.selections];
     }];
@@ -133,12 +132,6 @@
             border.color.blue = color.blueComponent;
         }
     }
-}
-
-- (void)setSemanticMode:(BOOL)mode {
-    [super setSemanticMode:mode];
-    self.collectionView.dataSource.semanticMode = mode;
-    [self.collectionView reloadData];
 }
 
 @end

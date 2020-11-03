@@ -55,6 +55,11 @@
     updatedCallback();
 }
 
+- (void)setSemanticMode:(BOOL) mode {
+    _semanticMode = mode;
+//    updatedCallback();
+}
+
 - (NSArray<NSString*>*)getDims {
     return [dims allKeys];
 }

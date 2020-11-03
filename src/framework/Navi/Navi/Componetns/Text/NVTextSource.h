@@ -41,6 +41,8 @@ typedef struct NVTextSpec NVTextSpec;
 
 @interface NVTextSource : NSObject<NVSource>
 
+@property (nonatomic) BOOL semanticMode;
+
 -(NSArray<NSString*>*)getDims;
 
 -(NSArray<NSDictionary*>*)getSpecsWith:(NSString *)dim;

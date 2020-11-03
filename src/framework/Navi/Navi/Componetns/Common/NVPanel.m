@@ -1,19 +1,19 @@
 //
-//  NVPanelController.m
+//  NVPanel.m
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/10/15.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "NVPanelController.h"
+#import "NVPanel.h"
 #import "NVCollectionView.h"
 
-@interface NVPanelController ()
+@interface NVPanel ()
 
 @end
 
-@implementation NVPanelController
+@implementation NVPanel
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,10 +39,6 @@
         [self.headerView.toggleButton setNextState];
     }
     [self resetConstraint];
-}
-
-- (void)setSemanticMode:(BOOL)mode {
-    semanticMode = mode;
 }
 
 #pragma mark layout

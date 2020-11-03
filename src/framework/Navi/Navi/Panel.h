@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Menu.h"
-#import "NVPanelController.h"
+#import "NVPanel.h"
 
 
 // MenuControl 暴露的代理接口
