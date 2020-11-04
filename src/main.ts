@@ -75,10 +75,10 @@ export function onSelectionChanged(context: any) {
         runtime.panelController.selectionChange();
         if(document.selectedLayers && document.selectedLayers.layers && document.selectedLayers.layers[0]) {
             // console.log(document.selectedLayers.layers[0]);
-            const info =  document.selectedLayers.layers[0].sketchObject.userInfo();
-            if (info && info['Navi']) {
+            // const info =  document.selectedLayers.layers[0].sketchObject.userInfo();
+            // if (info && info['Navi']) {
                 // console.log(info['Navi']['style']);
-            }
+            // }
 
 
         }

@@ -26,15 +26,15 @@
 }
 
 +(void)save:(NSMutableDictionary*) nvlayer to:(MSLayer*)layer {
-    if (layer.userInfo == nil) {
-
-    } if ([layer.userInfo isKindOfClass:[NSDictionary class]]){
-        NSMutableDictionary *n = [layer.userInfo mutableCopy];
-        n[@"Navi"] = nvlayer;
-        layer.userInfo = n;
-        return;
-    }
-    layer.userInfo = @{@"Navi": nvlayer};
+//    if (layer.userInfo == nil) {
+//
+//    } if ([layer.userInfo isKindOfClass:[NSDictionary class]]){
+//        NSMutableDictionary *n = [layer.userInfo mutableCopy];
+//        n[@"Navi"] = nvlayer;
+//        layer.userInfo = n;
+//        return;
+//    }
+//    layer.userInfo = @{@"Navi": nvlayer};
 }
 
 

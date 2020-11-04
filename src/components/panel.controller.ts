@@ -28,18 +28,6 @@ export class PanelController {
         });
         this.updateSpecs();
         this.minWidth = this.view.frame().size.width;
-        // 以下是颜色测试代码
-        // const section = getSubviewById(this.view, 'section');
-        // this.sectionInfo = getSubviewById(this.view, 'sectionInfo');
-        // const colorp = getSubviewById(section, 'colorp');
-        // this.colorController = colorp.colorPanelController();
-        // this.colorController.delegate = new MochaJSDelegate({
-        //     'colorChange:': (colorCode: string) => {
-        //         this.sectionInfo.setTitle(colorCode);
-        //         this.emitter.emit(PANEL_EVENT.COLOR_CHANGE, colorCode);
-        //     }
-        // }).getClassInstance();
-        // 颜色测试代码结束
     }
     show() {
         // this.NSController.layoutSection();
@@ -108,7 +96,7 @@ export class PanelController {
         const specData = new SpecData(this.ctx.resourcesPath());
         const textSpec = specData.getTextSpec();
         const borderSpec = specData.getBorderSpec();
-        console.log(borderSpec);
+        // console.log(borderSpec);
 
         this.NSController.updateSpec({
             Color: specData.getColorSpec(),

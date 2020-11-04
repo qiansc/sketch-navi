@@ -10,7 +10,7 @@
 #import "NVTextPanel.h"
 #import "NVTextSource.h"
 #import "NVTextCollectionItemView.h"
-#import "NVLayer.h"
+#import "NVUserInfo.h"
 #import "MSLayerArray.h"
 
 @interface NVTextPanel ()
@@ -67,8 +67,8 @@
         if (![[layer className] isEqual:@"MSTextLayer"]){
             continue;
         }
-        NSArray<NSString*>* textCodes = [NVLayer getTextCodeIn:layer];
-        for(NSString *textCode in textCodes) {
+       NSString* textCode = [NVUserInfo fromLayer:layer].textCode;
+        // for(NSString *textCode in textCodes) {
             for(NSView *view in self.collectionView.subviews) {
                 if ([view isKindOfClass:[NVTextCollectionItemView class]]) {
                     NVTextCollectionItemView *item = ((NVTextCollectionItemView *)view);
@@ -82,7 +82,7 @@
                     }
                 }
             }
-        }
+        // }
     }
     [self.collectionView.toggleDelegate clearActive];
     if (indexPaths.count > 0) {
@@ -97,7 +97,7 @@
     if (self.selections) {
         for(MSLayer *layer in self.selections) {
             if ([[layer className] isEqual:@"MSTextLayer"]) {
-                 [NVLayer set:layer textCode:spec.code];
+                [NVUserInfo fromLayer:layer].textCode = spec.code;
             }
             [self applyColor:NSColorFromRGBString(spec.defaultColor) toLayer:layer];
             [self applyFontSize:spec.iosFontSize weight:spec.iosFont toLayer:layer];
