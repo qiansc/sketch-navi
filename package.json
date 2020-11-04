@@ -26,6 +26,7 @@
     "@types/sketch": "git+https://github.com/qjebbs/sketch.d.ts.git",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.4.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^6.5.1",
     "terser-webpack-plugin": "^3.0.0",
     "ts-loader": "^7.0.0",
@@ -36,5 +37,10 @@
     "mocha-js-delegate": "^0.2.0",
     "sketch-module-web-view": "^3.4.1"
   },
-  "author": "MEUX"
+  "author": "MEUX",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
