@@ -4,6 +4,17 @@ export class SpecData {
     constructor(private assetsPath: string) {
         // console.log(assetsPath);
     }
+    static loadJSONData(filepath: string, assetsPath: string) {
+        let json: any = {};
+        if (existsSync(`${assetsPath}${filepath}`)) {
+            const text = readFileSync(`${assetsPath}${filepath}`).toString();
+            json =  JSON.parse(text);
+        } else {
+            const text = readFileSync(`${assetsPath}/example${filepath}`).toString();
+            json =  JSON.parse(text);
+        }
+        return json;
+    }
     getColorSpec() {
         let file = `/data/color-baiduboxapp-FC.json`;
         let json: any = {};
@@ -92,6 +103,30 @@ export class SpecData {
             exist[spec.code] = true;
             arr.push(spec);
         });
+        return arr;
+    }
+    getMaskSpec() {
+        let arr: any[] = [];
+        let exist: any = {};
+        SpecData.loadJSONData('/data/spec-baiduboxapp.json', this.assetsPath)
+            .data.forEach(function(item: any) {
+                let spec = item;
+                if (exist[spec.code]) {
+                    return;
+                }
+                if (!spec.code || spec.code.indexOf('F_Mask') !== 0) {
+                    return;
+                }
+                spec.dim = [item.cclass, item.cmeaning];
+                exist[spec.code] = true;
+                arr.push({
+                    ...spec,
+                    color: `#${JSON.parse(spec.color).color}`
+                });
+                console.log('======', spec.color)
+                console.log('======', typeof spec.color)
+            });
+        console.log('------data---', arr);
         return arr;
     }
 }

@@ -1,32 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NVMaskPanel">
             <connections>
+                <outlet property="collectionView" destination="f3w-Fx-H4P" id="pUT-wf-5YS"/>
                 <outlet property="headerView" destination="QPO-xI-fUW" id="ps5-7p-06e"/>
-                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="bAc-8P-rUy"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="240" height="170"/>
+            <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QPO-xI-fUW" customClass="NVPanelHeaderView">
-                    <rect key="frame" x="0.0" y="136" width="240" height="34"/>
+                    <rect key="frame" x="0.0" y="266" width="240" height="34"/>
                 </customView>
+                <collectionView ambiguous="YES" allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3w-Fx-H4P" customClass="NVMaskCollectionView">
+                    <rect key="frame" x="0.0" y="-34" width="240" height="300"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2000" id="BHn-tG-rnp"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="3" id="Q7Z-Jl-dFa">
+                        <size key="itemSize" width="50" height="50"/>
+                    </collectionViewFlowLayout>
+                    <color key="primaryBackgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                </collectionView>
             </subviews>
             <constraints>
                 <constraint firstItem="QPO-xI-fUW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="CeT-lx-aeY"/>
                 <constraint firstItem="QPO-xI-fUW" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="JNP-7h-hRN"/>
                 <constraint firstAttribute="trailing" secondItem="QPO-xI-fUW" secondAttribute="trailing" id="cC2-oU-Jrk"/>
+                <constraint firstAttribute="trailing" secondItem="f3w-Fx-H4P" secondAttribute="trailing" id="gbi-jh-scj"/>
+                <constraint firstItem="f3w-Fx-H4P" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ul9-QX-GtE"/>
+                <constraint firstItem="f3w-Fx-H4P" firstAttribute="top" secondItem="QPO-xI-fUW" secondAttribute="bottom" id="xMN-NW-rb9"/>
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>
+        <customObject id="ggC-oT-6wx" customClass="NVCollectionController">
+            <connections>
+                <outlet property="view" destination="f3w-Fx-H4P" id="1Xq-1n-4tE"/>
+            </connections>
+        </customObject>
     </objects>
 </document>
