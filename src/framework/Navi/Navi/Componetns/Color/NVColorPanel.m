@@ -11,6 +11,7 @@
 #import "NVColorSource.h"
 #import "NVColorCollectionItemView.h"
 #import "NVUserInfo.h"
+#import "NVLayer.h"
 #import "MSLayerArray.h"
 
 @interface NVColorPanel ()
@@ -117,19 +118,19 @@
 }
 /* 应用color到图层上 */
 -(void)applyColor:(NSColor*) color toLayer:(MSLayer*) layer{
-    if ([[layer className] isEqual:@"MSTextLayer"]) {
+    if (self.collectionView.dataSource.isTextType) {
         MSColor *c = layer.textColor;
         c.red = color.redComponent;
         c.green = color.greenComponent;
         c.blue = color.blueComponent;
         layer.textColor = c;
-    } else if (self.modeButton.selectedSegment == 0 && layer.style.fills) {
+    } else if (self.collectionView.dataSource.isFillMode && layer.style.fills) {
         for(MSStyleFill *fill in layer.style.fills) {
             fill.color.red = color.redComponent;
             fill.color.green = color.greenComponent;
             fill.color.blue = color.blueComponent;
         }
-    } else if (self.modeButton.selectedSegment == 1 && layer.style.borders) {
+    } else if (self.collectionView.dataSource.isBorderMode && layer.style.borders) {
         for(MSStyleBorder *border in layer.style.borders) {
             border.color.red = color.redComponent;
             border.color.green = color.greenComponent;

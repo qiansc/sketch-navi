@@ -10,11 +10,8 @@
 #import "NVLineSource.h"
 #import "NVLineCollectionItemView.h"
 #import "NVUserInfo.h"
+#import "NVLayer.h"
 #import "MSLayerArray.h"
-
-@interface NVLinePanel ()
-
-@end
 
 @implementation NVLinePanel
 
@@ -76,12 +73,10 @@
     if (self.selections) {
         for (MSLayer *layer in self.selections) {
             NVUserInfo *info = [NVUserInfo fromLayer:layer];
-            if ([[layer className] isEqual:@"MSShapePathLayer"]) {
-                for(NSInteger i = 0; i < [layer.style.borders count]; i++) {
-                    info.borderThicknessCode = spec.specCode;
-                }
+            if ([NVLayer isShapePathLayer:layer] || [NVLayer isShape:layer]) {
+                info.borderThicknessCode = spec.specCode;
+                [self applySpec:spec toLayer:layer];
             }
-            [self applySpec:spec toLayer:layer];
         }
     }
 }
@@ -91,11 +86,10 @@
 }
 
 - (void)applyLine:(NSString *) lineWeight toLayer:(MSLayer *) layer {
-    if (![[layer className] isEqual:@"MSShapePathLayer"]) {
-        return;
-    }
-    for (MSStyleBorder *border in layer.style.borders) {
-        border.thickness = [(NSNumber *)lineWeight doubleValue];
+    if ([NVLayer isShapePathLayer:layer] || [NVLayer isShape:layer]) {
+        for (MSStyleBorder *border in layer.style.borders) {
+            border.thickness = [(NSNumber *)lineWeight doubleValue];
+        }
     }
 }
 

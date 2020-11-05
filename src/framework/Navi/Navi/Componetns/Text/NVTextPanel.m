@@ -11,6 +11,7 @@
 #import "NVTextSource.h"
 #import "NVTextCollectionItemView.h"
 #import "NVUserInfo.h"
+#import "NVLayer.h"
 #import "MSLayerArray.h"
 
 @interface NVTextPanel ()
@@ -64,7 +65,7 @@
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
     NSString *title = nil;
     for(MSLayer *layer in layers) {
-        if (![[layer className] isEqual:@"MSTextLayer"]){
+        if (![NVLayer isTextLayer:layer]){
             continue;
         }
        NSString* textCode = [NVUserInfo fromLayer:layer].textCode;
@@ -96,7 +97,7 @@
 -(void)applySpecToSelections:(NVTextSpec) spec {
     if (self.selections) {
         for(MSLayer *layer in self.selections) {
-            if ([[layer className] isEqual:@"MSTextLayer"]) {
+            if ([NVLayer isTextLayer:layer]) {
                 [NVUserInfo fromLayer:layer].textCode = spec.code;
             }
             [self applyColor:NSColorFromRGBString(spec.defaultColor) toLayer:layer];
@@ -107,7 +108,7 @@
 
 /* 应用color到图层上 */
 -(void)applyFontSize:(double) fontSize weight:(double) fontWeight toLayer:(MSLayer*) layer{
-    if ([[layer className] isEqual:@"MSTextLayer"]) {
+    if ([NVLayer isTextLayer:layer]) {
         layer.fontSize = fontSize;
         layer.font = [NSFont systemFontOfSize:fontSize weight:fontWeight];
     }
@@ -116,7 +117,7 @@
 
 /* 应用color到图层上 */
 -(void)applyColor:(NSColor*) color toLayer:(MSLayer*) layer{
-    if ([[layer className] isEqual:@"MSTextLayer"]) {
+    if ([NVLayer isTextLayer:layer]) {
         MSColor *c = layer.textColor;
         c.red = color.redComponent;
         c.green = color.greenComponent;
