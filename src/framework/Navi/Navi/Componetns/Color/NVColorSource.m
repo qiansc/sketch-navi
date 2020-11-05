@@ -16,7 +16,6 @@
     NSMutableDictionary *dims;
     NSArray<NSDictionary*> *specs;
     NSInteger mod;
-    NSString *shapeMod; // Text / ShapePath / other
     NSString *themeMod; // default /dark / night
 
 }
@@ -24,13 +23,10 @@
 -(instancetype)init{
     NVColorSource *s = [super init];
     mod = 0;
-    shapeMod = @"other";
     themeMod = @"default";
     _semanticMode = NO;
     return s;
 }
-// hex: "EEEEEE", alpha: 100, specCode: "SAM_001", desc: "语义描述001",
-// dim: ["背景色"], fillMode: true, borderMode: true,
 
 -(void)update:(NSArray<NSDictionary*>*) newSpecs {
     specs = newSpecs;
@@ -66,7 +62,7 @@
         return false;
     }
 
-    if ([shapeMod isEqual:@"Text"]) {
+    if (self.isTextType) {
         if (![specDict[@"shapeMode"] isEqual:@"Text"]) return false;
     } else {
         if ([specDict[@"shapeMode"] isEqual:@"Text"]) return false;
@@ -114,15 +110,20 @@
     [self update: specs];
     if(updatedCallback) updatedCallback();
 }
+- (BOOL)isFillMode {return mod == 0;}
+- (BOOL)isBorderMode {return mod == 1;}
 
-- (void)setShapeMode:(NSString *) mode {
-    NSString *name = [mode isEqual:@"MSTextLayer"] ? @"Text" : @"Others";
-    if (![shapeMod isEqual:name]) {
-        shapeMod = name;
+-(void)setShapeType:(NSString *)type {
+    if (![self.shapeType isEqual:type]) {
+        _shapeType = type;
         [self update: specs];
         if(updatedCallback) updatedCallback();
     }
 }
+-(BOOL)isTextType{
+    return [self.shapeType isEqual:@"MSTextLayer"];
+}
+
 
 - (void)setThemeMode:(NSString *) mode {
     if (![themeMod isEqual:mode]) {

@@ -9,7 +9,7 @@
 #import "NVLinePanel.h"
 #import "NVLineSource.h"
 #import "NVLineCollectionItemView.h"
-#import "NVLayer.h"
+#import "NVUserInfo.h"
 #import "MSLayerArray.h"
 
 @interface NVLinePanel ()
@@ -50,20 +50,18 @@
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
     NSString *title = nil;
     for (MSLayer *layer in layers) {
-        NSArray<NSString*>* lineCodes = [NVLayer getLineWeightCodeIn:layer];
-        for (NSString *lineCode in lineCodes) {
-            for (NSView *view in self.collectionView.subviews) {
-                if ([view isKindOfClass:[NVLineCollectionItemView class]]) {
-                    NVLineCollectionItemView *item = ((NVLineCollectionItemView *) view);
-                    if ([item.spec.specCode isEqual:lineCode]) {
-                        [indexPaths addObject:item.indexPath];
-                        [self applyLine:item.spec.weight toLayer:layer];
-                        title = item.spec.specCode;
-                    }
+        NSString *borderThicknessCode =[NVUserInfo fromLayer:layer].borderThicknessCode;;
+
+        for (NSView *view in self.collectionView.subviews) {
+            if ([view isKindOfClass:[NVLineCollectionItemView class]]) {
+                NVLineCollectionItemView *item = ((NVLineCollectionItemView *) view);
+                if ([item.spec.specCode isEqual:borderThicknessCode]) {
+                    [indexPaths addObject:item.indexPath];
+                    [self applyLine:item.spec.weight toLayer:layer];
+                    title = item.spec.specCode;
                 }
             }
         }
-
     }
     [self.collectionView.toggleDelegate clearActive];
     if (indexPaths.count > 0) {
@@ -77,9 +75,10 @@
 - (void) applySpecToSelections:(NVLineSpec)spec {
     if (self.selections) {
         for (MSLayer *layer in self.selections) {
+            NVUserInfo *info = [NVUserInfo fromLayer:layer];
             if ([[layer className] isEqual:@"MSShapePathLayer"]) {
                 for(NSInteger i = 0; i < [layer.style.borders count]; i++) {
-                    [NVLayer set:layer lineWeightCode:spec.specCode at:i];
+                    info.borderThicknessCode = spec.specCode;
                 }
             }
             [self applySpec:spec toLayer:layer];

@@ -10,7 +10,7 @@
 #import "NVColorPanel.h"
 #import "NVColorSource.h"
 #import "NVColorCollectionItemView.h"
-#import "NVLayer.h"
+#import "NVUserInfo.h"
 #import "MSLayerArray.h"
 
 @interface NVColorPanel ()
@@ -60,24 +60,31 @@
 - (void)selectionChange:(MSLayerArray *) layers {
     self.selections = layers;
     if (layers != nil && layers.firstLayer != nil){
-        [self.collectionView.dataSource setShapeMode:[layers.firstLayer className]];
+        self.collectionView.dataSource.shapeType = [layers.firstLayer className];
     }
 
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
     NSString *title = nil;
     for(MSLayer *layer in layers) {
-        NSArray<NSString*>* colorCodes = self.modeButton.selectedSegment ? [NVLayer getBordersColorCodeIn:layer] : [NVLayer getFillsColorCodeIn:layer];
-        for(NSString *colorCode in colorCodes) {
-            for(NSView *view in self.collectionView.subviews) {
-                if ([view isKindOfClass:[NVColorCollectionItemView class]]) {
-                    NVColorCollectionItemView *item = ((NVColorCollectionItemView *)view);
-                    if([item.spec.specCode isEqual:colorCode]) {
-                        // 找到和specCode对应的indexPath
-                        [indexPaths addObject: item.indexPath];
-                        // 校准一下颜色s
-                        [self applyColor:NSColorFromRGBString(item.spec.hex) toLayer:layer];
-                        title = item.spec.specCode;
-                    }
+        NSString *colorCode;
+        NVUserInfo *info = [NVUserInfo fromLayer:layer];
+        if (self.collectionView.dataSource.isTextType) {
+            colorCode = info.fontColorCode;
+        } else if (self.collectionView.dataSource.isFillMode) {
+            colorCode = info.fillColorCode;
+        } else if (self.collectionView.dataSource.isBorderMode) {
+            colorCode = info.borderColorCode;
+        }
+        
+        for(NSView *view in self.collectionView.subviews) {
+            if ([view isKindOfClass:[NVColorCollectionItemView class]]) {
+                NVColorCollectionItemView *item = ((NVColorCollectionItemView *)view);
+                if([item.spec.specCode isEqual:colorCode]) {
+                    // 找到和specCode对应的indexPath
+                    [indexPaths addObject: item.indexPath];
+                    // 校准一下颜色s
+                    [self applyColor:NSColorFromRGBString(item.spec.hex) toLayer:layer];
+                    title = item.spec.specCode;
                 }
             }
         }
@@ -96,16 +103,13 @@
 -(void)applySpecToSelections:(NVColorSpec) spec {
     if (self.selections) {
         for(MSLayer *layer in self.selections) {
-            if ([[layer className] isEqual:@"MSTextLayer"]) {
-                [NVLayer set:layer textColorCode:spec.specCode];
-            } else if (self.modeButton.selectedSegment == 0 && layer.style.fills) {
-                for(NSInteger i = 0; i < [layer.style.fills count]; i++) {
-                    [NVLayer set:layer fillColorCode:spec.specCode at: i];
-                }
-            } else if (self.modeButton.selectedSegment == 1 && layer.style.borders) {
-                for(NSInteger i = 0; i < [layer.style.borders count]; i++) {
-                    [NVLayer set:layer borderColorCode:spec.specCode at: i];
-                }
+            NVUserInfo *info = [NVUserInfo fromLayer:layer];
+            if (self.collectionView.dataSource.isTextType) {
+                info.fontColorCode = spec.specCode;
+            } else if (self.collectionView.dataSource.isFillMode && layer.style.fills) {
+                info.fillColorCode = spec.specCode;
+            } else if (self.collectionView.dataSource.isBorderMode && layer.style.borders) {
+                info.borderColorCode = spec.specCode;
             }
             [self applyColor:NSColorFromRGBString(spec.hex) toLayer:layer];
         }

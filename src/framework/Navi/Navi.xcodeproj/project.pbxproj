@@ -145,8 +145,6 @@
 		B2D54D4F254752B0002E1D91 /* NVColorSemanticItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D4C254752B0002E1D91 /* NVColorSemanticItem.xib */; };
 		B2D54D52254752DB002E1D91 /* NVColorSemanticItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D54D50254752DB002E1D91 /* NVColorSemanticItemView.h */; };
 		B2D54D53254752DB002E1D91 /* NVColorSemanticItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D54D51254752DB002E1D91 /* NVColorSemanticItemView.m */; };
-		B2E02AD825459FA700BBE87F /* NVLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E02AD625459FA700BBE87F /* NVLayer.h */; };
-		B2E02AD925459FA700BBE87F /* NVLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E02AD725459FA700BBE87F /* NVLayer.m */; };
 		B2E298C52552FBF100D8C31B /* NVUserInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E298C32552FBF100D8C31B /* NVUserInfo.h */; };
 		B2E298C62552FBF100D8C31B /* NVUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E298C42552FBF100D8C31B /* NVUserInfo.m */; };
 /* End PBXBuildFile section */
@@ -300,8 +298,6 @@
 		B2D54D4C254752B0002E1D91 /* NVColorSemanticItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVColorSemanticItem.xib; sourceTree = "<group>"; };
 		B2D54D50254752DB002E1D91 /* NVColorSemanticItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVColorSemanticItemView.h; sourceTree = "<group>"; };
 		B2D54D51254752DB002E1D91 /* NVColorSemanticItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVColorSemanticItemView.m; sourceTree = "<group>"; };
-		B2E02AD625459FA700BBE87F /* NVLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVLayer.h; sourceTree = "<group>"; };
-		B2E02AD725459FA700BBE87F /* NVLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVLayer.m; sourceTree = "<group>"; };
 		B2E298C32552FBF100D8C31B /* NVUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVUserInfo.h; sourceTree = "<group>"; };
 		B2E298C42552FBF100D8C31B /* NVUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVUserInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -635,8 +631,6 @@
 				B23CA2942519855E00FB2416 /* HexColor.h */,
 				A396D0E825346F990061CC73 /* Util.h */,
 				A396D0E925346F990061CC73 /* Util.m */,
-				B2E02AD625459FA700BBE87F /* NVLayer.h */,
-				B2E02AD725459FA700BBE87F /* NVLayer.m */,
 				A3BFB1D825500008009CB0C1 /* NVBundle.h */,
 				A3BFB1D925500009009CB0C1 /* NVBundle.m */,
 				B2E298C32552FBF100D8C31B /* NVUserInfo.h */,
@@ -703,7 +697,6 @@
 				B2D54D462547294F002E1D91 /* NVArtboard.h in Headers */,
 				A38993F9250B85A000211D90 /* Navi.h in Headers */,
 				A300365125386EAF0093395D /* NVTextPanel.h in Headers */,
-				B2E02AD825459FA700BBE87F /* NVLayer.h in Headers */,
 				30D247A72542E7080027602C /* NVLineCollectionItemView.h in Headers */,
 				B226FF5C253CB447009DD159 /* NVCollectionController.h in Headers */,
 				A3522962253DA8B900F42D58 /* NVSource.h in Headers */,
@@ -863,7 +856,6 @@
 				A36167142551177300FE0840 /* NVSectionHeader.m in Sources */,
 				A3BFB1DB25500009009CB0C1 /* NVBundle.m in Sources */,
 				A3FB3706253EC2E2001D152C /* NVToggleBox.m in Sources */,
-				B2E02AD925459FA700BBE87F /* NVLayer.m in Sources */,
 				B2E298C62552FBF100D8C31B /* NVUserInfo.m in Sources */,
 				A38C95C2254835CF008C0A57 /* NVTextSource.m in Sources */,
 				A3522957253D6C3A00F42D58 /* NVCollectionView.m in Sources */,

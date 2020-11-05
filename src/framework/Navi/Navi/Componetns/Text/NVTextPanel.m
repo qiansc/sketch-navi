@@ -122,7 +122,7 @@
         c.green = color.greenComponent;
         c.blue = color.blueComponent;
         layer.textColor = c;
-    }// fontSize //fontWeight
+    }
 }
 
 

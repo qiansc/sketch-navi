@@ -7,6 +7,7 @@
 //
 
 #import "NVUserInfo.h"
+#import "MSStyleFill.h"
 
 @implementation NVUserInfo {
     MSLayer *_layer;
@@ -53,21 +54,65 @@ static NSMutableDictionary *cache;
 
 #pragma mark Text
 
--(NSString*)textCode {
-    return self.data[@"textCode"];
-}
--(void)setTextCode:(NSString*)textCode {
-    self.data[@"textCode"] = textCode;
+-(NSString*)textCode { return self.data[@"textCode"]; }
+
+-(void)setTextCode:(NSString*)code {
+    self.data[@"textCode"] = code;
     [self save];
 }
 
-//-(NSArray<NSString *>*)getTextCode{
-//    NSDictionary *nlayer = [NVLayer fromLayer:layer];
-//    if ([[layer className] isEqual:@"MSTextLayer"] && nlayer[@"textCode"]){
-//        return @[nlayer[@"textCode"]];
-//    }
-//    return @[];
-//}
+-(NSString*)fontColorCode { return self.data[@"fontColorCode"]; }
 
+-(void)setFontColorCode:(NSString*)code {
+    self.data[@"fontColorCode"] = code;
+    [self save];
+}
+
+#pragma mark Style-Fill
+
+-(NSString *)fillColorCode { // 默认只返回一个 如果需要多个自行访问data.style.fills 获取 下同
+    for(NSDictionary* d in self.data[@"style"][@"fills"]) {
+        if (d[@"colorCode"]) return d[@"colorCode"];
+    }
+    return nil;
+}
+
+-(void)setFillColorCode:(NSString*)code {
+    if ([self.data[@"style"][@"fills"] count] == 0)
+        [self.data[@"style"][@"fills"] addObject:[NSMutableDictionary new]];
+    self.data[@"style"][@"fills"][0][@"colorCode"] = code;
+    [self save];
+}
+
+#pragma mark Style-Border
+
+-(NSString *)borderColorCode {
+    for(NSDictionary* d in self.data[@"style"][@"borders"]) {
+        if (d[@"colorCode"]) return d[@"colorCode"];
+    }
+    return nil;
+}
+
+-(void)setBorderColorCode:(NSString*)code {
+    if ([self.data[@"style"][@"borders"] count] == 0)
+        [self.data[@"style"][@"borders"] addObject:[NSMutableDictionary new]];
+    self.data[@"style"][@"borders"][0][@"colorCode"] = code;
+    [self save];
+}
+
+
+-(NSString *)borderThicknessCode {
+    for(NSDictionary* d in self.data[@"style"][@"borders"]) {
+        if (d[@"borderThicknessCode"]) return d[@"borderThicknessCode"];
+    }
+    return nil;
+}
+
+-(void)setBorderThicknessCode:(NSString*)code {
+    if ([self.data[@"style"][@"borders"] count] == 0)
+        [self.data[@"style"][@"borders"] addObject:[NSMutableDictionary new]];
+    self.data[@"style"][@"borders"][0][@"borderThicknessCode"] = code;
+    [self save];
+}
 
 @end

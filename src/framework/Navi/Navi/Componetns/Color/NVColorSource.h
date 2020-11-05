@@ -39,8 +39,13 @@ typedef struct NVColorSpec NVColorSpec;
 
 +(NVColorSpec)value:(NSDictionary*) specDict;
 
+@property (nonatomic, strong) NSString *shapeType;
+- (BOOL)isTextType;
+
 - (void)setMode:(NSInteger) mode;
-- (void)setShapeMode:(NSString *) mode;
+- (BOOL)isFillMode;
+- (BOOL)isBorderMode;
+
 - (void)setThemeMode:(NSString *) mode;
 
 @end

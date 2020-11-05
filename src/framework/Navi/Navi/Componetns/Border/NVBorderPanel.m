@@ -9,7 +9,7 @@
 #import "NVBorderPanel.h"
 #import "NVBorderSource.h"
 #import "NVBorderCollectionItemView.h"
-#import "NVLayer.h"
+#import "NVUserInfo.h"
 #import "MSLayerArray.h"
 
 @interface NVBorderPanel ()
