@@ -8,24 +8,60 @@
 
 #import "NVBorderCollectionItemView.h"
 
-@implementation NVBorderCollectionItemView
+@implementation NVBorderCollectionItemView {
+    NSBox *box;
+    NSTextField *textField;
+}
 
-- (void)drawRect:(NSRect)dirtyRect {
-    [super drawRect:dirtyRect];
-    self.wantsLayer = true;
-    self.layer.backgroundColor = [NSColor greenColor].CGColor;
-    // Drawing code here.
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    NVBorderCollectionItemView *view = [super initWithCoder:coder];
+    view.boxType = NSBoxCustom;
+    view.borderColor = [NSColor disabledControlTextColor];
+    view.borderType = NSLineBorder;
+    view.borderWidth = 1;
+    view.cornerRadius = 3;
+    view.wantsLayer = YES;
+    for(NSView *v in view.subviews) {
+        if ([v.identifier isEqual:@"borderBox"]) {
+            box = v;
+        }
+        if ([v.identifier isEqual:@"ItemTitle"]) textField = v;
+    }
+    box.fillColor = [NSColor systemGrayColor];
+    box.borderWidth = 0;
+    return view;
 }
 
 -(void)setSpec:(NVBorderSpec)borderSpec{
     _spec = borderSpec;
     [self drawStyle];
-    self.fillColor  = [NSColor whiteColor];
-//    descText.stringValue = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];
-//    cb0.fillColor = NSColorFromRGBString(self.spec.defaultColor);
-//    cb1.fillColor = NSColorFromRGBString(self.spec.darkColor);
-//    cb2.fillColor = NSColorFromRGBString(self.spec.nightColor);
-//    self.toolTip = [NSString stringWithFormat:@"%@ - %@", self.spec.code, self.spec.cclass];
+    textField.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
+    box.cornerRadius = 0;
+    NSArray<NSString*> *arr = [borderSpec.ios componentsSeparatedByString:@","];
+    if (arr[0]) {
+        double num = [arr[0] doubleValue];
+        if (num == -1) box.cornerRadius = 15;
+        else box.cornerRadius = num;
+    }
+    box.boxType = NSBoxCustom;
+    box.borderType = NSLineBorder;
+    box.wantsLayer = true;
+}
+
+
+-(void)drawStyle {
+    [super drawStyle];
+    if (self.isSelected) {
+        self.borderColor = [NSColor controlAccentColor];
+        textField.textColor = [NSColor controlAccentColor];
+    } else if (self.isHover) {
+        self.borderColor = [NSColor disabledControlTextColor];
+        textField.textColor = [NSColor secondaryLabelColor];
+    } else {
+        self.fillColor  = [NSColor controlBackgroundColor];
+        self.borderColor = [NSColor windowBackgroundColor];
+        textField.textColor = [NSColor secondaryLabelColor];
+    }
 }
 
 @end

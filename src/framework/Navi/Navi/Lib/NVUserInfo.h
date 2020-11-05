@@ -31,6 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *borderThicknessCode; //厚度
 
 
+#pragma mark Points - CurvePoint
+
+@property (nonatomic, strong) NSString *cornerRadiusCode;
+
 
 @end
 

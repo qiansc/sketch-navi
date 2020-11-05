@@ -10,6 +10,7 @@
 #import "NVBorderSource.h"
 #import "NVBorderCollectionItemView.h"
 #import "NVUserInfo.h"
+#import "NVLayer.h"
 #import "MSLayerArray.h"
 
 @interface NVBorderPanel ()
@@ -48,18 +49,59 @@
 }
 
 - (void)selectionChange:(MSLayerArray *) layers {
+    self.selections = layers;
+    NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
+    NSString *title = nil;
+    for (MSLayer *layer in layers) {
+        if (![NVLayer isRectangleShape:layer]) continue;
+        NSString *cornerRadiusCode =[NVUserInfo fromLayer:layer].cornerRadiusCode;
+        for (NSView *view in self.collectionView.subviews) {
+            if ([view isKindOfClass:[NVBorderCollectionItemView class]]) {
+                NVBorderCollectionItemView *item = ((NVBorderCollectionItemView *) view);
+                if ([item.spec.code isEqual:cornerRadiusCode]) {
+                    [indexPaths addObject:item.indexPath];
+                    [self applyCornerRadius:item.spec.ios toLayer:layer];
+                    title = item.spec.code;
+                }
+            }
+        }
+    }
+    [self.collectionView.toggleDelegate clearActive];
+    if (indexPaths.count > 0) {
+        [self.collectionView.toggleDelegate setActives:indexPaths];
+        if (indexPaths.count == 1) {
+            [self updateTitle:title];
+        }
+    }
     
 }
 /* 应用spec到图层上 */
 -(void)applySpecToSelections:(NVBorderSpec) spec {
     if (self.selections) {
         for(MSLayer *layer in self.selections) {
-//            if ([[layer className] isEqual:@"MSTextLayer"]) {
-//                 [NVLayer set:layer textCode:spec.code];
-//            }
-//            [self applyColor:NSColorFromRGBString(spec.defaultColor) toLayer:layer];
-//            [self applyFontSize:spec.iosFontSize weight:spec.iosFont toLayer:layer];
+            if (![NVLayer isRectangleShape:layer]) continue;
+            [NVUserInfo fromLayer:layer].cornerRadiusCode = spec.code;
+            [self applyCornerRadius:spec.ios toLayer:layer];
         }
     }
 }
+
+-(void)applyCornerRadius:(NSString *) radiusString toLayer:(MSLayer*) layer{
+    NSArray<NSString*> *arr = [radiusString componentsSeparatedByString:@","];
+    int index = 0;
+    for(MSCurvePoint *point in layer.points) {
+        if (arr[index]) {
+            float num = [arr[index] doubleValue];
+            if (num == -1) {
+                point.cornerRadius = MAX(layer.frame.width, layer.frame.height)/2;
+            } else {
+                point.cornerRadius = num;
+            }
+        } else {
+            point.cornerRadius = 0;
+        }
+        index++;
+    }
+}
+
 @end

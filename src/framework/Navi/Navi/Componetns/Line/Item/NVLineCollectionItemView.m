@@ -53,11 +53,11 @@
         textField.textColor = [NSColor controlAccentColor];
     } else if (self.isHover) {
         self.borderColor = [NSColor disabledControlTextColor];
-        textField.textColor = [NSColor disabledControlTextColor];
+        textField.textColor = [NSColor secondaryLabelColor];
     } else {
         self.fillColor  = [NSColor controlBackgroundColor];
         self.borderColor = [NSColor windowBackgroundColor];
-        textField.textColor = [NSColor windowBackgroundColor];
+        textField.textColor = [NSColor secondaryLabelColor];
     }
 }
 

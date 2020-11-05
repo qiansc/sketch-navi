@@ -115,4 +115,14 @@ static NSMutableDictionary *cache;
     [self save];
 }
 
+
+#pragma mark Points - CurvePoint
+
+-(NSString *)cornerRadiusCode {return self.data[@"cornerRadiusCode"];}
+
+-(void)setCornerRadiusCode:(NSString*)code {
+    self.data[@"cornerRadiusCode"] = code;
+    [self save];
+}
+
 @end

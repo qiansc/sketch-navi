@@ -133,6 +133,8 @@
 		},
 		"dim": ["标题基础模板", "模块弱化标题"]
     },
-    {"_id":"5f61ccecf3338a355c53d7c0","id":15,"code":"S_J_X15","cline":"搜索","cclass":"元素边角","cmeaning":"圆角","elementCode":"J_X15","ios":"","android":"","h5":"27,27,27,27"}
+    {"code":"S_J_X14","cline":"搜索","cclass":"元素边角","cmeaning":"3,3,3,3","elementCode":"J_X14","ios":"3,3,3,3","android":"5,5,5,5","h5":""},
+    {"code":"S_J_X15","cline":"搜索","cclass":"元素边角","cmeaning":"9,9,9,9","elementCode":"J_X15","ios":"9,9,9,9","android":"13,13,13,13","h5":""},
+    {"code":"S_J_X16","cline":"搜索","cclass":"元素边角","cmeaning":"全圆","elementCode":"J_X16","ios":"-1,-1,-1,-1","android":"-1,-1,-1,-1","h5":""}
     ]
 }

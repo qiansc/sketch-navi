@@ -259,6 +259,8 @@
 		A3BFB1D925500009009CB0C1 /* NVBundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVBundle.m; sourceTree = "<group>"; };
 		A3DBD3C62553ECB00042F14C /* NVLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVLayer.h; sourceTree = "<group>"; };
 		A3DBD3C72553ECB00042F14C /* NVLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVLayer.m; sourceTree = "<group>"; };
+		A3DBD3CA255415CE0042F14C /* MSCurvePoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSCurvePoint.h; sourceTree = "<group>"; };
+		A3DBD3CB25541FFC0042F14C /* MSRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSRect.h; sourceTree = "<group>"; };
 		A3E6094325109AB500C98536 /* Panel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Panel.xib; sourceTree = "<group>"; };
 		A3EE0FE5254059E900C3998D /* MSDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSDocument.h; sourceTree = "<group>"; };
 		A3EE0FE625405AEE00C3998D /* MSLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSLayer.h; sourceTree = "<group>"; };
@@ -320,11 +322,11 @@
 		30D247A42542E5FE0027602C /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				30D247A52542E7080027602C /* NVLineCollectionItemView.h */,
-				30D247A62542E7080027602C /* NVLineCollectionItemView.m */,
 				30D247A92542ECF00027602C /* NVLineCollectionItem.h */,
 				30D247AA2542ECF00027602C /* NVLineCollectionItem.m */,
 				30D247AB2542ECF00027602C /* NVLineCollectionItem.xib */,
+				30D247A52542E7080027602C /* NVLineCollectionItemView.h */,
+				30D247A62542E7080027602C /* NVLineCollectionItemView.m */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -565,6 +567,8 @@
 				A3EE0FE82540614600C3998D /* MSStyleFill.h */,
 				A3F982D0254668C200072AAA /* MSStyleBorder.h */,
 				A3EE0FE92540649F00C3998D /* MSColor.h */,
+				A3DBD3CA255415CE0042F14C /* MSCurvePoint.h */,
+				A3DBD3CB25541FFC0042F14C /* MSRect.h */,
 			);
 			path = Sketch;
 			sourceTree = "<group>";

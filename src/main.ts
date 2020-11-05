@@ -74,7 +74,6 @@ export function onSelectionChanged(context: any) {
     if (runtime) {
         runtime.panelController.selectionChange();
         if(document.selectedLayers && document.selectedLayers.layers && document.selectedLayers.layers[0]) {
-            // console.log(document.selectedLayers.layers[0].style.borders);
             // const info =  document.selectedLayers.layers[0].sketchObject.userInfo();
             // if (info && info['Navi']) {
                 // console.log(info['Navi']['style']);
@@ -133,3 +132,5 @@ export function onSelectionChanged(context: any) {
 //     gradient: [Gradient],
 //     thickness: 1,
 //     enabled: true } ],
+
+

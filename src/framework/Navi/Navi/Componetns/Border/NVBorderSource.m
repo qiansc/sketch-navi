@@ -133,6 +133,9 @@
         .code = specDict[@"code"],
         .cclass = specDict[@"cclass"],
         .cmeaning = specDict[@"cmeaning"],
+        .ios = specDict[@"ios"],
+        .android = specDict[@"android"],
+        .h5 = specDict[@"h5"],
 
     };
     return spec;

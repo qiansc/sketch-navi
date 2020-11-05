@@ -57,7 +57,7 @@
     cb0.fillColor = NSColorFromRGBString(self.spec.defaultColor);
     cb1.fillColor = NSColorFromRGBString(self.spec.darkColor);
     cb2.fillColor = NSColorFromRGBString(self.spec.nightColor);
-    self.toolTip = [NSString stringWithFormat:@"%@ - %@", self.spec.code, self.spec.cclass];
+    self.toolTip = [NSString stringWithFormat:@"%@", self.spec.cclass];
 }
 
 - (void)drawRect:(NSRect)dirtyRect {

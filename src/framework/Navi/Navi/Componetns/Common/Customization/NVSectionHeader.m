@@ -20,7 +20,7 @@
         // textField.stringValue = [self.source getDims][indexPath.section];
         textField.editable = NO;
         textField.bordered = NO;
-        textField.stringValue = @"title";
+        textField.stringValue = @"";
         textField.textColor = [NSColor grayColor];
         textField.drawsBackground = NO;
         [textField setFont:[NSFont systemFontOfSize: 10]];

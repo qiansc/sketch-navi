@@ -18,7 +18,10 @@ struct NVBorderSpec {
     NSString *cline;            // FEED
     NSString *cclass;           // 标题基础模板
     NSString *cmeaning;         // 模块弱化标题
-    NSString *elementCode;      //Txt_X010
+    NSString *elementCode;      // Txt_X010
+    NSString *ios;              // 3,3,3,3
+    NSString *android;          // 5,5,5,5
+    NSString *h5;               //
 };
 
 typedef struct NVBorderSpec NVBorderSpec;
@@ -35,5 +38,7 @@ typedef struct NVBorderSpec NVBorderSpec;
 
 
 @end
+
+// {"code":"S_J_X15","cline":"搜索","cclass":"元素边角","cmeaning":"圆角","elementCode":"J_X15","ios":"","android":"","h5":"27,27,27,27"}
 
 NS_ASSUME_NONNULL_END
