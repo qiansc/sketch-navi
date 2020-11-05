@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NVMaskCollectionItem"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY" customClass="NVMaskCollectionItemView">
+            <rect key="frame" x="0.0" y="0.0" width="205" height="48"/>
+            <subviews>
+                <box identifier="MaskBox" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="4DM-4n-t8B">
+                    <rect key="frame" x="44" y="12" width="118" height="25"/>
+                    <view key="contentView" id="Les-Sv-7pK">
+                        <rect key="frame" x="1" y="1" width="116" height="23"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="Ip3-KV-xKK"/>
+                        <constraint firstAttribute="width" constant="118" id="fo5-5t-Xbf"/>
+                    </constraints>
+                </box>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="width" constant="205" id="6pV-Z3-W3E"/>
+                <constraint firstItem="4DM-4n-t8B" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="VfL-tM-X3x"/>
+                <constraint firstItem="4DM-4n-t8B" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="bjP-7o-zn4"/>
+                <constraint firstAttribute="height" constant="48" id="no3-Oa-eRu"/>
+            </constraints>
+            <point key="canvasLocation" x="138.5" y="154"/>
+        </customView>
+        <customObject id="UCZ-mB-74t" customClass="NVMaskCollectionItem">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="iHG-4b-ayZ"/>
+            </connections>
+        </customObject>
+    </objects>
+</document>

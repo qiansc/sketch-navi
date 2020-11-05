@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301F7FFF25539DFA000ED935 /* NVMaskSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 301F7FFD25539DF9000ED935 /* NVMaskSource.h */; };
+		301F800025539DFA000ED935 /* NVMaskSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 301F7FFE25539DF9000ED935 /* NVMaskSource.m */; };
+		301F80032553B84B000ED935 /* NVMaskCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 301F80012553B84B000ED935 /* NVMaskCollectionView.h */; };
+		301F80042553B84B000ED935 /* NVMaskCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 301F80022553B84B000ED935 /* NVMaskCollectionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		301F80082553BDD8000ED935 /* NVMaskCollectionItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = 301F80062553BDD8000ED935 /* NVMaskCollectionItemView.h */; };
+		301F80092553BDD8000ED935 /* NVMaskCollectionItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 301F80072553BDD8000ED935 /* NVMaskCollectionItemView.m */; };
+		301F800D2553BF0C000ED935 /* NVMaskCollectionItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 301F800A2553BF0C000ED935 /* NVMaskCollectionItem.h */; };
+		301F800E2553BF0C000ED935 /* NVMaskCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 301F800B2553BF0C000ED935 /* NVMaskCollectionItem.m */; };
+		301F800F2553BF0C000ED935 /* NVMaskCollectionItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301F800C2553BF0C000ED935 /* NVMaskCollectionItem.xib */; };
 		30D2479625429B1B0027602C /* NVLineCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 30D2479425429B1B0027602C /* NVLineCollectionView.h */; };
 		30D2479725429B1B0027602C /* NVLineCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D2479525429B1B0027602C /* NVLineCollectionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		30D2479E25429FAD0027602C /* NVLineSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 30D2479C25429FAD0027602C /* NVLineSource.h */; };
@@ -152,6 +161,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		301F7FFD25539DF9000ED935 /* NVMaskSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVMaskSource.h; sourceTree = "<group>"; };
+		301F7FFE25539DF9000ED935 /* NVMaskSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVMaskSource.m; sourceTree = "<group>"; };
+		301F80012553B84B000ED935 /* NVMaskCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVMaskCollectionView.h; sourceTree = "<group>"; };
+		301F80022553B84B000ED935 /* NVMaskCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVMaskCollectionView.m; sourceTree = "<group>"; };
+		301F80062553BDD8000ED935 /* NVMaskCollectionItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVMaskCollectionItemView.h; sourceTree = "<group>"; };
+		301F80072553BDD8000ED935 /* NVMaskCollectionItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVMaskCollectionItemView.m; sourceTree = "<group>"; };
+		301F800A2553BF0C000ED935 /* NVMaskCollectionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVMaskCollectionItem.h; sourceTree = "<group>"; };
+		301F800B2553BF0C000ED935 /* NVMaskCollectionItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVMaskCollectionItem.m; sourceTree = "<group>"; };
+		301F800C2553BF0C000ED935 /* NVMaskCollectionItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVMaskCollectionItem.xib; sourceTree = "<group>"; };
 		30D2479425429B1B0027602C /* NVLineCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVLineCollectionView.h; sourceTree = "<group>"; };
 		30D2479525429B1B0027602C /* NVLineCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVLineCollectionView.m; sourceTree = "<group>"; };
 		30D2479C25429FAD0027602C /* NVLineSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVLineSource.h; sourceTree = "<group>"; };
@@ -319,6 +337,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		301F80052553BDA4000ED935 /* MinItem */ = {
+			isa = PBXGroup;
+			children = (
+				301F80062553BDD8000ED935 /* NVMaskCollectionItemView.h */,
+				301F80072553BDD8000ED935 /* NVMaskCollectionItemView.m */,
+				301F800A2553BF0C000ED935 /* NVMaskCollectionItem.h */,
+				301F800B2553BF0C000ED935 /* NVMaskCollectionItem.m */,
+				301F800C2553BF0C000ED935 /* NVMaskCollectionItem.xib */,
+			);
+			path = MinItem;
+			sourceTree = "<group>";
+		};
 		30D247A42542E5FE0027602C /* Item */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,9 +379,14 @@
 		A3003654253870750093395D /* Mask */ = {
 			isa = PBXGroup;
 			children = (
+				301F80052553BDA4000ED935 /* MinItem */,
 				A300365C253870F40093395D /* NVMaskPanel.h */,
 				A300365D253870F40093395D /* NVMaskPanel.m */,
 				A300365E253870F40093395D /* NVMaskPanel.xib */,
+				301F7FFD25539DF9000ED935 /* NVMaskSource.h */,
+				301F7FFE25539DF9000ED935 /* NVMaskSource.m */,
+				301F80012553B84B000ED935 /* NVMaskCollectionView.h */,
+				301F80022553B84B000ED935 /* NVMaskCollectionView.m */,
 			);
 			path = Mask;
 			sourceTree = "<group>";
@@ -680,6 +715,7 @@
 			files = (
 				B23CA2962519855E00FB2416 /* HexColor.h in Headers */,
 				30D2479E25429FAD0027602C /* NVLineSource.h in Headers */,
+				301F80082553BDD8000ED935 /* NVMaskCollectionItemView.h in Headers */,
 				A3EEF7F82540017300C3998D /* NVColorCollectionItem.h in Headers */,
 				A32ED9942511D4E100EBCE68 /* Menu.h in Headers */,
 				A3DBD3C82553ECB00042F14C /* NVLayer.h in Headers */,
@@ -697,7 +733,9 @@
 				A34728A3253886B700EC18ED /* NVPanel.h in Headers */,
 				A300365F253870F40093395D /* NVMaskPanel.h in Headers */,
 				B286F6BA2543BDA400984F2A /* RFOverlayScroller.h in Headers */,
+				301F800D2553BF0C000ED935 /* NVMaskCollectionItem.h in Headers */,
 				B2012D1C253C5B2A0003715E /* DisabledWheelScrollView.h in Headers */,
+				301F80032553B84B000ED935 /* NVMaskCollectionView.h in Headers */,
 				A361673225516C9400FE0840 /* NVCollectionViewWithHeader.h in Headers */,
 				A3FB3705253EC2E2001D152C /* NVToggleBox.h in Headers */,
 				A34728AA253988FC00EC18ED /* NVColorCollectionView.h in Headers */,
@@ -707,6 +745,7 @@
 				B2E298C52552FBF100D8C31B /* NVUserInfo.h in Headers */,
 				B2D54D462547294F002E1D91 /* NVArtboard.h in Headers */,
 				A38993F9250B85A000211D90 /* Navi.h in Headers */,
+				301F7FFF25539DFA000ED935 /* NVMaskSource.h in Headers */,
 				A300365125386EAF0093395D /* NVTextPanel.h in Headers */,
 				30D247A72542E7080027602C /* NVLineCollectionItemView.h in Headers */,
 				B226FF5C253CB447009DD159 /* NVCollectionController.h in Headers */,
@@ -797,6 +836,7 @@
 				A396D11425347F8C0061CC73 /* text-active.png in Resources */,
 				B2D54D3C25471622002E1D91 /* setting.png in Resources */,
 				A3B5E223253828C40048F526 /* NVColorPanel.xib in Resources */,
+				301F800F2553BF0C000ED935 /* NVMaskCollectionItem.xib in Resources */,
 				A396D12725347F8C0061CC73 /* mask.png in Resources */,
 				A396D12425347F8C0061CC73 /* text-margin-active.png in Resources */,
 				A396D11525347F8C0061CC73 /* main-active.png in Resources */,
@@ -846,7 +886,9 @@
 			files = (
 				A3B5E22925382B470048F526 /* NVPanelHeader.m in Sources */,
 				A32ED9952511D4E100EBCE68 /* Menu.m in Sources */,
+				301F800025539DFA000ED935 /* NVMaskSource.m in Sources */,
 				B2D54D4E254752B0002E1D91 /* NVColorSemanticItem.m in Sources */,
+				301F80042553B84B000ED935 /* NVMaskCollectionView.m in Sources */,
 				A300365A253870E00093395D /* NVLinePanel.m in Sources */,
 				30D247A82542E7080027602C /* NVLineCollectionItemView.m in Sources */,
 				A34728A4253886B700EC18ED /* NVPanel.m in Sources */,
@@ -883,10 +925,12 @@
 				A300365225386EAF0093395D /* NVTextPanel.m in Sources */,
 				A3DBD3C92553ECB00042F14C /* NVLayer.m in Sources */,
 				A3FB370A253ECD46001D152C /* NVColorCollectionItemView.m in Sources */,
+				301F800E2553BF0C000ED935 /* NVMaskCollectionItem.m in Sources */,
 				A36167292551373600FE0840 /* NVBorderCollectionItem.m in Sources */,
 				A3003665253873300093395D /* CustomScroller.m in Sources */,
 				30D2479725429B1B0027602C /* NVLineCollectionView.m in Sources */,
 				B2D54D53254752DB002E1D91 /* NVColorSemanticItemView.m in Sources */,
+				301F80092553BDD8000ED935 /* NVMaskCollectionItemView.m in Sources */,
 				A34728AB253988FC00EC18ED /* NVColorCollectionView.m in Sources */,
 				A361671A2551346300FE0840 /* NVBorderPanel.m in Sources */,
 				A3B5E222253828C40048F526 /* NVColorPanel.m in Sources */,
