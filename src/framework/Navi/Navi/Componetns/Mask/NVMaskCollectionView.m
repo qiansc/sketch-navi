@@ -40,16 +40,24 @@
     }];
 }
 
-- (void)collectionView:(NSCollectionView *) collectionView willDisplaySupplementaryView:(nonnull NSView *) view forElementKind:(nonnull NSCollectionViewSupplementaryElementKind) elementKind atIndexPath:(nonnull NSIndexPath *) indexPath {
-    if (elementKind == NSCollectionElementKindSectionHeader) {
-        [(NVSectionHeader *)view setTitle:[self.dataSource getDims][indexPath.section]];
+- (void)collectionView:(NSCollectionView *) collectionView willDisplaySupplementaryView:(nonnull NSView *) view forElementKind:(nonnull NSCollectionViewSupplementaryElementKind) kind atIndexPath:(nonnull NSIndexPath *) indexPath {
+    if (kind == NSCollectionElementKindSectionHeader && [[self.dataSource getDims] count] > 1) {
+        [(NVSectionHeader*)view setTitle:[self.dataSource getDims][indexPath.section]];
     }
 }
 
 #pragma mark NSCollectionViewDelegateFlowLayout
 
 - (NSSize)collectionView:(NSController *) collectionView layout:(NSCollectionViewLayout *) collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *) indexPath {
-    return NSMakeSize(205, 48);
+    return NSMakeSize(215, 48);
+}
+
+- (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    if ([[self.dataSource getDims] count] < 2)
+        return NSMakeSize(0, 10);
+    else
+        return NSMakeSize(0, 26);
+    
 }
 
 @end

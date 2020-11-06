@@ -155,7 +155,9 @@
     {"code":"G_R_S01","cline":"FEED","cclass":"比例","cmeaning":"标准1:1","desc": "1:1","elementCode":"F_S_W_S01","ios":0,"android":0,"h5":0, "scale": "1:1"},
     {"code":"G_R_S02","cline":"FEED","cclass":"比例","cmeaning":"标准3:2","desc": "3:2","elementCode":"F_S_W_S02","ios":0,"android":0,"h5":0, "scale": "3:2"},
     {"code":"G_R_S03","cline":"FEED","cclass":"比例","cmeaning":"标准4:3","desc": "4:3","elementCode":"F_S_W_S03","ios":0,"android":0,"h5":0, "scale": "4:3"},
-    {"code":"G_R_S04","cline":"FEED","cclass":"比例","cmeaning":"标准16:9","desc": "16:9","elementCode":"F_S_W_S04","ios":0,"android":0,"h5":0, "scale": "16:9"}
+    {"code":"G_R_S04","cline":"FEED","cclass":"比例","cmeaning":"标准16:9","desc": "16:9","elementCode":"F_S_W_S04","ios":0,"android":0,"h5":0, "scale": "16:9"},
 
+    {"_id": "5f959292c531587ee80a385e", "id": 1, "code": "F_Mask_X1", "cline": "FEED", "cclass": "图片", "cmeaning": "动态挂载类卡片蒙层", "elementCode": "Mask_X03", "color": "{\"cname\":\"C_X010\",\"color\":\"000000\"}", "size": 124, "direction": "top", "startOpacity": 0.25, "nodeOpacity": 0, "nodePositon": 0, "endOpacity": 0},
+    {"_id": "5f9592b3c531587ee80a385f", "id": 2, "code": "F_Mask_X2", "cline": "FEED", "cclass": "图片", "cmeaning": "卡片+容器（图片上有文字内容的）", "elementCode": "Mask_X11", "color": "{\"cname\":\"C_X010\",\"color\":\"000000\"}", "size": 0, "direction": "bottom", "startOpacity": 0, "nodeOpacity": 0.1, "nodePositon": 0.85, "endOpacity": 0.3}
     ]
 }

@@ -149,8 +149,6 @@ export class SpecData {
                     ...spec,
                     color: `#${JSON.parse(spec.color).color}`
                 });
-                console.log('======', spec.color)
-                console.log('======', typeof spec.color)
             });
         return arr;
     }
