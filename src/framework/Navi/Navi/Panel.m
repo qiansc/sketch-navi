@@ -14,6 +14,7 @@
 #import "NVLinePanel.h"
 #import "NVMaskPanel.h"
 #import "NVBorderPanel.h"
+#import "NVGridPanel.h"
 #import "MSDocument.h"
 #import "NVBundle.h"
 #import "NVSource.h"
@@ -34,6 +35,7 @@
     // Menu按下传递的事件
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePanel:) name:@"HIDE_PANEL" object:nil];
     // Panel按下传递的事件
+    [self.stackView setSpacing:0];
     [self initAllPanel];
     self.searchField.delegate = self;
     self.searchField.placeholderString = @"全部资源";
@@ -79,6 +81,8 @@
                 c = [[NVMaskPanel alloc] initWithId:id];
             } else if([id isEqual: @"Border"]) {
                 c = [[NVBorderPanel alloc] initWithId:id];
+            } else if([id isEqual: @"Grid"]) {
+                c = [[NVGridPanel alloc] initWithId:id];
             }
 
             if (c) {

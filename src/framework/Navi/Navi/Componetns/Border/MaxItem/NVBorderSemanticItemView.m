@@ -1,20 +1,22 @@
 //
-//  NVBorderCollectionItemView.m
+//  NVBorderSemanticItemView.m
 //  Navi
 //
-//  Created by Qian,Sicheng on 2020/11/3.
+//  Created by QIANSC on 2020/11/6.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "NVBorderCollectionItemView.h"
+#import "NVBorderSemanticItemView.h"
 
-@implementation NVBorderCollectionItemView {
+@implementation NVBorderSemanticItemView{
     NSBox *box;
-    NSTextField *textField;
+    NSTextField *itemText;
+    NSTextField *itemValue;
+    
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
-    NVBorderCollectionItemView *view = [super initWithCoder:coder];
+    NVBorderSemanticItemView *view = [super initWithCoder:coder];
     view.boxType = NSBoxCustom;
     view.borderColor = [NSColor disabledControlTextColor];
     view.borderType = NSLineBorder;
@@ -25,7 +27,8 @@
         if ([v.identifier isEqual:@"borderBox"]) {
             box = v;
         }
-        if ([v.identifier isEqual:@"ItemTitle"]) textField = v;
+        if ([v.identifier isEqual:@"ItemTitle"]) itemText = v;
+        if ([v.identifier isEqual:@"ItemValue"]) itemValue = v;
     }
     box.fillColor = [NSColor systemGrayColor];
     box.borderWidth = 0;
@@ -35,18 +38,27 @@
 -(void)setSpec:(NVBorderSpec)borderSpec{
     _spec = borderSpec;
     [self drawStyle];
-    textField.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
+    itemText.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
     box.cornerRadius = 0;
     NSArray<NSString*> *arr = [borderSpec.ios componentsSeparatedByString:@","];
+    itemValue.stringValue = @"";
     if (arr[0]) {
         double num = [arr[0] doubleValue];
-        if (num == -1) box.cornerRadius = 15;
-        else box.cornerRadius = MIN(num, 15);
+        if (num == -1) {
+            box.cornerRadius = 10;
+            itemValue.stringValue = @"MAX";
+        } else {
+            box.cornerRadius = MIN(num / 2, 10);
+            itemValue.stringValue = arr[0];
+        }
+        
+        
     }
     box.boxType = NSBoxCustom;
     box.borderType = NSLineBorder;
     box.wantsLayer = true;
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];
+
 }
 
 
@@ -54,15 +66,17 @@
     [super drawStyle];
     if (self.isSelected) {
         self.borderColor = [NSColor controlAccentColor];
-        textField.textColor = [NSColor controlAccentColor];
+        itemText.textColor = [NSColor controlAccentColor];
+        itemValue.textColor = [NSColor controlAccentColor];
     } else if (self.isHover) {
         self.borderColor = [NSColor disabledControlTextColor];
-        textField.textColor = [NSColor secondaryLabelColor];
+        itemText.textColor = [NSColor secondaryLabelColor];
+        itemValue.textColor = [NSColor secondaryLabelColor];
     } else {
         self.fillColor  = [NSColor controlBackgroundColor];
         self.borderColor = [NSColor windowBackgroundColor];
-        textField.textColor = [NSColor secondaryLabelColor];
+        itemText.textColor = [NSColor secondaryLabelColor];
+        itemValue.textColor = [NSColor secondaryLabelColor];
     }
 }
-
 @end

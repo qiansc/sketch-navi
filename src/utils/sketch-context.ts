@@ -2,16 +2,16 @@
 export class SketchContext {
     public document: any;
     public documentId: string;
-    public version: string;
-    public plugin: Plugin;
+    // public version: string;
+    // public plugin: Plugin;
     public contentView: any;
     public stageView: any;
     constructor(private context: any) {
         this.document = context.document || (context.actionContext && context.actionContext.document) || (MSDocument as any).currentDocument();
         this.documentId = this.document.hash().toString();// this.document.documentData().objectID();
-        this.version = new String(context.plugin.version()).toString();
-        this.plugin = context.plugin;
-        this.contentView = this.context.document.documentWindow().contentView();
+        // this.version = new String(context.plugin.version()).toString();
+        // this.plugin = context.plugin;
+        this.contentView = this.document.documentWindow().contentView();
         this.stageView = this.contentView.subviews().objectAtIndex(0);
     }
 

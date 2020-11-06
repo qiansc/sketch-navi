@@ -10,6 +10,7 @@
         "handlers": {
           "run": "onStart",
           "actions": {
+            "OpenDocument": "onOpenDocument",
             "SelectionChanged" : "onSelectionChanged"
           }
         }

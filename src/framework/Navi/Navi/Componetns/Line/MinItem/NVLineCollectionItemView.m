@@ -12,6 +12,7 @@
 @implementation NVLineCollectionItemView {
     NSBox *lineBox;
     NSTextField *textField;
+    NSLayoutConstraint* constraintHeight;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {

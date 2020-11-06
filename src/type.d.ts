@@ -88,5 +88,5 @@ declare var NSStackViewGravityBottom: any;
 declare var EventEmitter: any;
 declare var __command: any;
 declare var NSJSONSerialization: any;
-
+declare var NSDocumentController: any;
 

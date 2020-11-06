@@ -25,7 +25,7 @@
         [self reloadData];
     }];
 
-    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVLineCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
+    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVLineSemanticItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
     [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVLineCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-0"];
 }
 
@@ -53,11 +53,11 @@
 #pragma mark NSCollectionViewDelegateFlowLayout
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    if (self.dataSource.semanticMode) {
+    if (self.dataSource.semanticMode) {
+        return NSMakeSize(215, 31);
+    } else {
         return NSMakeSize(215, 48);
-//    } else {
-//        return NSMakeSize(31, 31);
-//    }
+    }
 
 }
 

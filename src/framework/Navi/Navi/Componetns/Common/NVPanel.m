@@ -49,10 +49,13 @@
     [self.view removeConstraint:constraintHeight];
     if (openState == YES){
         // 展开状态
+        [self.view setHidden:NO];
         constraintHeight = [self.view.heightAnchor constraintEqualToConstant: [self height]];
     } else {
         // 隐藏状态
-        constraintHeight = [self.view.heightAnchor constraintEqualToConstant:self.headerView.frame.size.height];
+        [self.view setHidden:YES];
+        // constraintHeight = [self.view.heightAnchor constraintEqualToConstant:self.headerView.frame.size.height];
+        constraintHeight = [self.view.heightAnchor constraintEqualToConstant:0];
     }
     // 已经关闭
     [self.view addConstraint:constraintHeight];

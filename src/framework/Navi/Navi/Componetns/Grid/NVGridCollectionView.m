@@ -1,46 +1,46 @@
 //
-//  NVBorderCollectionView.m
+//  NVGridCollectionView.m
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/11/3.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "NVBorderCollectionView.h"
+#import "NVGridCollectionView.h"
 #import "NVCollectionDelegate.h"
-#import "NVBorderCollectionItemView.h"
+#import "NVGridCollectionItemView.h"
 #import "NVSectionHeader.h"
 #import "HexColor.h"
 #import "NVBundle.h"
 
-@implementation NVBorderCollectionView {
+@implementation NVGridCollectionView {
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.dataSource = [[NVBorderSource alloc]init];
+    self.dataSource = [[NVGridSource alloc]init];
     [self.dataSource onUpdated: ^void(){
         [self.toggleDelegate clearActive];
         [self reloadData];
     }];
-
-    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVBorderSemanticItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
-    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVBorderCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-0"];
-
+    
+    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVGridSemanticItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
+    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVGridCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-0"];
+    
 }
 
 #pragma mark NSCollectionViewDelegate
 
 -(void)collectionView:(NSCollectionView *)collectionView willDisplayItem:(NSCollectionViewItem *)item forRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
-    NVBorderSpec spec = [self.dataSource getSpecAt:indexPath];
-    NVBorderCollectionItemView *view = item.view;
+    NVGridSpec spec = [self.dataSource getSpecAt:indexPath];
+    NVGridCollectionItemView *view = item.view;
     if (view.indexPath == nil) {
         view.spec = spec;
         view.indexPath = indexPath;
     }
     [view onMouseDown:^void(NSEvent* event, NSBox* box) {
-         [self.toggleDelegate clearActive];
-         [self.toggleDelegate setActive:((NVToggleBox *)box).indexPath];
+        [self.toggleDelegate clearActive];
+        [self.toggleDelegate setActive:((NVToggleBox *)box).indexPath];
     }];
 }
 
@@ -57,9 +57,9 @@
     if (self.dataSource.semanticMode) {
         return NSMakeSize(215, 31);
     } else {
-        return NSMakeSize(215, 48);
+        return NSMakeSize(31, 31);
     }
-
+    
 }
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
@@ -67,7 +67,7 @@
         return NSMakeSize(0, 10);
     else
         return NSMakeSize(0, 26);
-
+    
 }
 
 @end

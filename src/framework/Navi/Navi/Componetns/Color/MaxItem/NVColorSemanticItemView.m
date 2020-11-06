@@ -57,7 +57,10 @@
     cb0.fillColor = NSColorFromRGBString(self.spec.hex);
     cb1.fillColor = NSColorFromRGBString(self.spec.hex1);
     cb2.fillColor = NSColorFromRGBString(self.spec.hex2);
-    self.toolTip = [NSString stringWithFormat:@"%@ - %@", self.spec.specCode, self.spec.desc];
+    cb0.toolTip = self.spec.hex;
+    cb1.toolTip = self.spec.hex1;
+    cb2.toolTip = self.spec.hex2;
+    self.toolTip = [NSString stringWithFormat:@"%@", self.spec.specCode];
 }
 
 - (void)drawRect:(NSRect)dirtyRect {

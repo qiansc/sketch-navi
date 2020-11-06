@@ -1,6 +1,7 @@
 import { SketchContext } from './utils/sketch-context';
 import { MenuController, MENU_EVENT, MenuOption } from './components/menu.controller';
 import { PanelController, PANEL_EVENT } from './components/panel.controller';
+const { setTimeout } = require("@skpm/timers");
 
 export function onStart(context: any) {
     if(!SketchContext.hasDocument(context)) {
@@ -23,7 +24,12 @@ export function onStart(context: any) {
     runtime.menuController.toogle();
 
 }
-
+export function onOpenDocument(){
+    setTimeout(() => {
+        // console.log(NSDocumentController.sharedDocumentController().documents());
+        // onStart({});
+    },100);
+}
 interface Runtime {
     menuController: MenuController;
     panelController: PanelController;

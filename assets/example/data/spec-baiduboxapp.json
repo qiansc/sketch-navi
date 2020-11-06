@@ -135,6 +135,27 @@
     },
     {"code":"S_J_X14","cline":"搜索","cclass":"元素边角","cmeaning":"3,3,3,3","elementCode":"J_X14","ios":"3,3,3,3","android":"5,5,5,5","h5":""},
     {"code":"S_J_X15","cline":"搜索","cclass":"元素边角","cmeaning":"9,9,9,9","elementCode":"J_X15","ios":"9,9,9,9","android":"13,13,13,13","h5":""},
-    {"code":"S_J_X16","cline":"搜索","cclass":"元素边角","cmeaning":"全圆","elementCode":"J_X16","ios":"-1,-1,-1,-1","android":"-1,-1,-1,-1","h5":""}
+    {"code":"S_J_X16","cline":"搜索","cclass":"元素边角","cmeaning":"全圆","elementCode":"J_X16","ios":"-1,-1,-1,-1","android":"-1,-1,-1,-1","h5":""},
+
+    {"code":"G_R_X01","cline":"FEED","cclass":"按钮宽度","cmeaning":"btn尺寸 2N","desc": "2N","elementCode":"F_S_W_X01","ios":57,"android":50,"h5":0},
+    {"code":"G_R_X02","cline":"FEED","cclass":"按钮宽度","cmeaning":"btn尺寸 3N","desc": "3N","elementCode":"F_S_W_X02","ios":89,"android":77,"h5":0},
+    {"code":"G_R_X03","cline":"FEED","cclass":"按钮宽度","cmeaning":"btn尺寸 4N","desc": "4N","elementCode":"F_S_W_X03","ios":121,"android":106,"h5":0},
+
+    {"code":"G_R_X04","cline":"FEED","cclass":"按钮宽度","cmeaning":"btn尺寸 5N","desc": "5N","elementCode":"F_S_W_X04","ios":154,"android":134,"h5":0},
+    {"code":"G_R_X05","cline":"FEED","cclass":"按钮宽度","cmeaning":"btn尺寸 6N","desc": "6N","elementCode":"F_S_W_X05","ios":186,"android":162,"h5":0},
+    {"code":"G_R_X06","cline":"FEED","cclass":"按钮宽度","cmeaning":"btn尺寸 7N","desc": "7N","elementCode":"F_S_W_X06","ios":218,"android":190,"h5":0},
+
+    {"code":"G_R_X07","cline":"FEED","cclass":"按钮宽度","cmeaning":"btn尺寸 8N","desc": "8N","elementCode":"F_S_W_X07","ios":251,"android":218,"h5":0},
+    {"code":"G_R_X08","cline":"FEED","cclass":"按钮宽度","cmeaning":"btn尺寸 9N","desc": "9N","elementCode":"F_S_W_X08","ios":283,"android":246,"h5":0},
+    {"code":"G_R_X09","cline":"FEED","cclass":"按钮宽度","cmeaning":"btn尺寸 10N","desc": "10N","elementCode":"F_S_W_X09","ios":315,"android":274,"h5":0},
+
+    {"code":"G_R_X10","cline":"FEED","cclass":"按钮宽度","cmeaning":"btn尺寸 11N","desc": "11N","elementCode":"F_S_W_X10","ios":348,"android":303,"h5":0},
+    {"code":"G_R_X11","cline":"FEED","cclass":"按钮宽度","cmeaning":"btn尺寸 12N","desc": "12N","elementCode":"F_S_W_X11","ios":380,"android":330,"h5":0},
+
+    {"code":"G_R_S01","cline":"FEED","cclass":"比例","cmeaning":"标准1:1","desc": "1:1","elementCode":"F_S_W_S01","ios":0,"android":0,"h5":0, "scale": "1:1"},
+    {"code":"G_R_S02","cline":"FEED","cclass":"比例","cmeaning":"标准3:2","desc": "3:2","elementCode":"F_S_W_S02","ios":0,"android":0,"h5":0, "scale": "3:2"},
+    {"code":"G_R_S03","cline":"FEED","cclass":"比例","cmeaning":"标准4:3","desc": "4:3","elementCode":"F_S_W_S03","ios":0,"android":0,"h5":0, "scale": "4:3"},
+    {"code":"G_R_S04","cline":"FEED","cclass":"比例","cmeaning":"标准16:9","desc": "16:9","elementCode":"F_S_W_S04","ios":0,"android":0,"h5":0, "scale": "16:9"}
+
     ]
 }

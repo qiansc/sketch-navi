@@ -51,13 +51,16 @@
 -(void)setSpec:(NVTextSpec)colorSpec{
     _spec = colorSpec;
     [self drawStyle];
-    descText.stringValue = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];
+    descText.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
     // specText.stringValue = self.spec.specCode;
-    self.fillColor  = [NSColor whiteColor];
+    self.fillColor  = [NSColor controlBackgroundColor];
     cb0.fillColor = NSColorFromRGBString(self.spec.defaultColor);
     cb1.fillColor = NSColorFromRGBString(self.spec.darkColor);
     cb2.fillColor = NSColorFromRGBString(self.spec.nightColor);
-    self.toolTip = [NSString stringWithFormat:@"%@", self.spec.cclass];
+    cb0.toolTip = self.spec.defaultColor;
+    cb1.toolTip = self.spec.darkColor;
+    cb2.toolTip = self.spec.nightColor;
+    self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];
 }
 
 - (void)drawRect:(NSRect)dirtyRect {

@@ -119,9 +119,23 @@ static NSMutableDictionary *cache;
 #pragma mark Points - CurvePoint
 
 -(NSString *)cornerRadiusCode {return self.data[@"cornerRadiusCode"];}
-
 -(void)setCornerRadiusCode:(NSString*)code {
     self.data[@"cornerRadiusCode"] = code;
+    [self save];
+}
+
+#pragma mark Frame
+
+-(NSString *)gridWidthCode {return self.data[@"gridWidthCode"];}
+-(void)setGridWidthCode:(NSString*)code {
+    self.data[@"gridWidthCode"] = code;
+    [self save];
+}
+
+
+-(NSString *)gridScaleCode {return self.data[@"gridScaleCode"];}
+-(void)setGridScaleCode:(NSString*)code {
+    self.data[@"gridScaleCode"] = code;
     [self save];
 }
 

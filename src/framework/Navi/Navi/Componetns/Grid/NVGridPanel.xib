@@ -5,10 +5,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="NVBorderPanel">
+        <customObject id="-2" userLabel="File's Owner" customClass="NVGridPanel">
             <connections>
-                <outlet property="collectionView" destination="clL-tB-szP" id="FIo-PG-gF6"/>
-                <outlet property="headerView" destination="L0S-Qy-6CC" id="1u2-hF-90g"/>
+                <outlet property="collectionView" destination="wT5-oM-ons" id="KRZ-0V-1pv"/>
+                <outlet property="headerView" destination="Kcw-Za-9RT" id="Jo3-cc-vGh"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -18,33 +18,34 @@
             <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
             <subviews>
-                <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L0S-Qy-6CC" customClass="NVPanelHeaderView">
+                <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kcw-Za-9RT" customClass="NVPanelHeaderView">
                     <rect key="frame" x="0.0" y="266" width="240" height="34"/>
                 </customView>
-                <collectionView ambiguous="YES" allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clL-tB-szP" customClass="NVBorderCollectionView">
+                <collectionView ambiguous="YES" allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wT5-oM-ons" customClass="NVGridCollectionView">
                     <rect key="frame" x="0.0" y="-34" width="240" height="300"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="2000" id="YEL-WB-s2S"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2000" id="gOS-f7-NAL"/>
+                        <constraint firstAttribute="height" constant="2000" id="hH8-rz-v7R"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="3" id="LVa-RT-ip0">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="3" id="MGB-AX-ilD">
                         <size key="itemSize" width="50" height="50"/>
                     </collectionViewFlowLayout>
                     <color key="primaryBackgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                 </collectionView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="L0S-Qy-6CC" secondAttribute="trailing" id="6qy-nK-ZRz"/>
-                <constraint firstAttribute="trailing" secondItem="clL-tB-szP" secondAttribute="trailing" id="8bT-2n-p0O"/>
-                <constraint firstItem="clL-tB-szP" firstAttribute="top" secondItem="L0S-Qy-6CC" secondAttribute="bottom" id="Ea9-zy-38j"/>
-                <constraint firstItem="L0S-Qy-6CC" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="NOh-EZ-g31"/>
-                <constraint firstItem="L0S-Qy-6CC" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="PnR-yE-tzk"/>
-                <constraint firstItem="clL-tB-szP" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="jxU-bf-DDS"/>
+                <constraint firstItem="wT5-oM-ons" firstAttribute="top" secondItem="Kcw-Za-9RT" secondAttribute="bottom" id="FBZ-Yz-81G"/>
+                <constraint firstAttribute="trailing" secondItem="Kcw-Za-9RT" secondAttribute="trailing" id="FBj-ON-khF"/>
+                <constraint firstItem="Kcw-Za-9RT" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="R3s-LE-54K"/>
+                <constraint firstItem="Kcw-Za-9RT" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="WGB-GC-VMu"/>
+                <constraint firstAttribute="trailing" secondItem="wT5-oM-ons" secondAttribute="trailing" id="fdv-Ji-x8I"/>
+                <constraint firstItem="wT5-oM-ons" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="vAi-0q-dGF"/>
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>
-        <customObject id="g92-1v-wl1" customClass="NVCollectionController">
+        <customObject id="LRe-mi-gKy" customClass="NVCollectionController">
             <connections>
-                <outlet property="view" destination="clL-tB-szP" id="Fph-US-EUv"/>
+                <outlet property="view" destination="wT5-oM-ons" id="Te4-yb-fGQ"/>
             </connections>
         </customObject>
     </objects>

@@ -1,14 +1,14 @@
 //
-//  NVBorderSource.m
+//  NVGridSource.m
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/11/3.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "NVBorderSource.h"
+#import "NVGridSource.h"
 
-@implementation NVBorderSource{
+@implementation NVGridSource{
     NVSourceUpdateCallback updatedCallback;
     NSString *searchQuery;
     NSMutableDictionary *dims;
@@ -17,8 +17,8 @@
 }
 
 -(instancetype)init{
-    NVBorderSource *s = [super init];
-//    shapeMod = @"other";
+    NVGridSource *s = [super init];
+    //    shapeMod = @"other";
     themeMod = @"default";
     updatedCallback = ^void {};
     return s;
@@ -29,13 +29,13 @@
     dims = [NSMutableDictionary new];
     for(NSDictionary* spec in specs) {
         NSArray *dimArr = spec[@"dim"];
-         if ([self filter:spec]) {
+        if ([self filter:spec]) {
             if ([dimArr count]) {
                 NSString *dim = dimArr[0];
                 dims[dim] = dims[dim] == nil ? [NSMutableArray new] : dims[dim];
                 [dims[dim] addObject: spec];
             }
-         }
+        }
     }
     NSMutableArray *others = [NSMutableArray new];
     for(NSString *dim in [dims allKeys]) {
@@ -51,21 +51,21 @@
 }
 
 -(BOOL)filter:(NSDictionary*) specDict {
-
+    
     if (searchQuery == nil || searchQuery.length == 0) {
         return true;
     }
     for(NSString *dim in specDict[@"dim"]) {
         if ([dim containsString:searchQuery]) return true;
     }
-    NVBorderSpec spec = [NVBorderSource value:specDict];
-
+    NVGridSpec spec = [NVGridSource value:specDict];
+    
     if ([spec.code containsString:searchQuery]) {
         return true;
     } else if ([spec.elementCode containsString:searchQuery]) {
         return true;
     }
-
+    
     return false;
 }
 
@@ -74,7 +74,7 @@
 }
 
 - (void)setQuery:(NSString *) query {
-
+    
     searchQuery = query;
     [self update: specs];
     updatedCallback();
@@ -86,12 +86,12 @@
 }
 
 - (void)setShapeMode:(NSString *) mode {
-//    NSString *name = [mode isEqual:@"MSTextLayer"] ? @"Text" : @"Others";
-//    if (![shapeMod isEqual:name]) {
-//        shapeMod = name;
-//        [self update: specs];
-//        updatedCallback();
-//    }
+    //    NSString *name = [mode isEqual:@"MSTextLayer"] ? @"Text" : @"Others";
+    //    if (![shapeMod isEqual:name]) {
+    //        shapeMod = name;
+    //        [self update: specs];
+    //        updatedCallback();
+    //    }
 }
 
 - (void)setThemeMode:(NSString *) mode {
@@ -123,20 +123,23 @@
     return dims[dim];
 }
 
--(NVBorderSpec)getSpecAt:(NSIndexPath *) indexPath{
+-(NVGridSpec)getSpecAt:(NSIndexPath *) indexPath{
     NSDictionary *dict = [self getSpecsIn:indexPath.section][indexPath.item];
-    return [NVBorderSource value: dict];
+    return [NVGridSource value: dict];
 }
 
-+(NVBorderSpec)value:(NSDictionary*) specDict {
-    NVBorderSpec spec = {
++(NVGridSpec)value:(NSDictionary*) specDict {
+    NVGridSpec spec = {
         .code = specDict[@"code"],
         .cclass = specDict[@"cclass"],
         .cmeaning = specDict[@"cmeaning"],
-        .ios = specDict[@"ios"],
-        .android = specDict[@"android"],
-        .h5 = specDict[@"h5"],
-
+        .desc = specDict[@"desc"],
+        .elementCode = specDict[@"elementCode"],
+        .ios = [specDict[@"ios"] doubleValue] ,
+        .android = [specDict[@"android"] doubleValue],
+        .h5 = [specDict[@"h5"] doubleValue],
+        .scale = specDict[@"scale"]
+        
     };
     return spec;
 }
@@ -150,7 +153,7 @@
 - (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath {
     NSString *itemId = [NSString stringWithFormat:@"Item-%hhd", self.semanticMode];
     return [collectionView makeItemWithIdentifier:itemId forIndexPath:indexPath];
-
+    
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(NSCollectionView *)collectionView {

@@ -11,6 +11,8 @@
 #import "NVBundle.h"
 // 临时代码
 #import "NVArtboard.h"
+#import "NVMenuButton.h"
+#import "MSDocument.h"
 
 @implementation Menu {
     NSWindow *artborad;
@@ -119,14 +121,17 @@
             @"option": option
         }];
     }
-    if([option[@"id"] isEqual:@"Artboard"]) {
+    
+    if ([option[@"type"] isEqual:@"WINDOW"]) {
+         [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"测试版功能尚未开放，敬请期待...", @""]];
+        [button setState:0];
+    } else if([option[@"id"] isEqual:@"Artboard"]) {
         if(button.state == YES) {
             [self showAndroid];
         } else {
             [artborad close];
         }
     }
-
 }
 
 -(void)showAndroid {
@@ -163,13 +168,14 @@
 }
 
 - (NSButton*)createButton:(NSString*) name icon: (NSURL *) iconUrl activeIcon:(NSURL *) activeIconUrl {
-    NSButton *button = [[NSButton alloc]initWithFrame:NSMakeRect(0, 0, 40, 40)];
+    NSButton *button = [[NVMenuButton alloc]initWithFrame:NSMakeRect(0, 0, 40, 40)];
     [button setImage:[Util createImage:iconUrl withSize: NSMakeSize(40, 40)]];
-    [button setAlternateImage:[Util createImage:activeIconUrl withSize: NSMakeSize(40, 40)]];
+    // [button setAlternateImage:[Util createImage:activeIconUrl withSize: NSMakeSize(40, 40)]];
     [button setBordered:NO];
     [button sizeToFit];
     [button setToolTip: name];
     [button setButtonType: NSButtonTypeToggle]; //NSButtonTypeMomentaryChange
+    button.wantsLayer = YES;
     return button;
 }
 

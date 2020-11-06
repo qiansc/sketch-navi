@@ -54,6 +54,12 @@
 //        @"gravity": @1,
 //        @"type": @"PANEL"
     }, @{
+        @"name": @"栅格",
+        @"id": @"Grid",
+        @"icon": @"layout",
+        @"gravity": @1,
+        @"type": @"PANEL"
+    }, @{
         @"name": @"蒙层",
         @"id": @"Mask",
         @"icon": @"mask",

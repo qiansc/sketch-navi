@@ -21,7 +21,7 @@
 @property (nonatomic) double fontSize;
 @property (nonatomic, strong) NSFont *font;
 @property (nonatomic, strong) NSArray<MSCurvePoint*> *points;
-
+@property(nonatomic) struct CGRect rect;
 
 
 

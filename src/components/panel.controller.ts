@@ -109,6 +109,7 @@ export class PanelController {
             }],
             Text: textSpec,
             Border: borderSpec,
+            Grid: specData.getGridSpec(),
             Mask: specData.getMaskSpec()
         });
     }

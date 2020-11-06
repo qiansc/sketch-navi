@@ -35,6 +35,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *cornerRadiusCode;
 
+#pragma mark Frame
+
+@property (nonatomic, strong) NSString *gridWidthCode;
+@property (nonatomic, strong) NSString *gridScaleCode;
+
 
 @end
 

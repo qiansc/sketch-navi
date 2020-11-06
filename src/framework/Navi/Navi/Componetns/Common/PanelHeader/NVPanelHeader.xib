@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,39 +16,19 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="38"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fPf-DT-NFP">
-                    <rect key="frame" x="2" y="5" width="102" height="23"/>
-                    <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="T4W-bE-upR">
-                            <rect key="frame" x="-2" y="3" width="40" height="17"/>
-                            <textFieldCell key="cell" controlSize="mini" lineBreakMode="clipping" title="填充色" id="mlh-MK-kTb">
-                                <font key="font" size="12" name="PingFangTC-Semibold"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uSP-NM-zQb" customClass="NVPanelInfoButton">
-                            <rect key="frame" x="44" y="4" width="58" height="14"/>
-                            <buttonCell key="cell" type="inline" title="T_012345" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="J0h-sH-S2O">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="miniSystemBold"/>
-                            </buttonCell>
-                        </button>
-                    </subviews>
-                    <visibilityPriorities>
-                        <integer value="1000"/>
-                        <integer value="1000"/>
-                    </visibilityPriorities>
-                    <customSpacing>
-                        <real value="3.4028234663852886e+38"/>
-                        <real value="3.4028234663852886e+38"/>
-                    </customSpacing>
-                </stackView>
-                <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMo-RU-KAW">
-                    <rect key="frame" x="272" y="9" width="13" height="13"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="T4W-bE-upR">
+                    <rect key="frame" x="-2" y="5" width="40" height="21"/>
+                    <textFieldCell key="cell" controlSize="mini" lineBreakMode="clipping" title="填充色" id="mlh-MK-kTb">
+                        <font key="font" size="12" name="PingFangTC-Semibold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pMo-RU-KAW">
+                    <rect key="frame" x="290" y="0.0" width="8" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="8" id="5ui-ds-GJr"/>
                     </constraints>
@@ -58,13 +37,23 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uSP-NM-zQb" customClass="NVPanelInfoButton">
+                    <rect key="frame" x="44" y="7" width="58" height="15"/>
+                    <buttonCell key="cell" type="inline" title="T_012345" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="J0h-sH-S2O">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="miniSystemBold"/>
+                    </buttonCell>
+                </button>
             </subviews>
             <constraints>
+                <constraint firstItem="uSP-NM-zQb" firstAttribute="leading" secondItem="T4W-bE-upR" secondAttribute="trailing" constant="8" id="5Qa-Tc-4Bg"/>
+                <constraint firstItem="pMo-RU-KAW" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="AN3-e8-e1M"/>
+                <constraint firstItem="uSP-NM-zQb" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="Mpx-eB-UPh"/>
                 <constraint firstAttribute="bottom" secondItem="pMo-RU-KAW" secondAttribute="bottom" id="S6I-XV-60F"/>
-                <constraint firstAttribute="trailing" secondItem="pMo-RU-KAW" secondAttribute="trailing" constant="12" id="YVU-Uf-m1r"/>
-                <constraint firstItem="fPf-DT-NFP" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="10" id="Zfc-Gy-C1d"/>
-                <constraint firstAttribute="bottom" secondItem="fPf-DT-NFP" secondAttribute="bottom" constant="5" id="blM-Bj-Taq"/>
-                <constraint firstItem="fPf-DT-NFP" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="2" id="gKY-mu-1WF"/>
+                <constraint firstItem="T4W-bE-upR" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="V6u-HR-A6U"/>
+                <constraint firstAttribute="trailing" secondItem="pMo-RU-KAW" secondAttribute="trailing" constant="2" id="YVU-Uf-m1r"/>
+                <constraint firstAttribute="trailing" secondItem="pMo-RU-KAW" secondAttribute="trailing" constant="2" id="jxR-wS-4u2"/>
+                <constraint firstItem="T4W-bE-upR" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="ycF-f0-bkq"/>
             </constraints>
             <point key="canvasLocation" x="86" y="154"/>
         </customView>

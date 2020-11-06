@@ -93,9 +93,9 @@
     }
 }
 
-- (int)height {
-    int superHeight = [super height];
-    return superHeight + 20;
-}
+//- (int)height {
+//    int superHeight = [super height];
+//    return superHeight + 20;
+//}
 
 @end
