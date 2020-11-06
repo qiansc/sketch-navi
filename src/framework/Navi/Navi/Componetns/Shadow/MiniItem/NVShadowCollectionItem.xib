@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NVShadowCollectionItem"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY" customClass="NVShadowCollectionItemView">
+            <rect key="frame" x="0.0" y="0.0" width="205" height="48"/>
+            <subviews>
+                <box identifier="ShadowBox" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Esy-ar-S6C">
+                    <rect key="frame" x="44" y="12" width="118" height="25"/>
+                    <view key="contentView" id="IRd-oe-A8z">
+                        <rect key="frame" x="1" y="1" width="116" height="23"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="OSf-62-2Dy"/>
+                        <constraint firstAttribute="width" constant="118" id="Oiu-Qg-kFC"/>
+                    </constraints>
+                </box>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="height" constant="48" id="5n9-d0-ZL4"/>
+                <constraint firstItem="Esy-ar-S6C" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="bDv-bq-JcI"/>
+                <constraint firstAttribute="width" constant="205" id="cAB-Lc-P8P"/>
+                <constraint firstItem="Esy-ar-S6C" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="wUH-we-XNs"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="154"/>
+        </customView>
+        <customObject id="7d1-Bg-Djg" customClass="NVShadowCollectionItem">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="AiC-Vn-86z"/>
+            </connections>
+        </customObject>
+    </objects>
+</document>

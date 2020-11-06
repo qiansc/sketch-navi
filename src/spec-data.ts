@@ -152,4 +152,30 @@ export class SpecData {
             });
         return arr;
     }
+    getShadowSpec() {
+        let arr: any[] = [];
+        let exist: any = {};
+        SpecData.loadJSONData('/data/spec-baiduboxapp.json', this.assetsPath)
+            .data.forEach(function(item: any) {
+                let spec = item;
+                if (exist[spec.code]) {
+                    return;
+                }
+                if (!spec.code || spec.code.indexOf('F_S_O') !== 0) {
+                    return;
+                }
+                spec.dim = [item.cclass, item.cmeaning];
+                exist[spec.code] = true;
+                const { h5, defaultValue } = spec;
+                arr.push({
+                    ...spec,
+                    x: h5.x,
+                    y: h5.y,
+                    size: h5.size,
+                    color: `#${defaultValue.color}`,
+                    opacity: defaultValue.opacity,
+                });
+            });
+        return arr;
+    }
 }
