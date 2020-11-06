@@ -57,7 +57,7 @@
                     </textFieldCell>
                 </textField>
             </subviews>
-            <point key="canvasLocation" x="46.5" y="32.5"/>
+            <point key="canvasLocation" x="46.5" y="32"/>
         </customView>
         <customObject id="cJd-SK-9lR" customClass="NVTextCollectionItem">
             <connections>

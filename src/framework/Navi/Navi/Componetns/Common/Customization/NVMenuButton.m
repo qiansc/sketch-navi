@@ -14,7 +14,7 @@
     [super drawRect:dirtyRect];
     // Drawing code here.{
     if(self.state)
-        self.layer.backgroundColor = [NSColor unemphasizedSelectedTextBackgroundColor].CGColor;
+        self.layer.backgroundColor = nil;
         // self.layer
     else
         self.layer.backgroundColor = nil;

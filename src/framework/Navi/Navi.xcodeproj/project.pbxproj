@@ -162,6 +162,12 @@
 		B268777F2554FB4100EF6C1E /* NVGridSemanticItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = B268777E2554FB4100EF6C1E /* NVGridSemanticItem.xib */; };
 		B26877822554FBA600EF6C1E /* NVGridSemanticItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = B26877802554FBA600EF6C1E /* NVGridSemanticItemView.h */; };
 		B26877832554FBA600EF6C1E /* NVGridSemanticItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B26877812554FBA600EF6C1E /* NVGridSemanticItemView.m */; };
+		B2687786255540B800EF6C1E /* NVFontCollectionItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2687785255540B800EF6C1E /* NVFontCollectionItem.xib */; };
+		B2687789255540D600EF6C1E /* NVFontCollectionItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = B2687787255540D600EF6C1E /* NVFontCollectionItemView.h */; };
+		B268778A255540D600EF6C1E /* NVFontCollectionItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2687788255540D600EF6C1E /* NVFontCollectionItemView.m */; };
+		B268778D25554B5900EF6C1E /* NVFontSemanticItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = B268778C25554B5900EF6C1E /* NVFontSemanticItem.xib */; };
+		B268779025554BA400EF6C1E /* NVFontSemanticItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = B268778E25554BA400EF6C1E /* NVFontSemanticItemView.h */; };
+		B268779125554BA400EF6C1E /* NVFontSemanticItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B268778F25554BA400EF6C1E /* NVFontSemanticItemView.m */; };
 		B285DCAB255470E9004EAFFA /* NVMenuButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B285DCA9255470E9004EAFFA /* NVMenuButton.h */; };
 		B285DCAC255470E9004EAFFA /* NVMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B285DCAA255470E9004EAFFA /* NVMenuButton.m */; };
 		B286F6B92543BDA400984F2A /* RFOverlayScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B286F6B52543BDA300984F2A /* RFOverlayScrollView.m */; };
@@ -355,6 +361,12 @@
 		B268777E2554FB4100EF6C1E /* NVGridSemanticItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVGridSemanticItem.xib; sourceTree = "<group>"; };
 		B26877802554FBA600EF6C1E /* NVGridSemanticItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVGridSemanticItemView.h; sourceTree = "<group>"; };
 		B26877812554FBA600EF6C1E /* NVGridSemanticItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVGridSemanticItemView.m; sourceTree = "<group>"; };
+		B2687785255540B800EF6C1E /* NVFontCollectionItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVFontCollectionItem.xib; sourceTree = "<group>"; };
+		B2687787255540D600EF6C1E /* NVFontCollectionItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVFontCollectionItemView.h; sourceTree = "<group>"; };
+		B2687788255540D600EF6C1E /* NVFontCollectionItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVFontCollectionItemView.m; sourceTree = "<group>"; };
+		B268778C25554B5900EF6C1E /* NVFontSemanticItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVFontSemanticItem.xib; sourceTree = "<group>"; };
+		B268778E25554BA400EF6C1E /* NVFontSemanticItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVFontSemanticItemView.h; sourceTree = "<group>"; };
+		B268778F25554BA400EF6C1E /* NVFontSemanticItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVFontSemanticItemView.m; sourceTree = "<group>"; };
 		B285DCA9255470E9004EAFFA /* NVMenuButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVMenuButton.h; sourceTree = "<group>"; };
 		B285DCAA255470E9004EAFFA /* NVMenuButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVMenuButton.m; sourceTree = "<group>"; };
 		B286F6B52543BDA300984F2A /* RFOverlayScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFOverlayScrollView.m; sourceTree = "<group>"; };
@@ -421,6 +433,8 @@
 				A300364E25386EAF0093395D /* NVTextPanel.h */,
 				A300364F25386EAF0093395D /* NVTextPanel.m */,
 				A300365025386EAF0093395D /* NVTextPanel.xib */,
+				B268778B25554B3300EF6C1E /* MaxItem */,
+				B268778425553FEE00EF6C1E /* MinItem */,
 				A38C95BE25483580008C0A57 /* Item */,
 				A38C95BF254835CF008C0A57 /* NVTextSource.h */,
 				A38C95C0254835CF008C0A57 /* NVTextSource.m */,
@@ -805,6 +819,26 @@
 			path = MinItem;
 			sourceTree = "<group>";
 		};
+		B268778425553FEE00EF6C1E /* MinItem */ = {
+			isa = PBXGroup;
+			children = (
+				B2687785255540B800EF6C1E /* NVFontCollectionItem.xib */,
+				B2687787255540D600EF6C1E /* NVFontCollectionItemView.h */,
+				B2687788255540D600EF6C1E /* NVFontCollectionItemView.m */,
+			);
+			path = MinItem;
+			sourceTree = "<group>";
+		};
+		B268778B25554B3300EF6C1E /* MaxItem */ = {
+			isa = PBXGroup;
+			children = (
+				B268778C25554B5900EF6C1E /* NVFontSemanticItem.xib */,
+				B268778E25554BA400EF6C1E /* NVFontSemanticItemView.h */,
+				B268778F25554BA400EF6C1E /* NVFontSemanticItemView.m */,
+			);
+			path = MaxItem;
+			sourceTree = "<group>";
+		};
 		B2D54D42254728E3002E1D91 /* Artboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -839,6 +873,8 @@
 				301F80082553BDD8000ED935 /* NVMaskCollectionItemView.h in Headers */,
 				B26877722554E00F00EF6C1E /* NVGridCollectionView.h in Headers */,
 				A3EEF7F82540017300C3998D /* NVColorCollectionItem.h in Headers */,
+				B268779025554BA400EF6C1E /* NVFontSemanticItemView.h in Headers */,
+				B2687789255540D600EF6C1E /* NVFontCollectionItemView.h in Headers */,
 				B256512F2554C99700116B8C /* NVLineSemanticItemView.h in Headers */,
 				A32ED9942511D4E100EBCE68 /* Menu.h in Headers */,
 				A3DBD3C82553ECB00042F14C /* NVLayer.h in Headers */,
@@ -963,6 +999,7 @@
 				A361671B2551346300FE0840 /* NVBorderPanel.xib in Resources */,
 				A34728B52539918500EC18ED /* NVColorCollectionItem.xib in Resources */,
 				A396D12125347F8C0061CC73 /* color.png in Resources */,
+				B2687786255540B800EF6C1E /* NVFontCollectionItem.xib in Resources */,
 				B26877692554DF9200EF6C1E /* NVGridPanel.xib in Resources */,
 				B2D54D3D25471622002E1D91 /* user.png in Resources */,
 				B268777F2554FB4100EF6C1E /* NVGridSemanticItem.xib in Resources */,
@@ -1000,6 +1037,7 @@
 				B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */,
 				B2D54D4F254752B0002E1D91 /* NVColorSemanticItem.xib in Resources */,
 				A396D11A25347F8C0061CC73 /* margin-h.png in Resources */,
+				B268778D25554B5900EF6C1E /* NVFontSemanticItem.xib in Resources */,
 				B256512C2554C72E00116B8C /* NVLineSemanticItem.xib in Resources */,
 				A396D11B25347F8C0061CC73 /* main.png in Resources */,
 				A300365325386EAF0093395D /* NVTextPanel.xib in Resources */,
@@ -1033,6 +1071,7 @@
 				A34728A4253886B700EC18ED /* NVPanel.m in Sources */,
 				A352295F253DA5D400F42D58 /* NVColorSource.m in Sources */,
 				A38C95D425483C06008C0A57 /* NVTextCollectionItem.m in Sources */,
+				B268779125554BA400EF6C1E /* NVFontSemanticItemView.m in Sources */,
 				B256512B2554C72E00116B8C /* NVLineSemanticItem.m in Sources */,
 				B26877622554D4F300EF6C1E /* NVBorderSemanticItemView.m in Sources */,
 				A3EEF7FF25402F9900C3998D /* NVPanelInfoButton.m in Sources */,
@@ -1054,6 +1093,7 @@
 				B2E298C62552FBF100D8C31B /* NVUserInfo.m in Sources */,
 				A38C95C2254835CF008C0A57 /* NVTextSource.m in Sources */,
 				A3522957253D6C3A00F42D58 /* NVCollectionView.m in Sources */,
+				B268778A255540D600EF6C1E /* NVFontCollectionItemView.m in Sources */,
 				B226FF5D253CB447009DD159 /* NVCollectionController.m in Sources */,
 				B286F6B92543BDA400984F2A /* RFOverlayScrollView.m in Sources */,
 				B2012D1D253C5B2A0003715E /* DisabledWheelScrollView.m in Sources */,

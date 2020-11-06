@@ -24,8 +24,8 @@
         [self reloadData];
     }];
 
-    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVTextCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
-    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVTextCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-0"];
+    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVFontSemanticItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
+    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVFontCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-0"];
 }
 
 #pragma mark NSCollectionViewDelegate
@@ -36,6 +36,7 @@
     if (view.indexPath == nil) {
         view.spec = spec;
         view.indexPath = indexPath;
+        [view addConstraint:[view.heightAnchor constraintEqualToConstant: spec.iosFontSize + 33]];
     }
     [view onMouseDown:^void(NSEvent* event, NSBox* box) {
          [self.toggleDelegate clearActive];
@@ -53,11 +54,12 @@
 #pragma mark NSCollectionViewDelegateFlowLayout
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    if (self.dataSource.semanticMode) {
+    if (self.dataSource.semanticMode) {
         return NSMakeSize(215, 31);
-//    } else {
-//        return NSMakeSize(31, 31);
-//    }
+    } else {
+        NVTextSpec spec = [self.dataSource getSpecAt:indexPath];
+        return NSMakeSize(215, spec.iosFontSize + 33);
+    }
 
 }
 

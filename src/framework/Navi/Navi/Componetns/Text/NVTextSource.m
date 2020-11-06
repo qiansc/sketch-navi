@@ -38,16 +38,16 @@
             }
          }
     }
-    NSMutableArray *others = [NSMutableArray new];
-    for(NSString *dim in [dims allKeys]) {
-        if ([((NSMutableArray*)dims[dim]) count] < 2) {
-            [others addObjectsFromArray:dims[dim]];
-            [dims removeObjectForKey:dim];
-        }
-    }
-    if ([others count] > 0) {
-        dims[@"其他"] = others;
-    }
+//    NSMutableArray *others = [NSMutableArray new];
+//    for(NSString *dim in [dims allKeys]) {
+//        if ([((NSMutableArray*)dims[dim]) count] < 2) {
+//            [others addObjectsFromArray:dims[dim]];
+//            [dims removeObjectForKey:dim];
+//        }
+//    }
+//    if ([others count] > 0) {
+//        dims[@"其他"] = others;
+//    }
     updatedCallback();
 }
 
@@ -87,12 +87,12 @@
 }
 
 - (void)setShapeMode:(NSString *) mode {
-    NSString *name = [mode isEqual:@"MSTextLayer"] ? @"Text" : @"Others";
-    if (![shapeMod isEqual:name]) {
-        shapeMod = name;
-        [self update: specs];
-        updatedCallback();
-    }
+//    NSString *name = [mode isEqual:@"MSTextLayer"] ? @"Text" : @"Others";
+//    if (![shapeMod isEqual:name]) {
+//        shapeMod = name;
+//        [self update: specs];
+//        updatedCallback();
+//    }
 }
 
 - (void)setThemeMode:(NSString *) mode {

@@ -7,7 +7,6 @@
 //
 
 #import "NVPanelHeader.h"
-#import "MSDocument.h"
 #import "NVBundle.h"
 
 @interface NVPanelHeader ()
@@ -16,25 +15,16 @@
 
 @implementation NVPanelHeader
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-//    [self.toggleButton setTarget:self];
-//    [self.toggleButton setAction:@selector(toogle:)];
-    // self.view.wantsLayer = true;
-    // self.view.layer.backgroundColor = [NSColor orangeColor].CGColor;
-    // self.toggleButton
-    // Do view setup here.
+- (void)awakeFromNib {
+    [super awakeFromNib];
     [self.infoButton setTitle:nil];
-    [self.infoButton setTarget:self];
-    [self.infoButton setAction:@selector(copyInfo:)];
 }
 
--(void)copyInfo:(NSButton*) button{
-    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
-    [pasteboard clearContents];  //必须清空，否则setString会失败。
-    [pasteboard setString:button.title forType:NSPasteboardTypeString];
-    [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"已复制 %@ 到剪切板", button.title]];
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
 }
+
 
 - (void)toogle:(NSButton*) sender{
 //    NSView* view = self.view.superview.superview;

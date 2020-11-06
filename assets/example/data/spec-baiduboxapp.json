@@ -13,8 +13,8 @@
 		"androidFont": 400,
 		"h5Font": 400,
 		"fontSizeId": 15,
-		"iosFontSize": 20,
-		"androidFontSize": 18,
+		"iosFontSize": 28,
+		"androidFontSize": 48,
 		"h5FontSize": 63,
 		"camId": "CAM_X350",
 		"defaultValue": {
@@ -51,7 +51,7 @@
 		"h5FontSize": 108,
 		"camId": "CAM_X350",
 		"defaultValue": {
-			"color": "00A2F2",
+			"color": "000000",
 			"opacity": 1,
 			"rgba": "0, 0, 0, 1"
 		},
@@ -79,9 +79,9 @@
 		"androidFont": 400,
 		"h5Font": 400,
 		"fontSizeId": 15,
-		"iosFontSize": 20,
+		"iosFontSize": 15,
 		"androidFontSize": 18,
-		"h5FontSize": 63,
+		"h5FontSize": 35,
 		"camId": "CAM_X350",
 		"defaultValue": {
 			"color": "000000",
@@ -112,12 +112,12 @@
 		"androidFont": 400,
 		"h5Font": 400,
 		"fontSizeId": 3,
-		"iosFontSize": 17,
-		"androidFontSize": 15,
+		"iosFontSize": 21,
+		"androidFontSize": 28,
 		"h5FontSize": 51,
 		"camId": "CAM_X350",
 		"defaultValue": {
-			"color": "F20000",
+			"color": "000000",
 			"opacity": 1,
 			"rgba": "0, 0, 0, 1"
 		},

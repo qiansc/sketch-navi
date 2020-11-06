@@ -82,7 +82,7 @@
         float offsetY = self.view.frame.size.height - view.frame.size.height - view.frame.origin.y;
         newHeight = offsetY + h;
     }
-    return newHeight+10;
+    return newHeight + 30;
 }
 
 

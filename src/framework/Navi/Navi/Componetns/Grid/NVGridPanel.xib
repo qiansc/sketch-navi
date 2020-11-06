@@ -18,11 +18,14 @@
             <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
             <subviews>
-                <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kcw-Za-9RT" customClass="NVPanelHeaderView">
-                    <rect key="frame" x="0.0" y="266" width="240" height="34"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Kcw-Za-9RT" customClass="NVPanelHeaderView">
+                    <rect key="frame" x="0.0" y="272" width="240" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="1S9-SW-Ajt"/>
+                    </constraints>
                 </customView>
-                <collectionView ambiguous="YES" allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wT5-oM-ons" customClass="NVGridCollectionView">
-                    <rect key="frame" x="0.0" y="-34" width="240" height="300"/>
+                <collectionView allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wT5-oM-ons" customClass="NVGridCollectionView">
+                    <rect key="frame" x="0.0" y="-1728" width="240" height="2000"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2000" id="gOS-f7-NAL"/>
                         <constraint firstAttribute="height" constant="2000" id="hH8-rz-v7R"/>
