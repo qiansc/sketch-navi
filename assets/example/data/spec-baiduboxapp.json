@@ -135,6 +135,8 @@
     },
     {"code":"S_J_X14","cline":"搜索","cclass":"元素边角","cmeaning":"3,3,3,3","elementCode":"J_X14","ios":"3,3,3,3","android":"5,5,5,5","h5":""},
     {"code":"S_J_X15","cline":"搜索","cclass":"元素边角","cmeaning":"9,9,9,9","elementCode":"J_X15","ios":"9,9,9,9","android":"13,13,13,13","h5":""},
-    {"code":"S_J_X16","cline":"搜索","cclass":"元素边角","cmeaning":"全圆","elementCode":"J_X16","ios":"-1,-1,-1,-1","android":"-1,-1,-1,-1","h5":""}
+    {"code":"S_J_X16","cline":"搜索","cclass":"元素边角","cmeaning":"全圆","elementCode":"J_X16","ios":"-1,-1,-1,-1","android":"-1,-1,-1,-1","h5":""},
+    {"_id": "5f959292c531587ee80a385e", "id": 1, "code": "F_Mask_X1", "cline": "FEED", "cclass": "图片", "cmeaning": "动态挂载类卡片蒙层", "elementCode": "Mask_X03", "color": "{\"cname\":\"C_X010\",\"color\":\"000000\"}", "size": 124, "direction": "top", "startOpacity": 0.25, "nodeOpacity": 0, "nodePositon": 0, "endOpacity": 0},
+    {"_id": "5f9592b3c531587ee80a385f", "id": 2, "code": "F_Mask_X2", "cline": "FEED", "cclass": "图片", "cmeaning": "卡片+容器（图片上有文字内容的）", "elementCode": "Mask_X11", "color": "{\"cname\":\"C_X010\",\"color\":\"000000\"}", "size": 0, "direction": "bottom", "startOpacity": 0, "nodeOpacity": 0.1, "nodePositon": 0.85, "endOpacity": 0.3}
     ]
 }
