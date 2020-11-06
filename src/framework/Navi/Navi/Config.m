@@ -47,12 +47,12 @@
 //        @"icon": @"margin-v",
 //        @"gravity": @1,
 //        @"type": @"PANEL"
-//    }, @{
-//        @"name": @"投影",
-//        @"id": @"Shadow",
-//        @"icon": @"shadow",
-//        @"gravity": @1,
-//        @"type": @"PANEL"
+    }, @{
+        @"name": @"投影",
+        @"id": @"Shadow",
+        @"icon": @"shadow",
+        @"gravity": @1,
+        @"type": @"PANEL"
     }, @{
         @"name": @"栅格",
         @"id": @"Grid",

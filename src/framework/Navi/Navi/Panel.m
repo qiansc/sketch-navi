@@ -18,6 +18,7 @@
 #import "MSDocument.h"
 #import "NVBundle.h"
 #import "NVSource.h"
+#import "NVShadowPanel.h"
 
 @implementation Panel {
     int limitWidth;
@@ -83,6 +84,8 @@
                 c = [[NVBorderPanel alloc] initWithId:id];
             } else if([id isEqual: @"Grid"]) {
                 c = [[NVGridPanel alloc] initWithId:id];
+            } else if ([id isEqual:@"Shadow"]) {
+                c = [[NVShadowPanel alloc] initWithId:id];
             }
 
             if (c) {
