@@ -48,7 +48,7 @@
 		"fontSizeId": 10,
 		"iosFontSize": 36,
 		"androidFontSize": 48,
-		"h5FontSize": 108,
+		"h5FontSize": 98,
 		"camId": "CAM_X350",
 		"defaultValue": {
 			"color": "000000",
