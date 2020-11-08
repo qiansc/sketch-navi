@@ -18,6 +18,7 @@
 #import "MSDocument.h"
 #import "NVBundle.h"
 #import "NVSource.h"
+#import "NVColor.h"
 #import "NVShadowPanel.h"
 
 @implementation Panel {
@@ -34,7 +35,7 @@
     // Menu按下传递的事件
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePanel:) name:@"OPEN_PANEL" object:nil];
     // Menu按下传递的事件
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePanel:) name:@"HIDE_PANEL" object:nil];
+    // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePanel:) name:@"HIDE_PANEL" object:nil];
     // Panel按下传递的事件
     [self.stackView setSpacing:0];
     [self initAllPanel];
@@ -104,13 +105,15 @@
 
 /* OPEN_PANEL Hanlder */
 -(void)changePanel:(NSNotification*)notification{
+    
     NSString *id = notification.userInfo[@"documentId"];
     if ([id isEqual:self.documentId]) {
         NSString *panelId = notification.userInfo[@"panelId"];
         NVPanel *c = panelControllers[panelId];
         if(c) {
-            NSMutableDictionary *states = notification.userInfo[@"states"];
-            [c setOpenStateSlient: [states[panelId] intValue]];
+            [self.scrollView.contentView scrollPoint: CGPointMake(0, self.stackView.frame.size.height - c.view.frame.origin.y - c.view.frame.size.height)];
+//            NSMutableDictionary *states = notification.userInfo[@"states"];
+//            [c setOpenStateSlient: [states[panelId] intValue]];
         }
     }
 }

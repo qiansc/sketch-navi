@@ -92,38 +92,13 @@
 		A38C95D525483C06008C0A57 /* NVTextCollectionItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = A38C95D225483C06008C0A57 /* NVTextCollectionItem.xib */; };
 		A396D0EA25346F990061CC73 /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = A396D0E825346F990061CC73 /* Util.h */; };
 		A396D0EB25346F990061CC73 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A396D0E925346F990061CC73 /* Util.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		A396D11225347F8C0061CC73 /* mask-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D0F825347F8B0061CC73 /* mask-active.png */; };
-		A396D11325347F8C0061CC73 /* border-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D0F925347F8B0061CC73 /* border-active.png */; };
-		A396D11425347F8C0061CC73 /* text-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D0FA25347F8B0061CC73 /* text-active.png */; };
-		A396D11525347F8C0061CC73 /* main-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D0FB25347F8B0061CC73 /* main-active.png */; };
-		A396D11625347F8C0061CC73 /* border.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D0FC25347F8B0061CC73 /* border.png */; };
-		A396D11725347F8C0061CC73 /* layout-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D0FD25347F8B0061CC73 /* layout-active.png */; };
-		A396D11825347F8C0061CC73 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D0FE25347F8B0061CC73 /* icon.png */; };
-		A396D11925347F8C0061CC73 /* shadow-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D0FF25347F8B0061CC73 /* shadow-active.png */; };
-		A396D11A25347F8C0061CC73 /* margin-h.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10025347F8B0061CC73 /* margin-h.png */; };
-		A396D11B25347F8C0061CC73 /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10125347F8B0061CC73 /* main.png */; };
-		A396D11C25347F8C0061CC73 /* text-margin.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10225347F8B0061CC73 /* text-margin.png */; };
-		A396D11D25347F8C0061CC73 /* line-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10325347F8B0061CC73 /* line-active.png */; };
-		A396D11E25347F8C0061CC73 /* margin-v-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10425347F8B0061CC73 /* margin-v-active.png */; };
-		A396D11F25347F8C0061CC73 /* layout.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10525347F8B0061CC73 /* layout.png */; };
-		A396D12025347F8C0061CC73 /* margin-h-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10625347F8B0061CC73 /* margin-h-active.png */; };
-		A396D12125347F8C0061CC73 /* color.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10725347F8B0061CC73 /* color.png */; };
-		A396D12225347F8C0061CC73 /* icon-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10825347F8B0061CC73 /* icon-active.png */; };
-		A396D12325347F8C0061CC73 /* color-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10925347F8B0061CC73 /* color-active.png */; };
-		A396D12425347F8C0061CC73 /* text-margin-active.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10A25347F8B0061CC73 /* text-margin-active.png */; };
-		A396D12525347F8C0061CC73 /* shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10B25347F8B0061CC73 /* shadow.png */; };
-		A396D12625347F8C0061CC73 /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10C25347F8B0061CC73 /* line.png */; };
-		A396D12725347F8C0061CC73 /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10D25347F8B0061CC73 /* mask.png */; };
-		A396D12825347F8C0061CC73 /* transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10E25347F8B0061CC73 /* transparent.png */; };
-		A396D12925347F8C0061CC73 /* margin-v.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D10F25347F8B0061CC73 /* margin-v.png */; };
-		A396D12A25347F8C0061CC73 /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = A396D11025347F8B0061CC73 /* text.png */; };
 		A397ACC825148BEA00286C6E /* Panel.h in Headers */ = {isa = PBXBuildFile; fileRef = A397ACC625148BEA00286C6E /* Panel.h */; };
 		A397ACC925148BEA00286C6E /* Panel.m in Sources */ = {isa = PBXBuildFile; fileRef = A397ACC725148BEA00286C6E /* Panel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3B5E221253828C40048F526 /* NVColorPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B5E21E253828C40048F526 /* NVColorPanel.h */; };
 		A3B5E222253828C40048F526 /* NVColorPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B5E21F253828C40048F526 /* NVColorPanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3B5E223253828C40048F526 /* NVColorPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3B5E220253828C40048F526 /* NVColorPanel.xib */; };
 		A3B5E22825382B460048F526 /* NVPanelHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B5E22525382B460048F526 /* NVPanelHeader.h */; };
-		A3B5E22925382B470048F526 /* NVPanelHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B5E22625382B460048F526 /* NVPanelHeader.m */; };
+		A3B5E22925382B470048F526 /* NVPanelHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B5E22625382B460048F526 /* NVPanelHeader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3B5E22A25382B470048F526 /* NVPanelHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3B5E22725382B460048F526 /* NVPanelHeader.xib */; };
 		A3B5E22D25382BE70048F526 /* NVPanelHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = A3B5E22B25382BE70048F526 /* NVPanelHeaderView.h */; };
 		A3B5E22E25382BE70048F526 /* NVPanelHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B5E22C25382BE70048F526 /* NVPanelHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -187,12 +162,6 @@
 		B286F6BB2543BDA400984F2A /* RFOverlayScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = B286F6B72543BDA300984F2A /* RFOverlayScroller.m */; };
 		B286F6BC2543BDA400984F2A /* RFOverlayScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = B286F6B82543BDA400984F2A /* RFOverlayScrollView.h */; };
 		B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A1D897250EE6CA004E59A4 /* Menu.xib */; };
-		B2D54D3C25471622002E1D91 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3625471620002E1D91 /* setting.png */; };
-		B2D54D3D25471622002E1D91 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3725471621002E1D91 /* user.png */; };
-		B2D54D3E25471622002E1D91 /* user-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3825471621002E1D91 /* user-active.png */; };
-		B2D54D3F25471622002E1D91 /* android-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3925471621002E1D91 /* android-active.png */; };
-		B2D54D4025471622002E1D91 /* setting-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3A25471622002E1D91 /* setting-active.png */; };
-		B2D54D4125471622002E1D91 /* android.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D3B25471622002E1D91 /* android.png */; };
 		B2D54D462547294F002E1D91 /* NVArtboard.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D54D432547294F002E1D91 /* NVArtboard.h */; };
 		B2D54D472547294F002E1D91 /* NVArtboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D54D442547294F002E1D91 /* NVArtboard.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B2D54D482547294F002E1D91 /* NVArtboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D452547294F002E1D91 /* NVArtboard.xib */; };
@@ -203,6 +172,13 @@
 		B2D54D53254752DB002E1D91 /* NVColorSemanticItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D54D51254752DB002E1D91 /* NVColorSemanticItemView.m */; };
 		B2E298C52552FBF100D8C31B /* NVUserInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E298C32552FBF100D8C31B /* NVUserInfo.h */; };
 		B2E298C62552FBF100D8C31B /* NVUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E298C42552FBF100D8C31B /* NVUserInfo.m */; };
+		B2E3ED382558236100F7B6DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2E3ED372558236100F7B6DB /* Assets.xcassets */; };
+		B2E3ED3B25584F7B00F7B6DB /* NVColor.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E3ED3925584F7B00F7B6DB /* NVColor.h */; };
+		B2E3ED3C25584F7B00F7B6DB /* NVColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E3ED3A25584F7B00F7B6DB /* NVColor.m */; };
+		B2E3ED3F2558501600F7B6DB /* NVImage.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E3ED3D2558501600F7B6DB /* NVImage.h */; };
+		B2E3ED402558501600F7B6DB /* NVImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E3ED3E2558501600F7B6DB /* NVImage.m */; };
+		B2E3ED4725585C1F00F7B6DB /* NVContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = B2E3ED4525585C1F00F7B6DB /* NVContentView.h */; };
+		B2E3ED4825585C1F00F7B6DB /* NVContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E3ED4625585C1F00F7B6DB /* NVContentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -295,31 +271,6 @@
 		A396D0D2251DE63B0061CC73 /* DataChangeProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataChangeProtocol.h; sourceTree = "<group>"; };
 		A396D0E825346F990061CC73 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Util.h; path = Navi/lib/Util.h; sourceTree = SOURCE_ROOT; };
 		A396D0E925346F990061CC73 /* Util.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = Navi/lib/Util.m; sourceTree = SOURCE_ROOT; };
-		A396D0F825347F8B0061CC73 /* mask-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mask-active.png"; sourceTree = "<group>"; };
-		A396D0F925347F8B0061CC73 /* border-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "border-active.png"; sourceTree = "<group>"; };
-		A396D0FA25347F8B0061CC73 /* text-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-active.png"; sourceTree = "<group>"; };
-		A396D0FB25347F8B0061CC73 /* main-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main-active.png"; sourceTree = "<group>"; };
-		A396D0FC25347F8B0061CC73 /* border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = border.png; sourceTree = "<group>"; };
-		A396D0FD25347F8B0061CC73 /* layout-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "layout-active.png"; sourceTree = "<group>"; };
-		A396D0FE25347F8B0061CC73 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		A396D0FF25347F8B0061CC73 /* shadow-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadow-active.png"; sourceTree = "<group>"; };
-		A396D10025347F8B0061CC73 /* margin-h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "margin-h.png"; sourceTree = "<group>"; };
-		A396D10125347F8B0061CC73 /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
-		A396D10225347F8B0061CC73 /* text-margin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-margin.png"; sourceTree = "<group>"; };
-		A396D10325347F8B0061CC73 /* line-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line-active.png"; sourceTree = "<group>"; };
-		A396D10425347F8B0061CC73 /* margin-v-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "margin-v-active.png"; sourceTree = "<group>"; };
-		A396D10525347F8B0061CC73 /* layout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = layout.png; sourceTree = "<group>"; };
-		A396D10625347F8B0061CC73 /* margin-h-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "margin-h-active.png"; sourceTree = "<group>"; };
-		A396D10725347F8B0061CC73 /* color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color.png; sourceTree = "<group>"; };
-		A396D10825347F8B0061CC73 /* icon-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-active.png"; sourceTree = "<group>"; };
-		A396D10925347F8B0061CC73 /* color-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color-active.png"; sourceTree = "<group>"; };
-		A396D10A25347F8B0061CC73 /* text-margin-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-margin-active.png"; sourceTree = "<group>"; };
-		A396D10B25347F8B0061CC73 /* shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shadow.png; sourceTree = "<group>"; };
-		A396D10C25347F8B0061CC73 /* line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line.png; sourceTree = "<group>"; };
-		A396D10D25347F8B0061CC73 /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
-		A396D10E25347F8B0061CC73 /* transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparent.png; sourceTree = "<group>"; };
-		A396D10F25347F8B0061CC73 /* margin-v.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "margin-v.png"; sourceTree = "<group>"; };
-		A396D11025347F8B0061CC73 /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text.png; sourceTree = "<group>"; };
 		A397ACC625148BEA00286C6E /* Panel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Panel.h; sourceTree = "<group>"; };
 		A397ACC725148BEA00286C6E /* Panel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Panel.m; sourceTree = "<group>"; };
 		A3B5E21E253828C40048F526 /* NVColorPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVColorPanel.h; sourceTree = "<group>"; };
@@ -398,12 +349,6 @@
 		B286F6B72543BDA300984F2A /* RFOverlayScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFOverlayScroller.m; sourceTree = "<group>"; };
 		B286F6B82543BDA400984F2A /* RFOverlayScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFOverlayScrollView.h; sourceTree = "<group>"; };
 		B2A1D897250EE6CA004E59A4 /* Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Menu.xib; sourceTree = "<group>"; };
-		B2D54D3625471620002E1D91 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
-		B2D54D3725471621002E1D91 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
-		B2D54D3825471621002E1D91 /* user-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user-active.png"; sourceTree = "<group>"; };
-		B2D54D3925471621002E1D91 /* android-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "android-active.png"; sourceTree = "<group>"; };
-		B2D54D3A25471622002E1D91 /* setting-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting-active.png"; sourceTree = "<group>"; };
-		B2D54D3B25471622002E1D91 /* android.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = android.png; sourceTree = "<group>"; };
 		B2D54D432547294F002E1D91 /* NVArtboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVArtboard.h; sourceTree = "<group>"; };
 		B2D54D442547294F002E1D91 /* NVArtboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVArtboard.m; sourceTree = "<group>"; };
 		B2D54D452547294F002E1D91 /* NVArtboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVArtboard.xib; sourceTree = "<group>"; };
@@ -414,6 +359,13 @@
 		B2D54D51254752DB002E1D91 /* NVColorSemanticItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVColorSemanticItemView.m; sourceTree = "<group>"; };
 		B2E298C32552FBF100D8C31B /* NVUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVUserInfo.h; sourceTree = "<group>"; };
 		B2E298C42552FBF100D8C31B /* NVUserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVUserInfo.m; sourceTree = "<group>"; };
+		B2E3ED372558236100F7B6DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B2E3ED3925584F7B00F7B6DB /* NVColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVColor.h; sourceTree = "<group>"; };
+		B2E3ED3A25584F7B00F7B6DB /* NVColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVColor.m; sourceTree = "<group>"; };
+		B2E3ED3D2558501600F7B6DB /* NVImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVImage.h; sourceTree = "<group>"; };
+		B2E3ED3E2558501600F7B6DB /* NVImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVImage.m; sourceTree = "<group>"; };
+		B2E3ED4525585C1F00F7B6DB /* NVContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVContentView.h; sourceTree = "<group>"; };
+		B2E3ED4625585C1F00F7B6DB /* NVContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVContentView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,6 +515,8 @@
 				A36167122551177300FE0840 /* NVSectionHeader.m */,
 				B285DCA9255470E9004EAFFA /* NVMenuButton.h */,
 				B285DCAA255470E9004EAFFA /* NVMenuButton.m */,
+				B2E3ED4525585C1F00F7B6DB /* NVContentView.h */,
+				B2E3ED4625585C1F00F7B6DB /* NVContentView.m */,
 			);
 			path = Customization;
 			sourceTree = "<group>";
@@ -586,7 +540,7 @@
 		A38993F6250B859F00211D90 /* Navi */ = {
 			isa = PBXGroup;
 			children = (
-				A396D0F525347F8B0061CC73 /* Assets */,
+				B2E3ED372558236100F7B6DB /* Assets.xcassets */,
 				B23CA2932519852600FB2416 /* Lib */,
 				A3B148E425162C0E00939B36 /* Componetns */,
 				A3B148E3251628D500939B36 /* Headers */,
@@ -614,52 +568,6 @@
 				A38C95CC25483BE3008C0A57 /* NVTextCollectionItemView.m */,
 			);
 			path = Item;
-			sourceTree = "<group>";
-		};
-		A396D0F525347F8B0061CC73 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				A396D0F725347F8B0061CC73 /* icons */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		A396D0F725347F8B0061CC73 /* icons */ = {
-			isa = PBXGroup;
-			children = (
-				A396D0F825347F8B0061CC73 /* mask-active.png */,
-				A396D0F925347F8B0061CC73 /* border-active.png */,
-				A396D0FA25347F8B0061CC73 /* text-active.png */,
-				A396D0FB25347F8B0061CC73 /* main-active.png */,
-				A396D0FC25347F8B0061CC73 /* border.png */,
-				A396D0FD25347F8B0061CC73 /* layout-active.png */,
-				A396D0FE25347F8B0061CC73 /* icon.png */,
-				A396D0FF25347F8B0061CC73 /* shadow-active.png */,
-				A396D10025347F8B0061CC73 /* margin-h.png */,
-				A396D10125347F8B0061CC73 /* main.png */,
-				A396D10225347F8B0061CC73 /* text-margin.png */,
-				A396D10325347F8B0061CC73 /* line-active.png */,
-				A396D10425347F8B0061CC73 /* margin-v-active.png */,
-				A396D10525347F8B0061CC73 /* layout.png */,
-				A396D10625347F8B0061CC73 /* margin-h-active.png */,
-				A396D10725347F8B0061CC73 /* color.png */,
-				A396D10825347F8B0061CC73 /* icon-active.png */,
-				A396D10925347F8B0061CC73 /* color-active.png */,
-				A396D10A25347F8B0061CC73 /* text-margin-active.png */,
-				A396D10B25347F8B0061CC73 /* shadow.png */,
-				A396D10C25347F8B0061CC73 /* line.png */,
-				A396D10D25347F8B0061CC73 /* mask.png */,
-				A396D10E25347F8B0061CC73 /* transparent.png */,
-				A396D10F25347F8B0061CC73 /* margin-v.png */,
-				A396D11025347F8B0061CC73 /* text.png */,
-				B2D54D3925471621002E1D91 /* android-active.png */,
-				B2D54D3B25471622002E1D91 /* android.png */,
-				B2D54D3A25471622002E1D91 /* setting-active.png */,
-				B2D54D3625471620002E1D91 /* setting.png */,
-				B2D54D3825471621002E1D91 /* user-active.png */,
-				B2D54D3725471621002E1D91 /* user.png */,
-			);
-			path = icons;
 			sourceTree = "<group>";
 		};
 		A3B148E3251628D500939B36 /* Headers */ = {
@@ -805,6 +713,10 @@
 				A3DBD3C72553ECB00042F14C /* NVLayer.m */,
 				B2E298C32552FBF100D8C31B /* NVUserInfo.h */,
 				B2E298C42552FBF100D8C31B /* NVUserInfo.m */,
+				B2E3ED3925584F7B00F7B6DB /* NVColor.h */,
+				B2E3ED3A25584F7B00F7B6DB /* NVColor.m */,
+				B2E3ED3D2558501600F7B6DB /* NVImage.h */,
+				B2E3ED3E2558501600F7B6DB /* NVImage.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -933,9 +845,11 @@
 				A3DBD3C82553ECB00042F14C /* NVLayer.h in Headers */,
 				B268775C2554D4D100EF6C1E /* NVBorderSemanticItem.h in Headers */,
 				A3EEF7EC253F033500C3998D /* NVCollectionDelegate.h in Headers */,
+				B2E3ED4725585C1F00F7B6DB /* NVContentView.h in Headers */,
 				30D2479625429B1B0027602C /* NVLineCollectionView.h in Headers */,
 				A3BFB1DA25500009009CB0C1 /* NVBundle.h in Headers */,
 				A3522956253D6C3A00F42D58 /* NVCollectionView.h in Headers */,
+				B2E3ED3F2558501600F7B6DB /* NVImage.h in Headers */,
 				A396D0EA25346F990061CC73 /* Util.h in Headers */,
 				B26877672554DF9200EF6C1E /* NVGridPanel.h in Headers */,
 				A38C95C925483B63008C0A57 /* NVTextCollectionView.h in Headers */,
@@ -955,6 +869,7 @@
 				B2012D1C253C5B2A0003715E /* DisabledWheelScrollView.h in Headers */,
 				301F80032553B84B000ED935 /* NVMaskCollectionView.h in Headers */,
 				A361673225516C9400FE0840 /* NVCollectionViewWithHeader.h in Headers */,
+				B2E3ED3B25584F7B00F7B6DB /* NVColor.h in Headers */,
 				A3FB3705253EC2E2001D152C /* NVToggleBox.h in Headers */,
 				A34728AA253988FC00EC18ED /* NVColorCollectionView.h in Headers */,
 				A352295E253DA5D400F42D58 /* NVColorSource.h in Headers */,
@@ -1055,57 +970,27 @@
 			files = (
 				A361671B2551346300FE0840 /* NVBorderPanel.xib in Resources */,
 				A34728B52539918500EC18ED /* NVColorCollectionItem.xib in Resources */,
-				A396D12125347F8C0061CC73 /* color.png in Resources */,
+				B2E3ED382558236100F7B6DB /* Assets.xcassets in Resources */,
 				B2687786255540B800EF6C1E /* NVFontCollectionItem.xib in Resources */,
 				B26877692554DF9200EF6C1E /* NVGridPanel.xib in Resources */,
-				B2D54D3D25471622002E1D91 /* user.png in Resources */,
 				B268777F2554FB4100EF6C1E /* NVGridSemanticItem.xib in Resources */,
-				B2D54D3E25471622002E1D91 /* user-active.png in Resources */,
-				A396D11425347F8C0061CC73 /* text-active.png in Resources */,
-				B2D54D3C25471622002E1D91 /* setting.png in Resources */,
 				A3B5E223253828C40048F526 /* NVColorPanel.xib in Resources */,
 				301F800F2553BF0C000ED935 /* NVMaskCollectionItem.xib in Resources */,
-				A396D12725347F8C0061CC73 /* mask.png in Resources */,
-				A396D12425347F8C0061CC73 /* text-margin-active.png in Resources */,
-				A396D11525347F8C0061CC73 /* main-active.png in Resources */,
 				A3B5E22A25382B470048F526 /* NVPanelHeader.xib in Resources */,
-				A396D11E25347F8C0061CC73 /* margin-v-active.png in Resources */,
-				A396D12525347F8C0061CC73 /* shadow.png in Resources */,
 				30D247AE2542ECF00027602C /* NVLineCollectionItem.xib in Resources */,
 				30C0919725555E7900DBA590 /* NVShadowCollectionItem.xib in Resources */,
-				A396D12925347F8C0061CC73 /* margin-v.png in Resources */,
-				A396D11C25347F8C0061CC73 /* text-margin.png in Resources */,
-				A396D11325347F8C0061CC73 /* border-active.png in Resources */,
-				A396D11725347F8C0061CC73 /* layout-active.png in Resources */,
-				A396D12025347F8C0061CC73 /* margin-h-active.png in Resources */,
 				A3E6094425109AB500C98536 /* Panel.xib in Resources */,
-				A396D12225347F8C0061CC73 /* icon-active.png in Resources */,
 				B2D54D482547294F002E1D91 /* NVArtboard.xib in Resources */,
-				A396D11D25347F8C0061CC73 /* line-active.png in Resources */,
-				A396D11F25347F8C0061CC73 /* layout.png in Resources */,
 				A361672A2551373600FE0840 /* NVBorderCollectionItem.xib in Resources */,
 				B26877792554E09600EF6C1E /* NVGridCollectionItem.xib in Resources */,
-				B2D54D4125471622002E1D91 /* android.png in Resources */,
-				A396D12825347F8C0061CC73 /* transparent.png in Resources */,
-				A396D11225347F8C0061CC73 /* mask-active.png in Resources */,
-				B2D54D4025471622002E1D91 /* setting-active.png in Resources */,
-				A396D12625347F8C0061CC73 /* line.png in Resources */,
-				A396D11825347F8C0061CC73 /* icon.png in Resources */,
-				B2D54D3F25471622002E1D91 /* android-active.png in Resources */,
 				B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */,
 				B2D54D4F254752B0002E1D91 /* NVColorSemanticItem.xib in Resources */,
-				A396D11A25347F8C0061CC73 /* margin-h.png in Resources */,
 				B268778D25554B5900EF6C1E /* NVFontSemanticItem.xib in Resources */,
 				B256512C2554C72E00116B8C /* NVLineSemanticItem.xib in Resources */,
-				A396D11B25347F8C0061CC73 /* main.png in Resources */,
 				A300365325386EAF0093395D /* NVTextPanel.xib in Resources */,
-				A396D12325347F8C0061CC73 /* color-active.png in Resources */,
-				A396D12A25347F8C0061CC73 /* text.png in Resources */,
 				A3003661253870F40093395D /* NVMaskPanel.xib in Resources */,
 				A300365B253870E00093395D /* NVLinePanel.xib in Resources */,
-				A396D11625347F8C0061CC73 /* border.png in Resources */,
 				30C0919225555E7900DBA590 /* NVShadowPanel.xib in Resources */,
-				A396D11925347F8C0061CC73 /* shadow-active.png in Resources */,
 				B268775E2554D4D100EF6C1E /* NVBorderSemanticItem.xib in Resources */,
 				A38C95D525483C06008C0A57 /* NVTextCollectionItem.xib in Resources */,
 			);
@@ -1140,6 +1025,7 @@
 				30C0919625555E7900DBA590 /* NVShadowCollectionItemView.m in Sources */,
 				B2D54D472547294F002E1D91 /* NVArtboard.m in Sources */,
 				30C0919825555E7900DBA590 /* NVShadowSource.m in Sources */,
+				B2E3ED402558501600F7B6DB /* NVImage.m in Sources */,
 				B26877832554FBA600EF6C1E /* NVGridSemanticItemView.m in Sources */,
 				A3EEF7ED253F033500C3998D /* NVCollectionDelegate.m in Sources */,
 				A38C95CA25483B63008C0A57 /* NVTextCollectionView.m in Sources */,
@@ -1163,11 +1049,13 @@
 				B2012D1D253C5B2A0003715E /* DisabledWheelScrollView.m in Sources */,
 				A361672E2551376000FE0840 /* NVBorderCollectionItemView.m in Sources */,
 				A38C95CE25483BE3008C0A57 /* NVTextCollectionItemView.m in Sources */,
+				B2E3ED3C25584F7B00F7B6DB /* NVColor.m in Sources */,
 				A3453B6925381A19007AFFCC /* FlippedClipView.m in Sources */,
 				A3EEF7F92540017300C3998D /* NVColorCollectionItem.m in Sources */,
 				A3453B5D2535C5E2007AFFCC /* Config.m in Sources */,
 				B286F6BB2543BDA400984F2A /* RFOverlayScroller.m in Sources */,
 				30D247AD2542ECF00027602C /* NVLineCollectionItem.m in Sources */,
+				B2E3ED4825585C1F00F7B6DB /* NVContentView.m in Sources */,
 				A300365225386EAF0093395D /* NVTextPanel.m in Sources */,
 				A3DBD3C92553ECB00042F14C /* NVLayer.m in Sources */,
 				B268776F2554DFF400EF6C1E /* NVGridSource.m in Sources */,

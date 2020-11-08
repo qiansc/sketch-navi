@@ -16,7 +16,7 @@
 - (void)viewWillMoveToSuperview:(NSView *)superview{
     [super viewWillMoveToSuperview:superview];
     if (textField == nil) {
-        textField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 18)];
+        textField = [[NSTextField alloc] initWithFrame:NSMakeRect(-2, 0, 200, 21)];
         // textField.stringValue = [self.source getDims][indexPath.section];
         textField.editable = NO;
         textField.bordered = NO;
@@ -24,7 +24,6 @@
         textField.textColor = [NSColor grayColor];
         textField.drawsBackground = NO;
         [textField setFont:[NSFont systemFontOfSize: 10]];
-        // textField.cell.font.pointSize
         [self addSubview:textField];
     }
 }
