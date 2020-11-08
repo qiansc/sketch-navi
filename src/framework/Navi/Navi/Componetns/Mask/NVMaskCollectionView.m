@@ -21,7 +21,7 @@
         [self.toggleDelegate clearActive];
         [self reloadData];
     }];
-    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVMaskCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
+    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVMaskSemanticItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
     [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVMaskCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-0"];
 }
 

@@ -92,6 +92,7 @@
 
 - (void)setSemanticMode:(BOOL) semanticMode {
     _semanticMode = semanticMode;
+    updatedCallback();
 }
 
 - (NSArray<NSString *> *)getDims {
