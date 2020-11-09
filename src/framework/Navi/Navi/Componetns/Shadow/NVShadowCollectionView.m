@@ -21,7 +21,7 @@
         [self.toggleDelegate clearActive];
         [self reloadData];
     }];
-    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVShadowCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
+    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVShadowSemanticItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
     [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVShadowCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-0"];
 }
 
