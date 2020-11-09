@@ -10,13 +10,14 @@
 #import "NVPanelHeaderView.h"
 #import "NVPanel.h"
 #import "NVMarginCollectionView.h"
+#import "MSLayerArray.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NVMarginPanel : NVPanel
 
 @property (nonatomic,strong) IBOutlet NVMarginCollectionView *collectionView;
-@property (nonatomic,strong) NSArray<MSLayer*> *selections;
+@property (nonatomic,strong) MSLayerArray *selections;
 
 @end
 

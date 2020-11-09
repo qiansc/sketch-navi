@@ -37,6 +37,7 @@ typedef struct NVMarginSpec NVMarginSpec;
 -(NSArray<NSDictionary*>*)getSpecsWith:(NSString *)dim;
 -(NSArray<NSDictionary*>*)getSpecsIn:(long) section;
 -(NVMarginSpec)getSpecAt:(NSIndexPath *) indexPath;
+-(NVMarginSpec)getSpecWithCode:(NSString *) code;
 +(NVMarginSpec)value:(NSDictionary*) specDict;
 
 

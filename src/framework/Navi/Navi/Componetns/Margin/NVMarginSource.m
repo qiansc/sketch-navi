@@ -128,6 +128,15 @@
     return [NVMarginSource value: dict];
 }
 
+-(NVMarginSpec)getSpecWithCode:(NSString *) code {
+    for (NSDictionary * dict in specs) {
+        if ([dict[@"code"] isEqual:code]) {
+            return [NVMarginSource value: dict];
+        }
+    }
+    return [NVMarginSource value: @{}];;
+}
+
 +(NVMarginSpec)value:(NSDictionary*) specDict {
     NVMarginSpec spec = {
         .code = specDict[@"code"],
