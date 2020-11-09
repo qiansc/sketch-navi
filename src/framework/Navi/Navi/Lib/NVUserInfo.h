@@ -30,6 +30,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *borderColorCode; // 边
 @property (nonatomic, strong) NSString *borderThicknessCode; //厚度
 
+#pragma mark Style-Shadow
+@property (nonatomic, strong) NSString *shadowCode; // 阴影
+
 
 #pragma mark Points - CurvePoint
 

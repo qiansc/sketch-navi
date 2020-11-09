@@ -44,6 +44,7 @@ static NSMutableDictionary *cache;
         self.data[@"style"] = [NSMutableDictionary new];
         self.data[@"style"][@"fills"] = [NSMutableArray new];
         self.data[@"style"][@"borders"] = [NSMutableArray new];
+        self.data[@"style"][@"shadows"] = [NSMutableArray new];
         self.data[@"textColorCode"] = @"";
         self.data[@"textCode"] = @"";
     } else {
@@ -112,6 +113,24 @@ static NSMutableDictionary *cache;
     if ([self.data[@"style"][@"borders"] count] == 0)
         [self.data[@"style"][@"borders"] addObject:[NSMutableDictionary new]];
     self.data[@"style"][@"borders"][0][@"borderThicknessCode"] = code;
+    [self save];
+}
+
+#pragma mark Style-Shadow
+
+-(NSString *)shadowCode {
+    for(NSDictionary* d in self.data[@"style"][@"shadows"]) {
+        if (d[@"shadowCode"]) return d[@"shadowCode"];
+    }
+    return nil;
+}
+
+-(void)setShadowCode:(NSString*)code {
+    if ([self.data[@"style"][@"shadows"] count] == 0) {
+
+        [self.data[@"style"][@"shadows"] addObject:[NSMutableDictionary new]];
+    }
+    self.data[@"style"][@"shadows"][0][@"shadowCode"] = code;
     [self save];
 }
 
