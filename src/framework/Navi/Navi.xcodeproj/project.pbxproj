@@ -117,6 +117,8 @@
 		A3BFB1DB25500009009CB0C1 /* NVBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BFB1D925500009009CB0C1 /* NVBundle.m */; };
 		A3DBD3C82553ECB00042F14C /* NVLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = A3DBD3C62553ECB00042F14C /* NVLayer.h */; };
 		A3DBD3C92553ECB00042F14C /* NVLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DBD3C72553ECB00042F14C /* NVLayer.m */; };
+		A3DBD3CE25594F1C0042F14C /* NVFastScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = A3DBD3CC25594F1C0042F14C /* NVFastScrollView.h */; };
+		A3DBD3CF25594F1C0042F14C /* NVFastScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DBD3CD25594F1C0042F14C /* NVFastScrollView.m */; };
 		A3E6094425109AB500C98536 /* Panel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3E6094325109AB500C98536 /* Panel.xib */; };
 		A3EEF7EC253F033500C3998D /* NVCollectionDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A3EEF7EA253F033500C3998D /* NVCollectionDelegate.h */; };
 		A3EEF7ED253F033500C3998D /* NVCollectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EEF7EB253F033500C3998D /* NVCollectionDelegate.m */; };
@@ -321,6 +323,8 @@
 		A3DBD3C72553ECB00042F14C /* NVLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVLayer.m; sourceTree = "<group>"; };
 		A3DBD3CA255415CE0042F14C /* MSCurvePoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSCurvePoint.h; sourceTree = "<group>"; };
 		A3DBD3CB25541FFC0042F14C /* MSRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSRect.h; sourceTree = "<group>"; };
+		A3DBD3CC25594F1C0042F14C /* NVFastScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVFastScrollView.h; sourceTree = "<group>"; };
+		A3DBD3CD25594F1C0042F14C /* NVFastScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVFastScrollView.m; sourceTree = "<group>"; };
 		A3E6094325109AB500C98536 /* Panel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Panel.xib; sourceTree = "<group>"; };
 		A3EE0FE5254059E900C3998D /* MSDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSDocument.h; sourceTree = "<group>"; };
 		A3EE0FE625405AEE00C3998D /* MSLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSLayer.h; sourceTree = "<group>"; };
@@ -754,6 +758,8 @@
 				B2012D1B253C5B2A0003715E /* DisabledWheelScrollView.m */,
 				A3003662253873300093395D /* CustomScroller.h */,
 				A3003663253873300093395D /* CustomScroller.m */,
+				A3DBD3CC25594F1C0042F14C /* NVFastScrollView.h */,
+				A3DBD3CD25594F1C0042F14C /* NVFastScrollView.m */,
 			);
 			path = Scroller;
 			sourceTree = "<group>";
@@ -993,6 +999,7 @@
 				B26877822554FBA600EF6C1E /* NVGridSemanticItemView.h in Headers */,
 				A38993F9250B85A000211D90 /* Navi.h in Headers */,
 				301F7FFF25539DFA000ED935 /* NVMaskSource.h in Headers */,
+				A3DBD3CE25594F1C0042F14C /* NVFastScrollView.h in Headers */,
 				A300365125386EAF0093395D /* NVTextPanel.h in Headers */,
 				30D247A72542E7080027602C /* NVLineCollectionItemView.h in Headers */,
 				B25664572558D07A004CC6DB /* NVMarginCollectionItemView.h in Headers */,
@@ -1161,6 +1168,7 @@
 				A397ACC925148BEA00286C6E /* Panel.m in Sources */,
 				30D2479F25429FAD0027602C /* NVLineSource.m in Sources */,
 				30C0919A25555E7900DBA590 /* NVShadowPanel.m in Sources */,
+				A3DBD3CF25594F1C0042F14C /* NVFastScrollView.m in Sources */,
 				A36167142551177300FE0840 /* NVSectionHeader.m in Sources */,
 				A3BFB1DB25500009009CB0C1 /* NVBundle.m in Sources */,
 				A3FB3706253EC2E2001D152C /* NVToggleBox.m in Sources */,

@@ -33,11 +33,13 @@
 -(void)collectionView:(NSCollectionView *)collectionView willDisplayItem:(NSCollectionViewItem *)item forRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
     NVTextSpec spec = [self.dataSource getSpecAt:indexPath];
     NVTextCollectionItemView *view = item.view;
-    if (view.indexPath == nil) {
+    // if (view.indexPath == nil) {
+        [view reset];
         view.spec = spec;
         view.indexPath = indexPath;
-        [view addConstraint:[view.heightAnchor constraintEqualToConstant: spec.iosFontSize + 33]];
-    }
+//        [view removeConstraints:view.constraints];
+//        [view addConstraint:[view.heightAnchor constraintEqualToConstant: spec.iosFontSize + 30]];
+    // }
     [view onMouseDown:^void(NSEvent* event, NSBox* box) {
          [self.toggleDelegate clearActive];
          [self.toggleDelegate setActive:((NVToggleBox *)box).indexPath];
@@ -58,7 +60,7 @@
         return NSMakeSize(218, 31);
     } else {
         NVTextSpec spec = [self.dataSource getSpecAt:indexPath];
-        return NSMakeSize(218, spec.iosFontSize + 33);
+        return NSMakeSize(218, spec.iosFontSize + 30);
     }
 
 }

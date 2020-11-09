@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,20 +31,20 @@
                     <color key="fillColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                 </box>
                 <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4V2-Vo-uaS">
-                    <rect key="frame" x="29" y="8" width="148" height="14"/>
+                    <rect key="frame" x="29" y="9" width="148" height="12"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="边角" id="0S7-Bu-UsU">
-                        <font key="font" metaFont="smallSystem"/>
+                        <font key="font" size="10" name="HelveticaNeue"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField identifier="ItemValue" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jcd-yQ-jbx">
-                    <rect key="frame" x="173" y="8" width="34" height="14"/>
+                    <rect key="frame" x="173" y="9" width="34" height="12"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="SWp-LQ-cli"/>
                     </constraints>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="0" id="vuF-Mz-GAQ">
-                        <font key="font" metaFont="smallSystem"/>
+                        <font key="font" size="10" name="HelveticaNeue"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

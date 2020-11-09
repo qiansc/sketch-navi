@@ -23,7 +23,12 @@
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
 }
-
+- (void)reset {
+    enterCbs = nil;
+    exitCbs = nil;
+    downCbs = nil;
+    upCbs = nil;
+}
 -(void)onMouseEntered:(NVCollectionItemCallback) callback {
     if (enterCbs == nil) enterCbs = [NSMutableArray new];
     [enterCbs addObject:callback];

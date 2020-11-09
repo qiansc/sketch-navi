@@ -78,7 +78,7 @@
         }
         
         for(NSView *view in self.collectionView.subviews) {
-            if ([view isKindOfClass:[NVColorCollectionItemView class]]) {
+            if ([view isKindOfClass:[NVToggleBox class]]) {
                 NVColorCollectionItemView *item = ((NVColorCollectionItemView *)view);
                 if([item.spec.specCode isEqual:colorCode]) {
                     // 找到和specCode对应的indexPath

@@ -56,7 +56,7 @@
         if (![NVLayer isRectangleShape:layer]) continue;
         NSString *cornerRadiusCode =[NVUserInfo fromLayer:layer].cornerRadiusCode;
         for (NSView *view in self.collectionView.subviews) {
-            if ([view isKindOfClass:[NVBorderCollectionItemView class]]) {
+            if ([view isKindOfClass:[NVToggleBox class]]) {
                 NVBorderCollectionItemView *item = ((NVBorderCollectionItemView *) view);
                 if ([item.spec.code isEqual:cornerRadiusCode]) {
                     [indexPaths addObject:item.indexPath];

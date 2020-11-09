@@ -19,9 +19,12 @@
 #pragma mark NSCollectionViewDelegate
 
 -(void)collectionView:(NSCollectionView *)collectionView didEndDisplayingItem:(NSCollectionViewItem *)item forRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
+    [item.view removeFromSuperview];
+    [item removeFromParentViewController];
 }
 
 - (void)collectionView:(NSCollectionView *)collectionView didEndDisplayingSupplementaryView:(NSView *)view forElementOfKind:(NSCollectionViewSupplementaryElementKind)kind atIndexPath:(NSIndexPath *)indexPath {
+    [view removeFromSuperview];
 }
 
 #pragma mark NSCollectionViewDelegateFlowLayout

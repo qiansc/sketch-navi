@@ -10,19 +10,19 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY" customClass="NVBorderCollectionItemView">
-            <rect key="frame" x="0.0" y="0.0" width="206" height="48"/>
+            <rect key="frame" x="0.0" y="0.0" width="206" height="45"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kya-Au-PeG">
-                    <rect key="frame" x="48" y="16" width="152" height="16"/>
+                    <rect key="frame" x="48" y="15" width="29" height="15"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="边角" id="TdO-S7-VKH">
-                        <font key="font" usesAppearanceFont="YES"/>
+                        <font key="font" size="12" name=".PingFangSC-Regular"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <box identifier="borderBox" boxType="custom" borderWidth="0.0" cornerRadius="2" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="NHj-Z1-fcm">
-                    <rect key="frame" x="10" y="9" width="30" height="30"/>
+                    <rect key="frame" x="10" y="8" width="30" height="30"/>
                     <view key="contentView" id="8QK-tD-gxw">
                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,13 +36,10 @@
                 </box>
             </subviews>
             <constraints>
-                <constraint firstItem="NHj-Z1-fcm" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="9" id="3bV-WX-hFz"/>
-                <constraint firstAttribute="bottom" secondItem="NHj-Z1-fcm" secondAttribute="bottom" constant="9" id="55u-aN-ZGx"/>
-                <constraint firstItem="kya-Au-PeG" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="16" id="IeR-QD-Xbv"/>
+                <constraint firstItem="NHj-Z1-fcm" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="TDq-PO-1ee"/>
+                <constraint firstItem="kya-Au-PeG" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="Z8h-q0-TSP"/>
                 <constraint firstItem="NHj-Z1-fcm" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="gSX-km-aZc"/>
                 <constraint firstItem="kya-Au-PeG" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="50" id="jrN-e2-n31"/>
-                <constraint firstAttribute="trailing" secondItem="kya-Au-PeG" secondAttribute="trailing" constant="8" id="nfL-id-aCb"/>
-                <constraint firstAttribute="bottom" secondItem="kya-Au-PeG" secondAttribute="bottom" constant="16" id="w1o-tX-KwH"/>
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>

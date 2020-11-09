@@ -12,6 +12,7 @@
 @implementation NVFontCollectionItemView {
     NSTextField *itemTitle;
     NSTextField *itemDesc;
+    NSLayoutConstraint *cons;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
@@ -37,6 +38,9 @@
     itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
     itemDesc.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];
+    [self removeConstraint:cons];
+    cons = [self.heightAnchor constraintEqualToConstant: fontSpec.iosFontSize + 30];
+    [self addConstraint:cons];
 }
 
 

@@ -50,7 +50,7 @@
         NSString *borderThicknessCode =[NVUserInfo fromLayer:layer].borderThicknessCode;;
 
         for (NSView *view in self.collectionView.subviews) {
-            if ([view isKindOfClass:[NVLineCollectionItemView class]]) {
+            if ([view isKindOfClass:[NVToggleBox class]]) {
                 NVLineCollectionItemView *item = ((NVLineCollectionItemView *) view);
                 if ([item.spec.specCode isEqual:borderThicknessCode]) {
                     [indexPaths addObject:item.indexPath];

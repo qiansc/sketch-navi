@@ -29,6 +29,7 @@ typedef struct NVColorSpec NVColorSpec;
 
 @interface NVColorSource : NSObject<NVSource, NSCollectionViewDataSource>
 
+@property (nonatomic, strong) NSObject<NVSourceChangeDelegate> *updateDelegate;
 @property (nonatomic) BOOL semanticMode;
 
 -(NSArray<NSString*>*)getDims;
