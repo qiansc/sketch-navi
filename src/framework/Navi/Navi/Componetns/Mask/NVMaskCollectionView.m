@@ -30,10 +30,11 @@
 - (void)collectionView:(NSController *) collectionView willDisplayItem:(nonnull NSCollectionViewItem *)item forRepresentedObjectAtIndexPath:(nonnull NSIndexPath *)indexPath {
     NVMaskSpec spec = [self.dataSource getSpecAt:indexPath];
     NVMaskCollectionItemView *view = item.view;
-    if (view.indexPath == nil) {
-        view.spec = spec;
-        view.indexPath = indexPath;
-    }
+    // if (view.indexPath == nil) {
+    [view reset];
+    view.spec = spec;
+    view.indexPath = indexPath;
+    // }
     [view onMouseDown: ^void(NSEvent* event, NSBox* box) {
         [self.toggleDelegate clearActive];
         [self.toggleDelegate setActive:((NVToggleBox *) box).indexPath];

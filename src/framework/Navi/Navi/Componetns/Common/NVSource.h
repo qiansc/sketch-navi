@@ -12,15 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^NVSourceUpdateCallback)(void);
 
+@protocol NVSourceChangeDelegate <NSObject>
+@required
+-(void)onSourceUpdated;
+@end
+
 @protocol NVSource <NSObject>
 
 @required
 /* 数据更新方法 */
 - (void)update:(NSObject*) specs;
-
-@required
-/* 回调设置方法 */
-- (void)onUpdated:(NVSourceUpdateCallback) callback;
 
 @required
 /* 检索词设置方法 */

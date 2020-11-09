@@ -134,10 +134,14 @@
             return [NVMarginSource value: dict];
         }
     }
-    return [NVMarginSource value: @{}];;
+    return [NVMarginSource value: nil];
 }
 
 +(NVMarginSpec)value:(NSDictionary*) specDict {
+    NVMarginSpec empty = {.code = nil };
+    if (specDict == nil) {
+        return empty;
+    }
     NVMarginSpec spec = {
         .code = specDict[@"code"],
         .cclass = specDict[@"cclass"],

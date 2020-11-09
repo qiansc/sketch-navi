@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,28 +14,28 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ho9-5C-vFH">
-                    <rect key="frame" x="4" y="7" width="18" height="17"/>
+                    <rect key="frame" x="4" y="7" width="19" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="字" id="gPf-2e-Cgu">
-                        <font key="font" usesAppearanceFont="YES"/>
+                        <font key="font" metaFont="menu" size="14"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HM8-eM-XcI">
-                    <rect key="frame" x="24" y="7" width="27" height="17"/>
+                <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HM8-eM-XcI">
+                    <rect key="frame" x="29" y="8" width="23" height="13"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="title" id="zWP-Wl-a1I">
-                        <font key="font" usesAppearanceFont="YES"/>
+                        <font key="font" metaFont="system" size="10"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField identifier="ItemDesc" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xhv-J0-Yq1">
-                    <rect key="frame" x="153" y="8" width="54" height="14"/>
+                <textField identifier="ItemDesc" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xhv-J0-Yq1">
+                    <rect key="frame" x="153" y="8" width="54" height="13"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="IAs-jE-Uxm"/>
                     </constraints>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="desc" id="uNy-OI-KTi">
-                        <font key="font" metaFont="system" size="11"/>
+                        <font key="font" metaFont="system" size="10"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

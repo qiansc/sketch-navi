@@ -129,18 +129,38 @@ static NSMutableDictionary *cache;
 -(NSString *)gridWidthCode {return self.data[@"gridWidthCode"];}
 -(void)setGridWidthCode:(NSString*)code {self.data[@"gridWidthCode"] = code;[self save];}
 
-
 -(NSString *)gridScaleCode {return self.data[@"gridScaleCode"];}
 -(void)setGridScaleCode:(NSString*)code {self.data[@"gridScaleCode"] = code;[self save];}
 
+
+-(NSString *)marginType {return self.data[@"marginType"];}
+-(void)setmarginType:(NSString*)code {self.data[@"marginType"] = code;[self save];}
+
 -(NSString *)marginLeftCode {return self.data[@"marginLeftCode"];}
--(void)setMarginLeftCode:(NSString*)code {self.data[@"marginLeftCode"] = code;[self save];}
+-(void)setMarginLeftCode:(NSString*)code {
+    self.data[@"marginLeftCode"] = code;
+    if (code == nil) self.data[@"marginLeftTarget"] = nil;
+    [self save];
+}
 -(NSString *)marginRightCode {return self.data[@"marginRightCode"];}
--(void)setMarginRightCode:(NSString*)code {self.data[@"marginRightCode"] = code;[self save];}
+-(void)setMarginRightCode:(NSString*)code {
+    self.data[@"marginRightCode"] = code;
+    if (code == nil) self.data[@"marginRightTarget"] = nil;
+    [self save];
+}
 -(NSString *)marginTopCode {return self.data[@"marginTopCode"];}
--(void)setMarginTopCode:(NSString*)code {self.data[@"marginTopCode"] = code;[self save];}
+-(void)setMarginTopCode:(NSString*)code {
+    self.data[@"marginTopCode"] = code;
+    if (code == nil) self.data[@"marginTopTarget"] = nil;
+    [self save];
+    
+}
 -(NSString *)marginBottomCode {return self.data[@"marginBottomCode"];}
--(void)setMarginBottomCode:(NSString*)code {self.data[@"marginBottomCode"] = code;[self save];}
+-(void)setMarginBottomCode:(NSString*)code {
+    self.data[@"marginBottomCode"] = code;
+    if (code == nil) self.data[@"marginBottomTarget"] = nil;
+    [self save];
+}
 
 -(NSString *)marginLeftTarget {return self.data[@"marginLeftTarget"];}
 -(void)setMarginLeftTarget:(NSString*)code {self.data[@"marginLeftTarget"] = code;[self save];}

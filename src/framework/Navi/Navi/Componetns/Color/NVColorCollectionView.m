@@ -20,23 +20,30 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.dataSource = [[NVColorSource alloc]init];
-    [self.dataSource onUpdated: ^void(){
-        [self.toggleDelegate clearActive];
-        [self reloadData];
-    }];
+    self.dataSource.updateDelegate = self;
 
     [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVColorSemanticItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-1"];
-    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVColorCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-0"];}
+    [self registerNib:[[NSNib alloc] initWithNibNamed:@"NVColorCollectionItem" bundle:[NVBundle bundlePath]] forItemWithIdentifier:@"Item-0"];
+
+}
+
+-(void)onSourceUpdated {
+    [self.toggleDelegate clearActive];
+    [self reloadData];
+}
 
 #pragma mark NSCollectionViewDelegate
 
 -(void)collectionView:(NSCollectionView *)collectionView willDisplayItem:(NSCollectionViewItem *)item forRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
     NVColorSpec spec = [self.dataSource getSpecAt:indexPath];
     NVColorCollectionItemView *view = item.view;
-    if (view.indexPath == nil) {
-        view.spec = spec;
-        view.indexPath = indexPath;
-    }
+    // if (view.indexPath == nil) {
+    //} else {
+        // 复用对象
+    [view reset];
+    view.spec = spec;
+    view.indexPath = indexPath;
+    // }
     [view onMouseDown:^void(NSEvent* event, NSBox* box) {
          [self.toggleDelegate clearActive];
          [self.toggleDelegate setActive:((NVToggleBox *)box).indexPath];

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,7 +30,7 @@
                 <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6wB-z6-JvX">
                     <rect key="frame" x="30" y="7" width="146" height="14"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="线条" id="A36-Rx-EBk">
-                        <font key="font" metaFont="smallSystem"/>
+                        <font key="font" size="10" name="HelveticaNeue"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -40,7 +41,7 @@
                         <constraint firstAttribute="width" constant="30" id="ikr-sD-eoO"/>
                     </constraints>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="0" id="hk1-Gz-Uw1">
-                        <font key="font" metaFont="smallSystem"/>
+                        <font key="font" size="10" name="HelveticaNeue"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -55,6 +56,7 @@
                 <constraint firstItem="6wB-z6-JvX" firstAttribute="leading" secondItem="xrR-0M-gAw" secondAttribute="trailing" constant="8" id="cHp-DQ-MXE"/>
                 <constraint firstItem="TYW-eJ-yxx" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="tb1-qZ-4YK"/>
             </constraints>
+            <point key="canvasLocation" x="139" y="154"/>
         </customView>
         <customObject id="T7p-Ok-LVU" customClass="NVLineSemanticItem">
             <connections>

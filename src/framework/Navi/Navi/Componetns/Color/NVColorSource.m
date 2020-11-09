@@ -11,7 +11,7 @@
 #import "NVToggleBox.h"
 
 @implementation NVColorSource {
-    NVSourceUpdateCallback updatedCallback;
+    // NVSourceUpdateCallback updatedCallback;
     NSString *searchQuery;
     NSMutableDictionary *dims;
     NSArray<NSDictionary*> *specs;
@@ -51,7 +51,7 @@
     if ([others count] > 0) {
         dims[@"其他"] = others;
     }
-    if(updatedCallback) updatedCallback();
+    if(self.updateDelegate) [self.updateDelegate onSourceUpdated];
 }
 
 -(BOOL)filter:(NSDictionary*) specDict {
@@ -88,27 +88,23 @@
     return false;
 }
 
-- (void)onUpdated:(NVSourceUpdateCallback) callback {
-    updatedCallback = callback;
-}
-
 #pragma mark set & updatedCallback
 
 - (void)setQuery:(NSString *) query {
     searchQuery = query;
     [self update: specs];
-    if(updatedCallback) updatedCallback();
+    if(self.updateDelegate) [self.updateDelegate onSourceUpdated];
 }
 
 - (void)setSemanticMode:(BOOL) mode {
     _semanticMode = mode;
-    if(updatedCallback) updatedCallback();
+    if(self.updateDelegate) [self.updateDelegate onSourceUpdated];
 }
 
 - (void)setMode:(NSInteger) mode {
     mod = mode;
     [self update: specs];
-    if(updatedCallback) updatedCallback();
+    if(self.updateDelegate) [self.updateDelegate onSourceUpdated];
 }
 - (BOOL)isFillMode {return mod == 0;}
 - (BOOL)isBorderMode {return mod == 1;}
@@ -117,7 +113,7 @@
     if (![self.shapeType isEqual:type]) {
         _shapeType = type;
         [self update: specs];
-        if(updatedCallback) updatedCallback();
+        if(self.updateDelegate) [self.updateDelegate onSourceUpdated];
     }
 }
 -(BOOL)isTextType{
@@ -129,7 +125,7 @@
     if (![themeMod isEqual:mode]) {
         themeMod = mode;
         [self update: specs];
-        if(updatedCallback) updatedCallback();
+        if(self.updateDelegate) [self.updateDelegate onSourceUpdated];
     }
 }
 

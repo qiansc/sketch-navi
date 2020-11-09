@@ -33,19 +33,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark Points - CurvePoint
 
-@property (nonatomic, strong) NSString *cornerRadiusCode;
+@property (nonatomic, strong) NSString *cornerRadiusCode; // 圆角编码
 
 #pragma mark Frame
 
-@property (nonatomic, strong) NSString *gridWidthCode;
-@property (nonatomic, strong) NSString *gridScaleCode;
+@property (nonatomic, strong) NSString *gridWidthCode; // 宽度栅格编码
+@property (nonatomic, strong) NSString *gridScaleCode; // 比例
 
-@property (nonatomic, strong) NSString *marginLeftCode;
+@property (nonatomic, strong) NSString *marginType; // 0 内边距 1 外边距
+@property (nonatomic, strong) NSString *marginLeftCode; // 间隔编码 下同
 @property (nonatomic, strong) NSString *marginRightCode;
 @property (nonatomic, strong) NSString *marginTopCode;
 @property (nonatomic, strong) NSString *marginBottomCode;
 
-@property (nonatomic, strong) NSString *marginLeftTarget;
+@property (nonatomic, strong) NSString *marginLeftTarget; // 间隔目标对象（图层id）
 @property (nonatomic, strong) NSString *marginRightTarget;
 @property (nonatomic, strong) NSString *marginTopTarget;
 @property (nonatomic, strong) NSString *marginBottomTarget;

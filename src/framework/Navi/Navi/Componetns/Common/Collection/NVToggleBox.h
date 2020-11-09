@@ -19,6 +19,7 @@ typedef void (^NVCollectionItemCallback)(NSEvent * event, NSBox* box);
 @property (nonatomic) BOOL isHover;
 @property (nonatomic) BOOL isSelected;
 
+-(void)reset;
 -(void)onMouseEntered:(NVCollectionItemCallback) callback;
 -(void)onMouseExited:(NVCollectionItemCallback) callback;
 -(void)onMouseDown:(NVCollectionItemCallback) callback;

@@ -34,10 +34,11 @@
 -(void)collectionView:(NSCollectionView *)collectionView willDisplayItem:(NSCollectionViewItem *)item forRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
     NVBorderSpec spec = [self.dataSource getSpecAt:indexPath];
     NVBorderCollectionItemView *view = item.view;
-    if (view.indexPath == nil) {
-        view.spec = spec;
-        view.indexPath = indexPath;
-    }
+    // if (view.indexPath == nil) {
+    [view reset];
+    view.spec = spec;
+    view.indexPath = indexPath;
+    // }
     [view onMouseDown:^void(NSEvent* event, NSBox* box) {
          [self.toggleDelegate clearActive];
          [self.toggleDelegate setActive:((NVToggleBox *)box).indexPath];
