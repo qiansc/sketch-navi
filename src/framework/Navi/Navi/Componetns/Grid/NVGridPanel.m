@@ -97,7 +97,7 @@
         
         
         for (NSView *view in self.collectionView.subviews) {
-            if ([view isKindOfClass:[NVGridCollectionItemView class]]) {
+            if ([view isKindOfClass:[NVToggleBox class]]) {
                 NVGridCollectionItemView *item = ((NVGridCollectionItemView *) view);
                 if ([item.spec.code isEqual:gridWidthCode]) {
                     [indexPaths addObject:item.indexPath];
@@ -139,7 +139,7 @@
     }
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
     for (NSView *view in self.collectionView.subviews) {
-        if ([view isKindOfClass:[NVGridCollectionItemView class]]) {
+        if ([view isKindOfClass:[NVToggleBox class]]) {
             NVGridCollectionItemView *item = ((NVGridCollectionItemView *) view);
             if ([item.spec.code isEqual:widthSpec.code] || [item.spec.code isEqual:scaleSpec.code]) {
                 [indexPaths addObject:item.indexPath];

@@ -71,7 +71,7 @@
        NSString* textCode = [NVUserInfo fromLayer:layer].textCode;
         // for(NSString *textCode in textCodes) {
             for(NSView *view in self.collectionView.subviews) {
-                if ([view isKindOfClass:[NVTextCollectionItemView class]]) {
+                if ([view isKindOfClass:[NVToggleBox class]]) {
                     NVTextCollectionItemView *item = ((NVTextCollectionItemView *)view);
                     if([item.spec.code isEqual:textCode]) {
                         // 找到和specCode对应的indexPath

@@ -125,7 +125,7 @@
             NSString *marginLeftCode =[NVUserInfo fromLayer:layer].marginLeftCode;
             
             for (NSView *view in self.collectionView.subviews) {
-                if ([view isKindOfClass:[NVMarginCollectionItemView class]]) {
+                if ([view isKindOfClass:[NVToggleBox class]]) {
                     NVMarginCollectionItemView *item = ((NVMarginCollectionItemView *) view);
                     if ([item.spec.code isEqual:marginTopCode]) {
                         [indexPaths addObject:item.indexPath];
