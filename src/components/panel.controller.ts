@@ -110,6 +110,7 @@ export class PanelController {
             Text: textSpec,
             Border: borderSpec,
             Grid: specData.getGridSpec(),
+            Margin: specData.getMarginSpec(),
             Mask: specData.getMaskSpec(),
             Shadow: specData.getShadowSpec(),
         });

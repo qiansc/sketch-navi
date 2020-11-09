@@ -30,7 +30,7 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Search" id="ev3-fL-gz6"/>
                 </imageView>
                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jyc-lD-M6d">
-                    <rect key="frame" x="31" y="546" width="155" height="16"/>
+                    <rect key="frame" x="31" y="546" width="153" height="16"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="left" placeholderString="所有资源" id="6lh-Sz-xFZ">
                         <font key="font" size="10" name=".AppleSystemUIFont"/>
@@ -47,7 +47,7 @@
                     </buttonCell>
                 </button>
                 <box verticalHuggingPriority="750" boxType="separator" id="mc5-Na-xp3">
-                    <rect key="frame" x="12" y="539" width="173" height="5"/>
+                    <rect key="frame" x="12" y="539" width="171" height="5"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </box>
                 <button identifier="floatButton" toolTip="浮动窗口" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IcM-R5-uSt">

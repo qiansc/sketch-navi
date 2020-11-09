@@ -6,20 +6,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="NVGridCollectionItem">
-            <connections>
-                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
-            </connections>
-        </customObject>
+        <customObject id="-2" userLabel="File's Owner"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="Hz6-mo-xeY" customClass="NVGridCollectionItemView">
+        <customView id="c22-O7-iKe" customClass="NVMarginCollectionItemView">
             <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3bz-yl-c0U">
+                <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WQB-tO-fr8">
                     <rect key="frame" x="5" y="8" width="22" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="2N" id="zLv-nu-YyW">
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="2N" id="hce-B5-qJf">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -27,14 +23,14 @@
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="3bz-yl-c0U" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="UIC-PT-qGa"/>
-                <constraint firstItem="3bz-yl-c0U" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="hHq-Cd-GSg"/>
+                <constraint firstItem="WQB-tO-fr8" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="SAs-5c-oUo"/>
+                <constraint firstItem="WQB-tO-fr8" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="fVY-po-Zko"/>
             </constraints>
-            <point key="canvasLocation" x="21" y="59"/>
+            <point key="canvasLocation" x="139" y="154"/>
         </customView>
-        <customObject id="1xH-7j-jXa" customClass="NSCollectionViewItem">
+        <customObject id="e5U-Rn-ZDs" customClass="NSCollectionViewItem">
             <connections>
-                <outlet property="view" destination="Hz6-mo-xeY" id="dov-kJ-MGC"/>
+                <outlet property="view" destination="c22-O7-iKe" id="Bvb-Ft-3rl"/>
             </connections>
         </customObject>
     </objects>

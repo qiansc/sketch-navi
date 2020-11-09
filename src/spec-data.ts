@@ -131,6 +131,32 @@ export class SpecData {
         });
         return arr;
     }
+    getMarginSpec() {
+        let file = `/data/spec-baiduboxapp.json`;
+        let json: any = {};
+        let arr: any[] = [];
+        let exist: any = {};
+        if (existsSync(`${this.assetsPath}${file}`)) {
+            const text = readFileSync(`${this.assetsPath}${file}`).toString();
+            json =  JSON.parse(text);
+        } else {
+            const text = readFileSync(`${this.assetsPath}/example${file}`).toString();
+            json =  JSON.parse(text);
+        }
+        json.data.forEach((item: any) => {
+            let spec = item;
+            if (exist[spec.code]) {
+                return;
+            }
+            if (!spec.code || spec.code.indexOf('M_L') !== 0) {
+                return;
+            }
+            spec.dim = [item.cclass, item.cmeaning];
+            exist[spec.code] = true;
+            arr.push(spec);
+        });
+        return arr;
+    }
     getMaskSpec() {
         let arr: any[] = [];
         let exist: any = {};

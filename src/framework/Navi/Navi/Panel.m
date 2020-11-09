@@ -15,6 +15,7 @@
 #import "NVMaskPanel.h"
 #import "NVBorderPanel.h"
 #import "NVGridPanel.h"
+#import "NVMarginPanel.h"
 #import "MSDocument.h"
 #import "NVBundle.h"
 #import "NVSource.h"
@@ -85,10 +86,11 @@
                 c = [[NVBorderPanel alloc] initWithId:id];
             } else if([id isEqual: @"Grid"]) {
                 c = [[NVGridPanel alloc] initWithId:id];
+            } else if([id isEqual: @"Margin"]) {
+                c = [[NVMarginPanel alloc] initWithId:id];
             } else if ([id isEqual:@"Shadow"]) {
                 c = [[NVShadowPanel alloc] initWithId:id];
             }
-
             if (c) {
                 [self.stackView addArrangedSubview:c.view];
                 c.headerView.titleLabel.stringValue = option[@"name"];

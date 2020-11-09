@@ -46,7 +46,7 @@ function getRuntime(ctx: SketchContext) {
     });
 
     menuController.on(MENU_EVENT.OPEN_MAIN, (option: MenuOption, target: any) => {
-        panelController.show();
+        target.state() ? panelController.show() : panelController.hide();
     });
 
     menuController.on(MENU_EVENT.OPEN_PANEL, (option: MenuOption, target: any) => {

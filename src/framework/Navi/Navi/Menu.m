@@ -95,9 +95,11 @@
 -(void)buttonClick:(NSButton*)button {
     NSDictionary* option = [Config MenuOption: button.identifier];
     if ([option[@"type"] isEqual:@"PANEL"]) {
-        if (button.state && ![self mainButton].state) {
+        if (![self mainButton].state) {
             // 点击普通按钮时 如果总控Main未激活 则模拟激活 打开主面板
-            [[self mainButton] performClick:@"callAction:"];
+            // [[self mainButton] performClick:@"callAction:"];
+            [[self mainButton] setState:YES];
+            [self buttonClick:[self mainButton]];
         }
         NSDictionary* info = @{
             @"documentId": self.documentId,
@@ -119,7 +121,7 @@
     }
     
     if ([option[@"type"] isEqual:@"WINDOW"]) {
-         [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"测试版功能尚未开放，敬请期待...", @""]];
+         [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"测试版功能尚未开放，敬请期待..."]];
         [button setState:0];
     } else if([option[@"id"] isEqual:@"Artboard"]) {
         if(button.state == YES) {

@@ -41,18 +41,24 @@
         @"icon": @"Border",
         @"gravity": @1,
         @"type": @"PANEL"
-//    }, @{
-//        @"name": @"间距",
-//        @"id": @"Margin",
-//        @"icon": @"margin-v",
-//        @"gravity": @1,
-//        @"type": @"PANEL"
     }, @{
         @"name": @"栅格",
         @"id": @"Grid",
         @"icon": @"Layout",
         @"gravity": @1,
         @"type": @"PANEL"
+    }, @{
+        @"name": @"间距",
+        @"id": @"Margin",
+        @"icon": @"Margin-H",
+        @"gravity": @1,
+        @"type": @"PANEL"
+//    }, @{
+//        @"name": @"垂直间距",
+//        @"id": @"MarginV",
+//        @"icon": @"Margin-V",
+//        @"gravity": @1,
+//        @"type": @"PANEL"
     }, @{
         @"name": @"投影",
         @"id": @"Shadow",

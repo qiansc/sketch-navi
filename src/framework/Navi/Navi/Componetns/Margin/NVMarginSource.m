@@ -1,14 +1,14 @@
 //
-//  NVGridSource.m
+//  NVMariginSource.m
 //  Navi
 //
-//  Created by Qian,Sicheng on 2020/11/3.
+//  Created by QIANSC on 2020/11/9.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "NVGridSource.h"
+#import "NVMarginSource.h"
 
-@implementation NVGridSource{
+@implementation NVMarginSource{
     NVSourceUpdateCallback updatedCallback;
     NSString *searchQuery;
     NSMutableDictionary *dims;
@@ -17,7 +17,7 @@
 }
 
 -(instancetype)init{
-    NVGridSource *s = [super init];
+    NVMarginSource *s = [super init];
     //    shapeMod = @"other";
     themeMod = @"default";
     updatedCallback = ^void {};
@@ -58,7 +58,7 @@
     for(NSString *dim in specDict[@"dim"]) {
         if ([dim containsString:searchQuery]) return true;
     }
-    NVGridSpec spec = [NVGridSource value:specDict];
+    NVMarginSpec spec = [NVMarginSource value:specDict];
     
     if ([spec.code containsString:searchQuery]) {
         return true;
@@ -105,13 +105,13 @@
 -(NSArray<NSString*>*)getDims{
     NSArray<NSString*>* arr = [dims allKeys];
     NSMutableArray<NSString*>* rs = [NSMutableArray new];
-    for(NSString * item in arr) {
-        if (![item isEqual:@"其他"]) [rs addObject:item];
-    }
-    if ([arr count] != [rs count]) {
-        [rs addObject:@"其他"];
-    }
-    return @[@"按钮宽度", @"比例"];
+//    for(NSString * item in arr) {
+//        if (![item isEqual:@"其他"]) [rs addObject:item];
+//    }
+//    if ([arr count] != [rs count]) {
+//        [rs addObject:@"其他"];
+//    }
+    return arr;
 }
 
 -(NSArray<NSDictionary*>*)getSpecsWith:(NSString *)dim{
@@ -123,13 +123,13 @@
     return dims[dim];
 }
 
--(NVGridSpec)getSpecAt:(NSIndexPath *) indexPath{
+-(NVMarginSpec)getSpecAt:(NSIndexPath *) indexPath{
     NSDictionary *dict = [self getSpecsIn:indexPath.section][indexPath.item];
-    return [NVGridSource value: dict];
+    return [NVMarginSource value: dict];
 }
 
-+(NVGridSpec)value:(NSDictionary*) specDict {
-    NVGridSpec spec = {
++(NVMarginSpec)value:(NSDictionary*) specDict {
+    NVMarginSpec spec = {
         .code = specDict[@"code"],
         .cclass = specDict[@"cclass"],
         .cmeaning = specDict[@"cmeaning"],
@@ -138,7 +138,8 @@
         .ios = [specDict[@"ios"] doubleValue] ,
         .android = [specDict[@"android"] doubleValue],
         .h5 = [specDict[@"h5"] doubleValue],
-        .scale = specDict[@"scale"]
+        .scale = specDict[@"scale"],
+        .pos = [specDict[@"pos"] intValue]
         
     };
     return spec;
