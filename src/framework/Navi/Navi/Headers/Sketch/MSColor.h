@@ -5,7 +5,7 @@
 //  Created by Qian,Sicheng on 2020/10/21.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
-
+#import <Foundation/Foundation.h>
 @class NSString;
 
 @interface MSColor : NSObject
@@ -39,5 +39,7 @@
 @property(nonatomic) double green; // @synthesize green=_green;
 @property(nonatomic) double blue; // @synthesize blue=_blue;
 @property(nonatomic) double alpha; // @synthesize alpha=_alpha;
+
++ (id)colorWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 
 @end
