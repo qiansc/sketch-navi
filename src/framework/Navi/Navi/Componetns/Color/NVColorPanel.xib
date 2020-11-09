@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,27 +21,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="eV9-9d-w5m" customClass="NVPanelHeaderView">
-                    <rect key="frame" x="0.0" y="274" width="240" height="26"/>
+                    <rect key="frame" x="0.0" y="270" width="240" height="30"/>
                     <subviews>
                         <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aOA-id-4JO">
-                            <rect key="frame" x="161" y="2" width="63" height="16"/>
+                            <rect key="frame" x="161" y="7" width="59" height="16"/>
                             <segmentedCell key="cell" controlSize="mini" borderStyle="border" alignment="left" style="texturedRounded" trackingMode="selectOne" id="CGC-yA-kAA">
-                                <font key="font" metaFont="miniSystem"/>
+                                <font key="font" metaFont="system" size="8"/>
                                 <segments>
-                                    <segment label="填充" width="28" selected="YES"/>
-                                    <segment label="描边" width="28" tag="1"/>
+                                    <segment label="填充" width="26" selected="YES"/>
+                                    <segment label="描边" width="26" tag="1"/>
                                 </segments>
                             </segmentedCell>
                         </segmentedControl>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="aOA-id-4JO" firstAttribute="top" secondItem="eV9-9d-w5m" secondAttribute="top" constant="8" id="Kob-6S-F1p"/>
-                        <constraint firstAttribute="height" constant="26" id="WWa-ye-Csq"/>
-                        <constraint firstAttribute="trailing" secondItem="aOA-id-4JO" secondAttribute="trailing" constant="16" id="aTm-WT-BD0"/>
+                        <constraint firstItem="aOA-id-4JO" firstAttribute="top" secondItem="eV9-9d-w5m" secondAttribute="top" constant="7" id="Kob-6S-F1p"/>
+                        <constraint firstAttribute="height" constant="30" id="WWa-ye-Csq"/>
+                        <constraint firstAttribute="trailing" secondItem="aOA-id-4JO" secondAttribute="trailing" constant="20" id="aTm-WT-BD0"/>
                     </constraints>
                 </customView>
                 <collectionView allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDf-sA-fgd" customClass="NVColorCollectionView">
-                    <rect key="frame" x="0.0" y="-1726" width="240" height="2000"/>
+                    <rect key="frame" x="0.0" y="-1730" width="240" height="2000"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2000" id="QsU-QC-QTO"/>
                     </constraints>

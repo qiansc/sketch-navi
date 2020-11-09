@@ -49,14 +49,14 @@
 #pragma mark NSCollectionViewDelegateFlowLayout
 
 - (NSSize)collectionView:(NSController *) collectionView layout:(NSCollectionViewLayout *) collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *) indexPath {
-    return NSMakeSize(215, 48);
+    return NSMakeSize(218, 48);
 }
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     if ([[self.dataSource getDims] count] < 2)
         return NSMakeSize(0, 10);
     else
-        return NSMakeSize(0, 26);
+        return [super collectionView:collectionView layout:collectionViewLayout referenceSizeForHeaderInSection:section]; 
     
 }
 

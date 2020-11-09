@@ -2,7 +2,7 @@
 
 @class NSArray, NSString;
 
-@interface MSLayerArray : NSObject
+@interface MSLayerArray : NSObject<NSFastEnumeration>
 {
     NSArray *_layers;
 }

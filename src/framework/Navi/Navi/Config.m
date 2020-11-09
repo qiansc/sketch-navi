@@ -14,73 +14,80 @@
     return @[@{
         @"name": @"全部",
         @"id": @"Main",
-        @"icon": @"main",
+        @"icon": @"Main",
         @"gravity": @1,
         @"type": @"MAIN"
     }, @{
         @"name": @"颜色",
         @"id": @"Color",
-        @"icon": @"color",
+        @"icon": @"Color",
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
         @"name": @"文本",
         @"id": @"Text",
-        @"icon": @"text",
+        @"icon": @"Text",
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
         @"name": @"线条",
         @"id": @"Line",
-        @"icon": @"line",
+        @"icon": @"Line",
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
         @"name": @"边角",
         @"id": @"Border",
-        @"icon": @"border",
-        @"gravity": @1,
-        @"type": @"PANEL"
-//    }, @{
-//        @"name": @"间距",
-//        @"id": @"Margin",
-//        @"icon": @"margin-v",
-//        @"gravity": @1,
-//        @"type": @"PANEL"
-    }, @{
-        @"name": @"投影",
-        @"id": @"Shadow",
-        @"icon": @"shadow",
+        @"icon": @"Border",
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
         @"name": @"栅格",
         @"id": @"Grid",
-        @"icon": @"layout",
+        @"icon": @"Layout",
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
+        @"name": @"间距",
+        @"id": @"Margin",
+        @"icon": @"Margin-H",
+        @"gravity": @1,
+        @"type": @"PANEL"
+//    }, @{
+//        @"name": @"垂直间距",
+//        @"id": @"MarginV",
+//        @"icon": @"Margin-V",
+//        @"gravity": @1,
+//        @"type": @"PANEL"
+    }, @{
+        @"name": @"投影",
+        @"id": @"Shadow",
+        @"icon": @"Shadow",
+        @"gravity": @1,
+        @"type": @"PANEL"
+
+    }, @{
         @"name": @"蒙层",
         @"id": @"Mask",
-        @"icon": @"mask",
+        @"icon": @"Mask",
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
         @"name": @"切换",
         @"id": @"Artboard",
-        @"icon": @"android",
+        @"icon": @"Android",
         @"gravity": @3,
         @"type": @"WINDOW"
     }, @{
         @"name": @"设置",
         @"id": @"Setting",
-        @"icon": @"setting",
+        @"icon": @"Setting",
         @"gravity": @3,
         @"type": @"WINDOW"
     }, @{
         @"name": @"用户",
         @"id": @"User",
-        @"icon": @"user",
+        @"icon": @"User",
         @"gravity": @3,
         @"type": @"WINDOW"
     }];

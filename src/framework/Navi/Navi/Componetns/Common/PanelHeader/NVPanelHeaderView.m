@@ -19,9 +19,11 @@
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     NVPanelHeader *controller = [NVPanelHeader viewControllerFromNIB];
-    NSRect contentFrame = NSMakeRect(0, 0, self.frame.size.width, self.frame.size.height);
-    controller.view.frame = contentFrame;
+
+
     [self addSubview: controller.view];
+    NSRect contentFrame = NSMakeRect(0, 0, self.frame.size.width, 30);
+    controller.view.frame = contentFrame;
     self.infoButton = controller.infoButton;
     self.titleLabel = controller.titleLabel;
     self.toggleButton = controller.toggleButton;

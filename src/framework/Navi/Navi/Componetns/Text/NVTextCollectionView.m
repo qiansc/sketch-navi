@@ -55,10 +55,10 @@
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.dataSource.semanticMode) {
-        return NSMakeSize(215, 31);
+        return NSMakeSize(218, 31);
     } else {
         NVTextSpec spec = [self.dataSource getSpecAt:indexPath];
-        return NSMakeSize(215, spec.iosFontSize + 33);
+        return NSMakeSize(218, spec.iosFontSize + 33);
     }
 
 }

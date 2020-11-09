@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3bz-yl-c0U">
-                    <rect key="frame" x="5" y="7" width="22" height="17"/>
+                    <rect key="frame" x="5" y="8" width="22" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="2N" id="zLv-nu-YyW">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -31,7 +32,7 @@
             </constraints>
             <point key="canvasLocation" x="21" y="59"/>
         </customView>
-        <customObject id="1xH-7j-jXa" customClass="NVGridCollectionItem">
+        <customObject id="1xH-7j-jXa" customClass="NSCollectionViewItem">
             <connections>
                 <outlet property="view" destination="Hz6-mo-xeY" id="dov-kJ-MGC"/>
             </connections>

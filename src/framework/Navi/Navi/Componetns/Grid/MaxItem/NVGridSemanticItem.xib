@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,7 +14,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="u5q-oN-Knx">
-                    <rect key="frame" x="4" y="7" width="23" height="17"/>
+                    <rect key="frame" x="4" y="7" width="23" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="2N" id="Z93-xN-mea">
                         <font key="font" metaFont="systemBold"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -46,8 +47,9 @@
                 <constraint firstItem="S7W-WV-SPS" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="GCy-59-4y8"/>
                 <constraint firstItem="u5q-oN-Knx" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="Mpk-it-T36"/>
                 <constraint firstItem="u5q-oN-Knx" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="6" id="dhR-BI-d7r"/>
-                <constraint firstItem="eKr-7k-hK9" firstAttribute="leading" secondItem="u5q-oN-Knx" secondAttribute="trailing" constant="19" id="rti-rt-EyY"/>
+                <constraint firstItem="eKr-7k-hK9" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="44" id="rti-rt-EyY"/>
             </constraints>
+            <point key="canvasLocation" x="139" y="154"/>
         </customView>
         <customObject id="VeQ-H4-9JE" customClass="NSCollectionViewItem">
             <connections>

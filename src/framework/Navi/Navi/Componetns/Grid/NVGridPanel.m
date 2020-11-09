@@ -34,14 +34,33 @@
         // 选择变化时 应用到selections 且改更新title
         if (box == nil) {
             [self updateTitle];
-        }else{
+        } else {
             NVGridSpec spec = ((NVGridCollectionItemView *)box).spec;
+            NVGridSpec empty = {
+                .code = nil,
+                .cclass = spec.cclass,
+            };
+
             if ([spec.cclass isEqual:@"比例"]) {
-                 scaleSpec = spec;
+                if ([scaleSpec.code isEqual:spec.code]) {
+                    [box setBased];
+                    scaleSpec.code = nil;
+                    [self applySpecToSelections: empty];
+                } else {
+                    scaleSpec = spec;
+                    [self applySpecToSelections: spec];
+                }
             } else {
-                 widthSpec = spec;
+                if ([widthSpec.code isEqual:spec.code]) {
+                    [box setBased];
+                    widthSpec.code = nil;
+                    [self applySpecToSelections: empty];
+                } else {
+                    widthSpec = spec;
+                    [self applySpecToSelections: spec];
+                }
             }
-            [self applySpecToSelections: spec];
+            
             [self updateTitle];
         }
     }];

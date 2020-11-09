@@ -55,7 +55,7 @@
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.dataSource.semanticMode) {
-        return NSMakeSize(215, 31);
+        return NSMakeSize(218, 31);
     } else {
         return NSMakeSize(31, 31);
     }
@@ -66,7 +66,7 @@
     if ([[self.dataSource getDims] count] < 2)
         return NSMakeSize(0, 10);
     else
-        return NSMakeSize(0, 26);
+        return [super collectionView:collectionView layout:collectionViewLayout referenceSizeForHeaderInSection:section]; 
     
 }
 

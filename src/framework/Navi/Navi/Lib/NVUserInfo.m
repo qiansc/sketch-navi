@@ -127,16 +127,30 @@ static NSMutableDictionary *cache;
 #pragma mark Frame
 
 -(NSString *)gridWidthCode {return self.data[@"gridWidthCode"];}
--(void)setGridWidthCode:(NSString*)code {
-    self.data[@"gridWidthCode"] = code;
-    [self save];
-}
+-(void)setGridWidthCode:(NSString*)code {self.data[@"gridWidthCode"] = code;[self save];}
 
 
 -(NSString *)gridScaleCode {return self.data[@"gridScaleCode"];}
--(void)setGridScaleCode:(NSString*)code {
-    self.data[@"gridScaleCode"] = code;
-    [self save];
-}
+-(void)setGridScaleCode:(NSString*)code {self.data[@"gridScaleCode"] = code;[self save];}
+
+-(NSString *)marginLeftCode {return self.data[@"marginLeftCode"];}
+-(void)setMarginLeftCode:(NSString*)code {self.data[@"marginLeftCode"] = code;[self save];}
+-(NSString *)marginRightCode {return self.data[@"marginRightCode"];}
+-(void)setMarginRightCode:(NSString*)code {self.data[@"marginRightCode"] = code;[self save];}
+-(NSString *)marginTopCode {return self.data[@"marginTopCode"];}
+-(void)setMarginTopCode:(NSString*)code {self.data[@"marginTopCode"] = code;[self save];}
+-(NSString *)marginBottomCode {return self.data[@"marginBottomCode"];}
+-(void)setMarginBottomCode:(NSString*)code {self.data[@"marginBottomCode"] = code;[self save];}
+
+-(NSString *)marginLeftTarget {return self.data[@"marginLeftTarget"];}
+-(void)setMarginLeftTarget:(NSString*)code {self.data[@"marginLeftTarget"] = code;[self save];}
+-(NSString *)marginRightTarget {return self.data[@"marginRightTarget"];}
+-(void)setMarginRightTarget:(NSString*)code {self.data[@"marginRightTarget"] = code;[self save];}
+-(NSString *)marginTopTarget {return self.data[@"marginTopTarget"];}
+-(void)setMarginTopTarget:(NSString*)code {self.data[@"marginTopTarget"] = code;[self save];}
+-(NSString *)marginBottomTarget {return self.data[@"marginBottomTarget"];}
+-(void)setMarginBottomTarget:(NSString*)code {self.data[@"marginBottomTarget"] = code;[self save];}
+
+
 
 @end

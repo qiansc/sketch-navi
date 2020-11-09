@@ -8,9 +8,11 @@
 
 #import "NVPanelInfoButton.h"
 #import "MSDocument.h"
+#import "NVColor.h"
 
 @implementation NVPanelInfoButton {
     NSTrackingArea* trackingArea;
+    NSString *val;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder{
@@ -20,12 +22,18 @@
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
+    self.wantsLayer = true;
+    self.layer.backgroundColor = [NVColor colorNamed:@"ContentBackground"].CGColor;
+    self.layer.borderWidth = 1;
+    self.layer.cornerRadius = 5;
+    self.layer.borderColor = [NVColor colorNamed:@"Border"].CGColor;
     // Drawing code here.
 }
 
 -(void)setTitle:(NSString *)newTitle{
+    val = newTitle;
     if (newTitle) {
-        [super setTitle:newTitle];
+        [super setTitle:[NSString stringWithFormat:@" %@ ", newTitle]];
         [self setHidden:NO];
     } else {
         [super setTitle:@" "];
@@ -57,12 +65,13 @@
 - (void)mouseDown:(NSEvent *)event {
     NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
     [pasteboard clearContents];  //必须清空，否则setString会失败。
-    [pasteboard setString:self.title forType:NSPasteboardTypeString];
-    [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"已复制 %@ 到剪切板", self.title]];
+    [pasteboard setString:val forType:NSPasteboardTypeString];
+    [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"已复制 %@ 到剪切板", val]];
+    self.layer.backgroundColor = [NVColor colorNamed:@"Border"].CGColor;
 }
 
 - (void)mouseUp:(NSEvent *)event {
-
+    self.layer.backgroundColor = [NVColor colorNamed:@"ContentBackground"].CGColor;
 }
 
 @end

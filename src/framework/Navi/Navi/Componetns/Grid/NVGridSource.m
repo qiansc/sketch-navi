@@ -111,7 +111,7 @@
     if ([arr count] != [rs count]) {
         [rs addObject:@"其他"];
     }
-    return rs;
+    return @[@"按钮宽度", @"比例"];
 }
 
 -(NSArray<NSDictionary*>*)getSpecsWith:(NSString *)dim{

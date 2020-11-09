@@ -28,7 +28,12 @@
 
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return NSMakeSize(0, 26);
+    if (section == 0) {
+        return NSMakeSize(0, 25);
+    } else {
+        return NSMakeSize(0, 35);
+    }
+    
 
 }
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {

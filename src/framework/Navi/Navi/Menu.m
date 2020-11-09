@@ -9,6 +9,8 @@
 #import "Menu.h"
 #import "Config.h"
 #import "NVBundle.h"
+#import "NVColor.h"
+#import "NVImage.h"
 // 临时代码
 #import "NVArtboard.h"
 #import "NVMenuButton.h"
@@ -24,7 +26,7 @@
     [self setPreferredContentSize:CGSizeMake(40, 450)];
     [self.view setAutoresizingMask:NSViewNotSizable];
     [self initButton];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangePanelState:) name:@"DID_TOOGLE_PANEL" object:nil];
+    // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangePanelState:) name:@"DID_TOOGLE_PANEL" object:nil];
 }
 -  (void)viewWillLayout {
 //    [self setPreferredContentSize:CGSizeMake(40, 450)];
@@ -59,18 +61,12 @@
 
     [self.headStack addView:[Util separtorBox] inGravity: NSStackViewGravityBottom];
 
-    NSBundle *frameworkBundle = [NSBundle bundleForClass:[Menu class]];
-
     NSArray<NSDictionary*>* options = [Config MenuOptions];
 
     for(NSDictionary *option in options) {
 
         NSString *id = option[@"id"];
-        NSString *icon = option[@"icon"];
-        NSURL *iconUrl = [NSURL fileURLWithPath:[frameworkBundle pathForResource: icon ofType:@"png"]];
-        NSURL *activeUrl = [NSURL fileURLWithPath:[frameworkBundle pathForResource:  [icon stringByAppendingFormat:@"%@", @"-active"] ofType:@"png"]];
-
-        NSButton *button = [self createButton:option[@"name"] icon: iconUrl activeIcon: activeUrl];
+        NSButton *button = [self createButton:option[@"name"] icon: option[@"icon"]];
 
         NSStackViewGravity gravity = option[@"gravity"] ? [option[@"gravity"] longValue] : NSStackViewGravityTop;
 
@@ -99,20 +95,22 @@
 -(void)buttonClick:(NSButton*)button {
     NSDictionary* option = [Config MenuOption: button.identifier];
     if ([option[@"type"] isEqual:@"PANEL"]) {
-        if (button.state && ![self mainButton].state) {
+        if (![self mainButton].state) {
             // 点击普通按钮时 如果总控Main未激活 则模拟激活 打开主面板
-            [[self mainButton] performClick:@"callAction:"];
+            // [[self mainButton] performClick:@"callAction:"];
+            [[self mainButton] setState:YES];
+            [self buttonClick:[self mainButton]];
         }
         NSDictionary* info = @{
             @"documentId": self.documentId,
             @"panelId": option[@"id"],
             @"states": [self panelButtonStates],
         };
-        if (button.state) {
+//        if (button.state) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"OPEN_PANEL" object:nil userInfo:info];
-        } else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"HIDE_PANEL" object:nil userInfo:info];
-        }
+//        } else {
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"HIDE_PANEL" object:nil userInfo:info];
+//        }
     }
 
     if (self.delegate) {
@@ -123,7 +121,7 @@
     }
     
     if ([option[@"type"] isEqual:@"WINDOW"]) {
-         [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"测试版功能尚未开放，敬请期待...", @""]];
+         [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"测试版功能尚未开放，敬请期待..."]];
         [button setState:0];
     } else if([option[@"id"] isEqual:@"Artboard"]) {
         if(button.state == YES) {
@@ -167,14 +165,16 @@
     return states;
 }
 
-- (NSButton*)createButton:(NSString*) name icon: (NSURL *) iconUrl activeIcon:(NSURL *) activeIconUrl {
+- (NSButton*)createButton:(NSString*) name icon: (NSString *) icon {
     NSButton *button = [[NVMenuButton alloc]initWithFrame:NSMakeRect(0, 0, 40, 40)];
-    [button setImage:[Util createImage:iconUrl withSize: NSMakeSize(40, 40)]];
+    NSImage *image = [NVImage imageNamed:icon];
+    [image setSize: NSMakeSize(40, 40)];
+    [button setImage:image];
     // [button setAlternateImage:[Util createImage:activeIconUrl withSize: NSMakeSize(40, 40)]];
     [button setBordered:NO];
     [button sizeToFit];
     [button setToolTip: name];
-    [button setButtonType: NSButtonTypeToggle]; //NSButtonTypeMomentaryChange
+    [button setButtonType: NSButtonTypeMomentaryPushIn]; //NSButtonTypeMomentaryChange
     button.wantsLayer = YES;
     return button;
 }

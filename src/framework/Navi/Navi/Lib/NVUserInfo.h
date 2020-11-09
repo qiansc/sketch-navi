@@ -40,6 +40,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *gridWidthCode;
 @property (nonatomic, strong) NSString *gridScaleCode;
 
+@property (nonatomic, strong) NSString *marginLeftCode;
+@property (nonatomic, strong) NSString *marginRightCode;
+@property (nonatomic, strong) NSString *marginTopCode;
+@property (nonatomic, strong) NSString *marginBottomCode;
+
+@property (nonatomic, strong) NSString *marginLeftTarget;
+@property (nonatomic, strong) NSString *marginRightTarget;
+@property (nonatomic, strong) NSString *marginTopTarget;
+@property (nonatomic, strong) NSString *marginBottomTarget;
+
 
 @end
 
