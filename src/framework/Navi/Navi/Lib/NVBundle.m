@@ -15,5 +15,8 @@
     NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
     return resourceBundlePath;
 }
++(NSBundle *)SketchModelBundle {
+    return [NSBundle bundleWithIdentifier:@"com.bohemiancoding.SketchModel"];
+}
 
 @end

@@ -618,7 +618,6 @@
 				B2E3ED372558236100F7B6DB /* Assets.xcassets */,
 				B23CA2932519852600FB2416 /* Lib */,
 				A3B148E425162C0E00939B36 /* Components */,
-				A3B148E3251628D500939B36 /* Headers */,
 				A38993F7250B859F00211D90 /* Navi.h */,
 				A38993F8250B85A000211D90 /* Info.plist */,
 				A32ED9922511D4E100EBCE68 /* Menu.h */,
@@ -648,7 +647,6 @@
 		A3B148E3251628D500939B36 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				A3EE0FE4254059D600C3998D /* Sketch */,
 				A396D0D2251DE63B0061CC73 /* DataChangeProtocol.h */,
 			);
 			path = Headers;
@@ -701,7 +699,7 @@
 			path = Color;
 			sourceTree = "<group>";
 		};
-		A3EE0FE4254059D600C3998D /* Sketch */ = {
+		A3EE0FE4254059D600C3998D /* Sketch-Headers */ = {
 			isa = PBXGroup;
 			children = (
 				A3EE0FE5254059E900C3998D /* MSDocument.h */,
@@ -716,7 +714,7 @@
 				30EC08F525582E9F00A24F47 /* MSStyleShadow.h */,
 				300A446D255970910078EE29 /* MSColor.m */,
 			);
-			path = Sketch;
+			path = "Sketch-Headers";
 			sourceTree = "<group>";
 		};
 		A3EEF7FA2540044F00C3998D /* MinItem */ = {
@@ -784,6 +782,8 @@
 		B23CA2932519852600FB2416 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				A3B148E3251628D500939B36 /* Headers */,
+				A3EE0FE4254059D600C3998D /* Sketch-Headers */,
 				B23CA2942519855E00FB2416 /* HexColor.h */,
 				A396D0E825346F990061CC73 /* Util.h */,
 				A396D0E925346F990061CC73 /* Util.m */,
