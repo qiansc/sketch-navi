@@ -82,7 +82,7 @@ export function onSelectionChanged(context: any) {
         if(document.selectedLayers && document.selectedLayers.layers && document.selectedLayers.layers[0]) {
             const info =  document.selectedLayers.layers[0].sketchObject.userInfo();
             // if (info && info['Navi']) {
-                console.log(info);
+                // console.log(info);
             // }
 
 
