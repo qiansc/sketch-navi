@@ -617,7 +617,7 @@
 			children = (
 				B2E3ED372558236100F7B6DB /* Assets.xcassets */,
 				B23CA2932519852600FB2416 /* Lib */,
-				A3B148E425162C0E00939B36 /* Componetns */,
+				A3B148E425162C0E00939B36 /* Components */,
 				A3B148E3251628D500939B36 /* Headers */,
 				A38993F7250B859F00211D90 /* Navi.h */,
 				A38993F8250B85A000211D90 /* Info.plist */,
@@ -654,7 +654,7 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
-		A3B148E425162C0E00939B36 /* Componetns */ = {
+		A3B148E425162C0E00939B36 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				A3B5E22425382A8F0048F526 /* Common */,
@@ -668,7 +668,7 @@
 				A3003654253870750093395D /* Mask */,
 				B2D54D42254728E3002E1D91 /* Artboard */,
 			);
-			path = Componetns;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		A3B5E22425382A8F0048F526 /* Common */ = {
@@ -1351,7 +1351,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = com.baidu.Navi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baidu.navi;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 			};
@@ -1374,7 +1374,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = com.baidu.Navi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.baidu.navi;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 			};

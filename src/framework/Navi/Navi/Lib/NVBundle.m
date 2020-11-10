@@ -11,7 +11,7 @@
 @implementation NVBundle
 
 +(NSBundle *)bundlePath {
-    NSString* const frameworkBundleID  = @"com.baidu.Navi";
+    NSString* const frameworkBundleID  = @"com.baidu.navi";
     NSBundle* resourceBundlePath = [NSBundle bundleWithIdentifier:frameworkBundleID];
     return resourceBundlePath;
 }

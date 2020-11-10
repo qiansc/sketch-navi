@@ -6,7 +6,7 @@
     "sketch": ">=49.0"
   },
   "skpm": {
-    "name": "sketch-navi",
+    "name": "无极 UIKit",
     "description": "Author: qiansc LiuDonghai BiYingshuai",
     "manifest": "src/manifest.json",
     "main": "navi.sketchplugin",

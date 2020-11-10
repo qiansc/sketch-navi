@@ -32,14 +32,14 @@ static NSMutableDictionary *cache;
     } else {
         origin = [_layer.userInfo mutableCopy];
     }
-    [origin setObject:self.data forKey:@"sketch-navi"];
+    [origin setObject:self.data forKey:@"com.baidu.navi"];
     _layer.userInfo = origin;
 }
 
 -(instancetype)initWithLayer:(MSLayer*) layer {
     // [super init];
     _layer = layer;
-    if (layer.userInfo == nil || layer.userInfo[@"sketch-navi"] == nil) {
+    if (layer.userInfo == nil || layer.userInfo[@"com.baidu.navi"] == nil) {
         self.data = [NSMutableDictionary new];
         self.data[@"style"] = [NSMutableDictionary new];
         self.data[@"style"][@"fills"] = [NSMutableArray new];
@@ -48,7 +48,7 @@ static NSMutableDictionary *cache;
         self.data[@"textColorCode"] = @"";
         self.data[@"textCode"] = @"";
     } else {
-        self.data = [layer.userInfo[@"sketch-navi"] mutableCopy];
+        self.data = [layer.userInfo[@"com.baidu.navi"] mutableCopy];
     }
     return self;
 }
