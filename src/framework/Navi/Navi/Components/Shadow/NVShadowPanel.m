@@ -62,7 +62,7 @@
                 NVShadowCollectionItemView *item = ((NVShadowCollectionItemView *) view);
                 if ([item.spec.code isEqual:shadowCode]) {
                     [indexPaths addObject:item.indexPath];
-                    [self applyShadow:item.spec toLayer:layer];
+//                    [self applyShadow:item.spec toLayer:layer];
                     title = item.spec.code;
                 }
             }

@@ -51,48 +51,25 @@
 - (void)drawStyle {
     [super drawStyle];
     box.layer.sublayers = @[];
-    box.fillColor = [NSColor clearColor];
-    if (_spec.color == nil) {
+    if (_spec.from == nil || _spec.stops.count == 0) {
         return;
     }
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = box.bounds;
     gradient.cornerRadius = 3;
-    if ([_spec.direction isEqual: @"bottom"]) {
-        gradient.colors = @[
-            (id)[NSColorFromRGBString(_spec.color) colorWithAlphaComponent:_spec.startOpacity].CGColor,
-            (id)[[NSColor clearColor] colorWithAlphaComponent:_spec.endOpacity ].CGColor
-        ];
-        gradient.startPoint = CGPointMake(0, 0);
-        gradient.endPoint = CGPointMake(0, 1);
-    } else {
-        gradient.colors = @[
-            (id)[[NSColor clearColor] colorWithAlphaComponent:_spec.endOpacity].CGColor,
-            (id)[NSColorFromRGBString(_spec.color) colorWithAlphaComponent:_spec.startOpacity].CGColor
-        ];
-        gradient.startPoint = CGPointMake(0, 1);
-        gradient.endPoint = CGPointMake(0, 0);
+    gradient.startPoint = CGPointMake(_spec.from.x, _spec.from.y);
+    gradient.endPoint = CGPointMake(_spec.to.x, _spec.to.y);
+    NSMutableArray *colors = [NSMutableArray new];
+    NSMutableArray<NSNumber *> *locations = [NSMutableArray new];
+    for (MaskStop *stop in _spec.stops) {
+        NSColor *c = [NSColor colorWithRed:(stop.color.red / 255) green:(stop.color.green / 255) blue:(stop.color.blue / 255) alpha:1];
+        [colors addObject:((id)c.CGColor)];
+        [locations addObject:[NSNumber numberWithDouble:stop.position]];
     }
+    gradient.colors = colors;
+    gradient.locations = locations;
     [box.layer addSublayer:gradient];
-
     itemTitle.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
-//        box.cornerRadius = 0;
-    //    NSArray<NSString*> *arr = [maskSpec.ios componentsSeparatedByString:@","];
-    //    itemValue.stringValue = @"";
-    //    if (arr[0]) {
-    //        double num = [arr[0] doubleValue];
-    //        if (num == -1) {
-    //            box.cornerRadius = 10;
-    //            itemValue.stringValue = @"MAX";
-    //        } else {
-    //            box.cornerRadius = MIN(num / 2, 10);
-    //            itemValue.stringValue = arr[0];
-    //        }
-    //
-    //
-    //    }
-
-
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];
 }
 

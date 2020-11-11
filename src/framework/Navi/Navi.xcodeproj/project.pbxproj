@@ -248,6 +248,7 @@
 		30EC08F125581F9200A24F47 /* NVShadowSemanticItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVShadowSemanticItemView.h; sourceTree = "<group>"; };
 		30EC08F225581F9200A24F47 /* NVShadowSemanticItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVShadowSemanticItemView.m; sourceTree = "<group>"; };
 		30EC08F525582E9F00A24F47 /* MSStyleShadow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSStyleShadow.h; sourceTree = "<group>"; };
+		30F6D958255A82F70023DB7D /* MSGradient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSGradient.h; sourceTree = "<group>"; };
 		A300364E25386EAF0093395D /* NVTextPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVTextPanel.h; sourceTree = "<group>"; };
 		A300364F25386EAF0093395D /* NVTextPanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVTextPanel.m; sourceTree = "<group>"; };
 		A300365025386EAF0093395D /* NVTextPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVTextPanel.xib; sourceTree = "<group>"; };
@@ -713,6 +714,7 @@
 				A3DBD3CB25541FFC0042F14C /* MSRect.h */,
 				30EC08F525582E9F00A24F47 /* MSStyleShadow.h */,
 				300A446D255970910078EE29 /* MSColor.m */,
+				30F6D958255A82F70023DB7D /* MSGradient.h */,
 			);
 			path = "Sketch-Headers";
 			sourceTree = "<group>";

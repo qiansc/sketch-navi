@@ -85,6 +85,20 @@ static NSMutableDictionary *cache;
     [self save];
 }
 
+-(NSString *)fillMaskCode { // 默认只返回一个 如果需要多个自行访问data.style.fills 获取 下同
+    for(NSDictionary* d in self.data[@"style"][@"fills"]) {
+        if (d[@"maskCode"]) return d[@"maskCode"];
+    }
+    return nil;
+}
+
+-(void)setFillMaskCode:(NSString*)code {
+    if ([self.data[@"style"][@"fills"] count] == 0)
+        [self.data[@"style"][@"fills"] addObject:[NSMutableDictionary new]];
+    self.data[@"style"][@"fills"][0][@"maskCode"] = code;
+    [self save];
+}
+
 #pragma mark Style-Border
 
 -(NSString *)borderColorCode {

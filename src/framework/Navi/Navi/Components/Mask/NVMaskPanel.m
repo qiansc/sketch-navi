@@ -11,6 +11,11 @@
 #import "NVMaskCollectionItemView.h"
 #import "NVLayer.h"
 #import "MSLayerArray.h"
+#import "NVBundle.h"
+#import "MSStyleFill.h"
+#import "MSGradient.h"
+#import "NVUserInfo.h"
+#import "MSStyleFill.h"
 
 @interface NVMaskPanel ()
 
@@ -23,7 +28,7 @@
     [self.collectionView.toggleDelegate afterReload:^(void) {
         [self selectionChange:self.selections];
     }];
-    
+
     [self.collectionView.toggleDelegate onChange:^(NVToggleBox *box) {
         if (box == nil) {
             [self updateTitle: nil];
@@ -46,12 +51,63 @@
     return self.collectionView.dataSource;
 }
 
-- (void)selectionChange:(MSLayerArray *)layers {
-    
+- (void)selectionChange:(NSArray<MSLayer *> *)layers {
+    self.selections = layers;
+    NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
+    NSString *title = nil;
+    for (MSLayer *layer in layers) {
+        if (![NVLayer isShape:layer]) continue;
+        NSString *fillMaskCode =[NVUserInfo fromLayer:layer].fillMaskCode;
+        for (NSView *view in self.collectionView.subviews) {
+            if ([view isKindOfClass:[NVToggleBox class]]) {
+                NVMaskCollectionItemView *item = ((NVMaskCollectionItemView *) view);
+                if ([item.spec.code isEqual:fillMaskCode]) {
+                    [indexPaths addObject:item.indexPath];
+//                    [self applyShadow:item.spec toLayer:layer];
+                    title = item.spec.code;
+                }
+            }
+        }
+    }
+    [self.collectionView.toggleDelegate clearActive];
+    if (indexPaths.count > 0) {
+        [self.collectionView.toggleDelegate setActives:indexPaths];
+        if (indexPaths.count == 1) {
+            [self updateTitle:title];
+        }
+    }
 }
 
 - (void)applySpecToSelections:(NVMaskSpec) spec {
-    
+    if (self.selections) {
+        for (MSLayer *layer in self.selections) {
+            if (![NVLayer isShape:layer]) continue;
+            [NVUserInfo fromLayer:layer].fillMaskCode = spec.code;
+            [self applyMask:spec toLayer:layer];
+        }
+    }
+}
+
+- (void)applyMask:(NVMaskSpec) spec toLayer:(MSLayer *)layer {
+    // fillType 1代表线性渐变
+    [layer.style removeAllStyleFills];
+    MSGradient *gradient = [[[NVBundle SketchModelBundle] classNamed: @"MSGradient"] new];
+    gradient.from = CGPointMake(spec.from.x, spec.from.y);
+    gradient.to = CGPointMake(spec.to.x, spec.to.y);
+    gradient.elipseLength = 0;
+    NSMutableArray *stops = [NSMutableArray new];
+    Class Stop = [[NVBundle SketchModelBundle] classNamed: @"MSGradientStop"];
+    for (MaskStop *stop in spec.stops) {
+        MSGradientStop *msgs = [Stop new];
+        msgs.color = stop.color;
+        msgs.position = stop.position;
+        [stops addObject:msgs];
+    }
+    gradient.stops = stops;
+    MSStyleFill *fill = [[[NVBundle SketchModelBundle] classNamed: @"MSStyleFill"] new];
+    fill.gradient = gradient;
+    fill.fillType = 1;
+    [layer.style addStyleFill: fill];
 }
 
 
