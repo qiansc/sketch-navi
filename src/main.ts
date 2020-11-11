@@ -1,9 +1,15 @@
 import { SketchContext } from './utils/sketch-context';
 import { MenuController, MENU_EVENT, MenuOption } from './components/menu.controller';
 import { PanelController, PANEL_EVENT } from './components/panel.controller';
+import { framework } from './framework';
 const { setTimeout } = require("@skpm/timers");
 
 export function onStart(context: any) {
+
+    // const NVApp = framework.getClass('NVApp');
+    // const app = NVApp.currentApp();
+    // return;
+
     if(!SketchContext.hasDocument(context)) {
         return;
     }
@@ -25,11 +31,16 @@ export function onStart(context: any) {
 
 }
 export function onOpenDocument(){
-    setTimeout(() => {
-        // console.log(NSDocumentController.sharedDocumentController().documents());
-        // onStart({});
-    },100);
+    // const NVApp = framework.getClass('NVApp');
+    // const app = NVApp.prepareInit();
+
+
+    // console.log(1, NSDocumentController.sharedDocumentController().currentDocument());
+    // setTimeout(() => {
+    //     console.log(2, NSDocumentController.sharedDocumentController().currentDocument());
+    // },100);
 }
+
 interface Runtime {
     menuController: MenuController;
     panelController: PanelController;
