@@ -171,10 +171,7 @@ export class SpecData {
                 }
                 spec.dim = [item.cclass, item.cmeaning];
                 exist[spec.code] = true;
-                arr.push({
-                    ...spec,
-                    color: `#${JSON.parse(spec.color).color}`
-                });
+                arr.push(spec);
             });
         return arr;
     }

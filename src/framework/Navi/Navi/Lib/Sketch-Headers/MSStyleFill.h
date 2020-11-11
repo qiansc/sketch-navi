@@ -7,9 +7,12 @@
 //
 
 #import "MSColor.h"
+#import "MSGradient.h"
 
 @interface MSStyleFill: NSObject
 
 @property (nonatomic, strong) MSColor *color;
+@property(retain, nonatomic) MSGradient *gradient;
+@property(nonatomic) unsigned long long fillType; // @synthesize fillType=_fillType;
 
 @end

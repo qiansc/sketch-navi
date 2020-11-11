@@ -17,4 +17,9 @@
 @property (nonatomic, strong) NSArray<MSStyleBorder*> *borders;
 @property (nonatomic, strong) NSArray *shadows;
 - (id)addStylePartOfType:(unsigned long)arg1;
+- (void)addStyleFill:(id)arg1;
+- (void)removeAllStyleFills;
+- (void)removeStyleFillsAtIndexes:(id)arg1;
+- (void)removeStyleFillAtIndex:(unsigned long long)arg1;
+- (void)removeStyleFill:(id)arg1;
 @end

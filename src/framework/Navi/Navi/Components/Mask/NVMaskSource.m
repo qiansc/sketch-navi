@@ -8,6 +8,14 @@
 
 #import "NVMaskSource.h"
 
+@implementation MaskPoint
+
+@end
+
+@implementation MaskStop
+
+@end
+
 @implementation NVMaskSource {
     NVSourceUpdateCallback updatedCallback;
     NSString *searchQuery;
@@ -73,10 +81,23 @@
         .cclass = specDict[@"cclass"],
         .cmeaning = specDict[@"cmeaning"],
         .direction = specDict[@"direction"],
-        .startOpacity = [specDict[@"startOpacity"] doubleValue],
-        .endOpacity = [specDict[@"endOpacity"] doubleValue],
-        .color = specDict[@"color"],
+        .from = [MaskPoint new],
+        .to = [MaskPoint new],
+        .stops = [NSMutableArray new],
     };
+    NSArray<NSDictionary *> *stops = specDict[@"stops"];
+    for (int i = 0; i < stops.count; i++) {
+        MaskStop *stop = [MaskStop new];
+        stop.position = [(NSNumber *)[stops[i] valueForKey:@"position"] doubleValue];
+        stop.color =[MSColor fromHexColorString:((NSString *)[stops[i] valueForKey:@"color"])];
+        [spec.stops addObject:stop];
+    }
+    NSDictionary *from = specDict[@"from"];
+    spec.from.x = [(NSNumber *)[from valueForKey:@"x"] doubleValue];
+    spec.from.y = [(NSNumber *)[from valueForKey:@"y"] doubleValue];
+    NSDictionary *to = specDict[@"to"];
+    spec.to.x = [(NSNumber *)[to valueForKey:@"x"] doubleValue];
+    spec.to.y = [(NSNumber *)[to valueForKey:@"y"] doubleValue];
     return spec;
 }
 
@@ -87,7 +108,6 @@
 - (void)setQuery: (NSString *) query {
     searchQuery = query;
     [self update: specs];
-    updatedCallback();
 }
 
 - (void)setSemanticMode:(BOOL) semanticMode {

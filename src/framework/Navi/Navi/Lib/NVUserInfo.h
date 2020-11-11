@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark Style-Fill
 @property (nonatomic, strong) NSString *fillColorCode; // 填充
+@property (nonatomic, strong) NSString *fillMaskCode; // 蒙层填充
 
 #pragma mark Style-Border
 @property (nonatomic, strong) NSString *borderColorCode; // 边
