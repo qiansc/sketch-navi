@@ -6,8 +6,8 @@ const { setTimeout } = require("@skpm/timers");
 
 export function onStart(context: any) {
 
-    // const NVApp = framework.getClass('NVApp');
-    // const app = NVApp.currentApp();
+    const NVApp = framework.getClass('NVApp');
+    const app = NVApp.currentApp();
     // return;
 
     if(!SketchContext.hasDocument(context)) {
@@ -31,8 +31,8 @@ export function onStart(context: any) {
 
 }
 export function onOpenDocument(){
-    // const NVApp = framework.getClass('NVApp');
-    // const app = NVApp.prepareInit();
+    const NVApp = framework.getClass('NVApp');
+    const app = NVApp.prepareInit();
 
 
     // console.log(1, NSDocumentController.sharedDocumentController().currentDocument());

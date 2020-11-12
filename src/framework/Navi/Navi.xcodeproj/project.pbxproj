@@ -70,6 +70,8 @@
 		A33F4012255BF45400B39E70 /* NVMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A33F4010255BF45400B39E70 /* NVMenuView.m */; };
 		A33F4015255BF66200B39E70 /* NVPanelView.h in Headers */ = {isa = PBXBuildFile; fileRef = A33F4013255BF66200B39E70 /* NVPanelView.h */; };
 		A33F4016255BF66200B39E70 /* NVPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = A33F4014255BF66200B39E70 /* NVPanelView.m */; };
+		A33F4019255CDC7A00B39E70 /* NVAppCache.h in Headers */ = {isa = PBXBuildFile; fileRef = A33F4017255CDC7A00B39E70 /* NVAppCache.h */; };
+		A33F401A255CDC7A00B39E70 /* NVAppCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A33F4018255CDC7A00B39E70 /* NVAppCache.m */; };
 		A3453B5C2535C5E2007AFFCC /* Config.h in Headers */ = {isa = PBXBuildFile; fileRef = A3453B5A2535C5E2007AFFCC /* Config.h */; };
 		A3453B5D2535C5E2007AFFCC /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = A3453B5B2535C5E2007AFFCC /* Config.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3453B6825381A19007AFFCC /* FlippedClipView.h in Headers */ = {isa = PBXBuildFile; fileRef = A3453B6625381A19007AFFCC /* FlippedClipView.h */; };
@@ -280,6 +282,8 @@
 		A33F4010255BF45400B39E70 /* NVMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVMenuView.m; sourceTree = "<group>"; };
 		A33F4013255BF66200B39E70 /* NVPanelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVPanelView.h; sourceTree = "<group>"; };
 		A33F4014255BF66200B39E70 /* NVPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVPanelView.m; sourceTree = "<group>"; };
+		A33F4017255CDC7A00B39E70 /* NVAppCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVAppCache.h; sourceTree = "<group>"; };
+		A33F4018255CDC7A00B39E70 /* NVAppCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVAppCache.m; sourceTree = "<group>"; };
 		A3453B5A2535C5E2007AFFCC /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		A3453B5B2535C5E2007AFFCC /* Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		A3453B6625381A19007AFFCC /* FlippedClipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlippedClipView.h; sourceTree = "<group>"; };
@@ -826,6 +830,8 @@
 				B2E3ED3A25584F7B00F7B6DB /* NVColor.m */,
 				B2E3ED3D2558501600F7B6DB /* NVImage.h */,
 				B2E3ED3E2558501600F7B6DB /* NVImage.m */,
+				A33F4017255CDC7A00B39E70 /* NVAppCache.h */,
+				A33F4018255CDC7A00B39E70 /* NVAppCache.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -1061,6 +1067,7 @@
 				B25664472558CEFA004CC6DB /* NVMarginSource.h in Headers */,
 				30D247AC2542ECF00027602C /* NVLineCollectionItem.h in Headers */,
 				B256512A2554C72E00116B8C /* NVLineSemanticItem.h in Headers */,
+				A33F4019255CDC7A00B39E70 /* NVAppCache.h in Headers */,
 				A36167282551373600FE0840 /* NVBorderCollectionItem.h in Headers */,
 				A3003664253873300093395D /* CustomScroller.h in Headers */,
 			);
@@ -1220,6 +1227,7 @@
 				B256644C2558CF20004CC6DB /* NVMarginCollectionView.m in Sources */,
 				B25664422558CE83004CC6DB /* NVMarginPanel.m in Sources */,
 				B2012D1D253C5B2A0003715E /* DisabledWheelScrollView.m in Sources */,
+				A33F401A255CDC7A00B39E70 /* NVAppCache.m in Sources */,
 				A361672E2551376000FE0840 /* NVBorderCollectionItemView.m in Sources */,
 				A38C95CE25483BE3008C0A57 /* NVTextCollectionItemView.m in Sources */,
 				B2E3ED3C25584F7B00F7B6DB /* NVColor.m in Sources */,
