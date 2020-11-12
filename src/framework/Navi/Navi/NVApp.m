@@ -8,9 +8,12 @@
 
 #import "NVApp.h"
 #import "NVAppCache.h"
+#import "NVBundle.h"
 
 @implementation NVApp{
-    MSDocument * document;
+    MSDocument *document;
+    NVDocument *navi;
+    
 }
 +(instancetype)prepareInit{
     NVApp * app = [NVApp new];
@@ -30,20 +33,95 @@
     return nil;
 }
 
-
--(void)delayInit{
-    [self initWithCurrentDocument];
-    [self startUp];
-}
-
 -(instancetype)initWithCurrentDocument{
     document = [[NSDocumentController sharedDocumentController] currentDocument];
     [NVAppCache cacheApp:self with:document];
+    navi = [[NVDocument alloc] initWithNibName:@"NVDocument" bundle:[NVBundle bundlePath]];
+    navi.delegate = self;
     return self;
 }
 
--(void)startUp{
+-(void)toggle{
+    if (navi.view.superview)
+        [self hide];
+    else
+        [self show];
+}
+
+- (void)delayInit {
+    [self initWithCurrentDocument];
+    [self show];
+}
+
+-(void)show{
+    NSMutableArray *views = [NSMutableArray new];
+    for(NSView *view in self.splitView.subviews) {
+        [views addObject:view];
+        if ([view.identifier isEqual:@"view_canvas"]) {
+            [views addObject:navi.view];
+        }
+    }
+    self.splitView.subviews = views;
+    [self.splitView adjustSubviews];
     
 }
+-(void)hide{
+    [navi.view removeFromSuperview];
+    [self.splitView adjustSubviews];
+}
+
+-(NSString*)bundlePath {
+    return [NVBundle bundlePath].bundlePath;
+}
+-(MSSplitView *)splitView{
+    for(NSView * view in document.documentWindow.contentView.subviews) {
+        if ([[view className] isEqual:@"MSSplitView"])
+            return (MSSplitView *)view;
+    }
+    return nil;
+}
+
+
+
+- (void)viewWillLayout {
+    long minWidth = 280;long maxWidth = 9999;
+    NSSplitView *parent = self.splitView;
+    NSView *subview = navi.view;
+    long index = [parent.subviews indexOfObject:navi.view];
+    if (index > 0 && [parent.subviews objectAtIndex:index + 1]) {
+        long x = [parent maxPossiblePositionOfDividerAtIndex:index - 1] - subview.frame.size.width;
+        long nextWith = parent.subviews[index +1].frame.size.width;
+        long nextPos = [parent maxPossiblePositionOfDividerAtIndex:index];
+        long startX = nextPos -nextWith -  minWidth;
+        long endX =  nextPos -nextWith - maxWidth;
+        if (x > startX) {
+            [parent setPosition:startX ofDividerAtIndex: index - 1];
+        } else if(x < endX) {
+            [parent setPosition:endX ofDividerAtIndex: index - 1];
+        }
+        
+    }
+
+    // for()
+}
+
+//let index = -1;
+//const views = NSSplitViewInstance.subviews();
+//for (let i = 0; i < views.count(); i++) {
+//    if (''.concat(views[i].identifier()) ===
+//        ''.concat(subview.identifier())) {
+//        index = i;
+//    }
+//}
+
+//     const startX = nextPos - nextWidth - minWidth - 1;
+//     const endX = nextPos - nextWidth - maxWidth - 1;
+//     // console.log(x , startX , endX, nextPos, nextWidth);
+//     if (x > startX) {
+//        NSSplitViewInstance.setPosition_ofDividerAtIndex(startX, index - 1);
+//     } else if(x < endX){
+//        NSSplitViewInstance.setPosition_ofDividerAtIndex(endX, index - 1);
+//     }
+//}
 
 @end

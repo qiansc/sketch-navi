@@ -284,6 +284,7 @@
 		A33F4014255BF66200B39E70 /* NVPanelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVPanelView.m; sourceTree = "<group>"; };
 		A33F4017255CDC7A00B39E70 /* NVAppCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVAppCache.h; sourceTree = "<group>"; };
 		A33F4018255CDC7A00B39E70 /* NVAppCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVAppCache.m; sourceTree = "<group>"; };
+		A33F401B255D0BE100B39E70 /* MSSplitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSplitView.h; sourceTree = "<group>"; };
 		A3453B5A2535C5E2007AFFCC /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		A3453B5B2535C5E2007AFFCC /* Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		A3453B6625381A19007AFFCC /* FlippedClipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlippedClipView.h; sourceTree = "<group>"; };
@@ -746,6 +747,7 @@
 				30EC08F525582E9F00A24F47 /* MSStyleShadow.h */,
 				300A446D255970910078EE29 /* MSColor.m */,
 				30F6D958255A82F70023DB7D /* MSGradient.h */,
+				A33F401B255D0BE100B39E70 /* MSSplitView.h */,
 			);
 			path = "Sketch-Headers";
 			sourceTree = "<group>";

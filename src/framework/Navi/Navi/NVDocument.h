@@ -10,7 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// MenuControl 暴露的代理接口
+@protocol NVDocumentLayoutProtocol <NSObject>
+@required
+-(void)viewWillLayout;
+@end
+
+
 @interface NVDocument : NSViewController
+
+@property (nonatomic, strong) NSObject<NVDocumentLayoutProtocol> *delegate;
 
 @end
 

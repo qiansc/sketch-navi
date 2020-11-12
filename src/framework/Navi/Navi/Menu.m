@@ -23,8 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setPreferredContentSize:CGSizeMake(40, 450)];
-    [self.view setAutoresizingMask:NSViewNotSizable];
+//    [self setPreferredContentSize:CGSizeMake(40, 450)];
+//    [self.view setAutoresizingMask:NSViewNotSizable];
     [self initButton];
     // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangePanelState:) name:@"DID_TOOGLE_PANEL" object:nil];
 }

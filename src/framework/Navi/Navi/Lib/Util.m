@@ -24,4 +24,13 @@
     [separtorBox setBorderColor:NSColorFromRGBString(@"#F5F5F5")];
     return separtorBox;
 }
+
++ (void)fillSuperview:(NSView*)view{
+    NSView *superview = view.superview;
+    view.frame = NSMakeRect(0, 0, superview.frame.size.width, superview.frame.size.height);
+    [superview addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: superview attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+    [superview addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem: superview attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0]];
+    [superview addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem: superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:0]];
+    [superview addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
+}
 @end

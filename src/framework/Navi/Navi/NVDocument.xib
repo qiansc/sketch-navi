@@ -15,26 +15,31 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
             <rect key="frame" x="0.0" y="0.0" width="280" height="650"/>
-            <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="8LA-g5-a4O" customClass="NVMenuView">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Sg6-f9-ULK" customClass="NVPanelView">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="650"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="yuL-U3-zna"/>
+                    </constraints>
+                </customView>
+                <customView id="8LA-g5-a4O" customClass="NVMenuView">
                     <rect key="frame" x="240" y="0.0" width="40" height="650"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="qgp-fx-NlY"/>
                     </constraints>
                 </customView>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Sg6-f9-ULK" customClass="NVPanelView">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="650"/>
-                </customView>
+                <box horizontalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="vsD-o2-fAi">
+                    <rect key="frame" x="238" y="0.0" width="5" height="650"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
+                </box>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="8LA-g5-a4O" secondAttribute="bottom" id="4SC-5V-L7K"/>
-                <constraint firstItem="8LA-g5-a4O" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="AOT-bH-403"/>
-                <constraint firstItem="Sg6-f9-ULK" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="MlI-rY-UBw"/>
-                <constraint firstItem="Sg6-f9-ULK" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Yjy-XC-rTc"/>
-                <constraint firstAttribute="bottom" secondItem="Sg6-f9-ULK" secondAttribute="bottom" id="bZ9-Jc-DWb"/>
-                <constraint firstItem="8LA-g5-a4O" firstAttribute="leading" secondItem="Sg6-f9-ULK" secondAttribute="trailing" id="e3g-iC-Mdq"/>
-                <constraint firstAttribute="trailing" secondItem="8LA-g5-a4O" secondAttribute="trailing" id="gvU-Nt-4mY"/>
+                <constraint firstItem="Sg6-f9-ULK" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="EOU-k6-DmY"/>
+                <constraint firstItem="Sg6-f9-ULK" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="FUx-yc-AjN"/>
+                <constraint firstItem="8LA-g5-a4O" firstAttribute="leading" secondItem="Sg6-f9-ULK" secondAttribute="trailing" id="RHM-Qy-SHM"/>
+                <constraint firstAttribute="bottom" secondItem="Sg6-f9-ULK" secondAttribute="bottom" id="hLK-XB-Z3K"/>
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>

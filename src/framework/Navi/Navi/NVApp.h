@@ -8,18 +8,20 @@
 
 #import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
+#import "MSSplitView.h"
+#import "NVDocument.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NVApp : NSObject
+@interface NVApp : NSObject<NVDocumentLayoutProtocol>
+
+@property (nonatomic, strong) NSString *bundlePath;
+@property (nonatomic, strong) MSSplitView *splitView;
 
 +(instancetype)prepareInit;
 +(instancetype)currentApp;
--(void)startUp;
-
-
-@property (nonatomic,strong) NSString *documentID;
-
+- (void)viewWillLayout;
+-(void)toggle;
 
 
 @end

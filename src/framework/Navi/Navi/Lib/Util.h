@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSImage*)createImage:(NSURL*) imageURL withSize:(NSSize) size;
 + (NSBox*)separtorBox;
+
++ (void)fillSuperview:(NSView*)view;
+
 @end
 
 NS_ASSUME_NONNULL_END

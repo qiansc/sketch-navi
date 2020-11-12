@@ -8,9 +8,11 @@
 
 #import "MSLayer.h"
 
-@interface MSDocument: NSObject
+@interface MSDocument: NSDocument
 
 @property (nonatomic, strong) NSArray *selectedLayers;
+@property (nonatomic, strong) NSWindow *documentWindow;
 
 -(void)showMessage:(NSString *) text;
+
 @end
