@@ -63,6 +63,7 @@
     }
     self.splitView.subviews = views;
     [self.splitView adjustSubviews];
+    [self viewWillLayout];
     
 }
 -(void)hide{
@@ -84,6 +85,7 @@
 
 
 - (void)viewWillLayout {
+    NSLog(@"### ssss %f", navi.maxWidth);
     NSSplitView *parent = self.splitView;
     NSView *subview = navi.view;
     long index = [parent.subviews indexOfObject:navi.view];

@@ -14,14 +14,19 @@
 
 @implementation NVDocument
 
+- (instancetype)initWithNibName:(NSNibName)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        _minWidth = 40;
+        _maxWidth = 40;
+        self.menuView.controller.delegate = self;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _minWidth = 40;
-    _maxWidth = 9999;
-    self.view.wantsLayer = true;
-    self.view.layer.backgroundColor = [NSColor greenColor].CGColor;
     self.menuView.controller.delegate = self;
-    // Do view setup here.
 }
 
 - (void)togglePanel:(NSString *)panelId state:(BOOL)state {
@@ -30,8 +35,8 @@
 }
 
 - (void)toggleMain:(BOOL)state{
-    _minWidth = state? 40 : 280;
-    _maxWidth = state? 40 : 9999;
+    _minWidth = state? 280 : 40;
+    _maxWidth = state? 9999  : 40;
     [self viewWillLayout];
     NSLog(@"### main state %hhd", state);
 }
