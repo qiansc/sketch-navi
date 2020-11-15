@@ -11,29 +11,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// MenuControl 暴露的代理接口
-@protocol MenuControlProtocol <NSObject>
+@protocol MenuProtocol <NSObject>
 
 @optional
--(void)onButtonClick:(NSDictionary*)option;
--(void)viewWillLayoutSize:(NSDictionary*)option;
+-(void)toggleMain:(BOOL) state;
+@optional
+-(void)togglePanel:(NSString *)panelId state:(BOOL) state;
+@optional
+-(void)toggleWindow:(NSString *)windowId state:(BOOL) state;
+
 @end
 
-@interface Menu : NSViewController {
-    int limitWidth;
-    NSMutableDictionary* panelButtons;
-}
-    
-@property (nonatomic,strong) id<MenuControlProtocol> delegate;
+@interface Menu : NSViewController 
+
 @property (strong) IBOutlet NSStackView *headStack;
 @property (nonatomic, strong) NSButton *mainButton;
-
-@property (nonatomic, strong) NSString* documentId;
-
-// Convenience Method
-+ (instancetype)generateWithDocumentId:(NSString*) documentId;
-- (void)viewWillTransitionToSize:(NSSize)newSize;
-- (void)updateLimitWidth;
+@property (nonatomic, strong) NSObject<MenuProtocol> * delegate;
 
 @end
 NS_ASSUME_NONNULL_END

@@ -7,6 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NVMenuView.h"
+#import "NVPanelView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,9 +19,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface NVDocument : NSViewController
+@interface NVDocument : NSViewController<MenuProtocol>
 
 @property (nonatomic, strong) NSObject<NVDocumentLayoutProtocol> *delegate;
+
+@property (nonatomic, strong) IBOutlet NVMenuView *menuView;
+@property (nonatomic, strong) IBOutlet NVPanelView *panelView;
+@property (readonly) float minWidth;
+@property (readonly) float maxWidth;
+
 
 @end
 

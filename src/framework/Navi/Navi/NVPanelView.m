@@ -6,7 +6,6 @@
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 #import "Util.h"
-#import "Panel.h"
 #import "NVPanelView.h"
 #import "NVBundle.h"
 
@@ -14,18 +13,18 @@
 
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
-    Panel *controller = [[Panel alloc] initWithNibName:@"Panel" bundle:[NVBundle bundlePath]];
-    [self addSubview: controller.view];
-    [Util fillSuperview: controller.view];
+    self.controller = [[Panel alloc] initWithNibName:@"Panel" bundle:[NVBundle bundlePath]];
+    [self addSubview: self.controller.view];
+    [Util fillSuperview: self.controller.view];
     return self;
 };
 
 
 - (id)initWithFrame:(NSRect)frameRect {
     self = [super initWithFrame:frameRect];
-    Menu *controller = [[Menu alloc] initWithNibName:@"Menu" bundle:[NVBundle bundlePath]];
-    [self addSubview: controller.view];
-    [Util fillSuperview: controller.view];
+    self.controller = [[Panel alloc] initWithNibName:@"Panel" bundle:[NVBundle bundlePath]];
+    [self addSubview: self.controller.view];
+    [Util fillSuperview: self.controller.view];
     return self;
 }
 

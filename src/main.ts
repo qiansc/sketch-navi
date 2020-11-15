@@ -2,7 +2,7 @@ import { SketchContext } from './utils/sketch-context';
 import { MenuController, MENU_EVENT, MenuOption } from './components/menu.controller';
 import { PanelController, PANEL_EVENT } from './components/panel.controller';
 import { framework } from './framework';
-const NVSWITCH = false;
+const NVSWITCH = true;
 
 export function onStart(context: any) {
     if (NVSWITCH) {

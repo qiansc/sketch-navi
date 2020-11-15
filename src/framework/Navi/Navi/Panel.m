@@ -105,28 +105,10 @@
     }
 }
 
-/* OPEN_PANEL Hanlder */
--(void)changePanel:(NSNotification*)notification{
-    
-    NSString *id = notification.userInfo[@"documentId"];
-    if ([id isEqual:self.documentId]) {
-        NSString *panelId = notification.userInfo[@"panelId"];
-        NVPanel *c = panelControllers[panelId];
-        if(c) {
-            [self.scrollView.contentView scrollPoint: CGPointMake(0, self.stackView.frame.size.height - c.view.frame.origin.y - c.view.frame.size.height)];
-//            NSMutableDictionary *states = notification.userInfo[@"states"];
-//            [c setOpenStateSlient: [states[panelId] intValue]];
-        }
-    }
-}
-
-/*  protocol trigger 用于通知superview 自身viewWillLayout */
--  (void)viewWillLayout {
-    [super viewWillLayout];
-    NSRect frame = self.scrollView.documentView.frame;
-    self.scrollView.documentView.frame = NSMakeRect(frame.origin.x, frame.origin.y, 240, frame.size.height);
-    if (self.delegate) {
-        [self.delegate viewWillLayoutSize:[NSString stringWithFormat:@"%f,%f", self.view.frame.size.width, self.view.frame.size.height]];
+-(void)scrollToPanel:(NSString *)panelId {
+    NVPanel *c = panelControllers[panelId];
+    if(c) {
+        [self.scrollView.contentView scrollPoint: CGPointMake(0, self.stackView.frame.size.height - c.view.frame.origin.y - c.view.frame.size.height)];
     }
 }
 

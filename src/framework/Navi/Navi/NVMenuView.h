@@ -7,10 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Menu.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NVMenuView : NSView
+
+@property (nonatomic, strong) Menu *controller;
 
 @end
 

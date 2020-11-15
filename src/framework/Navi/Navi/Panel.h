@@ -11,12 +11,11 @@
 #import "NVPanel.h"
 
 
-// MenuControl 暴露的代理接口
-@protocol PanelControlProtocol <NSObject>
-
-@optional
-    -(void)viewWillLayoutSize:(NSString*)newSize;
-@end
+//@protocol PanelControlProtocol <NSObject>
+//
+//@optional
+//    -(void)viewWillLayoutSize:(NSString*)newSize;
+//@end
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -24,7 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Panel : NSViewController<NVPanelProtocol>
 
 @property (nonatomic, strong) NSString* documentId;
-@property (nonatomic, strong) id<PanelControlProtocol> delegate;
 @property (strong) IBOutlet NSStackView *stackView;
 @property (nonatomic, strong) IBOutlet NSScrollView* scrollView;
 @property (strong) IBOutlet NSTextField *searchField;
@@ -33,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)generateWithDocumentId:(NSString*) documentId;
 - (void)updateSpec:(NSDictionary *) object;
 - (void)selectionChange;
+-(void)scrollToPanel:(NSString *)panelId;
 
 
 @end

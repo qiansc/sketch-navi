@@ -19,6 +19,7 @@
 @implementation Menu {
     NSWindow *artborad;
     NSButton *artboradButton;
+    NSMutableDictionary* panelButtons;
 }
 
 - (void)viewDidLoad {
@@ -27,32 +28,6 @@
 //    [self.view setAutoresizingMask:NSViewNotSizable];
     [self initButton];
     // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangePanelState:) name:@"DID_TOOGLE_PANEL" object:nil];
-}
--  (void)viewWillLayout {
-//    [self setPreferredContentSize:CGSizeMake(40, 450)];
-//    self.view.window.contentMinSize = CGSizeMake(40, 450);
-//    self.view.window.contentMaxSize = CGSizeMake(40, 450);
-    if (self.delegate) {
-        [self.delegate viewWillLayoutSize: @{
-            @"width": @(self.view.frame.size.width),
-            @"height": @(self.view.frame.size.height),
-            @"limitWidth": @(limitWidth)
-        }];
-    }
-}
-
-- (void)viewDidAppear{
-//    [self.view setFrameSize:NSMakeSize(40, 450)];
-//    [self setPreferredContentSize:CGSizeMake(40, 450)];
-//    self.view.window.contentMinSize = CGSizeMake(40, 450);
-//    self.view.window.contentMaxSize = CGSizeMake(40, 450);
-}
-- (void)didReceiveMemoryWarning {
-    // [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-- (void)viewWillTransitionToSize:(NSSize)newSize {
-
 }
 
 - (void)initButton {
@@ -97,30 +72,19 @@
     if ([option[@"type"] isEqual:@"PANEL"]) {
         if (![self mainButton].state) {
             // 点击普通按钮时 如果总控Main未激活 则模拟激活 打开主面板
-            // [[self mainButton] performClick:@"callAction:"];
             [[self mainButton] setState:YES];
-            [self buttonClick:[self mainButton]];
+            [self.delegate toggleMain: YES];
         }
-        NSDictionary* info = @{
-            @"documentId": self.documentId,
-            @"panelId": option[@"id"],
-            @"states": [self panelButtonStates],
-        };
-//        if (button.state) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"OPEN_PANEL" object:nil userInfo:info];
-//        } else {
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"HIDE_PANEL" object:nil userInfo:info];
-//        }
-    }
-
-    if (self.delegate) {
-        [self.delegate onButtonClick: @{
-            @"view": button,
-            @"option": option
-        }];
-    }
-    
-    if ([option[@"type"] isEqual:@"WINDOW"]) {
+        [self.delegate togglePanel:option[@"id"] state: YES];
+//        NSDictionary* info = @{
+//            @"documentId": self.documentId,
+//            @"panelId": option[@"id"],
+//            @"states": [self panelButtonStates],
+//        };
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"OPEN_PANEL" object:nil userInfo:info];
+    } else if ([option[@"type"] isEqual:@"MAIN"]) {
+        [self.delegate toggleMain: button.state];
+    } else if ([option[@"type"] isEqual:@"WINDOW"]) {
          [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"测试版功能尚未开放，敬请期待..."]];
         [button setState:0];
     } else if([option[@"id"] isEqual:@"Artboard"]) {
@@ -179,33 +143,19 @@
     return button;
 }
 
-- (void)updateLimitWidth {
-    limitWidth = self.view.frame.size.width * 1;
-}
+//- (void)didChangePanelState:(NSNotification*)notification{
+//    if ([self.documentId isEqual:notification.userInfo[@"documentId"]]) {
+//        NSString *id = notification.userInfo[@"panelId"];
+//        NSButton *button = panelButtons[id];
+//        if (button.state != [notification.userInfo[@"state"] intValue]) {
+//            [button setNextState];
+//        }
+//    }
+//}
 
-- (void)didChangePanelState:(NSNotification*)notification{
-    if ([self.documentId isEqual:notification.userInfo[@"documentId"]]) {
-        NSString *id = notification.userInfo[@"panelId"];
-        NSButton *button = panelButtons[id];
-        if (button.state != [notification.userInfo[@"state"] intValue]) {
-            [button setNextState];
-        }
-    }
-}
-
-+ (instancetype)generateWithDocumentId:(NSString*) documentId {
-    Menu* menu = [self viewControllerFromNIB];
-    menu.view.identifier = [documentId stringByAppendingString:@"-navi-menu-panel"];
-    menu.documentId = documentId;
-    // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationFirst:) name:@"First" object:nil];
-    return menu;
-}
 
 + (instancetype)viewControllerFromNIB {
     return[[Menu alloc] initWithNibName:@"Menu" bundle:[NVBundle bundlePath]];
 }
 
 @end
-
-//NSString *nibPath = [[[NSBundle bundleForClass:[self class]] bundlePath]
-//       stringByAppendingString:@"/Contents/Resources/.nib"];

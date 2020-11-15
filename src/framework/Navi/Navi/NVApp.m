@@ -84,7 +84,6 @@
 
 
 - (void)viewWillLayout {
-    long minWidth = 280;long maxWidth = 9999;
     NSSplitView *parent = self.splitView;
     NSView *subview = navi.view;
     long index = [parent.subviews indexOfObject:navi.view];
@@ -92,14 +91,13 @@
         long x = [parent maxPossiblePositionOfDividerAtIndex:index - 1] - subview.frame.size.width;
         long nextWith = parent.subviews[index +1].frame.size.width;
         long nextPos = [parent maxPossiblePositionOfDividerAtIndex:index];
-        long startX = nextPos -nextWith -  minWidth;
-        long endX =  nextPos -nextWith - maxWidth;
+        long startX = nextPos -nextWith -  navi.minWidth;
+        long endX =  nextPos -nextWith - navi.maxWidth;
         if (x > startX) {
             [parent setPosition:startX ofDividerAtIndex: index - 1];
         } else if(x < endX) {
             [parent setPosition:endX ofDividerAtIndex: index - 1];
         }
-        
     }
 
     // for()
