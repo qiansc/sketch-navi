@@ -20,18 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface NVPanel : NSViewController {
-    NSControlStateValue openState;
-    NSLayoutConstraint* constraintHeight;
-    BOOL semanticMode;
-}
+@interface NVPanel : NSViewController
 
 @property (strong) IBOutlet NVPanelHeaderView *headerView;
 @property (strong) NSString *panelId;
 @property (nonatomic, strong) id<NVPanelProtocol> panelDelegate;
 
 - (instancetype) initWithId:(NSString*) id;
-- (void)setOpenStateSlient:(NSControlStateValue)state;
+- (void)setStateSlient:(NSControlStateValue)state;
 - (NSObject<NVSource>*)generatePanelSource;
 - (int)height; // 插件展开高度算法，需要自行子类实现
 - (void)resetConstraint;

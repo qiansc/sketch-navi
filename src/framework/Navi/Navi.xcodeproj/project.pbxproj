@@ -64,7 +64,7 @@
 		A33F4003255A7EA800B39E70 /* NVApp.h in Headers */ = {isa = PBXBuildFile; fileRef = A33F4001255A7EA800B39E70 /* NVApp.h */; };
 		A33F4004255A7EA800B39E70 /* NVApp.m in Sources */ = {isa = PBXBuildFile; fileRef = A33F4002255A7EA800B39E70 /* NVApp.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A33F4008255BF23800B39E70 /* NVDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = A33F4005255BF23800B39E70 /* NVDocument.h */; };
-		A33F4009255BF23800B39E70 /* NVDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A33F4006255BF23800B39E70 /* NVDocument.m */; };
+		A33F4009255BF23800B39E70 /* NVDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A33F4006255BF23800B39E70 /* NVDocument.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A33F400A255BF23800B39E70 /* NVDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = A33F4007255BF23800B39E70 /* NVDocument.xib */; };
 		A33F4011255BF45400B39E70 /* NVMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = A33F400F255BF45400B39E70 /* NVMenuView.h */; };
 		A33F4012255BF45400B39E70 /* NVMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = A33F4010255BF45400B39E70 /* NVMenuView.m */; };

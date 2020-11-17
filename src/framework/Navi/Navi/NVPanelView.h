@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) Panel *controller;
 
+- (void)resumeView;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -13,9 +13,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol NVDataSource <NSObject>
+//@required
+-(void)updateSpec;
+-(NSDictionary*)getSpec;
+@end
+
+
 @interface NVApp : NSObject<NVDocumentLayoutProtocol>
 
 @property (nonatomic, strong) NSString *bundlePath;
+@property (nonatomic, strong) NSObject<NVDataSource> *dataSource;
+@property (nonatomic, strong) NSDictionary *specs;
 @property (nonatomic, strong) MSSplitView *splitView;
 
 +(instancetype)prepareInit;

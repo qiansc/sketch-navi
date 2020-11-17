@@ -202,3 +202,28 @@ export class SpecData {
         return arr;
     }
 }
+
+
+export function getSpecs(resourcesPath: string) {
+    const specData = new SpecData(resourcesPath);
+    const textSpec = specData.getTextSpec();
+    const borderSpec = specData.getBorderSpec();
+    // console.log(borderSpec);
+
+    return {
+        Color: specData.getColorSpec(),
+        Line: [{
+            weight: '1', text: '1', specCode: 'F_L_X01', desc: '粗分割线高度', dim: ['通栏模版'],
+        }, {
+            weight: '2', text: '2', specCode: 'F_L_X02', desc: '细分割线高度', dim: ['非通栏分割线'],
+        }, {
+            weight: '6', text: '6', specCode: 'F_L_X03', desc: '细分割线高度', dim: ['通栏分割线'],
+        }],
+        Text: textSpec,
+        Border: borderSpec,
+        Grid: specData.getGridSpec(),
+        Margin: specData.getMarginSpec(),
+        Mask: specData.getMaskSpec(),
+        Shadow: specData.getShadowSpec(),
+    };
+}

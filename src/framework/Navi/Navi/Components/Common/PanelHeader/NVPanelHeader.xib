@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -10,7 +10,8 @@
             <connections>
                 <outlet property="infoButton" destination="uSP-NM-zQb" id="XCh-Xv-ZXM"/>
                 <outlet property="titleLabel" destination="T4W-bE-upR" id="emp-KF-lkL"/>
-                <outlet property="toggleButton" destination="pMo-RU-KAW" id="Znp-0D-I6e"/>
+                <outlet property="toggleBackgroundButton" destination="yQ1-jc-QHg" id="7nL-pG-0YG"/>
+                <outlet property="toggleButton" destination="pMo-RU-KAW" id="qi3-FQ-3WU"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="7VQ-qy-jb9"/>
             </connections>
         </customObject>
@@ -20,14 +21,22 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yQ1-jc-QHg">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="UQb-lB-e2E">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pMo-RU-KAW">
                     <rect key="frame" x="288" y="9" width="12" height="12"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="12" id="5ui-ds-GJr"/>
                         <constraint firstAttribute="height" constant="12" id="Q1W-Rr-LuC"/>
                     </constraints>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ArrowRight" imagePosition="overlaps" alignment="center" alternateImage="ArrowDown" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="cco-3I-nUw">
-                        <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ArrowDown" imagePosition="overlaps" alignment="center" alternateImage="ArrowRight" lineBreakMode="truncatingTail" refusesFirstResponder="YES" state="on" imageScaling="proportionallyDown" inset="2" id="cco-3I-nUw">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>

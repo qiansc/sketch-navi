@@ -34,7 +34,7 @@
 }
 
 - (void)updateTitle:(NSString*) title{
-    self.headerView.infoButton.title = title;
+    self.headerView.controller.infoButton.title = title;
 }
 
 - (NSObject<NVSource> *)generatePanelSource {

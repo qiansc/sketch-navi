@@ -38,6 +38,7 @@
     [NVAppCache cacheApp:self with:document];
     navi = [[NVDocument alloc] initWithNibName:@"NVDocument" bundle:[NVBundle bundlePath]];
     navi.delegate = self;
+
     return self;
 }
 
@@ -64,7 +65,10 @@
     self.splitView.subviews = views;
     [self.splitView adjustSubviews];
     [self viewWillLayout];
-    
+    if (self.specs == nil) {
+        [self.dataSource updateSpec];
+        [navi.panelView.controller updateSpec:self.specs];
+    }
 }
 -(void)hide{
     [navi.view removeFromSuperview];
@@ -85,7 +89,6 @@
 
 
 - (void)viewWillLayout {
-    NSLog(@"### ssss %f", navi.maxWidth);
     NSSplitView *parent = self.splitView;
     NSView *subview = navi.view;
     long index = [parent.subviews indexOfObject:navi.view];
@@ -102,26 +105,11 @@
         }
     }
 
-    // for()
 }
 
-//let index = -1;
-//const views = NSSplitViewInstance.subviews();
-//for (let i = 0; i < views.count(); i++) {
-//    if (''.concat(views[i].identifier()) ===
-//        ''.concat(subview.identifier())) {
-//        index = i;
-//    }
-//}
 
-//     const startX = nextPos - nextWidth - minWidth - 1;
-//     const endX = nextPos - nextWidth - maxWidth - 1;
-//     // console.log(x , startX , endX, nextPos, nextWidth);
-//     if (x > startX) {
-//        NSSplitViewInstance.setPosition_ofDividerAtIndex(startX, index - 1);
-//     } else if(x < endX){
-//        NSSplitViewInstance.setPosition_ofDividerAtIndex(endX, index - 1);
-//     }
-//}
+-(void)selectionChange{
+    [navi.panelView.controller selectionChange];
+}
 
 @end

@@ -28,4 +28,9 @@
     return self;
 }
 
+- (void)resumeView{
+    [self addSubview: self.controller.view];
+    [Util fillSuperview: self.controller.view];
+}
+
 @end

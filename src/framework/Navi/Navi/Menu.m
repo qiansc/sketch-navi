@@ -24,8 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self setPreferredContentSize:CGSizeMake(40, 450)];
-//    [self.view setAutoresizingMask:NSViewNotSizable];
     [self initButton];
     // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangePanelState:) name:@"DID_TOOGLE_PANEL" object:nil];
 }
@@ -142,17 +140,6 @@
     button.wantsLayer = YES;
     return button;
 }
-
-//- (void)didChangePanelState:(NSNotification*)notification{
-//    if ([self.documentId isEqual:notification.userInfo[@"documentId"]]) {
-//        NSString *id = notification.userInfo[@"panelId"];
-//        NSButton *button = panelButtons[id];
-//        if (button.state != [notification.userInfo[@"state"] intValue]) {
-//            [button setNextState];
-//        }
-//    }
-//}
-
 
 + (instancetype)viewControllerFromNIB {
     return[[Menu alloc] initWithNibName:@"Menu" bundle:[NVBundle bundlePath]];

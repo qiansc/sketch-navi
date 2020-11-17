@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="280" height="650"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Sg6-f9-ULK" customClass="NVPanelView">
+                <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sg6-f9-ULK" customClass="NVPanelView">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="650"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="yuL-U3-zna"/>
@@ -38,7 +38,6 @@
                 </box>
             </subviews>
             <constraints>
-                <constraint firstItem="Sg6-f9-ULK" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="EOU-k6-DmY"/>
                 <constraint firstItem="Sg6-f9-ULK" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="FUx-yc-AjN"/>
                 <constraint firstItem="8LA-g5-a4O" firstAttribute="leading" secondItem="Sg6-f9-ULK" secondAttribute="trailing" id="RHM-Qy-SHM"/>
                 <constraint firstAttribute="bottom" secondItem="Sg6-f9-ULK" secondAttribute="bottom" id="hLK-XB-Z3K"/>

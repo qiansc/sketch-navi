@@ -7,26 +7,21 @@
 //
 
 #import "NVPanelHeaderView.h"
-#import "NVPanelHeader.h"
 
 @implementation NVPanelHeaderView
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
-
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
-    NVPanelHeader *controller = [NVPanelHeader viewControllerFromNIB];
+    self.controller = [NVPanelHeader viewControllerFromNIB];
 
 
-    [self addSubview: controller.view];
+    [self addSubview: self.controller.view];
     NSRect contentFrame = NSMakeRect(0, 0, self.frame.size.width, 30);
-    controller.view.frame = contentFrame;
-    self.infoButton = controller.infoButton;
-    self.titleLabel = controller.titleLabel;
-    self.toggleButton = controller.toggleButton;
+    self.controller.view.frame = contentFrame;
 
 // 没有no-arc之前必须加约束才出来
 //    [self addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
@@ -40,14 +35,9 @@
 
 - (id)initWithFrame:(NSRect)frameRect {
     self = [super initWithFrame:frameRect];
-    NVPanelHeader *controller = [NVPanelHeader viewControllerFromNIB];
-    controller.view.frame = self.bounds;
-//    NSRect contentFrame = NSMakeRect(0, 0, frameRect.size.width, frameRect.size.height);
-//    view.frame = contentFrame;
-    [self addSubview:controller.view];
-    self.infoButton = controller.infoButton;
-    self.titleLabel = controller.titleLabel;
-    self.toggleButton = controller.toggleButton;
+    self.controller = [NVPanelHeader viewControllerFromNIB];
+    self.controller.view.frame = self.bounds;
+    [self addSubview:self.controller.view];
     return self;
 }
 

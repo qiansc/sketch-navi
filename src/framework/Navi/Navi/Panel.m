@@ -34,7 +34,7 @@
     panelControllers = [[NSMutableDictionary alloc] init];
     panelSources = [[NSMutableDictionary alloc] init];
     // Menu按下传递的事件
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePanel:) name:@"OPEN_PANEL" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePanel:) name:@"OPEN_PANEL" object:nil];
     // Menu按下传递的事件
     // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePanel:) name:@"HIDE_PANEL" object:nil];
     // Panel按下传递的事件
@@ -93,7 +93,7 @@
             }
             if (c) {
                 [self.stackView addArrangedSubview:c.view];
-                c.headerView.titleLabel.stringValue = option[@"name"];
+                c.headerView.controller.titleLabel.stringValue = option[@"name"];
                 c.panelDelegate = self;
                 [panelControllers setValue:c forKey:id];
                 NSObject<NVSource> *source = [c generatePanelSource];
@@ -109,6 +109,7 @@
     NVPanel *c = panelControllers[panelId];
     if(c) {
         [self.scrollView.contentView scrollPoint: CGPointMake(0, self.stackView.frame.size.height - c.view.frame.origin.y - c.view.frame.size.height)];
+        [c setStateSlient:YES];
     }
 }
 

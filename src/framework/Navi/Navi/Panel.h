@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) IBOutlet NSScrollView* scrollView;
 @property (strong) IBOutlet NSTextField *searchField;
 @property (strong) IBOutlet NSButton *semanticButton;
+@property (strong) IBOutlet NSButton *floatButton;
 
 + (instancetype)generateWithDocumentId:(NSString*) documentId;
 - (void)updateSpec:(NSDictionary *) object;

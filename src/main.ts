@@ -2,22 +2,22 @@ import { SketchContext } from './utils/sketch-context';
 import { MenuController, MENU_EVENT, MenuOption } from './components/menu.controller';
 import { PanelController, PANEL_EVENT } from './components/panel.controller';
 import { framework } from './framework';
+import { getSpecs } from './spec-data';
+const MochaJSDelegate = require('mocha-js-delegate');
 const NVSWITCH = true;
+const NVApp = framework.getClass('NVApp');
 
 export function onStart(context: any) {
+    COScript.currentCOScript().setShouldKeepAround(true);
     if (NVSWITCH) {
-        const NVApp = framework.getClass('NVApp');
-        const app = NVApp.currentApp();
-        app.toggle();
+        NVApp.currentApp().toggle();
         return;
     }
-
 
     if(!SketchContext.hasDocument(context)) {
         return;
     }
 
-    COScript.currentCOScript().setShouldKeepAround(true);
 
     const ctx = new SketchContext(context);
     const threadDictionary = NSThread.mainThread().threadDictionary();
@@ -34,9 +34,15 @@ export function onStart(context: any) {
 
 }
 export function onOpenDocument(){
+    COScript.currentCOScript().setShouldKeepAround(true);
     if (NVSWITCH) {
-        const NVApp = framework.getClass('NVApp');
         const app = NVApp.prepareInit();
+        app.dataSource = new MochaJSDelegate({
+            'updateSpec': () => {
+                const path =  app.bundlePath();
+                app.specs = getSpecs(path.substring(0, path.indexOf('/_webpack_resources')));
+            },
+        }).getClassInstance();
     }
 }
 
@@ -83,70 +89,12 @@ function getRuntime(ctx: SketchContext) {
 
 export function onSelectionChanged(context: any) {
 
-    var document = require('sketch/dom').getSelectedDocument();
-    var documentId = context.actionContext.document.hash().toString();
-    const threadDictionary = NSThread.mainThread().threadDictionary();
-    let runtime: Runtime = threadDictionary[`${documentId}-navi-runtime`];
-    if (runtime) {
-        runtime.panelController.selectionChange();
-        if(document.selectedLayers && document.selectedLayers.layers && document.selectedLayers.layers[0]) {
-            const info =  document.selectedLayers.layers[0].sketchObject.userInfo();
-            // if (info && info['Navi']) {
-                // console.log(info);
-            // }
-
-
-        }
-
+    // COScript.currentCOScript().setShouldKeepAround(true);
+    if (NVSWITCH) {
+        NVApp.currentApp().selectionChange();
+        return;
     }
+    // var documentId = context.actionContext.document.hash().toString();
+    // const threadDictionary = NSThread.mainThread().threadDictionary();
 }
-
-
-/** 以下代码是颜色测试代码 */
-
-// function  changeColor(colorCode: string) {
-//     var document = require('sketch/dom').getSelectedDocument();
-//     var selection = document.selectedLayers.layers;
-//     if (selection[0]) {
-//         selection[0].style.fills[0].color = `#${color[colorCode]}`;
-//         try {
-//             selection[0].sketchObject.userInfo = {
-//                 'com.baidu.Navi': {style: {fills:[{colorCode: colorCode}]}}
-//             }
-//             // console.log('jsondata', jsonData);
-//             // console.log( '___>', selection[0].sketchObject.userInfo());
-//         }catch(err) {
-//             console.log(err);
-//         }
-//     }
-// }
-
-// const color: {[index: string]: string} = {
-//     "SAM_001": "4C4BF3FF",
-//     "SAM_002": "4E6EF2FF",
-//     "SAM_003": "D089FFFF",
-//     "SAM_004": "CFC0FFFF",
-//     "SAM_005": "CBF8FFFF",
-//     "SAM_006": "FBE98AFF",
-//     "SAM_007": "4C4BDDFF",
-//     "SAM_008": "4E6EFFFF",
-// };
-/** 以上代码是颜色测试代码 */
-
-// fills:
-// [ Fill {
-//     fillType: 'Color',
-//     color: '#d8d8d8ff',
-//     gradient: [Gradient],
-//     pattern: [Object],
-//     enabled: true } ],
-// borders:
-// [ Border {
-//     fillType: 'Color',
-//     position: 'Inside',
-//     color: '#979797ff',
-//     gradient: [Gradient],
-//     thickness: 1,
-//     enabled: true } ],
-
 

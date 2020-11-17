@@ -10,6 +10,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="Panel">
             <connections>
                 <outlet property="clipView" destination="51B-74-XdU" id="YHC-NH-ImK"/>
+                <outlet property="floatButton" destination="IcM-R5-uSt" id="0xT-xS-tiq"/>
                 <outlet property="moreButton" destination="4yP-XF-Dsd" id="yLh-Hb-2aG"/>
                 <outlet property="scrollView" destination="e5A-1j-KMD" id="0Te-Hw-lfI"/>
                 <outlet property="searchField" destination="Jyc-lD-M6d" id="5WV-8m-uHt"/>
@@ -53,7 +54,7 @@
                 <button identifier="floatButton" toolTip="浮动窗口" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IcM-R5-uSt">
                     <rect key="frame" x="217" y="549" width="12" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="WinLocked" imagePosition="overlaps" alignment="center" alternateImage="WinFloat" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="ovi-2K-kDt">
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="WinFloat" imagePosition="overlaps" alignment="center" alternateImage="WinLocked" lineBreakMode="truncatingTail" imageScaling="proportionallyDown" inset="2" id="ovi-2K-kDt">
                         <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>

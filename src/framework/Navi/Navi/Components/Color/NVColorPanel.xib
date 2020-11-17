@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,24 +22,20 @@
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="eV9-9d-w5m" customClass="NVPanelHeaderView">
                     <rect key="frame" x="0.0" y="270" width="240" height="30"/>
-                    <subviews>
-                        <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aOA-id-4JO">
-                            <rect key="frame" x="161" y="7" width="59" height="16"/>
-                            <segmentedCell key="cell" controlSize="mini" borderStyle="border" alignment="left" style="texturedRounded" trackingMode="selectOne" id="CGC-yA-kAA">
-                                <font key="font" metaFont="system" size="8"/>
-                                <segments>
-                                    <segment label="填充" width="26" selected="YES"/>
-                                    <segment label="描边" width="26" tag="1"/>
-                                </segments>
-                            </segmentedCell>
-                        </segmentedControl>
-                    </subviews>
                     <constraints>
-                        <constraint firstItem="aOA-id-4JO" firstAttribute="top" secondItem="eV9-9d-w5m" secondAttribute="top" constant="7" id="Kob-6S-F1p"/>
                         <constraint firstAttribute="height" constant="30" id="WWa-ye-Csq"/>
-                        <constraint firstAttribute="trailing" secondItem="aOA-id-4JO" secondAttribute="trailing" constant="20" id="aTm-WT-BD0"/>
                     </constraints>
                 </customView>
+                <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aOA-id-4JO">
+                    <rect key="frame" x="161.5" y="277" width="59" height="16"/>
+                    <segmentedCell key="cell" controlSize="mini" borderStyle="border" alignment="left" style="texturedRounded" trackingMode="selectOne" id="CGC-yA-kAA">
+                        <font key="font" metaFont="system" size="8"/>
+                        <segments>
+                            <segment label="填充" width="26" selected="YES"/>
+                            <segment label="描边" width="26" tag="1"/>
+                        </segments>
+                    </segmentedCell>
+                </segmentedControl>
                 <collectionView allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDf-sA-fgd" customClass="NVColorCollectionView">
                     <rect key="frame" x="0.0" y="-1730" width="240" height="2000"/>
                     <constraints>
@@ -54,7 +50,9 @@
             <constraints>
                 <constraint firstItem="dDf-sA-fgd" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="CnU-HQ-SZV"/>
                 <constraint firstAttribute="trailing" secondItem="eV9-9d-w5m" secondAttribute="trailing" id="DDH-wd-DtO"/>
+                <constraint firstAttribute="trailing" secondItem="aOA-id-4JO" secondAttribute="trailing" constant="20" id="Lly-iq-Sgn"/>
                 <constraint firstItem="eV9-9d-w5m" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="O2D-n1-Zak"/>
+                <constraint firstItem="aOA-id-4JO" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="7" id="W9e-eD-XGA"/>
                 <constraint firstAttribute="trailing" secondItem="dDf-sA-fgd" secondAttribute="trailing" id="eIz-aW-mNx"/>
                 <constraint firstItem="dDf-sA-fgd" firstAttribute="top" secondItem="eV9-9d-w5m" secondAttribute="bottom" id="fld-Tb-etG"/>
                 <constraint firstItem="eV9-9d-w5m" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="yDk-YY-Gjt"/>

@@ -9,24 +9,34 @@
 #import "NVPanel.h"
 #import "NVCollectionView.h"
 #import "NVBundle.h"
+#import "NVImage.h"
 
-@interface NVPanel ()
+@implementation NVPanel{
+    NSControlStateValue openState;
+    NSLayoutConstraint* constraintHeight;
+    BOOL semanticMode;
+}
 
-@end
-
-@implementation NVPanel
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    openState = YES;
+    [self.headerView.controller.toggleButton setTarget:self];
+    [self.headerView.controller.toggleButton setAction:@selector(toogle:)];
+    [self.headerView.controller.toggleBackgroundButton setTarget:self];
+    [self.headerView.controller.toggleBackgroundButton setAction:@selector(toogle:)];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.headerView.toggleButton setTarget:self];
-    [self.headerView.toggleButton setAction:@selector(toogle:)];
-    openState = self.headerView.toggleButton.state;
 }
 
+- (void)viewDidAppear {
+    [super viewDidAppear];
+}
 #pragma mark toogle state
 
 - (void)toogle:(NSButton*) button{
-    openState = self.headerView.toggleButton.state;
+    openState = !openState;
     [self resetConstraint];
     if (self.panelDelegate) {
         [self.panelDelegate panel:self.panelId changeState:openState];
@@ -34,12 +44,11 @@
 }
 
 
--(void)setOpenStateSlient:(NSControlStateValue)state {
-     openState = state;
-    if (openState != self.headerView.toggleButton.state) {
-        [self.headerView.toggleButton setNextState];
+-(void)setStateSlient:(NSControlStateValue)state {
+    if (openState != state) {
+        openState = state;
+        [self resetConstraint];
     }
-    [self resetConstraint];
 }
 
 #pragma mark layout
@@ -47,6 +56,7 @@
 - (void)resetConstraint {
     // 首次或者每次重绘必须执行此句，来保证在NSStack视图中位置ok
     [self.view removeConstraint:constraintHeight];
+    self.headerView.controller.toggleButton.image = [NVImage imageNamed:openState? @"ArrowDown" : @"ArrowRight"];
     if (openState == YES){
         // 展开状态
         // [self.view setHidden:NO];

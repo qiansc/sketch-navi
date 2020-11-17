@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak) IBOutlet NSTextField *titleLabel;
 @property (strong) IBOutlet NVPanelInfoButton *infoButton;
 @property (strong) IBOutlet NSButton *toggleButton;
+@property (strong) IBOutlet NSButton *toggleBackgroundButton;
 
 + (instancetype)viewControllerFromNIB;
 

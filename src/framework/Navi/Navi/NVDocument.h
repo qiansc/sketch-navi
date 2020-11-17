@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface NVDocument : NSViewController<MenuProtocol>
+@interface NVDocument : NSViewController<MenuProtocol, NSWindowDelegate>
 
 @property (nonatomic, strong) NSObject<NVDocumentLayoutProtocol> *delegate;
 

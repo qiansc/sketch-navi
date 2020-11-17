@@ -8,17 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NVPanelInfoButton.h"
+#import "NVPanelHeader.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NVPanelHeaderView : NSView
 
-@property (nonatomic, strong) NSTextField *titleTextField;
-@property (nonatomic, strong) NSButton *button;
-
-@property (nonatomic, strong) NSTextField *titleLabel;
-@property (nonatomic, strong) NVPanelInfoButton *infoButton;
-@property (nonatomic, strong) NSButton *toggleButton;
+@property (nonatomic, strong) NVPanelHeader *controller;
 
 @end
 

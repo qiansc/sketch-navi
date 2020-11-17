@@ -96,9 +96,9 @@
         [arr addObject:selectedSpecs[3]];
     }
     if ([arr count] > 0) {
-        self.headerView.infoButton.title = [arr componentsJoinedByString:@" "];
+        self.headerView.controller.infoButton.title = [arr componentsJoinedByString:@" "];
     } else {
-        self.headerView.infoButton.title = nil;
+        self.headerView.controller.infoButton.title = nil;
     }
 }
 
