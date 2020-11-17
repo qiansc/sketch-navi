@@ -10,7 +10,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="Panel">
             <connections>
                 <outlet property="clipView" destination="51B-74-XdU" id="YHC-NH-ImK"/>
-                <outlet property="floatButton" destination="IcM-R5-uSt" id="0xT-xS-tiq"/>
+                <outlet property="floatButton" destination="IcM-R5-uSt" id="yR7-56-j6D"/>
                 <outlet property="moreButton" destination="4yP-XF-Dsd" id="yLh-Hb-2aG"/>
                 <outlet property="scrollView" destination="e5A-1j-KMD" id="0Te-Hw-lfI"/>
                 <outlet property="searchField" destination="Jyc-lD-M6d" id="5WV-8m-uHt"/>
@@ -30,9 +30,8 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Search" id="ev3-fL-gz6"/>
                 </imageView>
-                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jyc-lD-M6d">
-                    <rect key="frame" x="31" y="546" width="153" height="16"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jyc-lD-M6d">
+                    <rect key="frame" x="31" y="549" width="153" height="13"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="left" placeholderString="所有资源" id="6lh-Sz-xFZ">
                         <font key="font" metaFont="system" size="10"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -47,9 +46,8 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <box verticalHuggingPriority="750" boxType="separator" id="mc5-Na-xp3">
+                <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="mc5-Na-xp3">
                     <rect key="frame" x="12" y="539" width="171" height="5"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </box>
                 <button identifier="floatButton" toolTip="浮动窗口" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IcM-R5-uSt">
                     <rect key="frame" x="217" y="549" width="12" height="12"/>
@@ -68,13 +66,13 @@
                     </buttonCell>
                 </button>
                 <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="5" horizontalPageScroll="15" verticalLineScroll="5" verticalPageScroll="5" hasHorizontalScroller="NO" maxMagnification="10" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="e5A-1j-KMD" customClass="NVFastScrollView">
-                    <rect key="frame" x="10" y="0.0" width="231" height="530"/>
+                    <rect key="frame" x="10" y="0.0" width="231" height="541"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="51B-74-XdU" customClass="FlippedClipView">
-                        <rect key="frame" x="0.0" y="0.0" width="231" height="530"/>
+                        <rect key="frame" x="0.0" y="0.0" width="231" height="541"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view translatesAutoresizingMaskIntoConstraints="NO" id="LEp-ug-epk">
-                                <rect key="frame" x="0.0" y="530" width="219" height="0.0"/>
+                                <rect key="frame" x="0.0" y="541" width="219" height="0.0"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" translatesAutoresizingMaskIntoConstraints="NO" id="brd-or-Ora">
                                         <rect key="frame" x="0.0" y="0.0" width="219" height="0.0"/>
@@ -107,9 +105,15 @@
                 </scrollView>
             </subviews>
             <constraints>
-                <constraint firstItem="e5A-1j-KMD" firstAttribute="top" secondItem="mc5-Na-xp3" secondAttribute="bottom" constant="11" id="9rE-Eg-QhD"/>
+                <constraint firstAttribute="trailing" secondItem="mc5-Na-xp3" secondAttribute="trailing" constant="57" id="47k-X1-KbG"/>
+                <constraint firstItem="Jyc-lD-M6d" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="33" id="64V-dt-bcf"/>
+                <constraint firstItem="e5A-1j-KMD" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="31" id="9rE-Eg-QhD"/>
+                <constraint firstItem="mc5-Na-xp3" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="12" id="NFL-Ty-XMH"/>
+                <constraint firstItem="mc5-Na-xp3" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="30" id="QWg-Vk-Z4l"/>
+                <constraint firstItem="Jyc-lD-M6d" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="10" id="YYr-z8-Ish"/>
                 <constraint firstItem="e5A-1j-KMD" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="10" id="agZ-CH-mY7"/>
                 <constraint firstAttribute="bottom" secondItem="e5A-1j-KMD" secondAttribute="bottom" id="iu6-S8-Bx9"/>
+                <constraint firstAttribute="trailing" secondItem="Jyc-lD-M6d" secondAttribute="trailing" constant="58" id="j1M-Q3-8pK"/>
                 <constraint firstAttribute="trailing" secondItem="e5A-1j-KMD" secondAttribute="trailing" constant="-1" id="zQ4-yM-ydb"/>
             </constraints>
             <point key="canvasLocation" x="140" y="4"/>

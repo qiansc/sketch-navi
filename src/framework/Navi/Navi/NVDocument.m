@@ -60,58 +60,45 @@
 }
 
 - (void)showWindow {
-    NSLog(@"### windowMod %hhd", windowMod);
     if (windowMod) {
         [window makeKeyAndOrderFront:window];
         return;
     }
     windowMod = YES;
     
-    NSLog(@"### windowMod------");
     NSRect frame = NSMakeRect(0, 0, self.panelView.frame.size.width, self.panelView.frame.size.height);
-    NSLog(@"### NSMakeRect------");
     NSRect rect = [NSWindow contentRectForFrameRect:frame styleMask:NSWindowStyleMaskBorderless];
     NSWindowStyleMask mask = NSWindowStyleMaskTitled | NSWindowStyleMaskResizable | NSWindowStyleMaskClosable;
-    NSLog(@"### window------");
     if (window == nil)
         window = [[NSWindow alloc] initWithContentRect:rect styleMask:mask backing:NSBackingStoreBuffered defer:false];
-    NSLog(@"### window------ebd %@", window);
     window.titleVisibility = NSWindowTitleVisible;
     [window setTitle:@"无极Skecth UIKit设计工具"];
     [window center];
-    NSLog(@"### window------111");
     [window makeKeyAndOrderFront:window];
     window.delegate = self;
-    NSLog(@"### window------222");
     window.contentView = self.panelView.controller.view;
-    NSLog(@"### window------333");
     [window setAutorecalculatesKeyViewLoop:true];
-    NSLog(@"### window------444");
     _minWidth = _maxWidth = 40;
     [self viewWillLayout];
-    NSLog(@"### window------555");
 }
 - (void)showSlider{
     window.contentView = nil;
     window.delegate = nil;
-    [window setIsVisible:NO];
-    [self windowWillClose:nil];
+    [self windowShouldClose:nil];
 }
 
 - (BOOL)windowShouldClose:(NSWindow *)sender{
     windowMod = NO;
     constraint = nil;
+    [self.panelView.controller.floatButton setState: NO];
     [self.panelView resumeView];
     [self toggleMain:YES];
+    [window setIsVisible:NO];
     return NO;
 }
 
 - (void)windowWillClose:(NSNotification *)notification{
     [NSApp stopModal];
-    windowMod = NO;
-    constraint = nil;
-    [self.panelView resumeView];
-    [self toggleMain:YES];
 }
 
 -  (void)viewWillLayout {
