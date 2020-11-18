@@ -1086,6 +1086,7 @@
 				A38993F0250B859F00211D90 /* Sources */,
 				A38993F1250B859F00211D90 /* Frameworks */,
 				A38993F2250B859F00211D90 /* Resources */,
+				A39E447C2565040E005037F8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1168,6 +1169,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A39E447C2565040E005037F8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# cp -r ${BUILT_PRODUCTS_DIR}/${EXECUTABLE_NAME}.framework/Versions/A/* ../../../navi.sketchplugin/Contents/Resources/_webpack_resources/Navi.framework/Versions/A/\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A38993F0250B859F00211D90 /* Sources */ = {

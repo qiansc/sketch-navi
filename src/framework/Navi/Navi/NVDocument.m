@@ -41,7 +41,7 @@
         constraint = [NSLayoutConstraint constraintWithItem:self.panelView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0];
         [self.view addConstraint:constraint];
     }
-    _minWidth = state? 280 : 40;
+    _minWidth = state? 281 : 40;
     _maxWidth = state? 9999  : 40;
     if (windowMod) {
         _minWidth = _maxWidth = 40;
@@ -78,6 +78,7 @@
     window.delegate = self;
     window.contentView = self.panelView.controller.view;
     [window setAutorecalculatesKeyViewLoop:true];
+    window.minSize = NSMakeSize(240, 400);
     _minWidth = _maxWidth = 40;
     [self viewWillLayout];
 }
