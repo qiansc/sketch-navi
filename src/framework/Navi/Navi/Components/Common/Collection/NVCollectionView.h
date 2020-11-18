@@ -16,8 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong) NVCollectionDelegate *toggleDelegate;
 @property (nonatomic) float displayHeight;
+@property (nonatomic) BOOL isLiveResize;
 
-//- (void)setWrapperHeight:(float) height;
+-(float)autoItemWithBetween:(float)minimumSize and:(float) maximumSize;
 
 @end
 

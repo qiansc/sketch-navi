@@ -55,6 +55,32 @@
     return maxBottom;
 }
 
+-(float)autoItemWithBetween:(float)minimumSize and:(float) maximumSize {
+    float superwidth = self.frame.size.width;
+    if (superwidth == 0) return minimumSize;
+    float spacing =  ((NSCollectionViewFlowLayout *)self.collectionViewLayout).minimumLineSpacing;
+    
+    minimumSize += spacing;
+    maximumSize += spacing;
 
+    float num = round((superwidth / minimumSize) / 2 + (superwidth / maximumSize) / 2);
+    
+    return MAX(superwidth / MAX(num, 1) - spacing, 1);
+}
+
+
+-(void)viewDidEndLiveResize{
+    if(!self.isLiveResize) return;
+    [super viewDidEndLiveResize];
+    [self reloadItemsAtIndexPaths:[self indexPathsForVisibleItems]];
+}
+
+-(void)resizeWithOldSuperviewSize:(NSSize)oldSize{
+    if(!self.isLiveResize) return;
+    if(self.inLiveResize) {
+        [super resizeWithOldSuperviewSize:oldSize];
+        [self reloadItemsAtIndexPaths:[self indexPathsForVisibleItems]];
+    }
+}
 
 @end
