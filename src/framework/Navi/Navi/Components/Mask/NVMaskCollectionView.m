@@ -50,7 +50,13 @@
 #pragma mark NSCollectionViewDelegateFlowLayout
 
 - (NSSize)collectionView:(NSController *) collectionView layout:(NSCollectionViewLayout *) collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *) indexPath {
-    return NSMakeSize(218, 48);
+    if (self.dataSource.semanticMode) {
+        self.isLiveResize = YES;
+        return NSMakeSize([self autoItemWithBetween:218 and:218 * 2], 31);
+    } else {
+        self.isLiveResize = YES;
+        return NSMakeSize([self autoItemWithBetween:218 * 0.75 and:218 * 1.5], 48);
+    }
 }
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {

@@ -57,8 +57,8 @@
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.dataSource.semanticMode) {
-        self.isLiveResize = NO;
-        return NSMakeSize(218, 31);
+        self.isLiveResize = YES;
+        return NSMakeSize([self autoItemWithBetween:218 and:536], 31);
     } else {
         self.isLiveResize = YES;
         NVTextSpec spec = [self.dataSource getSpecAt:indexPath];

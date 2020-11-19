@@ -56,9 +56,11 @@
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.dataSource.semanticMode) {
-        return NSMakeSize(218, 31);
+        self.isLiveResize = YES;
+        return NSMakeSize([self autoItemWithBetween:218 and:218 * 2], 31);
     } else {
-        return NSMakeSize(218, 48);
+        self.isLiveResize = YES;
+        return NSMakeSize([self autoItemWithBetween:218 * 0.75 and:218 * 1.5], 48);
     }
 
 }

@@ -41,6 +41,11 @@
         constraint = [NSLayoutConstraint constraintWithItem:self.panelView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem: self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0];
         [self.view addConstraint:constraint];
     }
+    if (state) {
+        [self.panelView setHidden:NO];
+    } else {
+        [self.panelView setHidden:YES];
+    }
     _minWidth = state? 281 : 40;
     _maxWidth = state? 9999  : 40;
     if (windowMod) {
