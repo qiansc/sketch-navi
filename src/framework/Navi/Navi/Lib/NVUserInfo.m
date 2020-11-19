@@ -167,7 +167,10 @@ static NSMutableDictionary *cache;
 
 
 -(NSString *)marginType {return self.data[@"marginType"];}
--(void)setmarginType:(NSString*)code {self.data[@"marginType"] = code;[self save];}
+-(void)setMarginType:(NSString*)code {self.data[@"marginType"] = code;[self save];}
+
+-(double)originWidth {return [self.data[@"originWidth"] doubleValue];}
+-(void)setOriginWidth:(double)code {self.data[@"originWidth"] = [NSString stringWithFormat:@"%f", code];[self save];}
 
 -(NSString *)marginLeftCode {return self.data[@"marginLeftCode"];}
 -(void)setMarginLeftCode:(NSString*)code {

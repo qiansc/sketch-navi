@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong) IBOutlet NVHoriCollectionView *collectionView;
 @property (nonatomic,strong) MSLayerArray *selections;
+@property (strong) IBOutlet NSSegmentedControl *modButton;
 
 @end
 

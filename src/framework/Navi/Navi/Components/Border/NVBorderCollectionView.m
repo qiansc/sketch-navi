@@ -70,7 +70,6 @@
         return NSMakeSize(0, 10);
     else
         return [super collectionView:collectionView layout:collectionViewLayout referenceSizeForHeaderInSection:section]; //NSMakeSize(0, 26);
-
 }
 
 @end

@@ -46,9 +46,9 @@
 }
 
 - (void)collectionView:(NSCollectionView *)collectionView willDisplaySupplementaryView:(NSView *)view forElementKind:(NSCollectionViewSupplementaryElementKind)kind atIndexPath:(NSIndexPath *) indexPath{
-    // if (kind == NSCollectionElementKindSectionHeader && [[self.dataSource getDims] count] > 1) {
+     if (kind == NSCollectionElementKindSectionHeader && [[self.dataSource getDims] count] > 1) {
         [(NVSectionHeader*)view setTitle:[self.dataSource getDims][indexPath.section]];
-    // }
+     }
 }
 
 
@@ -66,9 +66,9 @@
 }
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-//    if ([[self.dataSource getDims] count] < 2)
-//        return NSMakeSize(0, 10);
-//    else
+    if ([[self.dataSource getDims] count] < 2)
+        return NSMakeSize(0, 10);
+    else
         return [super collectionView:collectionView layout:collectionViewLayout referenceSizeForHeaderInSection:section];
     
 }

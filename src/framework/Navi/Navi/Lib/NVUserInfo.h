@@ -45,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *gridScaleCode; // 比例
 
 @property (nonatomic, strong) NSString *marginType; // 0 内边距 1 外边距
+@property (nonatomic) double originWidth;
 @property (nonatomic, strong) NSString *marginLeftCode; // 间隔编码 下同
 @property (nonatomic, strong) NSString *marginRightCode;
 @property (nonatomic, strong) NSString *marginTopCode;

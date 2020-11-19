@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="collectionView" destination="p6v-rQ-vyc" id="6QW-8V-klO"/>
                 <outlet property="headerView" destination="dzy-jd-Q1C" id="O75-hh-kZI"/>
+                <outlet property="modButton" destination="zct-2h-agP" id="Yi5-4S-SDp"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -25,6 +26,16 @@
                         <constraint firstAttribute="height" constant="28" id="1xE-Wj-Jeb"/>
                     </constraints>
                 </customView>
+                <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zct-2h-agP">
+                    <rect key="frame" x="169.5" y="277" width="51" height="16"/>
+                    <segmentedCell key="cell" controlSize="mini" borderStyle="border" alignment="left" style="capsule" trackingMode="selectAny" id="pdq-5d-S65">
+                        <font key="font" metaFont="label" size="9"/>
+                        <segments>
+                            <segment label="左"/>
+                            <segment label="右" tag="1"/>
+                        </segments>
+                    </segmentedCell>
+                </segmentedControl>
                 <collectionView allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6v-rQ-vyc" customClass="NVHoriCollectionView">
                     <rect key="frame" x="0.0" y="-1728" width="240" height="2000"/>
                     <constraints>
@@ -38,7 +49,9 @@
             </subviews>
             <constraints>
                 <constraint firstItem="p6v-rQ-vyc" firstAttribute="top" secondItem="dzy-jd-Q1C" secondAttribute="bottom" id="7ih-hz-xFg"/>
+                <constraint firstAttribute="trailing" secondItem="zct-2h-agP" secondAttribute="trailing" constant="20" id="KYH-Zp-JHi"/>
                 <constraint firstItem="dzy-jd-Q1C" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="SUF-Uh-iEv"/>
+                <constraint firstItem="zct-2h-agP" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="7" id="Sk2-zE-RgE"/>
                 <constraint firstAttribute="trailing" secondItem="dzy-jd-Q1C" secondAttribute="trailing" id="Tbw-yD-t5N"/>
                 <constraint firstItem="dzy-jd-Q1C" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="YVu-JK-pm7"/>
                 <constraint firstItem="p6v-rQ-vyc" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="bhx-dl-p2w"/>

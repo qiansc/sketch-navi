@@ -207,7 +207,7 @@ export function getSpecs(resourcesPath: string) {
     const specData = new SpecData(resourcesPath);
     const textSpec = specData.getTextSpec();
     const borderSpec = specData.getBorderSpec();
-    // console.log(borderSpec);
+    console.log(specData.getMarginSpec('M_H'));
 
     return {
         Color: specData.getColorSpec(),

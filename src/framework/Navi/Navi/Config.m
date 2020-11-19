@@ -47,31 +47,30 @@
         @"icon": @"Layout",
         @"gravity": @1,
         @"type": @"PANEL"
-    }, @{
-        @"name": @"间距",
-        @"id": @"Margin",
-        @"icon": @"Margin-H",
-        @"gravity": @1,
-        @"type": @"PANEL"
 //    }, @{
-//        @"name": @"上下间距",
-//        @"id": @"Vert",
-//        @"icon": @"Margin-V",
-//        @"gravity": @1,
-//        @"type": @"PANEL"
-//    }, @{
-//        @"name": @"水平间距",
-//        @"id": @"Hori",
+//        @"name": @"间距",
+//        @"id": @"Margin",
 //        @"icon": @"Margin-H",
 //        @"gravity": @1,
 //        @"type": @"PANEL"
+    }, @{
+        @"name": @"上下间距",
+        @"id": @"Vert",
+        @"icon": @"Margin-V",
+        @"gravity": @1,
+        @"type": @"PANEL"
+    }, @{
+        @"name": @"水平间距",
+        @"id": @"Hori",
+        @"icon": @"Margin-H",
+        @"gravity": @1,
+        @"type": @"PANEL"
     }, @{
         @"name": @"投影",
         @"id": @"Shadow",
         @"icon": @"Shadow",
         @"gravity": @1,
         @"type": @"PANEL"
-
     }, @{
         @"name": @"蒙层",
         @"id": @"Mask",
@@ -108,7 +107,7 @@
     return nil;
 }
 
-    // MenuOption* mainOption = [[MenuOption alloc] init];
+// MenuOption* mainOption = [[MenuOption alloc] init];
 //    NSArray<MenuOption*>* menuOptions = [[NSArray alloc]initWithObjects:
 //                                         ,
 //                                         nil];

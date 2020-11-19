@@ -117,12 +117,12 @@
 		A397ACC825148BEA00286C6E /* Panel.h in Headers */ = {isa = PBXBuildFile; fileRef = A397ACC625148BEA00286C6E /* Panel.h */; };
 		A397ACC925148BEA00286C6E /* Panel.m in Sources */ = {isa = PBXBuildFile; fileRef = A397ACC725148BEA00286C6E /* Panel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A39E448225662C73005037F8 /* NVHoriPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = A39E447F25662C73005037F8 /* NVHoriPanel.h */; };
-		A39E448325662C73005037F8 /* NVHoriPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E448025662C73005037F8 /* NVHoriPanel.m */; };
+		A39E448325662C73005037F8 /* NVHoriPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E448025662C73005037F8 /* NVHoriPanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A39E448425662C73005037F8 /* NVHoriPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39E448125662C73005037F8 /* NVHoriPanel.xib */; };
 		A39E448925662D56005037F8 /* NVHoriSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A39E448725662D56005037F8 /* NVHoriSource.h */; };
 		A39E448A25662D56005037F8 /* NVHoriSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E448825662D56005037F8 /* NVHoriSource.m */; };
 		A39E448D25662D84005037F8 /* NVHoriCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = A39E448B25662D84005037F8 /* NVHoriCollectionView.h */; };
-		A39E448E25662D84005037F8 /* NVHoriCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E448C25662D84005037F8 /* NVHoriCollectionView.m */; };
+		A39E448E25662D84005037F8 /* NVHoriCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E448C25662D84005037F8 /* NVHoriCollectionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A39E449125662F74005037F8 /* NVHoriCollectionItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = A39E448F25662F74005037F8 /* NVHoriCollectionItemView.h */; };
 		A39E449225662F74005037F8 /* NVHoriCollectionItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E449025662F74005037F8 /* NVHoriCollectionItemView.m */; };
 		A39E449425662F8C005037F8 /* NVHoriCollectionItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39E449325662F8C005037F8 /* NVHoriCollectionItem.xib */; };
