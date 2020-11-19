@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="NVHoriSemanticItemView">
+            <rect key="frame" x="0.0" y="0.0" width="206" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wyf-jj-AbR">
+                    <rect key="frame" x="4" y="7" width="23" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="2N" id="Pet-qz-ZXQ">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField identifier="ItemDesc" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pck-e5-hf2">
+                    <rect key="frame" x="42" y="9" width="31" height="12"/>
+                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="DESC" id="6oH-53-e6H">
+                        <font key="font" size="10" name="HelveticaNeue"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField identifier="ItemCode" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mC9-Ce-oPX">
+                    <rect key="frame" x="144" y="9" width="72" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="68" id="2GF-fg-dMd"/>
+                    </constraints>
+                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="CODE" id="Gcv-Id-ps7">
+                        <font key="font" size="10" name="HelveticaNeue"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mC9-Ce-oPX" secondAttribute="trailing" constant="-8" id="7Ez-hQ-M5Q"/>
+                <constraint firstItem="pck-e5-hf2" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="44" id="80k-hG-9Rw"/>
+                <constraint firstItem="Wyf-jj-AbR" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="TvP-B2-gqq"/>
+                <constraint firstItem="Wyf-jj-AbR" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="6" id="V5c-Yw-PPf"/>
+                <constraint firstItem="pck-e5-hf2" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="rWO-QT-24F"/>
+                <constraint firstItem="mC9-Ce-oPX" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="t8s-Fr-fnX"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="154"/>
+        </customView>
+        <customObject id="zax-Po-sUt" customClass="NSCollectionViewItem">
+            <connections>
+                <outlet property="view" destination="c22-O7-iKe" id="VgW-k5-Awi"/>
+            </connections>
+        </customObject>
+    </objects>
+</document>

@@ -162,6 +162,10 @@
     {"code":"M_L_X03","cline":"FEED","cclass":"feed模版通用","cmeaning":"胶囊图片边缘上间距","desc": "上15","elementCode":"F_M_L_X03","ios":15,"android":22,"h5":20, "pos": 0},
     {"code":"M_L_X04","cline":"FEED","cclass":"feed模版通用","cmeaning":"胶囊图片边缘下间距","desc": "下15","elementCode":"F_M_L_X04","ios":15,"android":22,"h5":20, "pos": 2},
 
+    {"code":"M_H_X001","cline":"TIEBA","cclass":"M_H_X001","cmeaning":"M_H_X001","desc": "左10","elementCode":"M_H_X001","ios":10,"android":10,"h5":4, "pos": 20},
+    {"code":"M_H_X002","cline":"TIEBA","cclass":"M_H_X002","cmeaning":"M_H_X002","desc": "左16","elementCode":"M_H_X002","ios":16,"android":16,"h5":6, "pos": 20},
+
+
     {
         "_id": "5f959292c531587ee80a385e", "id": 1, "code": "F_Mask_X1", "cline": "FEED", "cclass": "图片", "cmeaning": "动态挂载类卡片蒙层", "elementCode": "Mask_X03", "color": "{\"cname\":\"C_X010\",\"color\":\"000000\"}", "size": 124, "direction": "top", "startOpacity": 0.25, "nodeOpacity": 0, "nodePositon": 0, "endOpacity": 0,
         "from": {"x": 0.5, "y": 0}, "to": {"x": 0.5, "y": 1}, "stops": [{"color": "ffffff", "position": 0 }, { "color": "000000", "position": 1}]

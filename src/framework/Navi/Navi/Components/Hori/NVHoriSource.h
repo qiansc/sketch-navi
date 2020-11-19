@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-struct NVMarginSpec {
+struct NVHoriSpec {
     float alpha;                // 50.00
     NSString *code;             // F_Txt_X4
     NSString *cline;            // FEED
@@ -27,18 +27,18 @@ struct NVMarginSpec {
     double h5;               //
 };
 
-typedef struct NVMarginSpec NVMarginSpec;
+typedef struct NVHoriSpec NVHoriSpec;
 
-@interface NVMarginSource : NSObject<NVSource, NSCollectionViewDataSource>
+@interface NVHoriSource : NSObject<NVSource, NSCollectionViewDataSource>
 
 @property (nonatomic) BOOL semanticMode;
 
 -(NSArray<NSString*>*)getDims;
 -(NSArray<NSDictionary*>*)getSpecsWith:(NSString *)dim;
 -(NSArray<NSDictionary*>*)getSpecsIn:(long) section;
--(NVMarginSpec)getSpecAt:(NSIndexPath *) indexPath;
--(NVMarginSpec)getSpecWithCode:(NSString *) code;
-+(NVMarginSpec)value:(NSDictionary*) specDict;
+-(NVHoriSpec)getSpecAt:(NSIndexPath *) indexPath;
+-(NVHoriSpec)getSpecWithCode:(NSString *) code;
++(NVHoriSpec)value:(NSDictionary*) specDict;
 - (void)onUpdated:(NVSourceUpdateCallback) callback;
 
 

@@ -131,7 +131,7 @@ export class SpecData {
         });
         return arr;
     }
-    getMarginSpec() {
+    getMarginSpec(prefix: string = 'M_L') {
         let file = `/data/spec-baiduboxapp.json`;
         let json: any = {};
         let arr: any[] = [];
@@ -148,7 +148,7 @@ export class SpecData {
             if (exist[spec.code]) {
                 return;
             }
-            if (!spec.code || spec.code.indexOf('M_L') !== 0) {
+            if (!spec.code || spec.code.indexOf(prefix) !== 0) {
                 return;
             }
             spec.dim = [item.cclass, item.cmeaning];
@@ -203,7 +203,6 @@ export class SpecData {
     }
 }
 
-
 export function getSpecs(resourcesPath: string) {
     const specData = new SpecData(resourcesPath);
     const textSpec = specData.getTextSpec();
@@ -224,6 +223,9 @@ export function getSpecs(resourcesPath: string) {
         Grid: specData.getGridSpec(),
         Margin: specData.getMarginSpec(),
         Mask: specData.getMaskSpec(),
+        Hori: specData.getMarginSpec('M_H'),
         Shadow: specData.getShadowSpec(),
     };
 }
+
+

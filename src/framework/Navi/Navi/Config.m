@@ -54,9 +54,15 @@
         @"gravity": @1,
         @"type": @"PANEL"
 //    }, @{
-//        @"name": @"垂直间距",
-//        @"id": @"MarginV",
+//        @"name": @"上下间距",
+//        @"id": @"Vert",
 //        @"icon": @"Margin-V",
+//        @"gravity": @1,
+//        @"type": @"PANEL"
+//    }, @{
+//        @"name": @"水平间距",
+//        @"id": @"Hori",
+//        @"icon": @"Margin-H",
 //        @"gravity": @1,
 //        @"type": @"PANEL"
     }, @{
