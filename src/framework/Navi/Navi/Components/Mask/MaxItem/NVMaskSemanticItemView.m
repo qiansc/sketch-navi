@@ -28,10 +28,7 @@
         if ([v.identifier isEqual:@"MaskBox"]) {
             box = v;
             box.wantsLayer = YES;
-            box.layer.sublayers = @[];
             box.borderWidth = 0;
-            box.boxType = NSBoxCustom;
-            box.borderType = NSLineBorder;
         }
         if ([v.identifier isEqual:@"ItemTitle"]) itemTitle = v;
 //        if ([v.identifier isEqual:@"ItemValue"]) itemValue = v;
@@ -62,7 +59,7 @@
     NSMutableArray *colors = [NSMutableArray new];
     NSMutableArray<NSNumber *> *locations = [NSMutableArray new];
     for (MaskStop *stop in _spec.stops) {
-        NSColor *c = [NSColor colorWithRed:(stop.color.red / 255) green:(stop.color.green / 255) blue:(stop.color.blue / 255) alpha:1];
+        NSColor *c = [NSColor colorWithRed:(stop.color.red / 255) green:(stop.color.green / 255) blue:(stop.color.blue / 255) alpha:stop.alpha];
         [colors addObject:((id)c.CGColor)];
         [locations addObject:[NSNumber numberWithDouble:stop.position]];
     }
