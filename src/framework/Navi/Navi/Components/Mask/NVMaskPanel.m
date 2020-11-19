@@ -92,8 +92,8 @@
     // fillType 1代表线性渐变
     [layer.style removeAllStyleFills];
     MSGradient *gradient = [[[NVBundle SketchModelBundle] classNamed: @"MSGradient"] new];
-    gradient.from = CGPointMake(spec.from.x, spec.from.y);
-    gradient.to = CGPointMake(spec.to.x, spec.to.y);
+    gradient.to = CGPointMake(spec.from.x, spec.from.y);
+    gradient.from = CGPointMake(spec.to.x, spec.to.y);
     gradient.elipseLength = 0;
     NSMutableArray *stops = [NSMutableArray new];
     Class Stop = [[NVBundle SketchModelBundle] classNamed: @"MSGradientStop"];

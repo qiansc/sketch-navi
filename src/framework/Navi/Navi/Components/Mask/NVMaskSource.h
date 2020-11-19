@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property double position;
 @property (nonatomic, strong) MSColor *color;
+@property double alpha;
 
 @end
 
