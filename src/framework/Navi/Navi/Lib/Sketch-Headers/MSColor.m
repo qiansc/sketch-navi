@@ -19,4 +19,9 @@
     NSColor *color = NSColorFromRGBString(hexString);
     return [NSClassFromString(@"MSColor") colorWithRed:color.redComponent * 255 green:color.greenComponent * 255 blue:color.blueComponent * 255 alpha:color.alphaComponent];
 }
+
++ (instancetype)fromHexColorString:(NSString *) hexString withAlpha: (double) alpha {
+    NSColor *color = NSColorFromRGBString(hexString);
+    return [NSClassFromString(@"MSColor") colorWithRed:color.redComponent * 255 green:color.greenComponent * 255 blue:color.blueComponent * 255 alpha:alpha];
+}
 @end

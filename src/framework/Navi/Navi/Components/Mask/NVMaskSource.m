@@ -89,7 +89,9 @@
     for (int i = 0; i < stops.count; i++) {
         MaskStop *stop = [MaskStop new];
         stop.position = [(NSNumber *)[stops[i] valueForKey:@"position"] doubleValue];
-        stop.color =[MSColor fromHexColorString:((NSString *)[stops[i] valueForKey:@"color"])];
+        stop.alpha = [(NSNumber *)[stops[i] valueForKey:@"alpha"] doubleValue];
+        NSString *hex = (NSString *)[stops[i] valueForKey:@"color"];
+        stop.color =[MSColor fromHexColorString:hex withAlpha: stop.alpha];
         [spec.stops addObject:stop];
     }
     NSDictionary *from = specDict[@"from"];

@@ -166,7 +166,7 @@ export class SpecData {
                 if (exist[spec.code]) {
                     return;
                 }
-                if (!spec.code || spec.code.indexOf('F_Mask') !== 0) {
+                if (!spec.code || spec.code.indexOf('Mask_X') === -1) {
                     return;
                 }
                 spec.dim = [item.cclass, item.cmeaning];
@@ -184,7 +184,7 @@ export class SpecData {
                 if (exist[spec.code]) {
                     return;
                 }
-                if (!spec.code || spec.code.indexOf('F_S_O') !== 0) {
+                if (!spec.code || spec.code.indexOf('S_O_X') === -1) {
                     return;
                 }
                 spec.dim = [item.cclass, item.cmeaning];

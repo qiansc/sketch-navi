@@ -167,14 +167,224 @@
 
 
     {
-        "_id": "5f959292c531587ee80a385e", "id": 1, "code": "F_Mask_X1", "cline": "FEED", "cclass": "图片", "cmeaning": "动态挂载类卡片蒙层", "elementCode": "Mask_X03", "color": "{\"cname\":\"C_X010\",\"color\":\"000000\"}", "size": 124, "direction": "top", "startOpacity": 0.25, "nodeOpacity": 0, "nodePositon": 0, "endOpacity": 0,
-        "from": {"x": 0.5, "y": 0}, "to": {"x": 0.5, "y": 1}, "stops": [{"color": "ffffff", "position": 0 }, { "color": "000000", "position": 1}]
+        "code": "F_Mask_X1",
+        "cline": "FEED",
+        "cclass": "图片",
+        "cmeaning": "动态挂载类卡片蒙层",
+        "elementCode": "Mask_X03",
+        "color": "{\"cname\":\"C_X010\",\"color\":\"000000\"}",
+        "size": 124,
+        "direction": "top",
+        "startOpacity": 0.25,
+        "nodeOpacity": 0,
+        "nodePositon": 0,
+        "endOpacity": 0,
+        "from": {"x": 0.5, "y": 0},
+        "to": {"x": 0.5, "y": 1},
+        "stops": [{"color": "ffffff", "alpha": 1, "position": 0 }, { "color": "000000", "alpha": 1, "position": 1}]
     },
     {
-        "_id": "5f9592b3c531587ee80a385f", "id": 2, "code": "F_Mask_X2", "cline": "FEED", "cclass": "图片", "cmeaning": "卡片+容器（图片上有文字内容的）", "elementCode": "Mask_X11", "color": "{\"cname\":\"C_X010\",\"color\":\"000000\"}", "size": 0, "direction": "bottom", "startOpacity": 0, "nodeOpacity": 0.1, "nodePositon": 0.85, "endOpacity": 0.3,
-        "from": {"x": 0.5, "y": 1}, "to": {"x": 0.5, "y": 0}, "stops": [{"color": "ffffff", "position": 0 }, { "color": "000000", "position": 1}]
+        "code": "F_Mask_X11",
+        "cline": "FEED",
+        "cclass": "图片",
+        "cmeaning": "卡片+容器（图片上有文字内容的）",
+        "elementCode": "Mask_X11",
+        "color": "{\"cname\":\"C_X010\",\"color\":\"000000\"}",
+        "size": 0,
+        "direction": "bottom",
+        "startOpacity": 0,
+        "nodeOpacity": 0.1,
+        "nodePositon": 0.85,
+        "endOpacity": 0.3,
+        "from": {"x": 0.5, "y": 1},
+        "to": {"x": 0.5, "y": 0},
+        "stops": [{"color": "ffffff", "alpha": 1, "position": 0 }, { "color": "000000", "alpha": 1, "position": 1}]
     },
-    { "_id": "5f959237c531587ee80a385c", "id": 1, "code": "F_S_O_X1", "cline": "FEED", "cclass": "feed-tab", "cmeaning": "tab选中条", "elementCode": "S_O_X001", "type": "outside", "ios": { "size": "", "x": "", "y": "" }, "android": { "size": "", "x": "", "y": "" }, "h5": { "size": "18", "x": "0", "y": "0" }, "camId": "CAM_X641", "defaultValue": { "color": "4E6EF2", "opacity": 0.3, "rgba": "78, 110, 242, 0.3" }, "darkValue": { "color": "4E6EF2", "opacity": 0.3, "rgba": "78, 110, 242, 0.3" }, "nightValue": { "color": "263778", "opacity": 0.2, "rgba": "38, 55, 120, 0.2" } },
-    { "_id": "5f95924fc531587ee80a385d", "id": 2, "code": "F_S_O_X2", "cline": "FEED", "cclass": "feed-tab", "cmeaning": "tab条选中色-日间有底色", "elementCode": "S_O_X002", "type": "outside", "ios": { "size": "", "x": "", "y": "" }, "android": { "size": "", "x": "", "y": "" }, "h5": { "size": "12", "x": "0", "y": "0" }, "camId": "CAM_X769", "defaultValue": { "color": "000000", "opacity": 0.1, "rgba": "0, 0, 0, 0.1" }, "darkValue": { "color": "4E6EF2", "opacity": 0.3, "rgba": "78, 110, 242, 0.3" }, "nightValue": { "color": "263778", "opacity": 0.2, "rgba": "38, 55, 120, 0.2" } }
+    {
+        "code": "T_Mask_X001",
+        "cline": "TIEBA",
+        "cclass": "teiba-mask",
+        "cmeaning": "贴吧蒙层",
+        "elementCode": "Mask_X001",
+        "size": 0,
+        "from": {"x": 0.5, "y": 0},
+        "to": {"x": 0.5, "y": 1},
+        "stops": [
+            {"color": "000000", "alpha": 0.25, "position": 0 },
+            {"color": "000000", "alpha": 0.25, "position": 0.2 },
+            { "color": "000000", "alpha": 0, "position": 1}
+        ]
+    },
+    {
+        "code": "T_Mask_X002",
+        "cline": "TIEBA",
+        "cclass": "teiba-mask",
+        "cmeaning": "贴吧蒙层",
+        "elementCode": "Mask_X002",
+        "size": 0,
+        "from": {"x": 0.5, "y": 1},
+        "to": {"x": 0.5, "y": 0},
+        "stops": [
+            {"color": "000000", "alpha": 0.25, "position": 0 },
+            {"color": "000000", "alpha": 0.25, "position": 0.3 },
+            { "color": "000000", "alpha": 0, "position": 1}
+        ]
+    },
+    {
+        "code": "T_Mask_X003",
+        "cline": "TIEBA",
+        "cclass": "teiba-mask",
+        "cmeaning": "贴吧蒙层",
+        "elementCode": "Mask_X003",
+        "size": 0,
+        "from": {"x": 0.5, "y": 0},
+        "to": {"x": 0.5, "y": 0.5},
+        "stops": [
+            {"color": "000000", "alpha": 0.5, "position": 0 },
+            { "color": "000000", "alpha": 0, "position": 0.5}
+        ]
+    },
+    {
+        "code": "T_Mask_X004",
+        "cline": "TIEBA",
+        "cclass": "teiba-mask",
+        "cmeaning": "贴吧蒙层",
+        "elementCode": "Mask_X004",
+        "size": 0,
+        "from": {"x": 0.5, "y": 1},
+        "to": {"x": 0.5, "y": 0},
+        "stops": [
+            {"color": "000000", "alpha": 0.25, "position": 0 },
+            {"color": "000000", "alpha": 0.25, "position": 1 }
+        ]
+    },
+    {
+        "code": "T_Mask_X005",
+        "cline": "TIEBA",
+        "cclass": "teiba-mask",
+        "cmeaning": "贴吧蒙层",
+        "elementCode": "Mask_X005",
+        "size": 0,
+        "from": {"x": 0.5, "y": 1},
+        "to": {"x": 0.5, "y": 0},
+        "stops": [
+            {"color": "000000", "alpha": 0.33, "position": 0 },
+            {"color": "000000", "alpha": 0.33, "position": 1 }
+        ]
+    },
+    {
+        "code": "T_Mask_X006",
+        "cline": "TIEBA",
+        "cclass": "teiba-mask",
+        "cmeaning": "贴吧蒙层",
+        "elementCode": "Mask_X006",
+        "size": 0,
+        "from": {"x": 0.5, "y": 1},
+        "to": {"x": 0.5, "y": 0},
+        "stops": [
+            {"color": "000000", "alpha": 0.66, "position": 0 },
+            {"color": "000000", "alpha": 0.66, "position": 1 }
+        ]
+    },
+    {
+        "code": "T_Mask_X007",
+        "cline": "TIEBA",
+        "cclass": "teiba-mask",
+        "cmeaning": "贴吧蒙层",
+        "elementCode": "Mask_X007",
+        "size": 0,
+        "from": {"x": 0.5, "y": 1},
+        "to": {"x": 0.5, "y": 0},
+        "stops": [
+            {"color": "000000", "alpha": 0.92, "position": 0 },
+            {"color": "000000", "alpha": 0.92, "position": 1 }
+        ]
+    },
+    {
+        "code": "F_S_O_X1",
+        "cline": "FEED",
+        "cclass": "feed-tab",
+        "cmeaning": "tab选中条",
+        "elementCode": "S_O_X001",
+        "type": "outside",
+        "ios": { "size": "", "x": "", "y": "" },
+        "android": { "size": "", "x": "", "y": "" },
+        "h5": { "size": "18", "x": "0", "y": "0" },
+        "camId": "CAM_X641",
+        "defaultValue": { "color": "4E6EF2", "opacity": 0.3, "rgba": "78, 110, 242, 0.3" },
+        "darkValue": { "color": "4E6EF2", "opacity": 0.3, "rgba": "78, 110, 242, 0.3" },
+        "nightValue": { "color": "263778", "opacity": 0.2, "rgba": "38, 55, 120, 0.2" }
+    },
+    {
+        "code": "F_S_O_X2",
+        "cline": "FEED",
+        "cclass": "feed-tab",
+        "cmeaning": "tab条选中色-日间有底色",
+        "elementCode": "S_O_X002",
+        "type": "outside",
+        "ios": { "size": "", "x": "", "y": "" },
+        "android": { "size": "", "x": "", "y": "" },
+        "h5": { "size": "12", "x": "0", "y": "0" },
+        "camId": "CAM_X769",
+        "defaultValue": { "color": "000000", "opacity": 0.1, "rgba": "0, 0, 0, 0.1" },
+        "darkValue": { "color": "4E6EF2", "opacity": 0.3, "rgba": "78, 110, 242, 0.3" },
+        "nightValue": { "color": "263778", "opacity": 0.2, "rgba": "38, 55, 120, 0.2" }
+    },
+    {
+        "code": "T_S_O_X001",
+        "cline": "TIEBA",
+        "cclass": "tieba-shadow",
+        "cmeaning": "贴吧阴影",
+        "elementCode": "S_O_X001",
+        "type": "outside",
+        "ios": { "size": "0", "x": "0", "y": "2" },
+        "android": { "size": "0", "x": "0", "y": "2" },
+        "h5": { "size": "0", "x": "0", "y": "1" },
+        "defaultValue": { "color": "928DA8", "opacity": 0.12 },
+        "darkValue": { "color": "928DA8", "opacity": 0.12 },
+        "nightValue": { "color": "928DA8", "opacity": 0.12 }
+    },
+    {
+        "code": "T_S_O_X002",
+        "cline": "TIEBA",
+        "cclass": "tieba-shadow",
+        "cmeaning": "贴吧阴影",
+        "elementCode": "S_O_X002",
+        "type": "outside",
+        "ios": { "size": "10", "x": "0", "y": "5" },
+        "android": { "size": "10", "x": "0", "y": "5" },
+        "h5": { "size": "4", "x": "0", "y": "2" },
+        "defaultValue": { "color": "928DA8", "opacity": 0.08 },
+        "darkValue": { "color": "928DA8", "opacity": 0.08 },
+        "nightValue": { "color": "928DA8", "opacity": 0.08 }
+    },
+    {
+        "code": "T_S_O_X003",
+        "cline": "TIEBA",
+        "cclass": "tieba-shadow",
+        "cmeaning": "贴吧阴影",
+        "elementCode": "S_O_X003",
+        "type": "outside",
+        "ios": { "size": "16", "x": "0", "y": "5" },
+        "android": { "size": "16", "x": "0", "y": "5" },
+        "h5": { "size": "6", "x": "0", "y": "2" },
+        "defaultValue": { "color": "928DA8", "opacity": 0.12 },
+        "darkValue": { "color": "928DA8", "opacity": 0.12 },
+        "nightValue": { "color": "928DA8", "opacity": 0.12 }
+    },
+    {
+        "code": "T_S_O_X004",
+        "cline": "TIEBA",
+        "cclass": "tieba-shadow",
+        "cmeaning": "贴吧阴影",
+        "elementCode": "S_O_X004",
+        "type": "outside",
+        "ios": { "size": "21", "x": "0", "y": "5" },
+        "android": { "size": "21", "x": "0", "y": "5" },
+        "h5": { "size": "8", "x": "0", "y": "2" },
+        "defaultValue": { "color": "928DA8", "opacity": 0.12 },
+        "darkValue": { "color": "928DA8", "opacity": 0.12 },
+        "nightValue": { "color": "928DA8", "opacity": 0.12 }
+    }
     ]
 }

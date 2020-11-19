@@ -44,5 +44,6 @@
 
 + (instancetype)colorWithRed:(double)arg1 green:(double)arg2 blue:(double)arg3 alpha:(double)arg4;
 + (instancetype)fromHexColorString:(NSString *) arg1;
++ (instancetype)fromHexColorString:(NSString *) arg1 withAlpha: (double) arg2;
 
 @end
