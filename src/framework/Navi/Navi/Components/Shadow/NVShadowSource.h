@@ -22,6 +22,7 @@ struct NVShadowSpec {
     double x;
     double y;
     double size;
+    double spread;
     double opacity;
 };
 

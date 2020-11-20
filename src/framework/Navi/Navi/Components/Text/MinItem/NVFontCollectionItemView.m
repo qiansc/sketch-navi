@@ -33,13 +33,19 @@
 -(void)setSpec:(NVTextSpec)fontSpec{
     _spec = fontSpec;
     [self drawStyle];
+    
+    double size = 48/3;
+    if (_spec.iosFontSize > 78) {
+        size = 65/3;
+    }
+    
     itemTitle.stringValue = [NSString stringWithFormat:@"无极%ipx", (int)self.spec.iosFontSize];
-    [itemTitle setFont:[NSFont systemFontOfSize:self.spec.iosFontSize]];
+    [itemTitle setFont:[NSFont systemFontOfSize:size]];
     itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
     itemDesc.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];
     [self removeConstraint:cons];
-    cons = [self.heightAnchor constraintEqualToConstant: fontSpec.iosFontSize + 30];
+    cons = [self.heightAnchor constraintEqualToConstant: size + 30];
     [self addConstraint:cons];
 }
 

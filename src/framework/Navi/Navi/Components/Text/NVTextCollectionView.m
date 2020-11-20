@@ -48,7 +48,7 @@
 
 
 - (void)collectionView:(NSCollectionView *)collectionView willDisplaySupplementaryView:(NSView *)view forElementKind:(NSCollectionViewSupplementaryElementKind)kind atIndexPath:(NSIndexPath *) indexPath{
-    if (kind == NSCollectionElementKindSectionHeader) {
+    if (kind == NSCollectionElementKindSectionHeader && [[self.dataSource getDims] count] > 1) {
         [(NVSectionHeader*)view setTitle:[self.dataSource getDims][indexPath.section]];
     }
 }
@@ -62,9 +62,20 @@
     } else {
         self.isLiveResize = YES;
         NVTextSpec spec = [self.dataSource getSpecAt:indexPath];
-        return NSMakeSize([self autoItemWithBetween:218 and:536], spec.iosFontSize + 30);
+        double size = 48/3;
+        if (spec.iosFontSize > 78) {
+            size = 65/3;
+        }
+        return NSMakeSize([self autoItemWithBetween:218 and:536], size + 30);
     }
 
+}
+
+- (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    if ([[self.dataSource getDims] count] < 2)
+        return NSMakeSize(0, 10);
+    else
+        return [super collectionView:collectionView layout:collectionViewLayout referenceSizeForHeaderInSection:section]; //NSMakeSize(0, 26);
 }
 
 

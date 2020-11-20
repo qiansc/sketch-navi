@@ -1,0 +1,88 @@
+字体专用色值	全端白色文字色1，100%透明度	CAM_X0101	cp_cont_a		ffffff	ffffff,0.83	ffffff,0.92
+字体专用色值	全端白色文字色2，83%透明度	CAM_X0102			ffffff,0.83	ffffff,0.83	ffffff,0.83
+字体专用色值	全端白色文字色3，66%透明度	CAM_X0103			ffffff,0.66	ffffff,0.66	ffffff,0.66
+字体专用色值	全端白色文字色4，33%透明度	CAM_X0104			ffffff,0.33	ffffff,0.33	ffffff,0.33
+字体专用色值	标题及tab选中态、正文、昵称文字色	CAM_X0105	cp_cont_b		141414	ffffff,0.75	ffffff,0.92
+字体专用色值	暂不用	CAM_X0106	cp_cont_f		3E3D40	ffffff,0.75	ffffff,0.92
+字体专用色值	操作信息（分享、评论、赞文字）	CAM_X0107	cp_cont_j		515154	ffffff,0.50	ffffff,0.66
+字体专用色值	辅助信息（tab未选中态、楼层回复文字）	CAM_X0108	cp_cont_c		8F8E94	ffffff,0.50	ffffff,0.66
+字体专用色值	辅助信息（昵称下方文字）	CAM_X0109	cp_cont_d		A3A2A8	ffffff,0.33	ffffff,0.50
+字体专用色值	辅助信息文字颜色	CAM_X0110	cp_cont_e		B9B8BF	ffffff,0.25	ffffff,0.42
+字体专用色值	此颜色只有全端icon盖色使用	CAM_X0111	cp_cont_g		CDCBD4	ffffff,0.25	ffffff,0.42
+字体专用色值	此颜色只有全端icon盖色使用	CAM_X0112	cp_cont_I		E3E1EB	ffffff,0.16	ffffff,0.33
+产品阶层专用色值	通栏底层背景	CAM_X0201	cp_bg_line_d		ffffff	272729	141414
+产品阶层专用色值	卡片底层背景	CAM_X0202			F2F2F5	141414	000000
+产品阶层专用色值	细线分割	CAM_X0203	cp_bg_line_b		EDEDF0	ffffff,0.08	ffffff,0.08
+产品阶层专用色值	粗线、面、组分割	CAM_X0204	cp_bg_line_c		F7F7FA	1E1D1F	000000
+产品阶层专用色值	通栏内容层、卡片层背景	CAM_X0205	cp_bg_line_e		FFFFFF	272729	141414
+产品阶层专用色值	内容层及卡片上子视图背景（楼中楼、分享贴底色）	CAM_X0206	cp_bg_line_g		F7F7FA	2C2C2E	1A1A1A
+产品阶层专用色值	悬浮视图层背景（内容层加阴影的视图）	CAM_X0207	cp_bg_line_h		FFFFFF	313133	1F1F1F
+产品阶层专用色值	顶底导航	CAM_X0208			FFFFFF	313133	1F1F1F
+产品阶层专用色值	通栏输入类容器背景	CAM_X0209	cp_bg_line_j		F3F2F5	3B3B3D	292929
+产品阶层专用色值	卡片输入类容器背景	CAM_X0210			EEEDF0	3B3B3D	292929
+产品阶层专用色值	模态层白色背景（筛选、更多）	CAM_X0211	cp_bg_line_k		FFFFFF	404042	2E2E2E
+产品阶层专用色值	模态层灰色背景（分享、发布模态层背景）	CAM_X0212	cp_bg_line_f		F7F7FA	404042	2E2E2E
+产品阶层专用色值	模态层弹窗类上子视图背景	CAM_X0213	cp_bg_line_i		FFFFFF	59585C	474747
+强调色专用色值	红色	CAM_X0301	cp_cont_h		FF392B	D42F24	FF4C40
+强调色专用色值	贴吧蓝色	CAM_X0302	cp_link_tip_a		7559FF	614AD4	846BFF
+强调色专用色值	暂时不用	CAM_X0303	cp_link_tip_b		7559FF	614AD4	846BFF
+强调色专用色值	链接色	CAM_X0304	cp_link_tip_c		614EC2	5443A8	7161C2
+强调色专用色值	橙色	CAM_X0305	cp_link_tip_d		FFA32B	D48724	FFAC40
+强调色专用色值	暂时不用	CAM_X0306	cp_link_tip_e		2B87FF	2470D4	4092FF
+强调色专用色值	紫色	CAM_X0307	cp_other_a		A32BFF	8724D4	AC40FF
+强调色专用色值	直播洋红	CAM_X0308	cp_other_b		FF2B87	D42470	FF4093
+强调色专用色值	绿色	CAM_X0309	cp_other_c		24D45C	1DA849	59D480
+强调色专用色值	直播红	CAM_X0310	cp_other_d		FF4063	D43552	FF5776
+强调色专用色值	棕色	CAM_X0311	cp_other_e		6B4A1B	D49235	FFAF40
+强调色专用色值	黄色	CAM_X0312	cp_other_f		FFD82B	D4B324	FFDC40
+强调色专用色值	楼层定位颜色	CAM_X0313	cp_other_g		FFFBEB	292A2B	171717
+强调色专用色值	金色	CAM_X0314	cp_other_h		FFCC40	D4AA35	FFCC40
+强调色专用色值	银色	CAM_X0315	cp_other_i		BFBFBF	A8A8A8	BFBFBF
+强调色专用色值	铜色	CAM_X0316	cp_other_j		D4A77B	BF976F	D4A77B
+强调色专用色值	标签“沸”	CAM_X0317	cp_other_k		BF0053	A80049	BF0F5C
+描边专用色值	灰色描边（日夜黑不一样）	CAM_X0401	cp_border_a		000000,0.12	ffffff,0.08	ffffff,0.08
+描边专用色值	白色描边（日夜黑不一样）	CAM_X0402	cp_border_b		ffffff	000000	000000
+mask蒙层色值	头像、图片、视频、mask_icon遮罩	CAM_X0501	cp_mask_a		000000,0.0	000000,0.25	000000,0.16
+mask蒙层色值	发布器颜色（暂不使用。颜色下线）	CAM_X0502	cp_mask_d		FFFFFF,0.96	272729,0.96	292929,0.96
+黑色色值（日夜黑一样）	黑色（日夜黑一致）0%	CAM_X0601	cp_mask_b 0		000000,0.0	000000,0.0	000000,0.0
+黑色色值（日夜黑一样）	黑色（日夜黑一致）8%	CAM_X0602		cp_border_d 8	000000,0.08	000000,0.08	000000,0.08
+黑色色值（日夜黑一样）	黑色（日夜黑一致）16%	CAM_X0603	cp_mask_b 16	cp_border_d 16	000000,0.16	000000,0.16	000000,0.16
+黑色色值（日夜黑一样）	黑色（日夜黑一致）25%	CAM_X0604	cp_mask_b 25	cp_border_d 25	000000,0.25	000000,0.25	000000,0.25
+黑色色值（日夜黑一样）	黑色（日夜黑一致）33%	CAM_X0605	cp_mask_b 33	cp_border_d 33	000000,0.33	000000,0.33	000000,0.33
+黑色色值（日夜黑一样）	黑色（日夜黑一致）42%	CAM_X0606	cp_mask_b 42	cp_border_d 42	000000,0.42	000000,0.42	000000,0.42
+黑色色值（日夜黑一样）	黑色（日夜黑一致）50%	CAM_X0607	cp_mask_b 50	cp_border_d 50	000000,0.50	000000,0.50	000000,0.50
+黑色色值（日夜黑一样）	黑色（日夜黑一致）66%	CAM_X0608	cp_mask_b 66	cp_border_d 66	000000,0.66	000000,0.66	000000,0.66
+黑色色值（日夜黑一样）	黑色（日夜黑一致）83%	CAM_X0609	cp_mask_b 83	cp_border_d 83	000000,0.83	000000,0.83	000000,0.83
+黑色色值（日夜黑一样）	黑色（日夜黑一致）92%	CAM_X0610	cp_mask_b 92	cp_border_d 92	000000,0.92	000000,0.92	000000,0.92
+黑色色值（日夜黑一样）	黑色（日夜黑一致）100%	CAM_X0611	cp_mask_b 100	cp_border_d 100	000000	000000	000000
+白色色值（日夜黑一样）	白色（日夜黑一致）0%	CAM_X0612	cp_mask_c 0		ffffff,0.0	ffffff,0.0	ffffff,0.0
+白色色值（日夜黑一样）	白色（日夜黑一致）8%	CAM_X0613		cp_border_c 8	ffffff,0.08	ffffff,0.08	ffffff,0.08
+白色色值（日夜黑一样）	白色（日夜黑一致）16%	CAM_X0614	cp_mask_c 16	cp_border_c 16	ffffff,0.16	ffffff,0.16	ffffff,0.16
+白色色值（日夜黑一样）	白色（日夜黑一致）25%	CAM_X0615	cp_mask_c 25	cp_border_c 25	ffffff,0.25	ffffff,0.25	ffffff,0.25
+白色色值（日夜黑一样）	白色（日夜黑一致）33%	CAM_X0616	cp_mask_c 33	cp_border_c 33	ffffff,0.33	ffffff,0.33	ffffff,0.33
+白色色值（日夜黑一样）	白色（日夜黑一致）42%	CAM_X0617	cp_mask_c 42	cp_border_c 42	ffffff,0.42	ffffff,0.42	ffffff,0.42
+白色色值（日夜黑一样）	白色（日夜黑一致）50%	CAM_X0618	cp_mask_c 50	cp_border_c 50	ffffff,0.50	ffffff,0.50	ffffff,0.50
+白色色值（日夜黑一样）	白色（日夜黑一致）66%	CAM_X0619	cp_mask_c 66	cp_border_c 66	ffffff,0.66	ffffff,0.66	ffffff,0.66
+白色色值（日夜黑一样）	白色（日夜黑一致）83%	CAM_X0620	cp_mask_c 83	cp_border_c 83	ffffff,0.83	ffffff,0.83	ffffff,0.83
+白色色值（日夜黑一样）	白色（日夜黑一致）92%	CAM_X0621	cp_mask_c 92	cp_border_c 92	ffffff,0.92	ffffff,0.92	ffffff,0.92
+白色色值（日夜黑一样）	白色（日夜黑一致）100%	CAM_X0622	cp_mask_c 100	cp_border_c 100	ffffff	ffffff	ffffff
+灰色色值（日夜黑不一样）	灰色（日夜黑不一样）4%	CAM_X0623	cp_indicator_a 4		000000,0.04	ffffff,0.04	ffffff,0.04
+灰色色值（日夜黑不一样）	灰色（日夜黑不一样）8%	CAM_X0624	cp_indicator_a 8		000000,0.08	ffffff,0.08	ffffff,0.08
+灰色色值（日夜黑不一样）	灰色（日夜黑不一样）16%	CAM_X0625	cp_indicator_a 16		000000,0.16	ffffff,0.16	ffffff,0.16
+灰色色值（日夜黑不一样）	灰色（日夜黑不一样）25%	CAM_X0626	cp_indicator_a 25		000000,0.25	ffffff,0.25	ffffff,0.25
+灰色色值（日夜黑不一样）	灰色（日夜黑不一样）33%	CAM_X0627	cp_indicator_a 33		000000,0.33	ffffff,0.33	ffffff,0.33
+灰色色值（日夜黑不一样）	灰色（日夜黑不一样）42%	CAM_X0628	cp_indicator_a 42		000000,0.42	ffffff,0.42	ffffff,0.42
+灰色色值（日夜黑不一样）	灰色（日夜黑不一样）50%	CAM_X0629	cp_indicator_b		000000,0.50	ffffff,0.50	ffffff,0.50
+Toast色值	黑色Toast颜色	CAM_X0701	cp_hud_a		000000,0.92	424242	3D3D3D
+阴影专用色值	阴影色值0%	CAM_X0801	cp_shadow_a 0		928DA8,0.0	928DA8,0.0	928DA8,0.0
+阴影专用色值	阴影色值8%	CAM_X0802	cp_shadow_a 8		928DA8,0.08	928DA8,0.0	928DA8,0.0
+阴影专用色值	阴影色值12%	CAM_X0803	cp_shadow_a 12		928DA8,0.12	928DA8,0.0	928DA8,0.0
+阴影专用色值	阴影色值16%	CAM_X0804	cp_shadow_a 16		928DA8,0.16	928DA8,0.0	928DA8,0.0
+阴影专用色值	阴影色值25%	CAM_X0805	cp_shadow_a 25		928DA8,0.25	928DA8,0.0	928DA8,0.0
+阴影专用色值	阴影色值33%	CAM_X0806	cp_shadow_a 33		928DA8,0.33	928DA8,0.0	928DA8,0.0
+阴影专用色值	阴影色值42%	CAM_X0807	cp_shadow_a 42		928DA8,0.42	928DA8,0.0	928DA8,0.0
+btn色值	白色按钮颜色	CAM_X0901	cp_btn_a		ffffff	313133	1F1F1F
+btn色值	灰色线框按钮颜色	CAM_X0902	cp_btn_b		282829,0.16	ffffff,0.25	ffffff,0.25
+btn色值	灰色色块按钮颜色	CAM_X0903	cp_btn_c		f2f2f5	ffffff,0.08	ffffff,0.08
+btn色值	有色背景上深色色块按钮颜色	CAM_X0904	cp_btn_j		000000,0.33	000000,0.33	000000,0.33
+btn色值	蓝色按钮颜色	CAM_X0905	cp_btn_d		7559FF,0.08	7559FF,0.08	7559FF,0.08

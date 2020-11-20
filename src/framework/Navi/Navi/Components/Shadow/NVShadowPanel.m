@@ -96,7 +96,7 @@
     for (MSStyleShadow *shadow in layer.style.shadows) {
         shadow.offsetX = spec.x;
         shadow.offsetY = spec.y;
-        shadow.spread = spec.size;
+        shadow.spread = spec.spread;
         shadow.blurRadius = spec.size;
         NSColor *newColor = NSColorFromRGBString(spec.color);
         shadow.color = [MSColor colorWithRed:newColor.redComponent green:newColor.greenComponent blue:newColor.blueComponent alpha:spec.opacity];
