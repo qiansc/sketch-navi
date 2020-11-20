@@ -74,6 +74,7 @@
         .x = [specDict[@"x"] doubleValue],
         .y = [specDict[@"y"] doubleValue],
         .size = [specDict[@"size"] doubleValue],
+        .spread = [specDict[@"spread"] doubleValue],
         .opacity = [specDict[@"opacity"] doubleValue]
     };
     return spec;

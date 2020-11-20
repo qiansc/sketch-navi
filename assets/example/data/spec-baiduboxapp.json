@@ -218,11 +218,11 @@
         "cmeaning": "Mask_X003",
         "elementCode": "Mask_X003",
         "size": 0,
-        "from": {"x": 0.5, "y": 0},
+        "from": {"x": 0.5, "y": 1},
         "to": {"x": 0.5, "y": 0.5},
         "stops": [
-            {"color": "000000", "alpha": 0.5, "position": 0 },
-            { "color": "000000", "alpha": 0, "position": 0.5}
+            {"color": "000000", "alpha": 0, "position": 0 },
+            { "color": "000000", "alpha": 0.5, "position": 1}
         ]
     },
     {
@@ -288,9 +288,9 @@
         "cmeaning": "S_O_X001",
         "elementCode": "S_O_X001",
         "type": "outside",
-        "ios": { "size": "0", "x": "0", "y": "2" },
-        "android": { "size": "0", "x": "0", "y": "2" },
-        "h5": { "size": "0", "x": "0", "y": "1" },
+        "ios": { "size": "0", "x": "0", "y": "2", "spread": "0" },
+        "android": { "size": "0", "x": "0", "y": "2", "spread": "0" },
+        "h5": { "size": "0", "x": "0", "y": "1", "spread": "0" },
         "defaultValue": { "color": "928DA8", "opacity": 0.12 },
         "darkValue": { "color": "928DA8", "opacity": 0.12 },
         "nightValue": { "color": "928DA8", "opacity": 0.12 }
@@ -302,9 +302,9 @@
         "cmeaning": "S_O_X002",
         "elementCode": "S_O_X002",
         "type": "outside",
-        "ios": { "size": "10", "x": "0", "y": "5" },
-        "android": { "size": "10", "x": "0", "y": "5" },
-        "h5": { "size": "4", "x": "0", "y": "2" },
+        "ios": { "size": "10", "x": "0", "y": "5", "spread": "0" },
+        "android": { "size": "10", "x": "0", "y": "5", "spread": "0" },
+        "h5": { "size": "4", "x": "0", "y": "2", "spread": "0" },
         "defaultValue": { "color": "928DA8", "opacity": 0.08 },
         "darkValue": { "color": "928DA8", "opacity": 0.08 },
         "nightValue": { "color": "928DA8", "opacity": 0.08 }
@@ -316,9 +316,9 @@
         "cmeaning": "S_O_X003",
         "elementCode": "S_O_X003",
         "type": "outside",
-        "ios": { "size": "16", "x": "0", "y": "5" },
-        "android": { "size": "16", "x": "0", "y": "5" },
-        "h5": { "size": "6", "x": "0", "y": "2" },
+        "ios": { "size": "16", "x": "0", "y": "5", "spread": "0" },
+        "android": { "size": "16", "x": "0", "y": "5", "spread": "0" },
+        "h5": { "size": "6", "x": "0", "y": "2", "spread": "0" },
         "defaultValue": { "color": "928DA8", "opacity": 0.12 },
         "darkValue": { "color": "928DA8", "opacity": 0.12 },
         "nightValue": { "color": "928DA8", "opacity": 0.12 }
@@ -330,9 +330,9 @@
         "cmeaning": "S_O_X004",
         "elementCode": "S_O_X004",
         "type": "outside",
-        "ios": { "size": "21", "x": "0", "y": "5" },
-        "android": { "size": "21", "x": "0", "y": "5" },
-        "h5": { "size": "8", "x": "0", "y": "2" },
+        "ios": { "size": "21", "x": "0", "y": "5", "spread": "0" },
+        "android": { "size": "21", "x": "0", "y": "5", "spread": "0" },
+        "h5": { "size": "8", "x": "0", "y": "2", "spread": "0" },
         "defaultValue": { "color": "928DA8", "opacity": 0.12 },
         "darkValue": { "color": "928DA8", "opacity": 0.12 },
         "nightValue": { "color": "928DA8", "opacity": 0.12 }
