@@ -120,9 +120,10 @@
 
 -(NSArray<NSDictionary*>*)getSpecsIn:(long) section{
     NSString *dim = [self getDims][section];
-    return dims[dim];
+    return  [dims[dim] sortedArrayUsingComparator: ^NSComparisonResult(NSDictionary* s1, NSDictionary* s2) {
+        return [s1[@"ios"] doubleValue] > [s2[@"ios"] doubleValue];
+    }];
 }
-
 -(NVHoriSpec)getSpecAt:(NSIndexPath *) indexPath{
     NSDictionary *dict = [self getSpecsIn:indexPath.section][indexPath.item];
     return [NVHoriSource value: dict];
@@ -180,6 +181,5 @@
     }
     return nil;
 }
-
 
 @end

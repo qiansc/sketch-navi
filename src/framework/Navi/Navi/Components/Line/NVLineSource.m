@@ -76,7 +76,9 @@
 
 - (NSArray<NSDictionary*>*)getSpecsIn:(long) section{
     NSString *dim = [self getDims][section];
-    return dims[dim];
+    return  [dims[dim] sortedArrayUsingComparator: ^NSComparisonResult(NSDictionary* s1, NSDictionary* s2) {
+        return s1[@"specCode"] > s2[@"specCode"];
+    }];
 }
 
 - (NVLineSpec)getSpecAt:(NSIndexPath *) indexPath {

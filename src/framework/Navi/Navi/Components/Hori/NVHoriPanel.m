@@ -62,6 +62,12 @@
         [self updateTitle];
         return;
     }
+    if (se.code == nil) {
+        // 无编码时候不可点
+        [self.modButton setSelected:NO  forSegment:0];
+        [self.modButton setSelected:NO  forSegment:1];
+        return;
+    }
     MSLayer *layer = [self.selections layerAtIndex:1];
     if (layer == nil)
         layer = [self.selections layerAtIndex:0];
@@ -128,7 +134,7 @@
         for (NSView *view in self.collectionView.subviews) {
             if ([view isKindOfClass:[NVToggleBox class]]) {
                 NVHoriCollectionItemView *item = ((NVHoriCollectionItemView *) view);
-                if ([item.spec.code isEqual:marginLeftCode]) {
+                if ([item.spec.code isEqual:marginLeftCode] || [item.spec.code isEqual:marginRightCode]) {
                     [indexPaths addObject:item.indexPath];
                         se.code = item.spec.code;
                 }
@@ -138,16 +144,17 @@
                     pos = 3;
                 else if (marginRightCode)
                     pos = 1;
+                
             }
         }
     }
     [self.collectionView.toggleDelegate clearActive];
     [self applySpec];
     if (indexPaths.count > 0) {
-        [self.collectionView.toggleDelegate setActives:indexPaths];
         if (indexPaths.count == 1) {
             [self updateTitle];
         }
+        [self.collectionView.toggleDelegate setActives:indexPaths];
     }
     
 }
@@ -188,6 +195,10 @@
             layer = [self.selections layerAtIndex:0];
         }
         if ([NVLayer isShape:layer]) {
+            [NVUserInfo fromLayer:layer].marginLeftCode = nil;
+            [NVUserInfo fromLayer:layer].marginRightCode = nil;
+            [NVUserInfo fromLayer:layer].marginLeftTarget = nil;
+            [NVUserInfo fromLayer:layer].marginRightTarget = nil;
             switch (pos) {
                 case 3:
                     [NVUserInfo fromLayer:layer].marginLeftCode = spec.code;
@@ -204,10 +215,6 @@
                     [NVUserInfo fromLayer:layer].marginRightTarget = target.objectID;
                     break;
                 default:
-                    [NVUserInfo fromLayer:layer].marginLeftCode = nil;
-                    [NVUserInfo fromLayer:layer].marginRightCode = nil;
-                    [NVUserInfo fromLayer:layer].marginLeftTarget = nil;
-                    [NVUserInfo fromLayer:layer].marginRightTarget = nil;
                     break;
             }
             if (target) {
@@ -282,16 +289,18 @@
 
 
 -(void)applySpec{
+    NSLog(@"### HERE 1111");
     MSLayer * target = [self.selections layerAtIndex:0];
     MSLayer * layer = [self.selections layerAtIndex:1];
-    NSLog(@"### HERE %@ %d %f", layer, pos, [NVUserInfo fromLayer:layer].originWidth);
+    if (!layer) return;
+    NSLog(@"### HERE %@ 111", layer);
+    NSLog(@"### HERE %@ 222",  [NVUserInfo fromLayer:layer]);
+    NSLog(@"### HERE %f 333", [NVUserInfo fromLayer:layer].originWidth);
     if (pos != 31 && layer &&[NVUserInfo fromLayer:layer].originWidth) {
         // 恢复原始宽度
         layer.frame.width = [NVUserInfo fromLayer:layer].originWidth;
     }
-    if(target == nil || layer == nil) {
-        return;
-    }
+    if(target == nil) return;
     
     if ([self relationOf:layer and:target]) {
         [self applyInnerRight];
