@@ -1,0 +1,25 @@
+//
+//  NVVertPanel.h
+//  Navi
+//
+//  Created by QIANSC on 2020/11/9.
+//  Copyright © 2020 Qian,Sicheng. All rights reserved.
+//
+
+#import <Cocoa/Cocoa.h>
+#import "NVPanelHeaderView.h"
+#import "NVPanel.h"
+#import "NVVertCollectionView.h"
+#import "MSLayerArray.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface NVVertPanel : NVPanel
+
+@property (nonatomic,strong) IBOutlet NVVertCollectionView *collectionView;
+@property (nonatomic,strong) MSLayerArray *selections;
+@property (strong) IBOutlet NSSegmentedControl *modButton;
+
+@end
+
+NS_ASSUME_NONNULL_END

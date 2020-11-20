@@ -77,24 +77,24 @@
         @"icon": @"Mask",
         @"gravity": @1,
         @"type": @"PANEL"
-    }, @{
-        @"name": @"切换",
-        @"id": @"Artboard",
-        @"icon": @"Android",
-        @"gravity": @3,
-        @"type": @"WINDOW"
-    }, @{
-        @"name": @"设置",
-        @"id": @"Setting",
-        @"icon": @"Setting",
-        @"gravity": @3,
-        @"type": @"WINDOW"
-    }, @{
-        @"name": @"用户",
-        @"id": @"User",
-        @"icon": @"User",
-        @"gravity": @3,
-        @"type": @"WINDOW"
+//    }, @{
+//        @"name": @"切换",
+//        @"id": @"Artboard",
+//        @"icon": @"Android",
+//        @"gravity": @3,
+//        @"type": @"WINDOW"
+//    }, @{
+//        @"name": @"设置",
+//        @"id": @"Setting",
+//        @"icon": @"Setting",
+//        @"gravity": @3,
+//        @"type": @"WINDOW"
+//    }, @{
+//        @"name": @"用户",
+//        @"id": @"User",
+//        @"icon": @"User",
+//        @"gravity": @3,
+//        @"type": @"WINDOW"
     }];
 }
 

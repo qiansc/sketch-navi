@@ -38,7 +38,7 @@
 -(void)setSpec:(NVBorderSpec)borderSpec{
     _spec = borderSpec;
     [self drawStyle];
-    itemText.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
+    itemText.stringValue = [NSString stringWithFormat:@"%@  %@", self.spec.code, self.spec.cmeaning];
     box.cornerRadius = 0;
     NSArray<NSString*> *arr = [borderSpec.ios componentsSeparatedByString:@","];
     itemValue.stringValue = @"";
@@ -46,10 +46,10 @@
         double num = [arr[0] doubleValue];
         if (num == -1) {
             box.cornerRadius = 10;
-            itemValue.stringValue = @"MAX";
+            itemValue.stringValue = @"全圆";
         } else {
             box.cornerRadius = MIN(num / 2, 10);
-            itemValue.stringValue = arr[0];
+            itemValue.stringValue = @"";
         }
         
         

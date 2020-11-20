@@ -1,14 +1,14 @@
 //
-//  NVBorderSource.m
+//  NVMariginSource.m
 //  Navi
 //
-//  Created by Qian,Sicheng on 2020/11/3.
+//  Created by QIANSC on 2020/11/9.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "NVBorderSource.h"
+#import "NVVertSource.h"
 
-@implementation NVBorderSource{
+@implementation NVVertSource{
     NVSourceUpdateCallback updatedCallback;
     NSString *searchQuery;
     NSMutableDictionary *dims;
@@ -17,8 +17,8 @@
 }
 
 -(instancetype)init{
-    NVBorderSource *s = [super init];
-//    shapeMod = @"other";
+    NVVertSource *s = [super init];
+    //    shapeMod = @"other";
     themeMod = @"default";
     updatedCallback = ^void {};
     return s;
@@ -29,13 +29,13 @@
     dims = [NSMutableDictionary new];
     for(NSDictionary* spec in specs) {
         NSArray *dimArr = spec[@"dim"];
-         if ([self filter:spec]) {
+        if ([self filter:spec]) {
             if ([dimArr count]) {
                 NSString *dim = dimArr[0];
                 dims[dim] = dims[dim] == nil ? [NSMutableArray new] : dims[dim];
                 [dims[dim] addObject: spec];
             }
-         }
+        }
     }
     NSMutableArray *others = [NSMutableArray new];
     for(NSString *dim in [dims allKeys]) {
@@ -58,7 +58,7 @@
     for(NSString *dim in specDict[@"dim"]) {
         if ([dim containsString:searchQuery]) return true;
     }
-    NVBorderSpec spec = [NVBorderSource value:specDict];
+    NVVertSpec spec = [NVVertSource value:specDict];
 
     if ([spec.code containsString:searchQuery]) {
         return true;
@@ -86,12 +86,12 @@
 }
 
 - (void)setShapeMode:(NSString *) mode {
-//    NSString *name = [mode isEqual:@"MSTextLayer"] ? @"Text" : @"Others";
-//    if (![shapeMod isEqual:name]) {
-//        shapeMod = name;
-//        [self update: specs];
-//        updatedCallback();
-//    }
+    //    NSString *name = [mode isEqual:@"MSTextLayer"] ? @"Text" : @"Others";
+    //    if (![shapeMod isEqual:name]) {
+    //        shapeMod = name;
+    //        [self update: specs];
+    //        updatedCallback();
+    //    }
 }
 
 - (void)setThemeMode:(NSString *) mode {
@@ -105,13 +105,13 @@
 -(NSArray<NSString*>*)getDims{
     NSArray<NSString*>* arr = [dims allKeys];
     NSMutableArray<NSString*>* rs = [NSMutableArray new];
-    for(NSString * item in arr) {
-        if (![item isEqual:@"其他"]) [rs addObject:item];
-    }
-    if ([arr count] != [rs count]) {
-        [rs addObject:@"其他"];
-    }
-    return rs;
+//    for(NSString * item in arr) {
+//        if (![item isEqual:@"其他"]) [rs addObject:item];
+//    }
+//    if ([arr count] != [rs count]) {
+//        [rs addObject:@"其他"];
+//    }
+    return arr;
 }
 
 -(NSArray<NSDictionary*>*)getSpecsWith:(NSString *)dim{
@@ -121,23 +121,39 @@
 -(NSArray<NSDictionary*>*)getSpecsIn:(long) section{
     NSString *dim = [self getDims][section];
     return  [dims[dim] sortedArrayUsingComparator: ^NSComparisonResult(NSDictionary* s1, NSDictionary* s2) {
-        return [s1[@"code"] doubleValue] > [s2[@"code"] doubleValue];
+        return [s1[@"ios"] doubleValue] > [s2[@"ios"] doubleValue];
     }];
 }
-
--(NVBorderSpec)getSpecAt:(NSIndexPath *) indexPath{
+-(NVVertSpec)getSpecAt:(NSIndexPath *) indexPath{
     NSDictionary *dict = [self getSpecsIn:indexPath.section][indexPath.item];
-    return [NVBorderSource value: dict];
+    return [NVVertSource value: dict];
 }
 
-+(NVBorderSpec)value:(NSDictionary*) specDict {
-    NVBorderSpec spec = {
+-(NVVertSpec)getSpecWithCode:(NSString *) code {
+    for (NSDictionary * dict in specs) {
+        if ([dict[@"code"] isEqual:code]) {
+            return [NVVertSource value: dict];
+        }
+    }
+    return [NVVertSource value: nil];
+}
+
++(NVVertSpec)value:(NSDictionary*) specDict {
+    NVVertSpec empty = {.code = nil };
+    if (specDict == nil) {
+        return empty;
+    }
+    NVVertSpec spec = {
         .code = specDict[@"code"],
         .cclass = specDict[@"cclass"],
         .cmeaning = specDict[@"cmeaning"],
-        .ios = specDict[@"ios"],
-        .android = specDict[@"android"],
-        .h5 = specDict[@"h5"],
+        .desc = specDict[@"desc"],
+        .elementCode = specDict[@"elementCode"],
+        .ios = [specDict[@"ios"] doubleValue] ,
+        .android = [specDict[@"android"] doubleValue],
+        .h5 = [specDict[@"h5"] doubleValue],
+        .scale = specDict[@"scale"],
+        .pos = [specDict[@"pos"] intValue]
 
     };
     return spec;
@@ -165,6 +181,5 @@
     }
     return nil;
 }
-
 
 @end

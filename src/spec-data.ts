@@ -96,7 +96,7 @@ export class SpecData {
             if (exist[spec.code]) {
                 return;
             }
-            if (!spec.code || spec.code.indexOf('S_J') !== 0) {
+            if (!spec.elementCode || spec.elementCode.indexOf('J_X') !== 0) {
                 return;
             }
             spec.dim = [item.cclass, item.cmeaning];
@@ -224,6 +224,7 @@ export function getSpecs(resourcesPath: string) {
         Margin: specData.getMarginSpec(),
         Mask: specData.getMaskSpec(),
         Hori: specData.getMarginSpec('M_H'),
+        Vert: specData.getMarginSpec('M_W'),
         Shadow: specData.getShadowSpec(),
     };
 }

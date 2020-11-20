@@ -112,7 +112,7 @@
         [rs addObject:@"其他"];
     }
     if ([rs count]) {
-         return @[@"按钮宽度", @"比例"];
+         return rs;
     } else {
          return @[];
     }

@@ -16,6 +16,7 @@
 #import "NVBorderPanel.h"
 #import "NVGridPanel.h"
 #import "NVMarginPanel.h"
+#import "NVVertPanel.h"
 #import "NVHoriPanel.h"
 #import "MSDocument.h"
 #import "NVBundle.h"
@@ -87,6 +88,8 @@
                 c = [[NVBorderPanel alloc] initWithId:id];
             } else if([id isEqual: @"Grid"]) {
                 c = [[NVGridPanel alloc] initWithId:id];
+            } else if([id isEqual: @"Vert"]) {
+                c = [[NVVertPanel alloc] initWithId:id];
             } else if([id isEqual: @"Hori"]) {
                 c = [[NVHoriPanel alloc] initWithId:id];
             } else if([id isEqual: @"Margin"]) {
