@@ -54,12 +54,13 @@
     descText.stringValue = self.spec.desc;
     // specText.stringValue = self.spec.specCode;
     self.fillColor  = [NSColor whiteColor];
-    cb0.fillColor = NSColorFromRGBString(self.spec.hex);
-    cb1.fillColor = NSColorFromRGBString(self.spec.hex1);
-    cb2.fillColor = NSColorFromRGBString(self.spec.hex2);
-    cb0.toolTip = self.spec.hex;
-    cb1.toolTip = self.spec.hex1;
-    cb2.toolTip = self.spec.hex2;
+    
+    cb0.fillColor = NSColorFromRGBAString(self.spec.hex,self.spec.alpha);
+    cb1.fillColor = NSColorFromRGBAString(self.spec.hex1,self.spec.alpha);
+    cb2.fillColor = NSColorFromRGBAString(self.spec.hex2,self.spec.alpha);
+    cb0.toolTip = [NSString stringWithFormat:@"%@ %f",self.spec.hex, self.spec.alpha];
+    cb1.toolTip = [NSString stringWithFormat:@"%@ %f",self.spec.hex1, self.spec.alpha];
+    cb2.toolTip = [NSString stringWithFormat:@"%@ %f",self.spec.hex2, self.spec.alpha];
     self.toolTip = [NSString stringWithFormat:@"%@", self.spec.specCode];
 }
 

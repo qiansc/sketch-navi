@@ -11,6 +11,8 @@
 #import "NVSource.h"
 #import "NVColorPanel.h"
 #import "NVTextPanel.h"
+#import "NVFontPanel.h"
+#import "NVWeightPanel.h"
 #import "NVLinePanel.h"
 #import "NVMaskPanel.h"
 #import "NVBorderPanel.h"
@@ -78,8 +80,12 @@
 
             if ([id isEqual: @"Color"]) {
                 c = [[NVColorPanel alloc] initWithId:id];
-            } else if([id isEqual: @"Text"]) {
-                c = [[NVTextPanel alloc] initWithId:id];
+//            } else if([id isEqual: @"Text"]) {
+//                c = [[NVTextPanel alloc] initWithId:id];
+            } else if([id isEqual: @"Font"]) {
+                c = [[NVFontPanel alloc] initWithId:id];
+            } else if([id isEqual: @"Weight"]) {
+                c = [[NVWeightPanel alloc] initWithId:id];
             } else if([id isEqual: @"Line"]) {
                 c = [[NVLinePanel alloc] initWithId:id];
             } else if([id isEqual: @"Mask"]) {

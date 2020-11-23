@@ -1,30 +1,27 @@
 //
-//  ColorSpec.m
+//  NVFontSource.m
 //  Navi
 //
-//  Created by Qian,Sicheng on 2020/10/19.
+//  Created by Qian,Sicheng on 2020/10/27.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "NVColorSource.h"
-#import "NVSource.h"
-#import "NVToggleBox.h"
+#import "NVFontSource.h"
 
-@implementation NVColorSource {
-    // NVSourceUpdateCallback updatedCallback;
+@implementation NVFontSource {
+    NVSourceUpdateCallback updatedCallback;
     NSString *searchQuery;
     NSMutableDictionary *dims;
     NSArray<NSDictionary*> *specs;
-    NSInteger mod;
+    NSString *shapeMod; // Text / ShapePath / other
     NSString *themeMod; // default /dark / night
-
 }
 
 -(instancetype)init{
-    NVColorSource *s = [super init];
-    mod = 0;
+    NVFontSource *s = [super init];
+    shapeMod = @"other";
     themeMod = @"default";
-    _semanticMode = NO;
+    updatedCallback = ^void {};
     return s;
 }
 
@@ -41,32 +38,20 @@
             }
          }
     }
-    NSMutableArray *others = [NSMutableArray new];
-    for(NSString *dim in [dims allKeys]) {
-        if ([((NSMutableArray*)dims[dim]) count] < 4) {
-            [others addObjectsFromArray:dims[dim]];
-            [dims removeObjectForKey:dim];
-        }
-    }
-    if ([others count] > 0) {
-        dims[@"其他"] = others;
-    }
-    if(self.updateDelegate) [self.updateDelegate onSourceUpdated];
+//    NSMutableArray *others = [NSMutableArray new];
+//    for(NSString *dim in [dims allKeys]) {
+//        if ([((NSMutableArray*)dims[dim]) count] < 2) {
+//            [others addObjectsFromArray:dims[dim]];
+//            [dims removeObjectForKey:dim];
+//        }
+//    }
+//    if ([others count] > 0) {
+//        dims[@"其他"] = others;
+//    }
+    updatedCallback();
 }
 
 -(BOOL)filter:(NSDictionary*) specDict {
-
-    if (mod == 1 && [specDict[@"borderMode"] boolValue] == NO) {
-        return false;
-    } else if(mod != 1 && [specDict[@"fillMode"] boolValue] == NO) {
-        return false;
-    }
-
-    if (self.isTextType) {
-        if (![specDict[@"shapeMode"] isEqual:@"Text"]) return false;
-    } else {
-        if ([specDict[@"shapeMode"] isEqual:@"Text"]) return false;
-    }
 
     if (searchQuery == nil || searchQuery.length == 0) {
         return true;
@@ -74,63 +59,49 @@
     for(NSString *dim in specDict[@"dim"]) {
         if ([dim containsString:searchQuery]) return true;
     }
-    NVColorSpec spec = [NVColorSource value:specDict];
-    if ([spec.cname containsString:searchQuery]) {
+    NVFontSpec spec = [NVFontSource value:specDict];
+
+    if ([spec.code containsString:searchQuery]) {
         return true;
-    } else if ([spec.hex containsString:searchQuery]) {
-        return true;
-    } else if ([spec.specCode containsString:searchQuery]) {
-        return true;
-    } else if ([specDict[@"cname"] containsString:searchQuery]) {
+    } else if ([spec.elementCode containsString:searchQuery]) {
         return true;
     }
 
     return false;
 }
 
-#pragma mark set & updatedCallback
+- (void)onUpdated:(NVSourceUpdateCallback) callback {
+    updatedCallback = callback;
+}
 
 - (void)setQuery:(NSString *) query {
+
     searchQuery = query;
     [self update: specs];
-    if(self.updateDelegate) [self.updateDelegate onSourceUpdated];
+    updatedCallback();
 }
 
 - (void)setSemanticMode:(BOOL) mode {
     _semanticMode = mode;
-    if(self.updateDelegate) [self.updateDelegate onSourceUpdated];
+    updatedCallback();
 }
 
-- (void)setMode:(NSInteger) mode {
-    mod = mode;
-    [self update: specs];
-    if(self.updateDelegate) [self.updateDelegate onSourceUpdated];
+- (void)setShapeMode:(NSString *) mode {
+//    NSString *name = [mode isEqual:@"MSTextLayer"] ? @"Text" : @"Others";
+//    if (![shapeMod isEqual:name]) {
+//        shapeMod = name;
+//        [self update: specs];
+//        updatedCallback();
+//    }
 }
-- (BOOL)isFillMode {return mod == 0;}
-- (BOOL)isBorderMode {return mod == 1;}
-
--(void)setShapeType:(NSString *)type {
-    if (![self.shapeType isEqual:type]) {
-        _shapeType = type;
-        [self update: specs];
-        if(self.updateDelegate) [self.updateDelegate onSourceUpdated];
-    }
-}
--(BOOL)isTextType{
-    return [self.shapeType isEqual:@"MSTextLayer"];
-}
-
 
 - (void)setThemeMode:(NSString *) mode {
     if (![themeMod isEqual:mode]) {
         themeMod = mode;
         [self update: specs];
-        if(self.updateDelegate) [self.updateDelegate onSourceUpdated];
+        updatedCallback();
     }
 }
-
-
-#pragma mark Dims & Data for Collection
 
 -(NSArray<NSString*>*)getDims{
     NSArray<NSString*>* arr = [dims allKeys];
@@ -141,8 +112,6 @@
     if ([arr count] != [rs count]) {
         [rs addObject:@"其他"];
     }
-
-
     return rs;
 }
 
@@ -153,28 +122,35 @@
 -(NSArray<NSDictionary*>*)getSpecsIn:(long) section{
     NSString *dim = [self getDims][section];
     return  [dims[dim] sortedArrayUsingComparator: ^NSComparisonResult(NSDictionary* s1, NSDictionary* s2) {
-        return s1[@"mods"][0][@"color"] > s2[@"mods"][0][@"color"];
+        return [s1[@"iosFontSize"] doubleValue] < [s2[@"iosFontSize"] doubleValue];
     }];
 }
 
--(NVColorSpec)getSpecAt:(NSIndexPath *) indexPath{
+-(NVFontSpec)getSpecAt:(NSIndexPath *) indexPath{
     NSDictionary *dict = [self getSpecsIn:indexPath.section][indexPath.item];
-    return [NVColorSource value: dict];
+    return [NVFontSource value: dict];
 }
 
-+(NVColorSpec)value:(NSDictionary*) specDict {
-    NVColorSpec spec = {
-        .hex = specDict[@"mods"][0][@"color"],
-        .hex1 = specDict[@"mods"][1][@"color"],
-        .hex2 = specDict[@"mods"][2][@"color"],
-        .alpha = [specDict[@"mods"][0][@"opacity"] floatValue],
-        .specCode = specDict[@"cnum"],
-        .desc = specDict[@"cmeaning"],
-        .cname = specDict[@"cname"]
++(NVFontSpec)value:(NSDictionary*) specDict {
+    NVFontSpec spec = {
+        .defaultColor = specDict[@"defaultValue"][@"color"],
+        .darkColor = specDict[@"darkValue"][@"color"],
+        .nightColor = specDict[@"nightValue"][@"color"],
+        //.alpha = [specDict[@"defaultValue"][@"opacity"] floatValue],
+        .code = specDict[@"code"],
+        .cclass = specDict[@"cclass"],
+        .cmeaning = specDict[@"cmeaning"],
+        .iosFont = [specDict[@"iosFont"] doubleValue],
+        .androidFont = [specDict[@"androidFont"] doubleValue],
+        .h5Font = [specDict[@"h5Font"] doubleValue],
+        .iosFontSize = [specDict[@"iosFontSize"] doubleValue],
+        .androidFontSize = [specDict[@"androidFontSize"] doubleValue],
+        .h5FontSize = [specDict[@"h5FontSize"] doubleValue],
+        .elementCode = specDict[@"elementCode"]
+
     };
     return spec;
 }
-
 
 #pragma mark NSCollectionViewDataSource
 
@@ -198,6 +174,6 @@
     return nil;
 }
 
+
+
 @end
-
-

@@ -1,5 +1,5 @@
 //
-//  NVFontCollectionItemView.h
+//  NVFontSemanticItemView.h
 //  Navi
 //
 //  Created by QIANSC on 2020/11/6.
@@ -8,13 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NVToggleBox.h"
-#import "NVTextSource.h"
+#import "NVFontSource.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NVFontCollectionItemView : NVToggleBox
+@interface NVFontSemanticItemView : NVToggleBox
 
-@property (nonatomic) NVTextSpec spec;
+@property (nonatomic) NVFontSpec spec;
 
 @end
 

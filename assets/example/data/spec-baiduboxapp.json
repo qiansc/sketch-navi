@@ -184,10 +184,13 @@
 
 
 
-    {"code":"G!_R_S01","cline":"FEED","cclass":"比例","cmeaning":"标准1:1","desc": "1:1","elementCode":"F_S_W_S01","ios":0,"android":0,"h5":0, "scale": "1:1"},
-    {"code":"G!_R_S02","cline":"FEED","cclass":"比例","cmeaning":"标准3:2","desc": "3:2","elementCode":"F_S_W_S02","ios":0,"android":0,"h5":0, "scale": "3:2"},
-    {"code":"G!_R_S03","cline":"FEED","cclass":"比例","cmeaning":"标准4:3","desc": "4:3","elementCode":"F_S_W_S03","ios":0,"android":0,"h5":0, "scale": "4:3"},
-    {"code":"G!_R_S04","cline":"FEED","cclass":"比例","cmeaning":"标准16:9","desc": "16:9","elementCode":"F_S_W_S04","ios":0,"android":0,"h5":0, "scale": "16:9"},
+    {"code":"G_R_S01","cline":"FEED","cclass":"比例","cmeaning":"标准1:1","desc": "1:1","elementCode":"F_S_W_S01","ios":0,"android":0,"h5":0, "scale": "1:1"},
+    {"code":"G_R_S02","cline":"FEED","cclass":"比例","cmeaning":"标准3:4","desc": "3:4","elementCode":"F_S_W_S02","ios":0,"android":0,"h5":0, "scale": "3:4"},
+    {"code":"G_R_S03","cline":"FEED","cclass":"比例","cmeaning":"标准4:2","desc": "4:2","elementCode":"F_S_W_S03","ios":0,"android":0,"h5":0, "scale": "4:2"},
+    {"code":"G_R_S04","cline":"FEED","cclass":"比例","cmeaning":"标准16:9","desc": "16:9","elementCode":"F_S_W_S04","ios":0,"android":0,"h5":0, "scale": "16:9"},
+    {"code":"G_R_S05","cline":"FEED","cclass":"比例","cmeaning":"标准3:1","desc": "3:1","elementCode":"F_S_W_S05","ios":0,"android":0,"h5":0, "scale": "3:1"},
+    {"code":"G_R_S06","cline":"FEED","cclass":"比例","cmeaning":"标准4:3","desc": "4:3","elementCode":"F_S_W_S06","ios":0,"android":0,"h5":0, "scale": "4:3"},
+
 
     {"code":"M_L_X01","cline":"FEED","cclass":"feed模版通用","cmeaning":"胶囊图片边缘左间距","desc": "左10","elementCode":"F_M_L_X01","ios":10,"android":15,"h5":15, "pos": 3},
     {"code":"M_L_X02","cline":"FEED","cclass":"feed模版通用","cmeaning":"胶囊图片边缘右间距","desc": "右10","elementCode":"F_M_L_X02","ios":10,"android":15,"h5":15, "pos": 1},

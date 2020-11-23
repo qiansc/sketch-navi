@@ -67,7 +67,7 @@
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
     NSString *title = nil;
     for(MSLayer *layer in layers) {
-        NSString *colorCode;
+        NSString *colorCode = nil;
         NVUserInfo *info = [NVUserInfo fromLayer:layer];
         if (self.collectionView.dataSource.isTextType) {
             colorCode = info.fontColorCode;
@@ -83,8 +83,8 @@
                 if([item.spec.specCode isEqual:colorCode]) {
                     // 找到和specCode对应的indexPath
                     [indexPaths addObject: item.indexPath];
-                    // 校准一下颜色s
-                    [self applyColor:NSColorFromRGBString(item.spec.hex) toLayer:layer];
+                    // 校准一下颜色
+                    // [self applyColor:NSColorFromRGBAString(item.spec.hex, item.spec.alpha) toLayer:layer];
                     title = item.spec.specCode;
                 }
             }
@@ -112,7 +112,7 @@
             } else if (self.collectionView.dataSource.isBorderMode && layer.style.borders) {
                 info.borderColorCode = spec.specCode;
             }
-            [self applyColor:NSColorFromRGBString(spec.hex) toLayer:layer];
+            [self applyColor:NSColorFromRGBAString(spec.hex, spec.alpha) toLayer:layer];
         }
     }
 }
@@ -123,18 +123,21 @@
         c.red = color.redComponent;
         c.green = color.greenComponent;
         c.blue = color.blueComponent;
+        c.alpha = color.alphaComponent;
         layer.textColor = c;
     } else if (self.collectionView.dataSource.isFillMode && layer.style.fills) {
         for(MSStyleFill *fill in layer.style.fills) {
             fill.color.red = color.redComponent;
             fill.color.green = color.greenComponent;
             fill.color.blue = color.blueComponent;
+            fill.color.alpha = color.alphaComponent;
         }
     } else if (self.collectionView.dataSource.isBorderMode && layer.style.borders) {
         for(MSStyleBorder *border in layer.style.borders) {
             border.color.red = color.redComponent;
             border.color.green = color.greenComponent;
             border.color.blue = color.blueComponent;
+            border.color.alpha = color.alphaComponent;
         }
     }
 }

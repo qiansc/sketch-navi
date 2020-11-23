@@ -30,16 +30,16 @@
     return view;
 }
 
--(void)setSpec:(NVTextSpec)fontSpec{
+-(void)setSpec:(NVFontSpec)fontSpec{
     _spec = fontSpec;
     [self drawStyle];
-    
+
     double size = 48/3;
     if (_spec.iosFontSize > 78) {
         size = 65/3;
     }
-    
-    itemTitle.stringValue = [NSString stringWithFormat:@"无极%ipx", (int)self.spec.iosFontSize];
+
+    itemTitle.stringValue = [NSString stringWithFormat:@"无极-贴吧%ipx", (int)self.spec.iosFontSize];
     [itemTitle setFont:[NSFont systemFontOfSize:size]];
     itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
     itemDesc.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];

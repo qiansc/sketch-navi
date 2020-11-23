@@ -1,5 +1,5 @@
 //
-//  NVFontSemanticItemView.h
+//  NVWeightSemanticItemView.h
 //  Navi
 //
 //  Created by QIANSC on 2020/11/6.
@@ -8,13 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NVToggleBox.h"
-#import "NVTextSource.h"
+#import "NVWeightSource.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NVFontSemanticItemView : NVToggleBox
+@interface NVWeightSemanticItemView : NVToggleBox
 
-@property (nonatomic) NVTextSpec spec;
+@property (nonatomic) NVWeightSpec spec;
 
 @end
 

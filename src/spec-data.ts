@@ -127,6 +127,56 @@ export class SpecData {
         }
         return arr;
     }
+
+    getFontWeightSpec() {
+        const data = {
+            "_id": "5f958c96c531587ee80a3849",
+            "id": 1,
+            "code": "T_X01",
+            "cline": "FEED",
+            "cclass": "默认",
+            "cmeaning": "按钮一级文本",
+            "elementCode": "T_X01",
+            "fontId": 1,
+            "iosFont": 400,
+            "androidFont": 400,
+            "h5Font": 400,
+            "fontSizeId": 15,
+            "iosFontSize": 88,
+            "androidFontSize": 48,
+            "h5FontSize": 63,
+            "camId": "CAM_X350",
+            "defaultValue": {
+                "color": "000000",
+                "opacity": 1,
+                "rgba": "0, 0, 0, 1"
+            },
+            "darkValue": {
+                "color": "FFFFFF",
+                "opacity": 1,
+                "rgba": "255, 255, 255, 1"
+            },
+            "nightValue": {
+                "color": "666666",
+                "opacity": 1,
+                "rgba": "102, 102, 102, 1"
+            },
+            "dim": ["默认"]
+        };
+
+        const arr: any = [];
+        for(var i = 1; i< 3; i++) {
+            let newData = JSON.parse(JSON.stringify(data));
+            newData.code = newData.elementCode = i>9 ? `F_X${i}` : `F_X0${i}`;
+            newData.iosFont =  [0, 400,700][i];
+            newData.androidFont =  [0, 400,700][i];
+            newData.h5Font =  [0, 400,700][i];
+            newData.cmeaning = ['', '常规体', '加粗 中黑体'][i];
+            arr.push(newData);
+        }
+        return arr;
+    }
+
     getBorderSpec() {
         let file = `/data/spec-baiduboxapp.json`;
         let json: any = {};
@@ -265,11 +315,15 @@ export class SpecData {
             spec.cnum = tabs[2];
             if (exist[spec.cnum]) return;
             spec.mods[0].color = tabs[5].split(',')[0];
-            spec.mods[0].opacity = parseFloat(tabs[5].split(',')[1]) || 1;
+            spec.mods[0].opacity = parseFloat(tabs[5].split(',')[1]);
             spec.mods[1].color = tabs[6].split(',')[0];
-            spec.mods[1].opacity = parseFloat(tabs[6].split(',')[1]) || 1;
+            spec.mods[1].opacity = parseFloat(tabs[6].split(',')[1]);
             spec.mods[2].color = tabs[7].split(',')[0];
-            spec.mods[2].opacity = parseFloat(tabs[7].split(',')[1]) || 1;
+            spec.mods[2].opacity = parseFloat(tabs[7].split(',')[1]);
+
+            if (tabs[5].split(',')[1] === undefined) spec.mods[0].opacity = 1;
+            if (tabs[5].split(',')[1] === undefined) spec.mods[1].opacity = 1;
+            if (tabs[5].split(',')[1] === undefined) spec.mods[2].opacity = 1;
 
 
             if (spec.cmeaning.indexOf('边') > -1 || spec.cclass.indexOf('边') > -1 || spec.cmeaning.indexOf('线') > -1 || spec.cclass.indexOf('线') > -1) {
@@ -296,7 +350,7 @@ export class SpecData {
 
 export function getSpecs(resourcesPath: string) {
     const specData = new SpecData(resourcesPath);
-    const textSpec = specData.getFontSizeSpec();
+    const fontSpec = specData.getFontSizeSpec();
     const borderSpec = specData.getBorderSpec();
     // console.log(specData.getColorSpec()[0]);
     // console.log("----");
@@ -317,7 +371,8 @@ export function getSpecs(resourcesPath: string) {
         }, {
             weight: '15', text: '15', specCode: 'L_X06', desc: 'L_X06', dim: ['默认'],
         }],
-        Text: textSpec,
+        Font: fontSpec,
+        Weight: specData.getFontWeightSpec(),
         Border: borderSpec,
         Grid: specData.getGridSpec(),
         Margin: specData.getMarginSpec(),

@@ -45,7 +45,8 @@ static NSMutableDictionary *cache;
         self.data[@"style"][@"fills"] = [NSMutableArray new];
         self.data[@"style"][@"borders"] = [NSMutableArray new];
         self.data[@"style"][@"shadows"] = [NSMutableArray new];
-        self.data[@"textColorCode"] = @"";
+        self.data[@"fontColorCode"] = @"";
+        self.data[@"fontCode"] = @"";
         self.data[@"textCode"] = @"";
     } else {
         self.data = [layer.userInfo[@"com.baidu.navi"] mutableCopy];
@@ -56,18 +57,16 @@ static NSMutableDictionary *cache;
 #pragma mark Text
 
 -(NSString*)textCode { return self.data[@"textCode"]; }
+-(void)setTextCode:(NSString*)code {self.data[@"textCode"] = code;[self save];}
 
--(void)setTextCode:(NSString*)code {
-    self.data[@"textCode"] = code;
-    [self save];
-}
+-(NSString*)fontCode { return self.data[@"fontCode"]; }
+-(void)setFontCode:(NSString*)code {self.data[@"fontCode"] = code;[self save];}
+
+-(NSString*)fontWeightCode { return self.data[@"fontWeightCode"]; }
+-(void)setFontWeightCode:(NSString*)code {self.data[@"fontWeightCode"] = code;[self save];}
 
 -(NSString*)fontColorCode { return self.data[@"fontColorCode"]; }
-
--(void)setFontColorCode:(NSString*)code {
-    self.data[@"fontColorCode"] = code;
-    [self save];
-}
+-(void)setFontColorCode:(NSString*)code {self.data[@"fontColorCode"] = code;[self save];}
 
 #pragma mark Style-Fill
 

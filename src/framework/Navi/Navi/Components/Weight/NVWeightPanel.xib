@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NVWeightPanel">
+            <connections>
+                <outlet property="collectionView" destination="ZD5-H8-3oj" id="Imu-pd-ufW"/>
+                <outlet property="headerView" destination="evV-Ja-LP7" id="F8G-Ag-66a"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="evV-Ja-LP7" customClass="NVPanelHeaderView">
+                    <rect key="frame" x="0.0" y="272" width="240" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="UgB-Ib-TDN"/>
+                    </constraints>
+                </customView>
+                <collectionView allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZD5-H8-3oj" customClass="NVWeightCollectionView">
+                    <rect key="frame" x="0.0" y="-1728" width="240" height="2000"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2000" id="pww-37-auL"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="3" id="7il-1t-d84">
+                        <size key="itemSize" width="50" height="50"/>
+                    </collectionViewFlowLayout>
+                    <color key="primaryBackgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                </collectionView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="evV-Ja-LP7" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="PLn-jy-EJX"/>
+                <constraint firstItem="ZD5-H8-3oj" firstAttribute="top" secondItem="evV-Ja-LP7" secondAttribute="bottom" id="TrG-Lr-bbF"/>
+                <constraint firstAttribute="trailing" secondItem="ZD5-H8-3oj" secondAttribute="trailing" id="chK-P3-xQ5"/>
+                <constraint firstAttribute="trailing" secondItem="evV-Ja-LP7" secondAttribute="trailing" id="eYg-x4-gfA"/>
+                <constraint firstItem="ZD5-H8-3oj" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ep5-i5-qQG"/>
+                <constraint firstItem="evV-Ja-LP7" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="gMs-Kn-Vbh"/>
+            </constraints>
+            <point key="canvasLocation" x="122" y="93"/>
+        </customView>
+        <customObject id="fp9-25-Kvq" customClass="NVCollectionController">
+            <connections>
+                <outlet property="view" destination="ZD5-H8-3oj" id="KJW-LH-IxP"/>
+            </connections>
+        </customObject>
+    </objects>
+</document>

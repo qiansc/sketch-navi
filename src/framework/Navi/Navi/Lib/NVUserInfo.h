@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Text
 @property (nonatomic, strong) NSString *textCode; // 文本（复合）
 @property (nonatomic, strong) NSString *fontCode; // 字体
+@property (nonatomic, strong) NSString *fontWeightCode; // 字体
 @property (nonatomic, strong) NSString *fontColorCode; // 字色
 
 #pragma mark Style-Fill

@@ -24,9 +24,15 @@
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
-        @"name": @"文本",
-        @"id": @"Text",
-        @"icon": @"Text",
+        @"name": @"字号",
+        @"id": @"Font",
+        @"icon": @"Font",
+        @"gravity": @1,
+        @"type": @"PANEL"
+    }, @{
+        @"name": @"字形",
+        @"id": @"Weight",
+        @"icon": @"Weight",
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
@@ -60,7 +66,7 @@
         @"gravity": @1,
         @"type": @"PANEL"
     }, @{
-        @"name": @"水平间距",
+        @"name": @"左右间距",
         @"id": @"Hori",
         @"icon": @"Margin-H",
         @"gravity": @1,

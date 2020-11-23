@@ -289,13 +289,9 @@
 
 
 -(void)applySpec{
-    NSLog(@"### HERE 1111");
     MSLayer * target = [self.selections layerAtIndex:0];
     MSLayer * layer = [self.selections layerAtIndex:1];
     if (!layer) return;
-    NSLog(@"### HERE %@ 111", layer);
-    NSLog(@"### HERE %@ 222",  [NVUserInfo fromLayer:layer]);
-    NSLog(@"### HERE %f 333", [NVUserInfo fromLayer:layer].originWidth);
     if (pos != 31 && layer &&[NVUserInfo fromLayer:layer].originWidth) {
         // 恢复原始宽度
         layer.frame.width = [NVUserInfo fromLayer:layer].originWidth;

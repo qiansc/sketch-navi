@@ -1,21 +1,22 @@
 //
-//  NVFontSemanticItemView.m
+//  NVWeightCollectionItemView.m
 //  Navi
 //
 //  Created by QIANSC on 2020/11/6.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "NVFontSemanticItemView.h"
+#import "NVWeightCollectionItemView.h"
 #import "HexColor.h"
 
-@implementation NVFontSemanticItemView{
+@implementation NVWeightCollectionItemView {
     NSTextField *itemTitle;
     NSTextField *itemDesc;
+    NSLayoutConstraint *cons;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
-    NVFontSemanticItemView *view = [super initWithCoder:coder];
+    NVWeightCollectionItemView *view = [super initWithCoder:coder];
     view.boxType = NSBoxCustom;
     view.borderColor = [NSColor disabledControlTextColor];
     view.borderType = NSLineBorder;
@@ -29,13 +30,33 @@
     return view;
 }
 
--(void)setSpec:(NVTextSpec)fontSpec{
+-(void)setSpec:(NVWeightSpec)fontSpec{
     _spec = fontSpec;
     [self drawStyle];
-    itemTitle.stringValue = self.spec.cmeaning;
+
+    double size = 48/3;
+    // if (_spec.iosFontSize > 78) {
+    //    size = 65/3;
+    // }
+
+    itemTitle.stringValue = @"无极-贴吧";
+    
+    NSDictionary *attr = itemTitle.font.fontDescriptor.fontAttributes;
+    if (fontSpec.iosFont > 500) {
+        [attr setValue:@"CTFontBoldUsage" forKey:@"NSCTFontUIUsageAttribute"];
+    } else {
+        [attr setValue:@"CTFontRegularUsage" forKey:@"NSCTFontUIUsageAttribute"];
+    }
+    NSFontDescriptor *fontDescriptor = [NSFontDescriptor fontDescriptorWithFontAttributes: attr];
+    NSFont *font = [NSFont fontWithDescriptor: fontDescriptor size: size];
+    
+     [itemTitle setFont:font];
     itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
-    itemDesc.stringValue = [NSString stringWithFormat:@"%i/%i/%i", (int)self.spec.iosFontSize,  (int)self.spec.androidFontSize,  (int)self.spec.h5FontSize];
+    itemDesc.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];
+    [self removeConstraint:cons];
+    cons = [self.heightAnchor constraintEqualToConstant: size + 30];
+    [self addConstraint:cons];
 }
 
 
@@ -43,17 +64,18 @@
     [super drawStyle];
     if (self.isSelected) {
         self.borderColor = [NSColor controlAccentColor];
-        itemTitle.textColor = [NSColor controlAccentColor];
+        // itemTitle.textColor = [NSColor controlAccentColor];
         itemDesc.textColor = [NSColor controlAccentColor];
     } else if (self.isHover) {
         self.borderColor = [NSColor disabledControlTextColor];
-        itemTitle.textColor = [NSColor secondaryLabelColor];
+        // itemTitle.textColor = [NSColor secondaryLabelColor];
         itemDesc.textColor = [NSColor secondaryLabelColor];
     } else {
         self.fillColor  = [NSColor controlBackgroundColor];
         self.borderColor = [NSColor windowBackgroundColor];
-        itemTitle.textColor = [NSColor secondaryLabelColor];
+        // itemTitle.textColor = [NSColor secondaryLabelColor];
         itemDesc.textColor = [NSColor secondaryLabelColor];
     }
 }
+
 @end

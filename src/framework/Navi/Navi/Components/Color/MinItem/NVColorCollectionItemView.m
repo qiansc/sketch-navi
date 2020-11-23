@@ -62,7 +62,7 @@
     _spec = colorSpec;
     [self drawStyle];
     cnameText.stringValue = self.spec.cname;
-    frontBox.fillColor = NSColorFromRGBString(self.spec.hex);
+    frontBox.fillColor = NSColorFromRGBAString(self.spec.hex,self.spec.alpha);
     self.toolTip = [NSString stringWithFormat:@"%@ - %@", self.spec.specCode, self.spec.desc];
 
 
@@ -88,7 +88,7 @@
     } else {
         [frontBox setTransparent:YES];
         if (self.spec.hex) { // datasource 初始化完 一瞬间是没有spec的
-            self.fillColor  = NSColorFromRGBString(self.spec.hex);
+            self.fillColor  = NSColorFromRGBAString(self.spec.hex,self.spec.alpha);
         }
         self.borderColor = [NSColor quaternaryLabelColor];
         infoBox.layer.borderColor = [NSColor quaternaryLabelColor].CGColor;
