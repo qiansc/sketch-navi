@@ -48,7 +48,7 @@
 
 - (BOOL)filter:(NSDictionary *) specDict {
     NVLineSpec spec = [NVLineSource value:specDict];
-    return [spec.weight containsString:searchQuery] || [spec.desc containsString: searchQuery] || [spec.specCode containsString:searchQuery] || [spec.text containsString:searchQuery];
+    return [spec.weight containsString:searchQuery] || [spec.cmeaning containsString: searchQuery] || [spec.code containsString:searchQuery] || [spec.text containsString:searchQuery];
 }
 
 - (void)onUpdated:(NVSourceUpdateCallback) callback {
@@ -89,8 +89,8 @@
 + (NVLineSpec)value:(NSDictionary*) specDict {
     NVLineSpec spec = {
         .weight = specDict[@"weight"],
-        .specCode = specDict[@"specCode"],
-        .desc = specDict[@"desc"],
+        .code = specDict[@"code"],
+        .cmeaning = specDict[@"cmeaning"],
         .text = specDict[@"text"],
     };
     return spec;

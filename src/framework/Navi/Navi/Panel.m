@@ -20,6 +20,7 @@
 #import "NVMarginPanel.h"
 #import "NVVertPanel.h"
 #import "NVHoriPanel.h"
+#import "NVIconPanel.h"
 #import "MSDocument.h"
 #import "NVBundle.h"
 #import "NVSource.h"
@@ -102,6 +103,8 @@
                 c = [[NVMarginPanel alloc] initWithId:id];
             } else if ([id isEqual:@"Shadow"]) {
                 c = [[NVShadowPanel alloc] initWithId:id];
+            } else if ([id isEqual:@"Icon"]) {
+                c = [[NVIconPanel alloc] initWithId:id];
             }
             if (c) {
                 [self.stackView addArrangedSubview:c.view];

@@ -42,9 +42,18 @@ static NSMutableDictionary *cache;
     if (layer.userInfo == nil || layer.userInfo[@"com.baidu.navi"] == nil) {
         self.data = [NSMutableDictionary new];
         self.data[@"style"] = [NSMutableDictionary new];
+        
         self.data[@"style"][@"fills"] = [NSMutableArray new];
+        self.data[@"fillColorCode"] = @"";
+        self.data[@"maskCode"] = @"";
+        
         self.data[@"style"][@"borders"] = [NSMutableArray new];
+        self.data[@"borderColorCode"] = @"";
+        self.data[@"borderThicknessCode"] = @"";
+        
         self.data[@"style"][@"shadows"] = [NSMutableArray new];
+        self.data[@"shadowCode"] = @"";
+        
         self.data[@"fontColorCode"] = @"";
         self.data[@"fontCode"] = @"";
         self.data[@"textCode"] = @"";
@@ -81,6 +90,7 @@ static NSMutableDictionary *cache;
     if ([self.data[@"style"][@"fills"] count] == 0)
         [self.data[@"style"][@"fills"] addObject:[NSMutableDictionary new]];
     self.data[@"style"][@"fills"][0][@"colorCode"] = code;
+    self.data[@"fillColorCode"] = code;
     [self save];
 }
 
@@ -95,6 +105,7 @@ static NSMutableDictionary *cache;
     if ([self.data[@"style"][@"fills"] count] == 0)
         [self.data[@"style"][@"fills"] addObject:[NSMutableDictionary new]];
     self.data[@"style"][@"fills"][0][@"maskCode"] = code;
+    self.data[@"maskCode"] = code;
     [self save];
 }
 
@@ -111,6 +122,7 @@ static NSMutableDictionary *cache;
     if ([self.data[@"style"][@"borders"] count] == 0)
         [self.data[@"style"][@"borders"] addObject:[NSMutableDictionary new]];
     self.data[@"style"][@"borders"][0][@"colorCode"] = code;
+    self.data[@"borderColorCode"] = code;
     [self save];
 }
 
@@ -126,6 +138,7 @@ static NSMutableDictionary *cache;
     if ([self.data[@"style"][@"borders"] count] == 0)
         [self.data[@"style"][@"borders"] addObject:[NSMutableDictionary new]];
     self.data[@"style"][@"borders"][0][@"borderThicknessCode"] = code;
+    self.data[@"borderThicknessCode"] = code;
     [self save];
 }
 
@@ -144,6 +157,7 @@ static NSMutableDictionary *cache;
         [self.data[@"style"][@"shadows"] addObject:[NSMutableDictionary new]];
     }
     self.data[@"style"][@"shadows"][0][@"shadowCode"] = code;
+    self.data[@"shadowCode"] = code;
     [self save];
 }
 
@@ -191,7 +205,6 @@ static NSMutableDictionary *cache;
     self.data[@"marginTopCode"] = code;
     if (code == nil) self.data[@"marginTopTarget"] = nil;
     [self save];
-    
 }
 -(NSString *)marginBottomCode {return self.data[@"marginBottomCode"];}
 -(void)setMarginBottomCode:(NSString*)code {
@@ -208,7 +221,5 @@ static NSMutableDictionary *cache;
 -(void)setMarginTopTarget:(NSString*)code {self.data[@"marginTopTarget"] = code;[self save];}
 -(NSString *)marginBottomTarget {return self.data[@"marginBottomTarget"];}
 -(void)setMarginBottomTarget:(NSString*)code {self.data[@"marginBottomTarget"] = code;[self save];}
-
-
 
 @end

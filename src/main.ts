@@ -13,7 +13,9 @@ export function onOpenDocument(){
     app.dataSource = new MochaJSDelegate({
         'updateSpec': () => {
             const path =  app.bundlePath();
-            app.specs = getSpecs(path.substring(0, path.indexOf('/_webpack_resources')));
+            const spec =  getSpecs(path.substring(0, path.indexOf('/_webpack_resources')));
+            app.specs = spec;
+
         },
     }).getClassInstance();
 }

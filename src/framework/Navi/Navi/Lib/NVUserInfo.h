@@ -58,7 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *marginTopTarget;
 @property (nonatomic, strong) NSString *marginBottomTarget;
 
-
 @end
 
 NS_ASSUME_NONNULL_END

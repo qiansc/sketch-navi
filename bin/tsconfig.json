@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "downlevelIteration": true,
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node"
+    },
+    "include": [
+        "./*.ts",
+        "./**/*.ts"
+    ]
+}
