@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="24px" viewBox="0 0 25 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 20</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="参考线_16px备份-48" transform="translate(1.500000, 1.000000)">
+            <g id="24通用@1x-copy-3备份-4" stroke-width="0.1">
+                <g id="Group-16">
+                    <rect id="Rectangle-6-Copy-14" stroke="#CCCCCC" x="0" y="7.33333333" width="22" height="7.33333333"></rect>
+                    <rect id="Rectangle-6-Copy-13" stroke="#CCCCCC" x="7.33333333" y="0" width="7.33333333" height="22"></rect>
+                    <line x1="0" y1="0" x2="22" y2="22" id="Rectangle-6-Copy-9" stroke="#CCCCCC"></line>
+                    <line x1="0" y1="0" x2="22" y2="22" id="Rectangle-6-Copy-12" stroke="#CCCCCC" transform="translate(11.000000, 11.000000) scale(-1, 1) translate(-11.000000, -11.000000) "></line>
+                    <rect id="Rectangle-6-Copy-10" stroke="#CCCCCC" x="0.916666667" y="3.08916219" width="20.1666667" height="15.8216669"></rect>
+                    <rect id="Rectangle-9" stroke="#CCCCCC" x="3.08927409" y="0.916666667" width="15.8216669" height="20.1666667"></rect>
+                    <polygon id="Rectangle-6-Copy-6" stroke="#666666" points="2.0625 2.0625 19.9375 2.0625 19.9375 19.9375 2.0625 19.9375"></polygon>
+                    <circle id="Oval-23-Copy-3" stroke="#666666" cx="11" cy="11" r="10.45"></circle>
+                    <circle id="Oval-23-Copy-5" stroke="#CCCCCC" cx="11" cy="11" r="5.27083333"></circle>
+                    <rect id="Rectangle-6-Copy-4" stroke="#CCCCCC" x="0" y="0" width="22" height="22"></rect>
+                </g>
+            </g>
+            <g id="Group-16" stroke="#CCCCCC">
+                <g id="Group" opacity="0.300000012" stroke-width="0.1">
+                    <rect id="Rectangle-6-Copy-71" x="0" y="0" width="1" height="22"></rect>
+                    <rect id="Rectangle-6-Copy-72" x="1.83333333" y="0" width="1" height="22"></rect>
+                    <rect id="Rectangle-6-Copy-73" x="3.66666667" y="0" width="1" height="22"></rect>
+                    <rect id="Rectangle-6-Copy-74" x="5.5" y="0" width="1" height="22"></rect>
+                    <rect id="Rectangle-6-Copy-75" x="7.33333333" y="0" width="1" height="22"></rect>
+                    <rect id="Rectangle-6-Copy-76" x="9.16666667" y="0" width="1" height="22"></rect>
+                    <rect id="Rectangle-6-Copy-77" x="11" y="0" width="1" height="22"></rect>
+                    <rect id="Rectangle-6-Copy-78" x="12.8333333" y="0" width="1" height="22"></rect>
+                    <rect id="Rectangle-6-Copy-79" x="14.6666667" y="0" width="1" height="22"></rect>
+                    <rect id="Rectangle-6-Copy-80" x="16.5" y="0" width="1" height="22"></rect>
+                    <rect id="Rectangle-6-Copy-81" x="18.3333333" y="0" width="1" height="22"></rect>
+                    <rect id="Rectangle-6-Copy-82" x="20.1666667" y="0" width="1" height="22"></rect>
+                    <rect id="Rectangle-6-Copy-83" x="0" y="0" width="22" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-84" x="0" y="1.83333333" width="22" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-85" x="0" y="3.66666667" width="22" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-86" x="0" y="5.5" width="22" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-87" x="0" y="7.33333333" width="22" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-88" x="0" y="9.16666667" width="22" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-89" x="0" y="11" width="22" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-90" x="0" y="12.8333333" width="22" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-91" x="0" y="14.6666667" width="22" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-92" x="0" y="16.5" width="22" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-93" x="0" y="18.3333333" width="22" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-94" x="0" y="20.1666667" width="22" height="1"></rect>
+                </g>
+                <rect id="Rectangle-6-Copy-4" stroke-width="0.2" x="0" y="0" width="22" height="22"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="24px" viewBox="0 0 25 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_pure_card_administration22_svg</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组" transform="translate(0.500000, 0.000000)">
+            <g id="Group-16" stroke="#CCCCCC">
+                <g id="Group" opacity="0.300000012" stroke-width="0.1">
+                    <rect id="Rectangle-6-Copy-71" x="0" y="0" width="1" height="24"></rect>
+                    <rect id="Rectangle-6-Copy-72" x="2" y="0" width="1" height="24"></rect>
+                    <rect id="Rectangle-6-Copy-73" x="4" y="0" width="1" height="24"></rect>
+                    <rect id="Rectangle-6-Copy-74" x="6" y="0" width="1" height="24"></rect>
+                    <rect id="Rectangle-6-Copy-75" x="8" y="0" width="1" height="24"></rect>
+                    <rect id="Rectangle-6-Copy-76" x="10" y="0" width="1" height="24"></rect>
+                    <rect id="Rectangle-6-Copy-77" x="12" y="0" width="1" height="24"></rect>
+                    <rect id="Rectangle-6-Copy-78" x="14" y="0" width="1" height="24"></rect>
+                    <rect id="Rectangle-6-Copy-79" x="16" y="0" width="1" height="24"></rect>
+                    <rect id="Rectangle-6-Copy-80" x="18" y="0" width="1" height="24"></rect>
+                    <rect id="Rectangle-6-Copy-81" x="20" y="0" width="1" height="24"></rect>
+                    <rect id="Rectangle-6-Copy-82" x="22" y="0" width="1" height="24"></rect>
+                    <rect id="Rectangle-6-Copy-83" x="0" y="0" width="24" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-84" x="0" y="2" width="24" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-85" x="0" y="4" width="24" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-86" x="0" y="6" width="24" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-87" x="0" y="8" width="24" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-88" x="0" y="10" width="24" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-89" x="0" y="12" width="24" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-90" x="0" y="14" width="24" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-91" x="0" y="16" width="24" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-92" x="0" y="18" width="24" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-93" x="0" y="20" width="24" height="1"></rect>
+                    <rect id="Rectangle-6-Copy-94" x="0" y="22" width="24" height="1"></rect>
+                </g>
+                <rect id="Rectangle-6-Copy-4" stroke-width="0.2" x="0" y="0" width="24" height="24"></rect>
+            </g>
+            <g id="Group-16">
+                <rect id="Rectangle-6-Copy-14" stroke="#CCCCCC" stroke-width="0.1" x="0" y="8" width="24" height="8"></rect>
+                <rect id="Rectangle-6-Copy-13" stroke="#CCCCCC" stroke-width="0.1" x="8" y="0" width="8" height="24"></rect>
+                <line x1="0" y1="0" x2="24" y2="24" id="Rectangle-6-Copy-9" stroke="#CCCCCC" stroke-width="0.1"></line>
+                <line x1="0" y1="0" x2="24" y2="24" id="Rectangle-6-Copy-12" stroke="#CCCCCC" stroke-width="0.1" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) "></line>
+                <rect id="Rectangle-6-Copy-10" stroke="#CCCCCC" stroke-width="0.1" x="1" y="3.36999512" width="22" height="17.2600002"></rect>
+                <rect id="Rectangle-9" stroke="#CCCCCC" stroke-width="0.1" x="3.37011719" y="1" width="17.2600002" height="22"></rect>
+                <polygon id="Rectangle-6-Copy-6" stroke="#666666" stroke-width="0.1" points="2.25 2.25 21.75 2.25 21.75 21.75 2.25 21.75"></polygon>
+                <circle id="Oval-23-Copy-3" stroke="#666666" stroke-width="0.1" cx="12" cy="12" r="11.4"></circle>
+                <circle id="Oval-23-Copy-5" stroke="#CCCCCC" stroke-width="0.1" cx="12" cy="12" r="5.75"></circle>
+                <rect id="Rectangle-6-Copy-4" stroke="#CCCCCC" stroke-width="0.05" x="0" y="0" width="24" height="24"></rect>
+            </g>
+        </g>
+        <path d="M11,4.02072594 C11.9282032,3.48482756 13.0717968,3.48482756 14,4.02072594 L14,4.02072594 L18.660254,6.71132487 C19.1243557,6.97927406 19.4993557,7.36084392 19.7583302,7.80940108 C20.0173048,8.25795824 20.160254,8.77350269 20.160254,9.30940108 L20.160254,9.30940108 L20.160254,14.6905989 C20.160254,15.2264973 20.0173048,15.7420418 19.7583302,16.1905989 C19.4993557,16.6391561 19.1243557,17.0207259 18.660254,17.2886751 L18.660254,17.2886751 L14,19.9792741 C13.0717968,20.5151724 11.9282032,20.5151724 11,19.9792741 L11,19.9792741 L6.33974596,17.2886751 C5.41154273,16.7527767 4.83974596,15.7623957 4.83974596,14.6905989 L4.83974596,14.6905989 L4.83974596,9.30940108 C4.83974596,8.23760431 5.41154273,7.24722325 6.33974596,6.71132487 L6.33974596,6.71132487 Z" id="多边形" stroke="#141414" stroke-width="2" transform="translate(12.500000, 12.000000) rotate(-30.000000) translate(-12.500000, -12.000000) "></path>
+        <path d="M13,9 C13.6903559,9 14.3153559,9.27982203 14.767767,9.73223305 C15.220178,10.1846441 15.5,10.8096441 15.5,11.5 C15.5,12.1903559 15.220178,12.8153559 14.767767,13.267767 C14.3153559,13.720178 13.6903559,14 13,14 C12.3096441,14 11.6846441,13.720178 11.232233,13.267767 C10.779822,12.8153559 10.5,12.1903559 10.5,11.5 C10.5,10.8096441 10.779822,10.1846441 11.232233,9.73223305 C11.6846441,9.27982203 12.3096441,9 13,9 Z" id="椭圆形" stroke="#141414" stroke-width="2"></path>
+    </g>
+</svg>

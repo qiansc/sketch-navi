@@ -1,4 +1,6 @@
-const { existsSync, readFileSync } = require("@skpm/fs");
+import { COScript } from "sketch";
+
+const { existsSync, readFileSync, readdirSync, extname } = require("@skpm/fs");
 
 export class SpecData {
     constructor(private assetsPath: string) {
@@ -344,7 +346,24 @@ export class SpecData {
             arr.push(spec);
         });
         return arr;
-
+    }
+    getTBIcon() {
+        const rs: any = [];
+        const fileList = readdirSync(`${this.assetsPath}/icon/`);
+        fileList.forEach((file: string, index: number) => {
+            if(file.substr(-4).toLowerCase() === ".svg") {
+                const svg = readFileSync(`${this.assetsPath}/icon/${file}`);
+                const id = `0000${index}`.substr(-3);
+                rs.push({
+                    "code": "I_X" + id,
+                    "cline": "TIEBA",
+                    "cclass": "默认",
+                    "cmeaning": "",
+                    "elementCode":  "I_X" + id,
+                });
+            }
+        });
+        return rs;
     }
 }
 
@@ -352,9 +371,6 @@ export function getSpecs(resourcesPath: string) {
     const specData = new SpecData(resourcesPath);
     const fontSpec = specData.getFontSizeSpec();
     const borderSpec = specData.getBorderSpec();
-    // console.log(specData.getColorSpec()[0]);
-    // console.log("----");
-    // console.log(specData.getTBColor()[0]);
 
     return {
         Color: specData.getTBColor(), //getColorSpec(),
@@ -379,8 +395,7 @@ export function getSpecs(resourcesPath: string) {
         Mask: specData.getMaskSpec(),
         Hori: specData.getMarginSpec('M_H'),
         Vert: specData.getMarginSpec('M_W'),
+        Icon: specData.getTBIcon(),
         Shadow: specData.getShadowSpec(),
     };
 }
-
-

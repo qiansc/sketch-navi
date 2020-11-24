@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="24px" viewBox="0 0 25 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 5</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-3" transform="translate(1.500000, 1.000000)">
+            <g id="编组" opacity="0">
+                <g id="参考线_16px备份-2">
+                    <g id="24通用@1x-copy-3备份-4" stroke-width="0.1">
+                        <g id="Group-16">
+                            <rect id="Rectangle-6-Copy-14" stroke="#CCCCCC" x="0" y="7.33333333" width="22" height="7.33333333"></rect>
+                            <rect id="Rectangle-6-Copy-13" stroke="#CCCCCC" x="7.33333333" y="0" width="7.33333333" height="22"></rect>
+                            <line x1="0" y1="0" x2="22" y2="22" id="Rectangle-6-Copy-9" stroke="#CCCCCC"></line>
+                            <line x1="0" y1="0" x2="22" y2="22" id="Rectangle-6-Copy-12" stroke="#CCCCCC" transform="translate(11.000000, 11.000000) scale(-1, 1) translate(-11.000000, -11.000000) "></line>
+                            <rect id="Rectangle-6-Copy-10" stroke="#CCCCCC" x="0.916666667" y="3.08916219" width="20.1666667" height="15.8216669"></rect>
+                            <rect id="Rectangle-9" stroke="#CCCCCC" x="3.08927409" y="0.916666667" width="15.8216669" height="20.1666667"></rect>
+                            <polygon id="Rectangle-6-Copy-6" stroke="#666666" points="2.0625 2.0625 19.9375 2.0625 19.9375 19.9375 2.0625 19.9375"></polygon>
+                            <circle id="Oval-23-Copy-3" stroke="#666666" cx="11" cy="11" r="10.45"></circle>
+                            <circle id="Oval-23-Copy-5" stroke="#CCCCCC" cx="11" cy="11" r="5.27083333"></circle>
+                            <rect id="Rectangle-6-Copy-4" stroke="#CCCCCC" x="0" y="0" width="22" height="22"></rect>
+                        </g>
+                    </g>
+                    <g id="Group-16" stroke="#CCCCCC">
+                        <g id="Group" opacity="0.300000012" stroke-width="0.1">
+                            <rect id="Rectangle-6-Copy-71" x="0" y="0" width="1" height="22"></rect>
+                            <rect id="Rectangle-6-Copy-72" x="1.83333333" y="0" width="1" height="22"></rect>
+                            <rect id="Rectangle-6-Copy-73" x="3.66666667" y="0" width="1" height="22"></rect>
+                            <rect id="Rectangle-6-Copy-74" x="5.5" y="0" width="1" height="22"></rect>
+                            <rect id="Rectangle-6-Copy-75" x="7.33333333" y="0" width="1" height="22"></rect>
+                            <rect id="Rectangle-6-Copy-76" x="9.16666667" y="0" width="1" height="22"></rect>
+                            <rect id="Rectangle-6-Copy-77" x="11" y="0" width="1" height="22"></rect>
+                            <rect id="Rectangle-6-Copy-78" x="12.8333333" y="0" width="1" height="22"></rect>
+                            <rect id="Rectangle-6-Copy-79" x="14.6666667" y="0" width="1" height="22"></rect>
+                            <rect id="Rectangle-6-Copy-80" x="16.5" y="0" width="1" height="22"></rect>
+                            <rect id="Rectangle-6-Copy-81" x="18.3333333" y="0" width="1" height="22"></rect>
+                            <rect id="Rectangle-6-Copy-82" x="20.1666667" y="0" width="1" height="22"></rect>
+                            <rect id="Rectangle-6-Copy-83" x="0" y="0" width="22" height="1"></rect>
+                            <rect id="Rectangle-6-Copy-84" x="0" y="1.83333333" width="22" height="1"></rect>
+                            <rect id="Rectangle-6-Copy-85" x="0" y="3.66666667" width="22" height="1"></rect>
+                            <rect id="Rectangle-6-Copy-86" x="0" y="5.5" width="22" height="1"></rect>
+                            <rect id="Rectangle-6-Copy-87" x="0" y="7.33333333" width="22" height="1"></rect>
+                            <rect id="Rectangle-6-Copy-88" x="0" y="9.16666667" width="22" height="1"></rect>
+                            <rect id="Rectangle-6-Copy-89" x="0" y="11" width="22" height="1"></rect>
+                            <rect id="Rectangle-6-Copy-90" x="0" y="12.8333333" width="22" height="1"></rect>
+                            <rect id="Rectangle-6-Copy-91" x="0" y="14.6666667" width="22" height="1"></rect>
+                            <rect id="Rectangle-6-Copy-92" x="0" y="16.5" width="22" height="1"></rect>
+                            <rect id="Rectangle-6-Copy-93" x="0" y="18.3333333" width="22" height="1"></rect>
+                            <rect id="Rectangle-6-Copy-94" x="0" y="20.1666667" width="22" height="1"></rect>
+                        </g>
+                        <rect id="Rectangle-6-Copy-4" stroke-width="0.2" x="0" y="0" width="22" height="22"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="编组-2" transform="translate(3.384615, 2.692308)">
+                <path d="M7.93522263,-3.34843264e-13 C8.33198376,-3.34843264e-13 7.93522263,0.70495878 8.56767168,0.70495878 C9.20012073,0.70495878 8.56767168,2.55859357 7.93522263,3.49643395 C7.30277358,4.43427433 11.5301253,3.98076925 12.5631133,3.98076925 C13.2517719,3.98076925 14.0897085,4.75040715 15.076923,6.28968294 C15.076923,10.1282147 14.9393472,12.4793619 14.6641956,13.3431244 C14.3890441,14.206887 13.3443539,15.0668712 11.5301253,15.923077 L11.5301253,15.923077 L6.126007,15.923077 C3.5050631,15.4979923 1.89344032,15.2854499 1.29113867,15.2854499 C0.387686197,15.2854499 4.61852778e-13,11.3065335 4.61852778e-13,7.9615385 C4.61852778e-13,5.73154185 0.860759115,4.67000339 2.58227735,4.7769231 C3.36523673,4.51575775 3.90648202,4.25037313 4.20601321,3.98076925 C4.91498496,3.34263359 5.40544214,2.22207587 5.55465584,2.22207587 C5.92031823,2.22207587 7.5384615,-3.34843264e-13 7.93522263,-3.34843264e-13 Z M3.17408905,6.3692308 C2.73583881,6.3692308 2.38056679,6.73610677 2.38056679,7.18867121 L2.38056679,7.18867121 L2.38056679,13.5113289 L2.38590539,13.606893 C2.43174329,14.0144324 2.7671424,14.3307693 3.17408905,14.3307693 C3.6123393,14.3307693 3.96761132,13.9638933 3.96761132,13.5113289 L3.96761132,13.5113289 L3.96761132,7.18867121 L3.96227271,7.09310714 C3.91643481,6.68556773 3.58103571,6.3692308 3.17408905,6.3692308 Z" id="形状结合" fill="#FF392B"></path>
+                <g id="编组-4" transform="translate(0.000000, 0.000000)" stroke="#FF392B" stroke-width="2">
+                    <path d="M5.44168744,15.9143635 C2.44002479,15.9143635 2.93386448,15.9143635 6.92320651,15.9143635 C1.35503135,15.8240188 0.0936702935,16.900875 0.00347002619,10.045787 C0.00114690363,9.86923312 2.25597319e-13,9.68740551 2.25597319e-13,9.50014773 C2.25597319e-13,3.93838556 1.29650563,4.56318364 3.32092344,4.56318364 C4.39522391,3.81179826 4.73741075,3.45789396 5.18506128,2.88371919 C6.36973028,1.36421459 6.6048635,0.618191775 7.31955636,0.177868617 C8.03424922,-0.262454542 8.94198234,0.0051875359 8.39861308,2.23987324 C8.38499917,2.29586246 8.07633344,3.88343851 8,4.15584587" id="路径备份-6"></path>
+                    <path d="M5.57466063,15.9049359 L5.84150855,15.9049359 C11.3929525,15.9049359 14.8123832,16.5043409 15.1218699,11.538284 C15.1432459,11.1952824 15.1211932,9.15758502 15.1218699,8.85228446 C15.1347196,3.05469052 13.5560189,4.1693506 9.69035903,3.99079556 C9.61828309,3.98746636 9.60887156,3.98457777 9.53520639,3.98190045" id="路径备份-7" stroke-linecap="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
