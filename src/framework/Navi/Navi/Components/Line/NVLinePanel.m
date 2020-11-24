@@ -26,7 +26,7 @@
             [self updateTitle:nil];
         } else {
             [self applySpecToSelections:((NVLineCollectionItemView *) box).spec];
-            [self updateTitle:((NVLineCollectionItemView *) box).spec.specCode];
+            [self updateTitle:((NVLineCollectionItemView *) box).spec.code];
         }
     }];
     if (self.selections == nil) self.selections = @[];
@@ -52,10 +52,10 @@
         for (NSView *view in self.collectionView.subviews) {
             if ([view isKindOfClass:[NVToggleBox class]]) {
                 NVLineCollectionItemView *item = ((NVLineCollectionItemView *) view);
-                if ([item.spec.specCode isEqual:borderThicknessCode]) {
+                if ([item.spec.code isEqual:borderThicknessCode]) {
                     [indexPaths addObject:item.indexPath];
                     [self applyLine:item.spec.weight toLayer:layer];
-                    title = item.spec.specCode;
+                    title = item.spec.code;
                 }
             }
         }
@@ -74,7 +74,7 @@
         for (MSLayer *layer in self.selections) {
             NVUserInfo *info = [NVUserInfo fromLayer:layer];
             if ([NVLayer isShapePathLayer:layer] || [NVLayer isShape:layer]) {
-                info.borderThicknessCode = spec.specCode;
+                info.borderThicknessCode = spec.code;
                 [self applySpec:spec toLayer:layer];
             }
         }

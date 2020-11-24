@@ -42,9 +42,9 @@
     [self drawStyle];
     textField.stringValue = self.spec.text;
     CGFloat lineHeight = [((NSNumber *) self.spec.weight) doubleValue];
-    constraintHeight = [lineBox.heightAnchor constraintEqualToConstant: lineHeight];
+    constraintHeight = [lineBox.heightAnchor constraintEqualToConstant: lineHeight >= 1 ? lineHeight : 1];
     [lineBox addConstraint:constraintHeight];
-    self.toolTip = [NSString stringWithFormat:@"%@ - %@", self.spec.specCode, self.spec.desc];
+    self.toolTip = [NSString stringWithFormat:@"%@ - %@", self.spec.code, self.spec.cmeaning];
 }
 
 -(void)drawStyle {
@@ -64,7 +64,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
-    
+
     // Drawing code here.
 }
 

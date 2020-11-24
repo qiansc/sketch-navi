@@ -205,49 +205,93 @@ export class SpecData {
         });
         return arr;
     }
+    // getMaskSpec() {
+    //     let arr: any[] = [];
+    //     let exist: any = {};
+    //     SpecData.loadJSONData('/data/spec-baiduboxapp.json', this.assetsPath)
+    //         .data.forEach(function(item: any) {
+    //             let spec = item;
+    //             if (exist[spec.code]) {
+    //                 return;
+    //             }
+    //             if (!spec.code || spec.code.indexOf('Mask_X') === -1) {
+    //                 return;
+    //             }
+    //             spec.dim = [item.cclass, item.cmeaning];
+    //             exist[spec.code] = true;
+    //             arr.push(spec);
+    //         });
+    //     return arr;
+    // }
+    // getShadowSpec() {
+    //     let arr: any[] = [];
+    //     let exist: any = {};
+    //     SpecData.loadJSONData('/data/spec-baiduboxapp.json', this.assetsPath)
+    //         .data.forEach(function(item: any) {
+    //             let spec = item;
+    //             if (exist[spec.code]) {
+    //                 return;
+    //             }
+    //             if (!spec.code || spec.code.indexOf('S_O_X') === -1) {
+    //                 return;
+    //             }
+    //             spec.dim = [item.cclass, item.cmeaning];
+    //             exist[spec.code] = true;
+    //             const { h5, defaultValue } = spec;
+    //             arr.push({
+    //                 ...spec,
+    //                 x: h5.x,
+    //                 y: h5.y,
+    //                 size: h5.size,
+    //                 color: `#${defaultValue.color}`,
+    //                 opacity: defaultValue.opacity,
+    //             });
+    //         });
+    //     return arr;
+    // }
     getMaskSpec() {
-        let arr: any[] = [];
-        let exist: any = {};
-        SpecData.loadJSONData('/data/spec-baiduboxapp.json', this.assetsPath)
-            .data.forEach(function(item: any) {
-                let spec = item;
-                if (exist[spec.code]) {
-                    return;
+        const result =  SpecData.loadJSONData('/data/data.json', this.assetsPath)['mask']
+            .sort((a: any, b: any) => a.rowNumber - b.rowNumber)
+            .map((item: any) => {
+                const { code, cclass = '贴吧蒙层' } = item;
+                const cmeaning = (code as string).substr(2);
+                console.log('===   mask code: ', code);
+                return {
+                    ...item,
+                    cclass,
+                    cmeaning,
+                    elementCode: cmeaning,
+                    dim: [cclass, cmeaning],
                 }
-                if (!spec.code || spec.code.indexOf('Mask_X') === -1) {
-                    return;
-                }
-                spec.dim = [item.cclass, item.cmeaning];
-                exist[spec.code] = true;
-                arr.push(spec);
             });
-        return arr;
+            console.log('=== ', result)
+        return result;
     }
     getShadowSpec() {
-        let arr: any[] = [];
-        let exist: any = {};
-        SpecData.loadJSONData('/data/spec-baiduboxapp.json', this.assetsPath)
-            .data.forEach(function(item: any) {
-                let spec = item;
-                if (exist[spec.code]) {
-                    return;
-                }
-                if (!spec.code || spec.code.indexOf('S_O_X') === -1) {
-                    return;
-                }
-                spec.dim = [item.cclass, item.cmeaning];
-                exist[spec.code] = true;
-                const { h5, defaultValue } = spec;
-                arr.push({
-                    ...spec,
+        const result =  SpecData.loadJSONData('/data/data.json', this.assetsPath)['shadow']
+            .sort((a: any, b: any) => a.rowNumber - b.rowNumber)
+            .map((item: any) => {
+                const {
+                    cline, code, h5, color, opacity,
+                    cclass = '贴吧阴影'
+                } = item;
+                const cmeaning = (code as string).substr(2);
+                return {
+                    cline,
+                    code,
+                    cclass,
+                    cmeaning,
+                    elementCode: cmeaning,
                     x: h5.x,
                     y: h5.y,
+                    dim: [cclass, cmeaning],
                     size: h5.size,
-                    color: `#${defaultValue.color}`,
-                    opacity: defaultValue.opacity,
-                });
-            });
-        return arr;
+                    spread: h5.spread,
+                    opacity,
+                    color: `#${color}`,
+                };
+            })
+        return result;
     }
     getTBColor() {
         const exist: any = {};
@@ -292,6 +336,21 @@ export class SpecData {
         return arr;
 
     }
+    getLineSpec() {
+        const result =  SpecData.loadJSONData('/data/data.json', this.assetsPath)['line']
+            .sort((a: any, b: any) => a.rowNumber - b.rowNumber)
+            .map((item: any) => {
+                const { code, cmeaning, ios } = item;
+                return {
+                    code,
+                    weight: ios,
+                    text: ios,
+                    cmeaning,
+                    dim: ['默认'],
+                };
+            });
+        return result;
+    }
 }
 
 export function getSpecs(resourcesPath: string) {
@@ -304,19 +363,7 @@ export function getSpecs(resourcesPath: string) {
 
     return {
         Color: specData.getTBColor(), //getColorSpec(),
-        Line: [{
-            weight: '1', text: '1', specCode: 'L_X01', desc: 'L_X01', dim: ['默认'],
-        }, {
-            weight: '2', text: '2', specCode: 'L_X02', desc: 'L_X02', dim: ['默认'],
-        }, {
-            weight: '4', text: '4', specCode: 'L_X03', desc: 'L_X03', dim: ['默认'],
-        }, {
-            weight: '5', text: '5', specCode: 'L_X04', desc: 'L_X04', dim: ['默认'],
-        }, {
-            weight: '8', text: '8', specCode: 'L_X05', desc: 'L_X05', dim: ['默认'],
-        }, {
-            weight: '15', text: '15', specCode: 'L_X06', desc: 'L_X06', dim: ['默认'],
-        }],
+        Line: specData.getLineSpec(),
         Text: textSpec,
         Border: borderSpec,
         Grid: specData.getGridSpec(),
