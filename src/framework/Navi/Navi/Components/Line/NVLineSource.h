@@ -13,7 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 struct NVLineSpec {
-    NSString *weight; // 线条粗细
+    double weight; // 线条粗细
     NSString *code; // 编码
     NSString *cmeaning; // 语义化
     NSString *text; // 显示的文字

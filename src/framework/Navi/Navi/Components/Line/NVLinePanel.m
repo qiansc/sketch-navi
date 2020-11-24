@@ -85,10 +85,10 @@
     [self applyLine:spec.weight toLayer:layer];
 }
 
-- (void)applyLine:(NSString *) lineWeight toLayer:(MSLayer *) layer {
+- (void)applyLine:(double) lineWeight toLayer:(MSLayer *) layer {
     if ([NVLayer isShapePathLayer:layer] || [NVLayer isShape:layer]) {
         for (MSStyleBorder *border in layer.style.borders) {
-            border.thickness = [(NSNumber *)lineWeight doubleValue];
+            border.thickness = lineWeight;
         }
     }
 }
