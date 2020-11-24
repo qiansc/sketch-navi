@@ -7,6 +7,7 @@ import { SHEET_MAP, DATA_CONFIG } from './data-config';
 const ASSETS_PATH = path.join(__dirname, '..', 'assets');
 const DATA_SOURCE_PATH = path.join(ASSETS_PATH, 'table');
 const OUTPUT_PATH = path.join(ASSETS_PATH, 'data', 'data.json');
+const DEMO_PATH = path.join(ASSETS_PATH, 'example/data', 'demo.xlsx');
 
 const workbook = new Workbook();
 
@@ -50,7 +51,22 @@ async function loadDataFromTable(input: string, cline: string) {
     });
 }
 
+function mockData() {
+    if (!fs.existsSync(DATA_SOURCE_PATH)) {
+        fs.mkdirSync(DATA_SOURCE_PATH, { recursive: true });
+    }
+    const files = fs.readdirSync(DATA_SOURCE_PATH);
+    if (!files || files.length === 0) {
+        fs.writeFileSync(path.join(
+            DATA_SOURCE_PATH, 'demo.xlsx'),
+            fs.readFileSync(DEMO_PATH),
+            { flag: 'wx+'}
+        );
+    }
+}
+
 async function loadData() {
+    mockData();
     const result: Record<string, any> = {};
     const allData = fs.readdirSync(DATA_SOURCE_PATH).map(file => {
         const fileName = file.split('.')[0];
