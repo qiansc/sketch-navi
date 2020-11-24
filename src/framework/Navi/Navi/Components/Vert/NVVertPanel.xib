@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NVVertPanel">
+            <connections>
+                <outlet property="collectionView" destination="p6v-rQ-vyc" id="6QW-8V-klO"/>
+                <outlet property="headerView" destination="dzy-jd-Q1C" id="O75-hh-kZI"/>
+                <outlet property="modButton" destination="zct-2h-agP" id="Yi5-4S-SDp"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="dzy-jd-Q1C" customClass="NVPanelHeaderView">
+                    <rect key="frame" x="0.0" y="272" width="240" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="1xE-Wj-Jeb"/>
+                    </constraints>
+                </customView>
+                <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zct-2h-agP">
+                    <rect key="frame" x="169.5" y="277" width="51" height="16"/>
+                    <segmentedCell key="cell" controlSize="mini" borderStyle="border" alignment="left" style="capsule" trackingMode="selectAny" id="pdq-5d-S65">
+                        <font key="font" metaFont="label" size="9"/>
+                        <segments>
+                            <segment label="上"/>
+                            <segment label="下" tag="1"/>
+                        </segments>
+                    </segmentedCell>
+                </segmentedControl>
+                <collectionView allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6v-rQ-vyc" customClass="NVVertCollectionView">
+                    <rect key="frame" x="0.0" y="-1728" width="240" height="2000"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2000" id="hBa-tW-MMm"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="3" id="D9L-QD-hsl">
+                        <size key="itemSize" width="50" height="50"/>
+                    </collectionViewFlowLayout>
+                    <color key="primaryBackgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                </collectionView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="p6v-rQ-vyc" firstAttribute="top" secondItem="dzy-jd-Q1C" secondAttribute="bottom" id="7ih-hz-xFg"/>
+                <constraint firstAttribute="trailing" secondItem="zct-2h-agP" secondAttribute="trailing" constant="20" id="KYH-Zp-JHi"/>
+                <constraint firstItem="dzy-jd-Q1C" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="SUF-Uh-iEv"/>
+                <constraint firstItem="zct-2h-agP" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="7" id="Sk2-zE-RgE"/>
+                <constraint firstAttribute="trailing" secondItem="dzy-jd-Q1C" secondAttribute="trailing" id="Tbw-yD-t5N"/>
+                <constraint firstItem="dzy-jd-Q1C" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="YVu-JK-pm7"/>
+                <constraint firstItem="p6v-rQ-vyc" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="bhx-dl-p2w"/>
+                <constraint firstAttribute="trailing" secondItem="p6v-rQ-vyc" secondAttribute="trailing" id="plx-cW-VV7"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="154"/>
+        </customView>
+        <customObject id="Slc-N1-BoK" customClass="NVCollectionController">
+            <connections>
+                <outlet property="view" destination="p6v-rQ-vyc" id="rtT-o6-KtM"/>
+            </connections>
+        </customObject>
+    </objects>
+</document>

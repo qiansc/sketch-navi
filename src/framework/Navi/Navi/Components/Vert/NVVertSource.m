@@ -6,9 +6,9 @@
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "NVHoriSource.h"
+#import "NVVertSource.h"
 
-@implementation NVHoriSource{
+@implementation NVVertSource{
     NVSourceUpdateCallback updatedCallback;
     NSString *searchQuery;
     NSMutableDictionary *dims;
@@ -17,7 +17,7 @@
 }
 
 -(instancetype)init{
-    NVHoriSource *s = [super init];
+    NVVertSource *s = [super init];
     //    shapeMod = @"other";
     themeMod = @"default";
     updatedCallback = ^void {};
@@ -51,21 +51,21 @@
 }
 
 -(BOOL)filter:(NSDictionary*) specDict {
-    
+
     if (searchQuery == nil || searchQuery.length == 0) {
         return true;
     }
     for(NSString *dim in specDict[@"dim"]) {
         if ([dim containsString:searchQuery]) return true;
     }
-    NVHoriSpec spec = [NVHoriSource value:specDict];
-    
+    NVVertSpec spec = [NVVertSource value:specDict];
+
     if ([spec.code containsString:searchQuery]) {
         return true;
     } else if ([spec.elementCode containsString:searchQuery]) {
         return true;
     }
-    
+
     return false;
 }
 
@@ -74,7 +74,7 @@
 }
 
 - (void)setQuery:(NSString *) query {
-    
+
     searchQuery = query;
     [self update: specs];
     updatedCallback();
@@ -124,26 +124,26 @@
         return [s1[@"ios"] doubleValue] > [s2[@"ios"] doubleValue];
     }];
 }
--(NVHoriSpec)getSpecAt:(NSIndexPath *) indexPath{
+-(NVVertSpec)getSpecAt:(NSIndexPath *) indexPath{
     NSDictionary *dict = [self getSpecsIn:indexPath.section][indexPath.item];
-    return [NVHoriSource value: dict];
+    return [NVVertSource value: dict];
 }
 
--(NVHoriSpec)getSpecWithCode:(NSString *) code {
+-(NVVertSpec)getSpecWithCode:(NSString *) code {
     for (NSDictionary * dict in specs) {
         if ([dict[@"code"] isEqual:code]) {
-            return [NVHoriSource value: dict];
+            return [NVVertSource value: dict];
         }
     }
-    return [NVHoriSource value: nil];
+    return [NVVertSource value: nil];
 }
 
-+(NVHoriSpec)value:(NSDictionary*) specDict {
-    NVHoriSpec empty = {.code = nil };
++(NVVertSpec)value:(NSDictionary*) specDict {
+    NVVertSpec empty = {.code = nil };
     if (specDict == nil) {
         return empty;
     }
-    NVHoriSpec spec = {
+    NVVertSpec spec = {
         .code = specDict[@"code"],
         .cclass = specDict[@"cclass"],
         .cmeaning = specDict[@"cmeaning"],
@@ -154,7 +154,7 @@
         .h5 = [specDict[@"h5"] doubleValue],
         .scale = specDict[@"scale"],
         .pos = [specDict[@"pos"] intValue]
-        
+
     };
     return spec;
 }
@@ -168,7 +168,7 @@
 - (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath {
     NSString *itemId = [NSString stringWithFormat:@"Item-%hhd", self.semanticMode];
     return [collectionView makeItemWithIdentifier:itemId forIndexPath:indexPath];
-    
+
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(NSCollectionView *)collectionView {

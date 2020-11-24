@@ -166,11 +166,14 @@ static NSMutableDictionary *cache;
 -(void)setGridScaleCode:(NSString*)code {self.data[@"gridScaleCode"] = code;[self save];}
 
 
--(NSString *)marginType {return self.data[@"marginType"];}
--(void)setMarginType:(NSString*)code {self.data[@"marginType"] = code;[self save];}
-
 -(double)originWidth {return [self.data[@"originWidth"] doubleValue];}
 -(void)setOriginWidth:(double)code {self.data[@"originWidth"] = [NSString stringWithFormat:@"%f", code];[self save];}
+
+-(double)originHeight {return [self.data[@"originHeight"] doubleValue];}
+-(void)setOriginHeight:(double)code {self.data[@"originHeight"] = [NSString stringWithFormat:@"%f", code];[self save];}
+
+-(NSString *)marginType {return self.data[@"marginType"];}
+-(void)setMarginType:(NSString*)code {self.data[@"marginType"] = code;[self save];}
 
 -(NSString *)marginLeftCode {return self.data[@"marginLeftCode"];}
 -(void)setMarginLeftCode:(NSString*)code {
