@@ -418,7 +418,7 @@ export class SpecData {
                 return {
                     code,
                     weight: ios,
-                    text: ios,
+                    text: ios.toString(),
                     cmeaning,
                     dim: ['默认'],
                 };

@@ -48,7 +48,7 @@
 
 - (BOOL)filter:(NSDictionary *) specDict {
     NVLineSpec spec = [NVLineSource value:specDict];
-    return [spec.weight containsString:searchQuery] || [spec.cmeaning containsString: searchQuery] || [spec.code containsString:searchQuery] || [spec.text containsString:searchQuery];
+    return [spec.text containsString:searchQuery] || [spec.cmeaning containsString: searchQuery] || [spec.code containsString:searchQuery] || [spec.text containsString:searchQuery];
 }
 
 - (void)onUpdated:(NVSourceUpdateCallback) callback {
@@ -77,7 +77,7 @@
 - (NSArray<NSDictionary*>*)getSpecsIn:(long) section{
     NSString *dim = [self getDims][section];
     return  [dims[dim] sortedArrayUsingComparator: ^NSComparisonResult(NSDictionary* s1, NSDictionary* s2) {
-        return [s1[@"weight"] doubleValue] > [s2[@"weight"] doubleValue];
+        return s1[@"weight"] > s2[@"weight"];
     }];
 }
 
@@ -88,7 +88,7 @@
 
 + (NVLineSpec)value:(NSDictionary*) specDict {
     NVLineSpec spec = {
-        .weight = specDict[@"weight"],
+        .weight = [(NSNumber *)[specDict valueForKey:@"weight"] doubleValue],
         .code = specDict[@"code"],
         .cmeaning = specDict[@"cmeaning"],
         .text = specDict[@"text"],
