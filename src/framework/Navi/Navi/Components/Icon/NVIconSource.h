@@ -19,21 +19,7 @@ struct NVIconSpec {
     NSString *cclass;           // 标题基础模板
     NSString *cmeaning;         // 模块弱化标题
     NSString *elementCode;      //Txt_X010
-    double iosFont;             // 400,
-    double androidFont;         // 400,
-    double h5Font;              // 400,
-    double iosFontSize;         // 17,
-    double androidFontSize;     // 15,
-    double h5FontSize;          // 51,
-    NSString *camId;            //'CAM_X350',
-    NSString *defaultColor;
-    NSString *darkColor;
-    NSString *nightColor;
-
-//    defaultValue: { color: '000000', opacity: 1, rgba: '0, 0, 0, 1' },
-//    darkValue: { color: 'FFFFFF', opacity: 1, rgba: '255, 255, 255, 1' },
-//    nightValue: { color: '666666', opacity: 1, rgba: '102, 102, 102, 1' },
-//    dim: [ '标题基础模板', '模块弱化标题' ] } ]
+    NSString *svg;              //svg string
 
 };
 

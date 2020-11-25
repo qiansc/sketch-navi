@@ -707,8 +707,8 @@
 				A33C37F5256D1AEF0036F1DA /* MinItem */,
 				A33C37F3256D1AEF0036F1DA /* NVIconSource.h */,
 				A33C37EC256D1AEF0036F1DA /* NVIconSource.m */,
-				A33C37EA256D1AEF0036F1DA /* NVIconCollectionView.m */,
 				A33C37F1256D1AEF0036F1DA /* NVIconCollectionView.h */,
+				A33C37EA256D1AEF0036F1DA /* NVIconCollectionView.m */,
 			);
 			path = Icon;
 			sourceTree = "<group>";
@@ -717,8 +717,8 @@
 			isa = PBXGroup;
 			children = (
 				A33C37EE256D1AEF0036F1DA /* NVIconSemanticItem.xib */,
-				A33C37EF256D1AEF0036F1DA /* NVIconSemanticItemView.m */,
 				A33C37F0256D1AEF0036F1DA /* NVIconSemanticItemView.h */,
+				A33C37EF256D1AEF0036F1DA /* NVIconSemanticItemView.m */,
 			);
 			path = MaxItem;
 			sourceTree = "<group>";
@@ -726,8 +726,8 @@
 		A33C37F5256D1AEF0036F1DA /* MinItem */ = {
 			isa = PBXGroup;
 			children = (
-				A33C37F6256D1AEF0036F1DA /* NVIconCollectionItemView.h */,
 				A33C37F7256D1AEF0036F1DA /* NVIconCollectionItem.xib */,
+				A33C37F6256D1AEF0036F1DA /* NVIconCollectionItemView.h */,
 				A33C37F8256D1AEF0036F1DA /* NVIconCollectionItemView.m */,
 			);
 			path = MinItem;

@@ -122,7 +122,7 @@
 -(NSArray<NSDictionary*>*)getSpecsIn:(long) section{
     NSString *dim = [self getDims][section];
     return  [dims[dim] sortedArrayUsingComparator: ^NSComparisonResult(NSDictionary* s1, NSDictionary* s2) {
-        return [s1[@"iosFontSize"] doubleValue] < [s2[@"iosFontSize"] doubleValue];
+        return s1[@"code"] > s2[@"code"];
     }];
 }
 
@@ -133,20 +133,11 @@
 
 +(NVIconSpec)value:(NSDictionary*) specDict {
     NVIconSpec spec = {
-        .defaultColor = specDict[@"defaultValue"][@"color"],
-        .darkColor = specDict[@"darkValue"][@"color"],
-        .nightColor = specDict[@"nightValue"][@"color"],
-        //.alpha = [specDict[@"defaultValue"][@"opacity"] floatValue],
         .code = specDict[@"code"],
         .cclass = specDict[@"cclass"],
         .cmeaning = specDict[@"cmeaning"],
-        .iosFont = [specDict[@"iosFont"] doubleValue],
-        .androidFont = [specDict[@"androidFont"] doubleValue],
-        .h5Font = [specDict[@"h5Font"] doubleValue],
-        .iosFontSize = [specDict[@"iosFontSize"] doubleValue],
-        .androidFontSize = [specDict[@"androidFontSize"] doubleValue],
-        .h5FontSize = [specDict[@"h5FontSize"] doubleValue],
-        .elementCode = specDict[@"elementCode"]
+        .elementCode = specDict[@"elementCode"],
+        .svg = specDict[@"svg"],
 
     };
     return spec;

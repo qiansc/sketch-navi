@@ -60,13 +60,10 @@
         self.isLiveResize = YES;
         return NSMakeSize([self autoItemWithBetween:218 and:536], 31);
     } else {
-        self.isLiveResize = YES;
-        NVIconSpec spec = [self.dataSource getSpecAt:indexPath];
-        double size = 48/3;
-        // if (spec.iosFontSize > 78) {
-        //    size = 65/3;
-        // }
-        return NSMakeSize([self autoItemWithBetween:180 / 2 and: 200 ], size + 30);
+        self.isLiveResize = NO;
+        // NVIconSpec spec = [self.dataSource getSpecAt:indexPath];
+        double size = [self autoItemWithBetween:31 and: 62 ];
+        return NSMakeSize(size, size);
     }
 
 }

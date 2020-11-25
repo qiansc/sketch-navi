@@ -24,8 +24,8 @@
     view.cornerRadius = 3;
     view.wantsLayer = YES;
     for(NSView *v in view.subviews) {
-        if ([v.identifier isEqual:@"ItemTitle"]) itemTitle = v;
-        if ([v.identifier isEqual:@"ItemDesc"]) itemDesc = v;
+//        if ([v.identifier isEqual:@"ItemTitle"]) itemTitle = v;
+//        if ([v.identifier isEqual:@"ItemDesc"]) itemDesc = v;
     }
     return view;
 }
@@ -33,30 +33,10 @@
 -(void)setSpec:(NVIconSpec)fontSpec{
     _spec = fontSpec;
     [self drawStyle];
-
-    double size = 48/3;
-    // if (_spec.iosFontSize > 78) {
-    //    size = 65/3;
-    // }
-
-    itemTitle.stringValue = @"无极-贴吧";
-
-    NSDictionary *attr = itemTitle.font.fontDescriptor.fontAttributes;
-    if (fontSpec.iosFont > 500) {
-        [attr setValue:@"CTFontBoldUsage" forKey:@"NSCTFontUIUsageAttribute"];
-    } else {
-        [attr setValue:@"CTFontRegularUsage" forKey:@"NSCTFontUIUsageAttribute"];
-    }
-    NSFontDescriptor *fontDescriptor = [NSFontDescriptor fontDescriptorWithFontAttributes: attr];
-    NSFont *font = [NSFont fontWithDescriptor: fontDescriptor size: size];
-
-     [itemTitle setFont:font];
-    itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
-    itemDesc.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
+//    itemTitle.stringValue = @"无极-贴吧";
+//    itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
+//    itemDesc.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];
-    [self removeConstraint:cons];
-    cons = [self.heightAnchor constraintEqualToConstant: size + 30];
-    [self addConstraint:cons];
 }
 
 

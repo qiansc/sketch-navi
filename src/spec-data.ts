@@ -406,6 +406,7 @@ export class SpecData {
                     "cmeaning": "",
                     "elementCode":  "I_X" + id,
                     "svg": svg,
+                    "dim": ["默认"]
                 });
             }
         });
@@ -456,7 +457,7 @@ export function getSpecs(resourcesPath: string) {
         Mask: specData.getMaskSpec(),
         Hori: specData.getMarginSpec('M_H'),
         Vert: specData.getMarginSpec('M_W'),
-        Icon: [], // specData.getTBIcon(),
+        Icon: specData.getTBIcon(),
         Shadow: specData.getShadowSpec(),
     };
 }

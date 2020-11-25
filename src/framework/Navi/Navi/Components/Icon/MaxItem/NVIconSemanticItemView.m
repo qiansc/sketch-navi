@@ -33,20 +33,9 @@
     _spec = fontSpec;
     [self drawStyle];
 
-
-    NSDictionary *attr = itemTitle.font.fontDescriptor.fontAttributes;
-    if (fontSpec.iosFont > 500) {
-        [attr setValue:@"CTFontBoldUsage" forKey:@"NSCTFontUIUsageAttribute"];
-    } else {
-        [attr setValue:@"CTFontRegularUsage" forKey:@"NSCTFontUIUsageAttribute"];
-    }
-    NSFontDescriptor *fontDescriptor = [NSFontDescriptor fontDescriptorWithFontAttributes: attr];
-    NSFont *font = [NSFont fontWithDescriptor: fontDescriptor size: 10];
-
-    [itemTitle setFont:font];
-    itemTitle.stringValue = self.spec.cmeaning;
-    itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
-    itemDesc.stringValue = [NSString stringWithFormat:@"%i", (int)self.spec.iosFont];
+//    itemTitle.stringValue = self.spec.cmeaning;
+//    itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
+//    itemDesc.stringValue = [NSString stringWithFormat:@"%i", (int)self.spec.iosFont];
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];
 }
 
