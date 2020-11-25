@@ -4,6 +4,8 @@ export enum SPEC_ENUM {
     MASK = 'mask',
     SHADOW = 'shadow',
     LINE = 'line',
+    MARGIN = 'margin',
+    GRID = 'grid',
 }
 
 function arrayHandler(data: string, refMap?: Record<string, unknown>, seperator: string | RegExp = /,|，/) {
@@ -191,6 +193,111 @@ export const DATA_CONFIG = {
         5: {
             key: 'cmeaning'
         },
+    },
+    [SPEC_ENUM.MARGIN]: {
+        1: {
+            key: 'code'
+        },
+        2: {
+            key: 'ios',
+            transformer: (data: string) => Number(data)
+        },
+        3: {
+            key: 'android',
+            transformer: (data: string) => Number(data)
+        },
+        4: {
+            key: 'h5',
+            transformer: (data: string) => Number(data)
+        },
+        5: {
+            key: 'cclass'
+        },
+        6: {
+            key: 'cmeaning'
+        },
+        7: {
+            key: 'desc'
+        },
+        8: {
+            key: 'up',
+            transformer: (data: string) => Number(data)
+        },
+        9: {
+            key: 'down',
+            transformer: (data: string) => Number(data)
+        },
+        10: {
+            key: 'left',
+            transformer: (data: string) => Number(data)
+        },
+        11: {
+            key: 'right',
+            transformer: (data: string) => Number(data)
+        },
+        afterRow(row: any) {
+            if (row.up && row.down) {
+                row.pos = 20;
+            } else if (row.left && row.right) {
+                row.pos = 31;
+            } else if (row.up) {
+                row.pos = 0;
+            } else if (row.down) {
+                row.pos = 2;
+            } else if (row.left) {
+                row.pos = 3;
+            } else if (row.right) {
+                row.pos = 1;
+            }
+            row.elementCode = `${row.cline[0]}_${row.code}`;
+            // row.cclass = '';
+            // row.cmeaning = '';
+            // row.desc = '';
+            if (!row.desc) {
+                row.desc = row.ios.toString();
+            }
+            if (!row.dim || !row.dim.length) {
+                row.dim = ['默认'];
+            }
+            delete row.up;
+            delete row.down;
+            delete row.left;
+            delete row.right;
+            return row;
+        }
+    },
+    [SPEC_ENUM.GRID]: {
+        1: {
+            key: 'code'
+        },
+        2: {
+            key: 'cclass'
+        },
+        3: {
+            key: 'cmeaing'
+        },
+        4: {
+            key: 'desc'
+        },
+        5: {
+            key: 'ios',
+            transformer: (data: string) => Number(data)
+        },
+        6: {
+            key: 'android',
+            transformer: (data: string) => Number(data)
+        },
+        7: {
+            key: 'h5',
+            transformer: (data: string) => Number(data)
+        },
+        afterRow(row: any) {
+            row.elementCode = `${row.cline[0]}_${row.code}`;
+            if (!row.dim || !row.dim.length) {
+                row.dim = ['默认'];
+            }
+            return row;
+        }
     }
 };
 
@@ -200,4 +307,6 @@ export const SHEET_MAP: Record<string, SPEC_ENUM> = {
     'Shadow': SPEC_ENUM.SHADOW,
     'Mask': SPEC_ENUM.MASK,
     'Line': SPEC_ENUM.LINE,
+    'Margin': SPEC_ENUM.MARGIN,
+    'Grid': SPEC_ENUM.GRID,
 };

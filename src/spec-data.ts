@@ -205,6 +205,7 @@ export class SpecData {
         });
         return arr;
     }
+    /*
     getGridSpec() {
         let file = `/data/spec-baiduboxapp.json`;
         let json: any = {};
@@ -231,6 +232,7 @@ export class SpecData {
         });
         return arr;
     }
+    /*
     getMarginSpec(prefix: string = 'M_L') {
         let file = `/data/spec-baiduboxapp.json`;
         let json: any = {};
@@ -257,6 +259,7 @@ export class SpecData {
         });
         return arr;
     }
+    */
     // getMaskSpec() {
     //     let arr: any[] = [];
     //     let exist: any = {};
@@ -307,7 +310,6 @@ export class SpecData {
             .map((item: any) => {
                 const { code, cclass = '贴吧蒙层' } = item;
                 const cmeaning = (code as string).substr(2);
-                console.log('===   mask code: ', code);
                 return {
                     ...item,
                     cclass,
@@ -316,7 +318,6 @@ export class SpecData {
                     dim: [cclass, cmeaning],
                 }
             });
-            console.log('=== ', result)
         return result;
     }
     getShadowSpec() {
@@ -423,6 +424,18 @@ export class SpecData {
                     dim: ['默认'],
                 };
             });
+        return result;
+    }
+
+    getGridSpec() {
+        const result =  SpecData.loadJSONData('/data/data.json', this.assetsPath)['grid']
+            .sort((a: any, b: any) => a.rowNumber - b.rowNumber)
+        return result;
+    }
+    getMarginSpec(prefix: string = 'M_L') {
+        const result =  SpecData.loadJSONData('/data/data.json', this.assetsPath)['margin']
+            .filter((item: any) => item.code.indexOf(prefix) >= 0)
+            .sort((a: any, b: any) => a.rowNumber - b.rowNumber)
         return result;
     }
 }
