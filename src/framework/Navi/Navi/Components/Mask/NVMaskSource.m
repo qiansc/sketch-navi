@@ -81,6 +81,7 @@
         .cclass = specDict[@"cclass"],
         .cmeaning = specDict[@"cmeaning"],
         .direction = specDict[@"direction"],
+        .index = [(NSNumber * )specDict[@"rowNumber"] doubleValue],
         .from = [MaskPoint new],
         .to = [MaskPoint new],
         .stops = [NSMutableArray new],
@@ -136,7 +137,7 @@
 - (NSArray<NSDictionary*>*)getSpecsIn:(long) section{
     NSString *dim = [self getDims][section];
     return  [dims[dim] sortedArrayUsingComparator: ^NSComparisonResult(NSDictionary* s1, NSDictionary* s2) {
-        return s1[@"code"] > s2[@"code"];
+        return s1[@"index"] > s2[@"index"];
     }];
 }
 
