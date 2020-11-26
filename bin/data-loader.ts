@@ -68,7 +68,7 @@ function mockData() {
 async function loadData() {
     mockData();
     const result: Record<string, any> = {};
-    const allData = fs.readdirSync(DATA_SOURCE_PATH).map(file => {
+    const allData = fs.readdirSync(DATA_SOURCE_PATH).filter(file => file.indexOf('.xlsx') >= 0).map(file => {
         const fileName = file.split('.')[0];
         const input = path.join(DATA_SOURCE_PATH, file);
         return loadDataFromTable(input, fileName);
