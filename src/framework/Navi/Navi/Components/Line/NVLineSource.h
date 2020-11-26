@@ -17,6 +17,7 @@ struct NVLineSpec {
     NSString *code; // 编码
     NSString *cmeaning; // 语义化
     NSString *text; // 显示的文字
+    double index; // 排序
 };
 
 typedef struct NVLineSpec NVLineSpec;

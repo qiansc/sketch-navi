@@ -38,6 +38,7 @@
 
 - (void)setSpec:(NVShadowSpec) newSpec {
     _spec = newSpec;
+    self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code , self.spec.cmeaning];
     [self drawStyle];
 }
 

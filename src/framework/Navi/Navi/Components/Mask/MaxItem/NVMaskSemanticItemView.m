@@ -38,6 +38,7 @@
 
 - (void)setSpec:(NVMaskSpec)maskSpec{
     _spec = maskSpec;
+    self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code , self.spec.cmeaning];
     [self drawStyle];
 }
 

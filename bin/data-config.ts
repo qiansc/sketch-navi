@@ -251,8 +251,12 @@ export const DATA_CONFIG = {
             }
             row.elementCode = `${row.cline[0]}_${row.code}`;
             // row.cclass = '';
-            // row.cmeaning = '';
-            // row.desc = '';
+            if (!row.cmeaning) {
+                row.cmeaning = row.ios;
+            }
+            if (!row.desc) {
+                row.desc = row.ios;
+            }
             if (!row.desc) {
                 row.desc = row.ios.toString();
             }
@@ -274,7 +278,7 @@ export const DATA_CONFIG = {
             key: 'cclass'
         },
         3: {
-            key: 'cmeaing'
+            key: 'cmeaning'
         },
         4: {
             key: 'desc'
@@ -295,6 +299,9 @@ export const DATA_CONFIG = {
             key: 'scale'
         },
         afterRow(row: any) {
+            if (!row.cmeaning) {
+                row.cmeaning = row.ios || row.h5 || row.android;
+            }
             row.elementCode = `${row.cline[0]}_${row.code}`;
             if (!row.dim || !row.dim.length) {
                 row.dim = [row.cclass];
