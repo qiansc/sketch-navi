@@ -77,7 +77,7 @@
 - (NSArray<NSDictionary*>*)getSpecsIn:(long) section{
     NSString *dim = [self getDims][section];
     return  [dims[dim] sortedArrayUsingComparator: ^NSComparisonResult(NSDictionary* s1, NSDictionary* s2) {
-        return s1[@"weight"] > s2[@"weight"];
+        return s1[@"index"] > s2[@"index"];
     }];
 }
 
@@ -92,6 +92,7 @@
         .code = specDict[@"code"],
         .cmeaning = specDict[@"cmeaning"],
         .text = specDict[@"text"],
+        .index = [(NSNumber *)[specDict valueForKey:@"rowNumber"] doubleValue]
     };
     return spec;
 }
