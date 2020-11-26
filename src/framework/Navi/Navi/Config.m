@@ -83,12 +83,12 @@
         @"icon": @"Mask",
         @"gravity": @1,
         @"type": @"PANEL"
-    }, @{
-        @"name": @"图标",
-        @"id": @"Icon",
-        @"icon": @"Icon",
-        @"gravity": @1,
-        @"type": @"PANEL"
+//    }, @{
+//        @"name": @"图标",
+//        @"id": @"Icon",
+//        @"icon": @"Icon",
+//        @"gravity": @1,
+//        @"type": @"PANEL"
 //    }, @{
 //        @"name": @"切换",
 //        @"id": @"Artboard",

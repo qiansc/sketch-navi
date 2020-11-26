@@ -34,11 +34,21 @@
         }else{
             NVVertSpec spec = ((NVVertCollectionItemView *)box).spec;
             if ([(MSLayerArray *)self.selections layerAtIndex:1] == nil) {
-                if ([spec.code isNotEqualTo:se.code]) {
-                    [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"请选择2个图层再进行操作！"]];
+                MSLayerArray *firstLayer = [(MSLayerArray *)self.selections layerAtIndex:0];
+                if (firstLayer == nil || [NVUserInfo fromLayer:firstLayer].marginTopTarget == nil) {
+                    if ([spec.code isNotEqualTo:se.code]) {
+                        [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"请选择2个图层再进行操作！"]];
+                    }
+                    [self restoreActive];
+                    return;
+                } else {
+                    if ([spec.code isNotEqualTo:se.code]) {
+                        [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"保持目标不变，改变间距值"]];
+                    }
+                    NSLog(@"### selectionTarget %@", [self selectionTarget]);
+                    return;
                 }
-                [self restoreActive];
-                return;
+
             }
 
 
@@ -54,6 +64,25 @@
     [self.modButton setTarget:self];
     [self.modButton setAction:@selector(modChange:)];
     [self updateTitle];
+}
+
+-(MSLayer*)selectionTarget {
+    MSLayer *firstLayer = [(MSLayerArray *)self.selections layerAtIndex:0];
+    MSLayer *secondLayer = [(MSLayerArray *)self.selections layerAtIndex:1];
+    if (secondLayer) {
+        return firstLayer;
+    }
+    NVUserInfo *info = [NVUserInfo fromLayer:firstLayer];
+    if (info.marginTopTarget || info.marginBottomTarget) {
+        NSLog(@"### info.marginTopTarget %@", info.marginTopTarget);
+        
+        MSDocument *document = [[NSDocumentController sharedDocumentController] currentDocument];
+        NSLog(@"### document.documentData %@", document.documentData);
+        NSLog(@"### getLayerWithID %@", [document.documentData layersByObjectID:info.marginTopTarget]);
+        return nil;
+    } else {
+        return nil;
+    }
 }
 
 -(void)modChange:(NSSegmentedControl*) button{
@@ -195,30 +224,32 @@
             layer = [self.selections layerAtIndex:0];
         }
         if ([NVLayer isShape:layer]) {
-            [NVUserInfo fromLayer:layer].marginTopCode = nil;
-            [NVUserInfo fromLayer:layer].marginBottomCode = nil;
-            [NVUserInfo fromLayer:layer].marginTopTarget = nil;
-            [NVUserInfo fromLayer:layer].marginBottomTarget = nil;
+            NVUserInfo *info = [NVUserInfo fromLayer:layer];
+            info.marginTopCode = nil;
+            info.marginBottomCode = nil;
+            info.marginTopTarget = nil;
+            info.marginBottomTarget = nil;
+//            if (target)
             switch (pos) {
                 case 3:
-                    [NVUserInfo fromLayer:layer].marginTopCode = spec.code;
-                    [NVUserInfo fromLayer:layer].marginTopTarget = target.objectID;
+                    info.marginTopCode = spec.code;
+                    info.marginTopTarget = target.objectID;
                     break;
                 case 1:
-                    [NVUserInfo fromLayer:layer].marginBottomCode = spec.code;
-                    [NVUserInfo fromLayer:layer].marginBottomTarget = target.objectID;
+                    info.marginBottomCode = spec.code;
+                    info.marginBottomTarget = target.objectID;
                     break;
                 case 31:
-                    [NVUserInfo fromLayer:layer].marginTopCode = spec.code;
-                    [NVUserInfo fromLayer:layer].marginBottomCode = spec.code;
-                    [NVUserInfo fromLayer:layer].marginTopTarget = target.objectID;
-                    [NVUserInfo fromLayer:layer].marginBottomTarget = target.objectID;
+                    info.marginTopCode = spec.code;
+                    info.marginBottomCode = spec.code;
+                    info.marginTopTarget = target.objectID;
+                    info.marginBottomTarget = target.objectID;
                     break;
                 default:
                     break;
             }
             if (target) {
-                [NVUserInfo fromLayer:layer].marginType = [NSString stringWithFormat:@"%d",
+                info.marginType = [NSString stringWithFormat:@"%d",
                 [self relationOf:layer and:target]];
             }
         }
@@ -351,6 +382,23 @@
         MSLayer * target = [self.selections layerAtIndex:0];
         MSLayer * layer = [self.selections layerAtIndex:1];
         layer.frame.y = (target.frame.y - layer.frame.height) - se.ios;
+    }
+}
+
+-(void)onPaste:(NSArray<MSLayer *> *)layers {
+    NSMutableDictionary *mapper = [NSMutableDictionary new];
+    for(MSLayer *layer in layers) {
+        NSString *oldKey = [NVUserInfo fromLayer:layer].objectID;
+        if ([oldKey isNotEqualTo:layer.objectID]) {
+            [mapper setValue:layer.objectID forKey:oldKey];
+        }
+    }
+    for(MSLayer *layer in layers) {
+        NVUserInfo *info = [NVUserInfo fromLayer:layer];
+        if (info.marginTopTarget && mapper[info.marginTopTarget])
+            info.marginTopTarget =  mapper[info.marginTopTarget];
+        if (info.marginBottomTarget && mapper[info.marginBottomTarget])
+            info.marginBottomTarget =  mapper[info.marginBottomTarget];
     }
 }
 

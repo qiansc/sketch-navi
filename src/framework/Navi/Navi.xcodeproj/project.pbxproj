@@ -332,6 +332,8 @@
 		A300365E253870F40093395D /* NVMaskPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVMaskPanel.xib; sourceTree = "<group>"; };
 		A3003662253873300093395D /* CustomScroller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomScroller.h; sourceTree = "<group>"; };
 		A3003663253873300093395D /* CustomScroller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomScroller.m; sourceTree = "<group>"; };
+		A31812C4256F98CC00E74A33 /* MSPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSPage.h; sourceTree = "<group>"; };
+		A31812C5256F9F5100E74A33 /* MSDocumentData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSDocumentData.h; sourceTree = "<group>"; };
 		A32ED9922511D4E100EBCE68 /* Menu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		A32ED9932511D4E100EBCE68 /* Menu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		A33C37E5256CCD140036F1DA /* SKUBezierPath+SVG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKUBezierPath+SVG.h"; sourceTree = "<group>"; };
@@ -1041,6 +1043,8 @@
 			isa = PBXGroup;
 			children = (
 				A3EE0FE5254059E900C3998D /* MSDocument.h */,
+				A31812C5256F9F5100E74A33 /* MSDocumentData.h */,
+				A31812C4256F98CC00E74A33 /* MSPage.h */,
 				A36DBA892546DDCB00822312 /* MSLayerArray.h */,
 				A3EE0FE625405AEE00C3998D /* MSLayer.h */,
 				A3EE0FE72540612E00C3998D /* MSStyle.h */,

@@ -122,7 +122,7 @@ export class SpecData {
         for(var i = 1; i< 11; i++) {
             let newData = JSON.parse(JSON.stringify(data));
             newData.cmeaning = newData.code = newData.elementCode = i>9 ? `T_X${i}` : `T_X0${i}`;
-            newData.iosFontSize =  [0,88,73,57,52,44,42,39,34,31,26][i];
+            newData.iosFontSize =  [0,34,28,22,20,17,16,15,13,12,10][i];
             newData.androidFontSize =  [0,88,73,57,52,44,42,39,34,31,26][i];
             newData.h5FontSize =  [0,34,28,22,20, 17, 16 ,15,13,12,10][i];
             arr.push(newData);

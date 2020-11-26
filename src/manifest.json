@@ -11,7 +11,9 @@
           "run": "onStart",
           "actions": {
             "OpenDocument": "onOpenDocument",
-            "SelectionChanged" : "onSelectionChanged"
+            "SelectionChanged" : "onSelectionChanged",
+            "Copy.begin": "beforeCopy",
+            "Paste": "onPaste"
           }
         }
     }

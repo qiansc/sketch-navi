@@ -40,7 +40,10 @@ static NSMutableDictionary *cache;
     // [super init];
     _layer = layer;
     if (layer.userInfo == nil || layer.userInfo[@"com.baidu.navi"] == nil) {
+
         self.data = [NSMutableDictionary new];
+        self.data[@"objectID"] = _layer.objectID;
+        
         self.data[@"style"] = [NSMutableDictionary new];
         
         self.data[@"style"][@"fills"] = [NSMutableArray new];
@@ -61,6 +64,13 @@ static NSMutableDictionary *cache;
         self.data = [layer.userInfo[@"com.baidu.navi"] mutableCopy];
     }
     return self;
+}
+
+-(NSString*)objectID { return self.data[@"objectID"]; }
+-(void)updateObjectID {
+    // 复制的情况下会发生不一致情况
+    self.data[@"objectID"] = _layer.objectID;
+    [self save];
 }
 
 #pragma mark Text

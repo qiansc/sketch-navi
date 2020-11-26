@@ -15,7 +15,6 @@
 
     [[self nextResponder] scrollWheel:theEvent];
     [[self nextResponder] scrollWheel:theEvent];
-    // NSLog(@"### DisabledWheelScrollView", self.frame.size.height);
 
 }
 

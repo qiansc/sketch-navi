@@ -18,6 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)fromLayer:(MSLayer*) layer;
 -(void)save;
 
+@property (nonatomic, strong) NSString *objectID;
+
+-(void)updateObjectID;
+
 #pragma mark Text
 @property (nonatomic, strong) NSString *textCode; // 文本（复合）
 @property (nonatomic, strong) NSString *fontCode; // 字体

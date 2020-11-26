@@ -32,7 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)generateWithDocumentId:(NSString*) documentId;
 - (void)updateSpec:(NSDictionary *) object;
 - (void)selectionChange;
--(void)scrollToPanel:(NSString *)panelId;
+- (void)onPaste;
+- (void)beforeCopy;
+- (void)scrollToPanel:(NSString *)panelId;
 
 
 @end

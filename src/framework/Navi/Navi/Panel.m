@@ -26,6 +26,7 @@
 #import "NVSource.h"
 #import "NVColor.h"
 #import "NVShadowPanel.h"
+#import "NVUserInfo.h"
 
 @implementation Panel {
     int limitWidth;
@@ -157,6 +158,25 @@
         [c selectionChange: document.selectedLayers];
     }
 }
+
+- (void)onPaste {
+    MSDocument *document = [[NSDocumentController sharedDocumentController] currentDocument];
+    for(NVPanel *c in [panelControllers allValues]){
+        [c onPaste: document.selectedLayers];
+    }
+    for(MSLayer *layer in document.selectedLayers) {
+        [[NVUserInfo fromLayer:layer] updateObjectID];
+    }
+    
+}
+
+- (void)beforeCopy {
+    MSDocument *document = [[NSDocumentController sharedDocumentController] currentDocument];
+    for(MSLayer *layer in document.selectedLayers) {
+        [[NVUserInfo fromLayer:layer] updateObjectID];
+    }
+}
+
 
 + (instancetype)generateWithDocumentId:(NSString*) documentId {
     Panel* panel = [self viewControllerFromNIB];

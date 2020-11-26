@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (int)height; // 插件展开高度算法，需要自行子类实现
 - (void)resetConstraint;
 - (void)selectionChange:(NSArray<MSLayer*>*) layers;
+- (void)onPaste:(NSArray<MSLayer*>*) layers;
 
 @end
 

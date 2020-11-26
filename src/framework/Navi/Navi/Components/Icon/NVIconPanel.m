@@ -140,13 +140,11 @@
       if( currentWeight >= weight )
       {
          [manager convertWeight:NO ofFont:font];
-         NSLog(@"### font3 NO");
          currentWeight--;
       }
       else
       {
           [manager convertWeight:YES ofFont:font];
-          NSLog(@"### font3 YES");
           currentWeight++;
       }
    }

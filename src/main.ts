@@ -21,8 +21,13 @@ export function onOpenDocument(){
 }
 
 export function onSelectionChanged(context: any) {
-    NVApp.currentApp().selectionChange();
-    // var documentId = context.actionContext.document.hash().toString();
-    // const threadDictionary = NSThread.mainThread().threadDictionary();
+    NVApp.currentApp()?.selectionChange();
 }
 
+export function beforeCopy(){
+    NVApp.currentApp()?.beforeCopy();
+}
+
+export function onPaste(){
+    NVApp.currentApp()?.onPaste();
+}

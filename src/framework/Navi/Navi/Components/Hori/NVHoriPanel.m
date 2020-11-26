@@ -354,4 +354,21 @@
     }
 }
 
+-(void)onPaste:(NSArray<MSLayer *> *)layers {
+    NSMutableDictionary *mapper = [NSMutableDictionary new];
+    for(MSLayer *layer in layers) {
+        NSString *oldKey = [NVUserInfo fromLayer:layer].objectID;
+        if ([oldKey isNotEqualTo:layer.objectID]) {
+            [mapper setValue:layer.objectID forKey:oldKey];
+        }
+    }
+    for(MSLayer *layer in layers) {
+        NVUserInfo *info = [NVUserInfo fromLayer:layer];
+        if (info.marginLeftTarget && mapper[info.marginLeftTarget])
+            info.marginLeftTarget =  mapper[info.marginLeftTarget];
+        if (info.marginRightTarget && mapper[info.marginRightTarget])
+            info.marginRightTarget =  mapper[info.marginRightTarget];
+    }
+}
+
 @end

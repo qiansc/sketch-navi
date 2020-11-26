@@ -62,7 +62,7 @@
     } else {
         self.isLiveResize = NO;
         // NVIconSpec spec = [self.dataSource getSpecAt:indexPath];
-        double size = [self autoItemWithBetween:31 and: 62 ];
+        double size = [self autoItemWithBetween:28 and: 48 ];
         return NSMakeSize(size, size);
     }
 

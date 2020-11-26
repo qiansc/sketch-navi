@@ -112,4 +112,12 @@
     [navi.panelView.controller selectionChange];
 }
 
+-(void)onPaste{
+    [navi.panelView.controller onPaste];
+}
+
+-(void)beforeCopy{
+    [navi.panelView.controller beforeCopy];
+}
+
 @end

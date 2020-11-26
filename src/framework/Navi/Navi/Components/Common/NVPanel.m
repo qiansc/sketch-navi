@@ -106,6 +106,10 @@
     // do sth
 }
 
+- (void)onPaste:(NSArray<MSLayer*>*) layers {
+    // do sth
+}
+
 - (void)viewDidLayout{
     [super viewDidLayout];
     [self resetConstraint];

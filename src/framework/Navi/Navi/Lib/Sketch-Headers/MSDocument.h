@@ -7,11 +7,15 @@
 //
 
 #import "MSLayer.h"
+#import "MSPage.h"
+#import "MSDocumentData.h"
 
 @interface MSDocument: NSDocument
 
 @property (nonatomic, strong) NSArray *selectedLayers;
 @property (nonatomic, strong) NSWindow *documentWindow;
+@property (readonly, strong) NSArray<MSPage*> *pages;
+@property (readonly, strong) MSDocumentData *documentData;
 
 -(void)showMessage:(NSString *) text;
 

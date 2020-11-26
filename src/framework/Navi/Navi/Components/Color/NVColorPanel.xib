@@ -37,9 +37,9 @@
                     </segmentedCell>
                 </segmentedControl>
                 <collectionView allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDf-sA-fgd" customClass="NVColorCollectionView">
-                    <rect key="frame" x="0.0" y="-1730" width="240" height="2000"/>
+                    <rect key="frame" x="0.0" y="-3730" width="240" height="4000"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="2000" id="QsU-QC-QTO"/>
+                        <constraint firstAttribute="height" constant="4000" id="QsU-QC-QTO"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="3" id="wWt-5n-rR2">
                         <size key="itemSize" width="50" height="50"/>

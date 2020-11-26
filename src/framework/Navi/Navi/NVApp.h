@@ -29,9 +29,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(instancetype)prepareInit;
 +(instancetype)currentApp;
-- (void)viewWillLayout;
+-(void)viewWillLayout;
 -(void)toggle;
-
+-(void)selectionChange;
+-(void)onPaste;
+-(void)beforeCopy;
 
 @end
 
