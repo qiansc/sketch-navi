@@ -41,7 +41,7 @@
                 .cclass = spec.cclass,
             };
 
-            if ([spec.cclass isEqual:@"比例"]) {
+            if ([spec.cclass containsString:@"比例"]) {
                 if ([scaleSpec.code isEqual:spec.code]) {
                     [box setBased];
                     scaleSpec.code = nil;
@@ -128,7 +128,7 @@
     if (self.selections) {
         for(MSLayer *layer in self.selections) {
             if (![NVLayer isShape:layer]) continue;
-            if ([spec.cclass isEqual:@"比例"]) {
+            if ([spec.cclass containsString:@"比例"]) {
                 [NVUserInfo fromLayer:layer].gridScaleCode = spec.code;
                 [self applyScale:spec.scale toLayer:layer];
             } else {

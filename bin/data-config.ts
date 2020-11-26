@@ -291,10 +291,13 @@ export const DATA_CONFIG = {
             key: 'h5',
             transformer: (data: string) => Number(data)
         },
+        8: {
+            key: 'scale'
+        },
         afterRow(row: any) {
             row.elementCode = `${row.cline[0]}_${row.code}`;
             if (!row.dim || !row.dim.length) {
-                row.dim = ['默认'];
+                row.dim = [row.cclass];
             }
             return row;
         }
