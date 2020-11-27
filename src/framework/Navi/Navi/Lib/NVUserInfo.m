@@ -199,29 +199,13 @@ static NSMutableDictionary *cache;
 -(void)setMarginType:(NSString*)code {self.data[@"marginType"] = code;[self save];}
 
 -(NSString *)marginLeftCode {return self.data[@"marginLeftCode"];}
--(void)setMarginLeftCode:(NSString*)code {
-    self.data[@"marginLeftCode"] = code;
-    if (code == nil) self.data[@"marginLeftTarget"] = nil;
-    [self save];
-}
+-(void)setMarginLeftCode:(NSString*)code {self.data[@"marginLeftCode"] = code;[self save];}
 -(NSString *)marginRightCode {return self.data[@"marginRightCode"];}
--(void)setMarginRightCode:(NSString*)code {
-    self.data[@"marginRightCode"] = code;
-    if (code == nil) self.data[@"marginRightTarget"] = nil;
-    [self save];
-}
+-(void)setMarginRightCode:(NSString*)code {self.data[@"marginRightCode"] = code;[self save];}
 -(NSString *)marginTopCode {return self.data[@"marginTopCode"];}
--(void)setMarginTopCode:(NSString*)code {
-    self.data[@"marginTopCode"] = code;
-    if (code == nil) self.data[@"marginTopTarget"] = nil;
-    [self save];
-}
+-(void)setMarginTopCode:(NSString*)code {self.data[@"marginTopCode"] = code;[self save];}
 -(NSString *)marginBottomCode {return self.data[@"marginBottomCode"];}
--(void)setMarginBottomCode:(NSString*)code {
-    self.data[@"marginBottomCode"] = code;
-    if (code == nil) self.data[@"marginBottomTarget"] = nil;
-    [self save];
-}
+-(void)setMarginBottomCode:(NSString*)code {self.data[@"marginBottomCode"] = code;[self save];}
 
 -(NSString *)marginLeftTarget {return self.data[@"marginLeftTarget"];}
 -(void)setMarginLeftTarget:(NSString*)code {self.data[@"marginLeftTarget"] = code;[self save];}

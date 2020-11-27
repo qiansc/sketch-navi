@@ -10,6 +10,4 @@
 
 @interface MSPage: NSObject
 
-- (MSLayerArray *)layersByObjectID;
-
 @end

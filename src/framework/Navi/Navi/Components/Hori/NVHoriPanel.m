@@ -28,37 +28,69 @@
     }];
 
     [self.collectionView.toggleDelegate onChange:^(NVToggleBox * box) {
-        // 选择变化时 应用到selections 且改更新title
-        if (box == nil) {
-            [self updateTitle];
-        }else{
-            NVHoriSpec spec = ((NVHoriCollectionItemView *)box).spec;
-            if ([(MSLayerArray *)self.selections layerAtIndex:1] == nil) {
-                if ([spec.code isNotEqualTo:se.code]) {
-                    [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"请选择2个图层再进行操作！"]];
-                }
-                [self restoreActive];
-                return;
-            }
-
-            
-            if (![spec.code isEqual:se.code]) {
-                pos = 0;
-            }
-            se = spec;
-            [self nextPos];
-            [self applySpecToSelections: se];
-            [self updateTitle];
-        }
-    }];
-    [self.modButton setTarget:self];
-    [self.modButton setAction:@selector(modChange:)];
-    [self updateTitle];
+           // 选择变化时 应用到selections 且改更新title
+           if (box == nil) {
+               [self updateTitle];
+           }else{
+               NVHoriSpec spec = ((NVHoriCollectionItemView *)box).spec;
+               MSLayer *target = [self selectionTarget];
+               MSLayer *layer = [self selectionLayer];
+               if (target == nil || layer == nil) { // 没有目标图层
+                   [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"请选择 2个图层 或 1个有间距编码的图层 再进行操作！"]];
+                   [self restoreActive];
+                   return;
+               }
+    
+               if (![spec.code isEqual:se.code]) {
+                   pos = 0;
+               }
+               se = spec;
+               [self nextPos];
+               [self applySpecToSelections: se];
+               [self updateTitle];
+           }
+       }];
+       [self.modButton setTarget:self];
+       [self.modButton setAction:@selector(modChange:)];
+       [self updateTitle];
 }
 
+-(MSLayer*)selectionTarget {
+    MSLayer *firstLayer = [(MSLayerArray *)self.selections layerAtIndex:0];
+    MSLayer *secondLayer = [(MSLayerArray *)self.selections layerAtIndex:1];
+    if (secondLayer) {
+        return firstLayer;
+    }
+    if (firstLayer == nil) return nil;
+    NVUserInfo *info = [NVUserInfo fromLayer:firstLayer];
+    if (info.marginTopTarget || info.marginBottomTarget) {
+        MSDocument *document = [[NSDocumentController sharedDocumentController] currentDocument];
+        return [document.documentData layerWithID:info.marginTopTarget];
+    } else {
+        return nil;
+    }
+}
+
+-(MSLayer*)selectionLayer {
+    MSLayer *firstLayer = [(MSLayerArray *)self.selections layerAtIndex:0];
+    MSLayer *secondLayer = [(MSLayerArray *)self.selections layerAtIndex:1];
+    if (secondLayer) {
+        return secondLayer;
+    }
+    if (firstLayer == nil) return nil;
+    NVUserInfo *info = [NVUserInfo fromLayer:firstLayer];
+    if (info.marginTopTarget || info.marginBottomTarget) {
+        return firstLayer;
+    }
+    return nil;
+}
+
+
 -(void)modChange:(NSSegmentedControl*) button{
-    if ([(MSLayerArray *)self.selections layerAtIndex:1] == nil) {
-        [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"请选择2个图层再进行操作！"]];
+    MSLayer *target = [self selectionTarget];
+    MSLayer *layer = [self selectionLayer];
+    if (target == nil || layer == nil){
+        [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"请选择 2个图层 或 1个有间距编码的图层 再进行操作！"]];
         [self updateTitle];
         return;
     }
@@ -68,9 +100,6 @@
         [self.modButton setSelected:NO  forSegment:1];
         return;
     }
-    MSLayer *layer = [self.selections layerAtIndex:1];
-    if (layer == nil)
-        layer = [self.selections layerAtIndex:0];
     if (layer && [[NVUserInfo fromLayer:layer].marginType isNotEqualTo:@"1"]) {
         // marginType不为内边距模式
         if ([button isSelectedForSegment:0] && [button isSelectedForSegment:1]) {
@@ -124,11 +153,8 @@
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
     se.code = nil;
     pos = 0;
-    MSLayer *layer = [layers layerAtIndex:1];
-    if (layer == nil)
-        layer = [layers layerAtIndex:0];
-    
-    if ([NVLayer isShape:layer]) {
+    MSLayer *layer = [self selectionLayer];
+    if (layer && [NVLayer isShape:layer]) {
         NSString *marginLeftCode =[NVUserInfo fromLayer:layer].marginLeftCode;
         NSString *marginRightCode =[NVUserInfo fromLayer:layer].marginRightCode;
         for (NSView *view in self.collectionView.subviews) {
@@ -155,13 +181,13 @@
             [self updateTitle];
         }
         [self.collectionView.toggleDelegate setActives:indexPaths];
+    } else {
+           [self updateTitle];
     }
     
 }
 -(void)nextPos{
-    MSLayer *layer = [self.selections layerAtIndex:1];
-    if (layer == nil)
-        layer = [self.selections layerAtIndex:0];
+    MSLayer *layer = [self selectionLayer];
     switch (pos) {
         case 3:
             pos = 1;
@@ -186,63 +212,41 @@
 }
 /* 应用spec到图层上 */
 -(void)applySpecToSelections:(NVHoriSpec) spec {
-
-    if (self.selections) {
-        MSLayer *layer = [self.selections layerAtIndex:1];
-        MSLayer *target = [self.selections layerAtIndex:0];
-        if (layer == nil) {
-            target = nil;
-            layer = [self.selections layerAtIndex:0];
-        }
+    MSLayer *target = [self selectionTarget];
+    MSLayer *layer = [self selectionLayer];
+    if (target && layer) {
         if ([NVLayer isShape:layer]) {
-            [NVUserInfo fromLayer:layer].marginLeftCode = nil;
-            [NVUserInfo fromLayer:layer].marginRightCode = nil;
-            [NVUserInfo fromLayer:layer].marginLeftTarget = nil;
-            [NVUserInfo fromLayer:layer].marginRightTarget = nil;
+            NVUserInfo *info = [NVUserInfo fromLayer:layer];
             switch (pos) {
                 case 3:
-                    [NVUserInfo fromLayer:layer].marginLeftCode = spec.code;
-                    [NVUserInfo fromLayer:layer].marginLeftTarget = target.objectID;
+                    info.marginLeftCode = spec.code;
+                    info.marginLeftTarget = target.objectID;
+                    info.marginRightCode = nil;
                     break;
                 case 1:
-                    [NVUserInfo fromLayer:layer].marginRightCode = spec.code;
-                    [NVUserInfo fromLayer:layer].marginRightTarget = target.objectID;
+                    info.marginLeftCode = nil;
+                    info.marginRightCode = spec.code;
+                    info.marginRightTarget = target.objectID;
                     break;
                 case 31:
-                    [NVUserInfo fromLayer:layer].marginLeftCode = spec.code;
-                    [NVUserInfo fromLayer:layer].marginRightCode = spec.code;
-                    [NVUserInfo fromLayer:layer].marginLeftTarget = target.objectID;
-                    [NVUserInfo fromLayer:layer].marginRightTarget = target.objectID;
+                    info.marginLeftCode = spec.code;
+                    info.marginRightCode = spec.code;
+                    info.marginLeftTarget = target.objectID;
+                    info.marginRightTarget = target.objectID;
                     break;
                 default:
+                    info.marginLeftCode = nil;
+                    info.marginRightCode = nil;
                     break;
             }
             if (target) {
-                [NVUserInfo fromLayer:layer].marginType = [NSString stringWithFormat:@"%d",
+                info.marginType = [NSString stringWithFormat:@"%d",
                 [self relationOf:layer and:target]];
             }
         }
         [self applySpec];
     }
 }
-
-//-(void)applyCornerRadius:(NSString *) radiusString toLayer:(MSLayer*) layer{
-//    NSArray<NSString*> *arr = [radiusString componentsSeparatedByString:@","];
-//    int index = 0;
-//    for(MSCurvePoint *point in layer.points) {
-//        if (arr[index]) {
-//            float num = [arr[index] doubleValue];
-//            if (num == -1) {
-//                point.cornerRadius = MAX(layer.frame.width, layer.frame.height)/2;
-//            } else {
-//                point.cornerRadius = num;
-//            }
-//        } else {
-//            point.cornerRadius = 0;
-//        }
-//        index++;
-//    }
-//}
 
 -(void)restoreActive {
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
@@ -289,8 +293,8 @@
 
 
 -(void)applySpec{
-    MSLayer * target = [self.selections layerAtIndex:0];
-    MSLayer * layer = [self.selections layerAtIndex:1];
+    MSLayer *target = [self selectionTarget];
+    MSLayer *layer = [self selectionLayer];
     if (!layer) return;
     if (pos != 31 && layer &&[NVUserInfo fromLayer:layer].originWidth) {
         // 恢复原始宽度
@@ -311,8 +315,8 @@
 -(void)applyInnerLeft{
     if (se.code == nil) return;
     if (pos == 3 || pos == 31) {
-        MSLayer * target = [self.selections layerAtIndex:0];
-        MSLayer * layer = [self.selections layerAtIndex:1];
+        MSLayer *target = [self selectionTarget];
+        MSLayer *layer = [self selectionLayer];
         layer.frame.x = target.frame.x + se.ios;
     }
 }
@@ -320,8 +324,8 @@
 
 -(void)applyInnerRight{
     if (se.code == nil) return;
-    MSLayer * target = [self.selections layerAtIndex:0];
-    MSLayer * layer = [self.selections layerAtIndex:1];
+    MSLayer *target = [self selectionTarget];
+    MSLayer *layer = [self selectionLayer];
     if (pos == 31) {
         if ([NVUserInfo fromLayer:layer].gridWidthCode) {
             [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:[NSString stringWithFormat:@"存在栅格宽度编码 %@ ，请先移除！", [NVUserInfo fromLayer:layer].gridWidthCode]];
@@ -339,8 +343,8 @@
 -(void)applyOuterLeft {
     if (se.code == nil) return;
     if (pos == 3) {
-        MSLayer * target = [self.selections layerAtIndex:0];
-        MSLayer * layer = [self.selections layerAtIndex:1];
+        MSLayer *target = [self selectionTarget];
+        MSLayer *layer = [self selectionLayer];
         layer.frame.x = (target.frame.x + target.frame.width) + se.ios;
     }
 }
@@ -348,8 +352,8 @@
 -(void)applyOuterRight {
     if (se.code == nil) return;
     if (pos == 1) {
-        MSLayer * target = [self.selections layerAtIndex:0];
-        MSLayer * layer = [self.selections layerAtIndex:1];
+        MSLayer *target = [self selectionTarget];
+        MSLayer *layer = [self selectionLayer];
         layer.frame.x = (target.frame.x - layer.frame.width) - se.ios;
     }
 }

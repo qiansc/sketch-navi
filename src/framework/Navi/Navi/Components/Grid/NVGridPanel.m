@@ -13,10 +13,6 @@
 #import "NVLayer.h"
 #import "MSLayerArray.h"
 
-@interface NVGridPanel ()
-
-@end
-
 @implementation NVGridPanel {
     NVGridSpec widthSpec;
     NVGridSpec scaleSpec;
