@@ -10,6 +10,8 @@
 
 @interface MSDocumentData: NSObject
 
+@property (readonly, strong) NSArray *layers;
+
 - (MSLayer*)getLayerWithID:(NSString*)layerId;
 - (MSLayer*)layerWithID:(NSString*)layerId;
 - (MSLayer*)layersByObjectID:(id)layerId;

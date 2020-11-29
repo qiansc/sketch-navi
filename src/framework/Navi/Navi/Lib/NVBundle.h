@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSBundle *)bundlePath;
 
 +(NSBundle *)SketchModelBundle;
+
++(NSBundle *)SketchControllersBundle;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,6 +9,7 @@
 #import "MSLayer.h"
 #import "MSPage.h"
 #import "MSDocumentData.h"
+#import "MSCanvasView.h"
 
 @interface MSDocument: NSDocument
 
@@ -16,6 +17,8 @@
 @property (nonatomic, strong) NSWindow *documentWindow;
 @property (readonly, strong) NSArray<MSPage*> *pages;
 @property (readonly, strong) MSDocumentData *documentData;
+@property (readonly, strong) MSPage *currentPage;
+@property (readonly, strong) MSCanvasView *contentDrawView;
 
 -(void)showMessage:(NSString *) text;
 

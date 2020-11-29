@@ -397,7 +397,7 @@ export class SpecData {
         const fileList = readdirSync(`${this.assetsPath}/icon/`);
         fileList.forEach((file: string, index: number) => {
             if(file.substr(-4).toLowerCase() === ".svg") {
-                const svg = readFileSync(`${this.assetsPath}/icon/${file}`);
+                const svg = readFileSync(`${this.assetsPath}/icon/${file}`).toString();
                 const id = `0000${index}`.substr(-3);
                 rs.push({
                     "code": "I_X" + id,

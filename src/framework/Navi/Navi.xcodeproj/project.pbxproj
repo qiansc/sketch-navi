@@ -546,6 +546,8 @@
 		B286F6B72543BDA300984F2A /* RFOverlayScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFOverlayScroller.m; sourceTree = "<group>"; };
 		B286F6B82543BDA400984F2A /* RFOverlayScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFOverlayScrollView.h; sourceTree = "<group>"; };
 		B2A1D897250EE6CA004E59A4 /* Menu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Menu.xib; sourceTree = "<group>"; };
+		B2B5FD3C25740129005F0D89 /* MSSVGImporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSVGImporter.h; sourceTree = "<group>"; };
+		B2B5FD3D25741149005F0D89 /* MSCanvasView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSCanvasView.h; sourceTree = "<group>"; };
 		B2D54D432547294F002E1D91 /* NVArtboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVArtboard.h; sourceTree = "<group>"; };
 		B2D54D442547294F002E1D91 /* NVArtboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVArtboard.m; sourceTree = "<group>"; };
 		B2D54D452547294F002E1D91 /* NVArtboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVArtboard.xib; sourceTree = "<group>"; };
@@ -1057,6 +1059,8 @@
 				300A446D255970910078EE29 /* MSColor.m */,
 				30F6D958255A82F70023DB7D /* MSGradient.h */,
 				A33F401B255D0BE100B39E70 /* MSSplitView.h */,
+				B2B5FD3C25740129005F0D89 /* MSSVGImporter.h */,
+				B2B5FD3D25741149005F0D89 /* MSCanvasView.h */,
 			);
 			path = "Sketch-Headers";
 			sourceTree = "<group>";

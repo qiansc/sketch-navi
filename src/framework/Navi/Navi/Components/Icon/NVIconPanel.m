@@ -13,6 +13,11 @@
 #import "NVUserInfo.h"
 #import "NVLayer.h"
 #import "MSLayerArray.h"
+#import "NVBundle.h"
+#import "MSSVGImporter.h"
+#import "MSDocument.h"
+
+
 
 @interface NVIconPanel ()
 
@@ -95,15 +100,49 @@
 
 /* 应用spec到图层上 */
 -(void)applySpecToSelections:(NVIconSpec) spec {
-    if (self.selections) {
-        for(MSLayer *layer in self.selections) {
-            if ([NVLayer isTextLayer:layer]) {
-                [NVUserInfo fromLayer:layer].fontWeightCode = spec.code;
-            }
-            // [self applyColor:NSColorFromRGBString(spec.defaultColor) toLayer:layer];
-            // [self applyFontSize:spec.iosFontSize weight:spec.iosFont toLayer:layer];
-        }
-    }
+    if (spec.code == nil) return;
+    
+    MSSVGImporter *importer = [[[NVBundle SketchControllersBundle] classNamed:@"MSSVGImporter"] svgImporter];
+    NSData *svgData = [spec.svg dataUsingEncoding: NSUTF8StringEncoding];
+    [importer prepareToImportFromData: svgData];
+    MSLayer *svgLayer = [importer importAsLayer];
+    [svgLayer setName:@"SVG Layer"];
+    
+    
+    MSDocument *document = [[NSDocumentController sharedDocumentController] currentDocument];
+    [[document currentPage] addLayer:svgLayer];
+    
+    NSLog(@"### aaa %@ %@", svgLayer, svgData);
+    NSLog(@"### ccc %@", document.documentData.layers);
+
+
+    MSCanvasView *canvasView = document.contentDrawView;
+    
+    CGPoint center = [canvasView viewCenterInAbsoluteCoordinatesForViewPort:[canvasView viewPort]];
+    float shiftX = svgLayer.frame.width / 2;
+    float shiftY = svgLayer.frame.height / 2;
+    float centerX = center.x - shiftX;
+    float centerY = center.y - shiftY;
+    // NSLog(@"### shiftX %f %f", centerX, centerY);
+
+    
+//    var parentOffset = parentOffsetInArtboard(layer);
+//    var newFrame = new Rectangle(layer.frame);
+//    newFrame.x = x - parentOffset.x;
+//    newFrame.y = y - parentOffset.y;
+//    layer.frame = newFrame;
+//
+    
+    
+//    if (self.selections) {
+//        for(MSLayer *layer in self.selections) {
+//            if ([NVLayer isTextLayer:layer]) {
+//                [NVUserInfo fromLayer:layer].fontWeightCode = spec.code;
+//            }
+//            // [self applyColor:NSColorFromRGBString(spec.defaultColor) toLayer:layer];
+//            // [self applyFontSize:spec.iosFontSize weight:spec.iosFont toLayer:layer];
+//        }
+//    }
 }
 
 /* 应用color到图层上 */

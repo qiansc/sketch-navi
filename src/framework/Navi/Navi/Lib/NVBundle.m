@@ -19,6 +19,10 @@
     return [NSBundle bundleWithIdentifier:@"com.bohemiancoding.SketchModel"];
 }
 
++(NSBundle *)SketchControllersBundle {
+    return [NSBundle bundleWithIdentifier:@"com.bohemiancoding.SketchControllers"];
+}
+
 @end
 
 

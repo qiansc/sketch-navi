@@ -23,6 +23,8 @@
 @property (nonatomic, strong) NSArray<MSCurvePoint*> *points;
 @property(nonatomic) struct CGRect rect;
 
+-(void)setName:(NSString*) name;
+
 
 
 @end
