@@ -12,6 +12,7 @@
 
 @interface MSLayer: NSObject
 
+@property (readonly, strong) MSLayer* parentObject;
 @property (readonly, nonatomic) NSString *objectID;
 @property (nonatomic, strong) NSString *type; // ShapePath / Text
 @property (nonatomic, strong) MSRect *frame;

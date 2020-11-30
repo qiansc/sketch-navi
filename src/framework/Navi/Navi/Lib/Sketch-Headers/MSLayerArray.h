@@ -15,7 +15,7 @@
 - (BOOL)isEqual:(id)arg1;
 @property(readonly, copy) NSString *description;
 - (long long)indexOfLayer:(id)arg1;
-- (id)layerAtIndex:(long)arg1;
+- (MSLayer*)layerAtIndex:(long)arg1;
 - (MSLayer*)lastLayer;
 - (MSLayer*)firstLayer;
 - (BOOL)containsMultipleLayers;

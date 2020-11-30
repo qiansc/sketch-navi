@@ -138,6 +138,8 @@
         .cmeaning = specDict[@"cmeaning"],
         .elementCode = specDict[@"elementCode"],
         .svg = specDict[@"svg"],
+        .width = [specDict[@"width"] floatValue],
+        .height = [specDict[@"height"] floatValue]
 
     };
     return spec;

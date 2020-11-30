@@ -20,7 +20,8 @@ struct NVIconSpec {
     NSString *cmeaning;         // 模块弱化标题
     NSString *elementCode;      //Txt_X010
     NSString *svg;              //svg string
-
+    float width;
+    float height;
 };
 
 typedef struct NVIconSpec NVIconSpec;

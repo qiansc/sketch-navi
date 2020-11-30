@@ -33,4 +33,27 @@
     [superview addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem: superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:0]];
     [superview addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: superview attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
 }
+
++ (void)position:(MSLayer*)layer at:(CGPoint) point {
+    CGPoint parentOffset = [Util parentOffsetInArtboard:layer];
+    layer.frame.x = point.x - parentOffset.x;
+    layer.frame.y = point.y - parentOffset.y;
+}
+
++ (CGPoint)parentOffsetInArtboard:(MSLayer*)layer {
+    CGPoint offset = {.x=0,.y=0};
+    MSLayer *parent = layer.parentObject;
+    
+    while (parent && parent.parentObject) {
+        offset.x += parent.frame.x;
+        offset.y += parent.frame.y;
+        parent = parent.parentObject;
+        if ([parent.className containsString:@"MSArtboard"]) {
+            parent = nil;
+        }
+    }
+    
+    return offset;
+}
+
 @end

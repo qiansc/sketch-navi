@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MSLayer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSBox*)separtorBox;
 
 + (void)fillSuperview:(NSView*)view;
+
++ (void)position:(MSLayer*)layer at:(CGPoint) point;
++ (CGPoint)parentOffsetInArtboard:(MSLayer*)layer;
 
 @end
 

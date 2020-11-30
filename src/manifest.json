@@ -16,21 +16,13 @@
             "Paste": "onPaste"
           }
         }
-    },
-    {
-        "name": "SVG Insert",
-        "identifier": "svgInsert",
-        "script": "./svg-insert.js",
-        "description": "Insert SVG code as a Layer",
-        "icon": "svg-insert.png"
-      }
+    }
   ],
   "menu": {
     "isRoot": true,
     "title": "Navi",
     "items": [
-      "navi.main-identifier",
-      "svgInsert"
+      "navi.main-identifier"
     ]
   }
 }

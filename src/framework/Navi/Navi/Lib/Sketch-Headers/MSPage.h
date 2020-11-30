@@ -6,11 +6,14 @@
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 #import "MSLayer.h"
+#import "MSArtboardGroup.h"
 #import "MSLayerArray.h"
 
 @interface MSPage: NSObject
 
--(void)addLayers:(NSArray*) array;
+@property(nonatomic) __weak MSArtboardGroup *currentArtboard;
+
 -(void)addLayer:(MSLayer*) layer;
+
 
 @end

@@ -406,7 +406,9 @@ export class SpecData {
                     "cmeaning": "",
                     "elementCode":  "I_X" + id,
                     "svg": svg,
-                    "dim": ["默认"]
+                    "dim": ["默认"],
+                    "width": 44,
+                    "height": 44,
                 });
             }
         });

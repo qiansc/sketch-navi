@@ -447,6 +447,7 @@
 		A3B5E22C25382BE70048F526 /* NVPanelHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVPanelHeaderView.m; sourceTree = "<group>"; };
 		A3BFB1D825500008009CB0C1 /* NVBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVBundle.h; sourceTree = "<group>"; };
 		A3BFB1D925500009009CB0C1 /* NVBundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVBundle.m; sourceTree = "<group>"; };
+		A3C5FEED2574E97200BBFBF9 /* MSArtboardGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSArtboardGroup.h; sourceTree = "<group>"; };
 		A3D55E85256B812F00B150DF /* NVFontPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVFontPanel.m; sourceTree = "<group>"; };
 		A3D55E87256B812F00B150DF /* NVFontSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVFontSource.h; sourceTree = "<group>"; };
 		A3D55E89256B812F00B150DF /* NVFontSemanticItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVFontSemanticItemView.h; sourceTree = "<group>"; };
@@ -1061,6 +1062,7 @@
 				A33F401B255D0BE100B39E70 /* MSSplitView.h */,
 				B2B5FD3C25740129005F0D89 /* MSSVGImporter.h */,
 				B2B5FD3D25741149005F0D89 /* MSCanvasView.h */,
+				A3C5FEED2574E97200BBFBF9 /* MSArtboardGroup.h */,
 			);
 			path = "Sketch-Headers";
 			sourceTree = "<group>";
