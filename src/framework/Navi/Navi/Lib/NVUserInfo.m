@@ -216,4 +216,7 @@ static NSMutableDictionary *cache;
 -(NSString *)marginBottomTarget {return self.data[@"marginBottomTarget"];}
 -(void)setMarginBottomTarget:(NSString*)code {self.data[@"marginBottomTarget"] = code;[self save];}
 
+-(NSString *)iconCode {return self.data[@"iconCode"];}
+-(void)setIconCode:(NSString*)code {self.data[@"iconCode"] = code;[self save];}
+
 @end

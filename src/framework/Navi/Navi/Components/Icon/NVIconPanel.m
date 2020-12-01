@@ -60,7 +60,7 @@
 /* 应用spec到图层上 */
 -(void)applySpecToSelections:(NVIconSpec) spec {
     if (spec.code == nil) return;
-    
+
     MSSVGImporter *importer = [[[NVBundle SketchControllersBundle] classNamed:@"MSSVGImporter"] svgImporter];
     NSData *svgData = [spec.svg dataUsingEncoding: NSUTF8StringEncoding];
     [importer prepareToImportFromData: svgData];
@@ -86,6 +86,9 @@
     CGPoint point = {.x=centerX,.y=centerY};
     [Util position:svgLayer at: point];
     [self.collectionView.toggleDelegate clearActive];
+    
+    [NVUserInfo fromLayer:svgLayer].iconCode = spec.code;
+    
 }
 
 

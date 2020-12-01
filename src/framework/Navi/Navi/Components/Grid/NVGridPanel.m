@@ -87,7 +87,7 @@
     scaleSpec.code = nil;
     NSMutableArray<NSIndexPath*>* indexPaths = [NSMutableArray new];
     for (MSLayer *layer in layers) {
-        if (![NVLayer isShape:layer]) continue;
+        // if (![NVLayer isShape:layer]) continue;
         NSString *gridWidthCode =[NVUserInfo fromLayer:layer].gridWidthCode;
         NSString *gridScaleCode =[NVUserInfo fromLayer:layer].gridScaleCode;
         
@@ -123,7 +123,7 @@
 -(void)applySpecToSelections:(NVGridSpec) spec {
     if (self.selections) {
         for(MSLayer *layer in self.selections) {
-            if (![NVLayer isShape:layer]) continue;
+            // if (![NVLayer isShape:layer]) continue;
             if ([spec.cclass containsString:@"比例"]) {
                 [NVUserInfo fromLayer:layer].gridScaleCode = spec.code;
                 [self applyScale:spec.scale toLayer:layer];

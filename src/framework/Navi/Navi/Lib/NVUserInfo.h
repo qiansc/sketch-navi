@@ -62,6 +62,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *marginTopTarget;
 @property (nonatomic, strong) NSString *marginBottomTarget;
 
+#pragma mark Others
+
+@property (nonatomic, strong) NSString *iconCode;
+
 @end
 
 NS_ASSUME_NONNULL_END

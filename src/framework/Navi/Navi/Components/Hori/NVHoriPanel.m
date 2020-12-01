@@ -154,7 +154,7 @@
     se.code = nil;
     pos = 0;
     MSLayer *layer = [self selectionLayer];
-    if (layer && [NVLayer isShape:layer]) {
+    if (layer) { //&& [NVLayer isShape:layer]
         NSString *marginLeftCode =[NVUserInfo fromLayer:layer].marginLeftCode;
         NSString *marginRightCode =[NVUserInfo fromLayer:layer].marginRightCode;
         for (NSView *view in self.collectionView.subviews) {
@@ -215,7 +215,7 @@
     MSLayer *target = [self selectionTarget];
     MSLayer *layer = [self selectionLayer];
     if (target && layer) {
-        if ([NVLayer isShape:layer]) {
+        // if ([NVLayer isShape:layer]) {
             NVUserInfo *info = [NVUserInfo fromLayer:layer];
             switch (pos) {
                 case 3:
@@ -243,7 +243,7 @@
                 info.marginType = [NSString stringWithFormat:@"%d",
                 [self relationOf:layer and:target]];
             }
-        }
+        // }
         [self applySpec];
     }
 }
