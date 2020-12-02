@@ -25,10 +25,7 @@
     NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
     if (responseString) {
         handler(responseData, nil, nil);
-        // [self performSelector:action withObject:responseString];
     } else {
-        // self.infoField.stringValue = @"无法连接至账户服务器，请检查网络状态后重试！";
-        // [self.infoView setHidden:NO];
         NSError *err = [[NSError alloc]init];
         handler(nil, nil, err);
     }
