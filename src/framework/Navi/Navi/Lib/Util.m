@@ -8,8 +8,10 @@
 
 #import "Util.h"
 #import "HexColor.h"
+#import "MSDocument.h"
 
 @implementation Util
+
 
 + (NSImage*)createImage:(NSURL*) imageURL withSize:(NSSize) size {
     NSImage* image = [[NSImage alloc]initWithContentsOfURL:imageURL];
@@ -54,6 +56,10 @@
     }
     
     return offset;
+}
+
++ (void)message:(NSString *) string{
+    [((MSDocument *)[[[NSApplication sharedApplication] orderedDocuments] firstObject]) showMessage:string];
 }
 
 @end

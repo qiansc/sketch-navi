@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)position:(MSLayer*)layer at:(CGPoint) point;
 + (CGPoint)parentOffsetInArtboard:(MSLayer*)layer;
 
++ (void)message:(NSString *) string;
+
 @end
 
 NS_ASSUME_NONNULL_END

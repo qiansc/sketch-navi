@@ -11,6 +11,7 @@
 #import "NVBundle.h"
 #import "NVColor.h"
 #import "NVImage.h"
+#import "NVPerferenceWindow.h"
 // 临时代码
 #import "NVArtboard.h"
 #import "NVMenuButton.h"
@@ -20,6 +21,7 @@
     NSWindow *artborad;
     NSButton *artboradButton;
     NSMutableDictionary* panelButtons;
+    NVPerferenceWindow *perference;
 }
 
 - (void)viewDidLoad {
@@ -80,6 +82,13 @@
 //            @"states": [self panelButtonStates],
 //        };
 //        [[NSNotificationCenter defaultCenter] postNotificationName:@"OPEN_PANEL" object:nil userInfo:info];
+    }else if([option[@"id"] isEqual:@"User"]) {
+        if (perference)
+            [perference toogle];
+        else
+            perference = [NVPerferenceWindow initFromNIB];
+        
+        NSLog(@"### perference %@", perference);
     } else if ([option[@"type"] isEqual:@"MAIN"]) {
         [self.delegate toggleMain: button.state];
     } else if ([option[@"type"] isEqual:@"WINDOW"]) {

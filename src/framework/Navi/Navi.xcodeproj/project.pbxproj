@@ -167,6 +167,15 @@
 		A3B5E22E25382BE70048F526 /* NVPanelHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B5E22C25382BE70048F526 /* NVPanelHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3BFB1DA25500009009CB0C1 /* NVBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = A3BFB1D825500008009CB0C1 /* NVBundle.h */; };
 		A3BFB1DB25500009009CB0C1 /* NVBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BFB1D925500009009CB0C1 /* NVBundle.m */; };
+		A3C4C0532577B19100C48660 /* NVURL.h in Headers */ = {isa = PBXBuildFile; fileRef = A3C4C0512577B19100C48660 /* NVURL.h */; };
+		A3C4C0542577B19100C48660 /* NVURL.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C4C0522577B19100C48660 /* NVURL.m */; };
+		A3C5FEF225761EDC00BBFBF9 /* NVPerference.h in Headers */ = {isa = PBXBuildFile; fileRef = A3C5FEEF25761EDC00BBFBF9 /* NVPerference.h */; };
+		A3C5FEF325761EDC00BBFBF9 /* NVPerference.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C5FEF025761EDC00BBFBF9 /* NVPerference.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3C5FEF425761EDC00BBFBF9 /* NVPerference.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3C5FEF125761EDC00BBFBF9 /* NVPerference.xib */; };
+		A3C5FEF7257621E700BBFBF9 /* NVPerferenceWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = A3C5FEF5257621E700BBFBF9 /* NVPerferenceWindow.h */; };
+		A3C5FEF8257621E700BBFBF9 /* NVPerferenceWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C5FEF6257621E700BBFBF9 /* NVPerferenceWindow.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3D4B60D2576419C00080621 /* NVLogin.h in Headers */ = {isa = PBXBuildFile; fileRef = A3D4B60A2576419C00080621 /* NVLogin.h */; };
+		A3D4B60E2576419C00080621 /* NVLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D4B60B2576419C00080621 /* NVLogin.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3D55E94256B812F00B150DF /* NVFontPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D55E85256B812F00B150DF /* NVFontPanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3D55E96256B812F00B150DF /* NVFontSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A3D55E87256B812F00B150DF /* NVFontSource.h */; };
 		A3D55E97256B812F00B150DF /* NVFontSemanticItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = A3D55E89256B812F00B150DF /* NVFontSemanticItemView.h */; };
@@ -260,7 +269,6 @@
 		B2A1D898250EE6CA004E59A4 /* Menu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2A1D897250EE6CA004E59A4 /* Menu.xib */; };
 		B2D54D462547294F002E1D91 /* NVArtboard.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D54D432547294F002E1D91 /* NVArtboard.h */; };
 		B2D54D472547294F002E1D91 /* NVArtboard.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D54D442547294F002E1D91 /* NVArtboard.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		B2D54D482547294F002E1D91 /* NVArtboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D452547294F002E1D91 /* NVArtboard.xib */; };
 		B2D54D4D254752B0002E1D91 /* NVColorSemanticItem.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D54D4A254752B0002E1D91 /* NVColorSemanticItem.h */; };
 		B2D54D4E254752B0002E1D91 /* NVColorSemanticItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D54D4B254752B0002E1D91 /* NVColorSemanticItem.m */; };
 		B2D54D4F254752B0002E1D91 /* NVColorSemanticItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D54D4C254752B0002E1D91 /* NVColorSemanticItem.xib */; };
@@ -447,7 +455,16 @@
 		A3B5E22C25382BE70048F526 /* NVPanelHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVPanelHeaderView.m; sourceTree = "<group>"; };
 		A3BFB1D825500008009CB0C1 /* NVBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVBundle.h; sourceTree = "<group>"; };
 		A3BFB1D925500009009CB0C1 /* NVBundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVBundle.m; sourceTree = "<group>"; };
+		A3C4C0512577B19100C48660 /* NVURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVURL.h; sourceTree = "<group>"; };
+		A3C4C0522577B19100C48660 /* NVURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVURL.m; sourceTree = "<group>"; };
 		A3C5FEED2574E97200BBFBF9 /* MSArtboardGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSArtboardGroup.h; sourceTree = "<group>"; };
+		A3C5FEEF25761EDC00BBFBF9 /* NVPerference.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVPerference.h; sourceTree = "<group>"; };
+		A3C5FEF025761EDC00BBFBF9 /* NVPerference.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVPerference.m; sourceTree = "<group>"; };
+		A3C5FEF125761EDC00BBFBF9 /* NVPerference.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVPerference.xib; sourceTree = "<group>"; };
+		A3C5FEF5257621E700BBFBF9 /* NVPerferenceWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVPerferenceWindow.h; sourceTree = "<group>"; };
+		A3C5FEF6257621E700BBFBF9 /* NVPerferenceWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVPerferenceWindow.m; sourceTree = "<group>"; };
+		A3D4B60A2576419C00080621 /* NVLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVLogin.h; sourceTree = "<group>"; };
+		A3D4B60B2576419C00080621 /* NVLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVLogin.m; sourceTree = "<group>"; };
 		A3D55E85256B812F00B150DF /* NVFontPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVFontPanel.m; sourceTree = "<group>"; };
 		A3D55E87256B812F00B150DF /* NVFontSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVFontSource.h; sourceTree = "<group>"; };
 		A3D55E89256B812F00B150DF /* NVFontSemanticItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVFontSemanticItemView.h; sourceTree = "<group>"; };
@@ -551,7 +568,6 @@
 		B2B5FD3D25741149005F0D89 /* MSCanvasView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSCanvasView.h; sourceTree = "<group>"; };
 		B2D54D432547294F002E1D91 /* NVArtboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVArtboard.h; sourceTree = "<group>"; };
 		B2D54D442547294F002E1D91 /* NVArtboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVArtboard.m; sourceTree = "<group>"; };
-		B2D54D452547294F002E1D91 /* NVArtboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVArtboard.xib; sourceTree = "<group>"; };
 		B2D54D4A254752B0002E1D91 /* NVColorSemanticItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVColorSemanticItem.h; sourceTree = "<group>"; };
 		B2D54D4B254752B0002E1D91 /* NVColorSemanticItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVColorSemanticItem.m; sourceTree = "<group>"; };
 		B2D54D4C254752B0002E1D91 /* NVColorSemanticItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVColorSemanticItem.xib; sourceTree = "<group>"; };
@@ -936,6 +952,7 @@
 				A3003654253870750093395D /* Mask */,
 				A33C37E9256D1AEF0036F1DA /* Icon */,
 				B2D54D42254728E3002E1D91 /* Artboard */,
+				A3C5FEEE25761E5E00BBFBF9 /* Perference */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -952,6 +969,28 @@
 				A34728A2253886B700EC18ED /* NVPanel.m */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		A3C5FEEE25761E5E00BBFBF9 /* Perference */ = {
+			isa = PBXGroup;
+			children = (
+				A3D4B6052576413300080621 /* Account */,
+				A3C5FEEF25761EDC00BBFBF9 /* NVPerference.h */,
+				A3C5FEF025761EDC00BBFBF9 /* NVPerference.m */,
+				A3C5FEF125761EDC00BBFBF9 /* NVPerference.xib */,
+				A3C5FEF5257621E700BBFBF9 /* NVPerferenceWindow.h */,
+				A3C5FEF6257621E700BBFBF9 /* NVPerferenceWindow.m */,
+			);
+			path = Perference;
+			sourceTree = "<group>";
+		};
+		A3D4B6052576413300080621 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				A3D4B60A2576419C00080621 /* NVLogin.h */,
+				A3D4B60B2576419C00080621 /* NVLogin.m */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		A3D55E84256B812F00B150DF /* Font */ = {
@@ -1151,6 +1190,8 @@
 				B2E3ED3E2558501600F7B6DB /* NVImage.m */,
 				A33F4017255CDC7A00B39E70 /* NVAppCache.h */,
 				A33F4018255CDC7A00B39E70 /* NVAppCache.m */,
+				A3C4C0512577B19100C48660 /* NVURL.h */,
+				A3C4C0522577B19100C48660 /* NVURL.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -1256,7 +1297,6 @@
 			children = (
 				B2D54D432547294F002E1D91 /* NVArtboard.h */,
 				B2D54D442547294F002E1D91 /* NVArtboard.m */,
-				B2D54D452547294F002E1D91 /* NVArtboard.xib */,
 			);
 			path = Artboard;
 			sourceTree = "<group>";
@@ -1280,6 +1320,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3C4C0532577B19100C48660 /* NVURL.h in Headers */,
 				B23CA2962519855E00FB2416 /* HexColor.h in Headers */,
 				A33F4003255A7EA800B39E70 /* NVApp.h in Headers */,
 				30D2479E25429FAD0027602C /* NVLineSource.h in Headers */,
@@ -1325,6 +1366,7 @@
 				301F800D2553BF0C000ED935 /* NVMaskCollectionItem.h in Headers */,
 				A3D55E96256B812F00B150DF /* NVFontSource.h in Headers */,
 				B2012D1C253C5B2A0003715E /* DisabledWheelScrollView.h in Headers */,
+				A3C5FEF225761EDC00BBFBF9 /* NVPerference.h in Headers */,
 				A33C37E7256CCD140036F1DA /* SKUBezierPath+SVG.h in Headers */,
 				301F80032553B84B000ED935 /* NVMaskCollectionView.h in Headers */,
 				A3E4D25C256BB3D000DD3974 /* NVWeightCollectionItemView.h in Headers */,
@@ -1358,6 +1400,7 @@
 				A3522962253DA8B900F42D58 /* NVSource.h in Headers */,
 				A38C95D325483C06008C0A57 /* NVTextCollectionItem.h in Headers */,
 				A3B5E22825382B460048F526 /* NVPanelHeader.h in Headers */,
+				A3C5FEF7257621E700BBFBF9 /* NVPerferenceWindow.h in Headers */,
 				A39E44B325678C1C005037F8 /* NVVertCollectionView.h in Headers */,
 				A397ACC825148BEA00286C6E /* Panel.h in Headers */,
 				A3E4D250256BB3D000DD3974 /* NVWeightSource.h in Headers */,
@@ -1386,6 +1429,7 @@
 				A39E44AD25678C1C005037F8 /* NVVertPanel.h in Headers */,
 				A361672D2551376000FE0840 /* NVBorderCollectionItemView.h in Headers */,
 				B25664472558CEFA004CC6DB /* NVMarginSource.h in Headers */,
+				A3D4B60D2576419C00080621 /* NVLogin.h in Headers */,
 				30D247AC2542ECF00027602C /* NVLineCollectionItem.h in Headers */,
 				A3E4D259256BB3D000DD3974 /* NVWeightPanel.h in Headers */,
 				A33C37FA256D1AEF0036F1DA /* NVIconPanel.h in Headers */,
@@ -1468,13 +1512,13 @@
 				B268777F2554FB4100EF6C1E /* NVGridSemanticItem.xib in Resources */,
 				A3B5E223253828C40048F526 /* NVColorPanel.xib in Resources */,
 				301F800F2553BF0C000ED935 /* NVMaskCollectionItem.xib in Resources */,
+				A3C5FEF425761EDC00BBFBF9 /* NVPerference.xib in Resources */,
 				A3E4D25A256BB3D000DD3974 /* NVWeightCollectionItem.xib in Resources */,
 				A3B5E22A25382B470048F526 /* NVPanelHeader.xib in Resources */,
 				A33C37FC256D1AEF0036F1DA /* NVIconSemanticItem.xib in Resources */,
 				30D247AE2542ECF00027602C /* NVLineCollectionItem.xib in Resources */,
 				30C0919725555E7900DBA590 /* NVShadowCollectionItem.xib in Resources */,
 				A3E6094425109AB500C98536 /* Panel.xib in Resources */,
-				B2D54D482547294F002E1D91 /* NVArtboard.xib in Resources */,
 				A3E4D254256BB3D000DD3974 /* NVWeightSemanticItem.xib in Resources */,
 				A361672A2551373600FE0840 /* NVBorderCollectionItem.xib in Resources */,
 				A39E44962566369E005037F8 /* NVHoriSemanticItem.xib in Resources */,
@@ -1589,6 +1633,7 @@
 				B286F6B92543BDA400984F2A /* RFOverlayScrollView.m in Sources */,
 				30C0919125555E7900DBA590 /* NVShadowCollectionView.m in Sources */,
 				B256644C2558CF20004CC6DB /* NVMarginCollectionView.m in Sources */,
+				A3C5FEF325761EDC00BBFBF9 /* NVPerference.m in Sources */,
 				B25664422558CE83004CC6DB /* NVMarginPanel.m in Sources */,
 				B2012D1D253C5B2A0003715E /* DisabledWheelScrollView.m in Sources */,
 				A33F401A255CDC7A00B39E70 /* NVAppCache.m in Sources */,
@@ -1598,7 +1643,9 @@
 				A38C95CE25483BE3008C0A57 /* NVTextCollectionItemView.m in Sources */,
 				B2E3ED3C25584F7B00F7B6DB /* NVColor.m in Sources */,
 				A3E4D257256BB3D000DD3974 /* NVWeightSource.m in Sources */,
+				A3C4C0542577B19100C48660 /* NVURL.m in Sources */,
 				A3453B6925381A19007AFFCC /* FlippedClipView.m in Sources */,
+				A3C5FEF8257621E700BBFBF9 /* NVPerferenceWindow.m in Sources */,
 				A3EEF7F92540017300C3998D /* NVColorCollectionItem.m in Sources */,
 				A39E44BE256790FA005037F8 /* NVVertCollectionItemView.m in Sources */,
 				30EC08E92557C8C900A24F47 /* NVMaskSemanticItemView.m in Sources */,
@@ -1628,6 +1675,7 @@
 				A39E449A2566374A005037F8 /* NVHoriSemanticItemView.m in Sources */,
 				A361671A2551346300FE0840 /* NVBorderPanel.m in Sources */,
 				A3D55EA0256B812F00B150DF /* NVFontCollectionItemView.m in Sources */,
+				A3D4B60E2576419C00080621 /* NVLogin.m in Sources */,
 				B268777D2554E0CD00EF6C1E /* NVGridCollectionItemView.m in Sources */,
 				A3B5E222253828C40048F526 /* NVColorPanel.m in Sources */,
 				B26877682554DF9200EF6C1E /* NVGridPanel.m in Sources */,

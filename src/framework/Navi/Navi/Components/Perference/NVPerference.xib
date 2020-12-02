@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NVPerference">
+            <connections>
+                <outlet property="accountItem" destination="N4h-Hf-zcT" id="pYB-5m-pGU"/>
+                <outlet property="accountLoginView" destination="JYd-D0-IeC" id="aj3-5M-ZTV"/>
+                <outlet property="loginController" destination="EPx-IN-SLb" id="LkH-cv-8NM"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY" userLabel="PerferenceMain">
+            <rect key="frame" x="0.0" y="0.0" width="437" height="232"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pEs-fK-7f0">
+                    <rect key="frame" x="-12" y="-16" width="465" height="234"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <font key="font" metaFont="system"/>
+                    <tabViewItems>
+                        <tabViewItem label="账户" identifier="" id="tom-xD-izK">
+                            <view key="view" id="N4h-Hf-zcT">
+                                <rect key="frame" x="10" y="33" width="445" height="188"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                        </tabViewItem>
+                        <tabViewItem label="通用" identifier="" id="HOn-3H-U8B">
+                            <view key="view" id="Zn4-gx-tCI">
+                                <rect key="frame" x="10" y="33" width="445" height="182"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                        </tabViewItem>
+                        <tabViewItem label="关于" identifier="" id="T3e-h7-MIg">
+                            <view key="view" id="idT-hy-ujZ">
+                                <rect key="frame" x="10" y="33" width="445" height="182"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                        </tabViewItem>
+                    </tabViewItems>
+                </tabView>
+            </subviews>
+            <point key="canvasLocation" x="177.5" y="179.5"/>
+        </customView>
+        <customView id="JYd-D0-IeC" userLabel="AccountLogin">
+            <rect key="frame" x="0.0" y="0.0" width="437" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="umq-tO-kev">
+                    <rect key="frame" x="62" y="97" width="44" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="验证码" id="w6Y-2k-Ql7">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PeE-Tf-61V">
+                    <rect key="frame" x="147" y="140" width="147" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="border" drawsBackground="YES" id="6Gb-pM-1eX">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dsa-lC-nPM">
+                    <rect key="frame" x="147" y="94" width="76" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="border" drawsBackground="YES" id="uqB-8O-2QJ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfx-8f-XHy">
+                    <rect key="frame" x="62" y="144" width="44" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="账     户" id="MvL-tP-OW8">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" id="NRg-VT-Y2Z">
+                    <rect key="frame" x="147" y="47" width="76" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="smallSquare" title="登录" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="E8S-9Q-Hh9">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1eW-r1-4fl">
+                    <rect key="frame" x="302" y="139" width="99" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="smallSquare" title="@baidu.com" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="mbq-uB-Hqg" id="3hK-4Y-FJP">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" id="c39-Jd-DmG">
+                            <items>
+                                <menuItem title="@baidu.com" state="on" id="mbq-uB-Hqg"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                </popUpButton>
+                <button verticalHuggingPriority="750" id="GlQ-a2-8Ly">
+                    <rect key="frame" x="240" y="93" width="54" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="smallSquare" title="获取" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cpH-FO-07Y">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qkv-cU-OO3">
+                    <rect key="frame" x="0.0" y="-7" width="437" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gpd-5j-EJ4">
+                            <rect key="frame" x="61" y="7" width="306" height="22"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="网络错误" id="UuM-Nk-smm">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <accessibility description="InfoView"/>
+                </customView>
+            </subviews>
+            <point key="canvasLocation" x="177.5" y="444"/>
+        </customView>
+        <customObject id="EPx-IN-SLb" customClass="NVLogin">
+            <connections>
+                <outlet property="codeButton" destination="GlQ-a2-8Ly" id="ZAE-zQ-zfL"/>
+                <outlet property="codeField" destination="Dsa-lC-nPM" id="5mW-xO-OaX"/>
+                <outlet property="infoField" destination="gpd-5j-EJ4" id="yix-3e-WQs"/>
+                <outlet property="infoView" destination="Qkv-cU-OO3" id="Wpj-5h-SVq"/>
+                <outlet property="loginButton" destination="NRg-VT-Y2Z" id="1Gl-tP-W3j"/>
+                <outlet property="nameField" destination="PeE-Tf-61V" id="1S8-W5-dJB"/>
+                <outlet property="view" destination="JYd-D0-IeC" id="T0W-hw-1hi"/>
+            </connections>
+        </customObject>
+    </objects>
+</document>

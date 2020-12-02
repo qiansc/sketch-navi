@@ -23,7 +23,7 @@
     [self.closeButton setTarget:self];
     [self.closeButton setAction:@selector(closeWindow:)];
 //
-//    NSLog(@"NAVIL %@ %@", self.closeButton.target, self.closeButton.action);
+//   NSLog(@"NAVIL %@ %@", self.closeButton.target, self.closeButton.action);
 }
 
 -(void)closeWindow:(NSButton*) button {

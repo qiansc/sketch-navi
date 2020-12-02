@@ -101,12 +101,12 @@
 //        @"icon": @"Setting",
 //        @"gravity": @3,
 //        @"type": @"WINDOW"
-//    }, @{
-//        @"name": @"用户",
-//        @"id": @"User",
-//        @"icon": @"User",
-//        @"gravity": @3,
-//        @"type": @"WINDOW"
+    }, @{
+        @"name": @"用户",
+        @"id": @"User",
+        @"icon": @"User",
+        @"gravity": @3,
+        @"type": @"WINDOW"
     }];
 }
 
