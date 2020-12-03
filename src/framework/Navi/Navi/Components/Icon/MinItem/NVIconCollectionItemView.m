@@ -35,7 +35,15 @@
     [self drawStyle];
 //    itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
 //    itemDesc.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
+    [self drawIcon: _spec.svg];
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];
+}
+
+- (void)drawIcon:(NSString *) rawSVGContent {
+    SVGKImage *iconImage = [SVGLoader fromRawUTF8SVGString:rawSVGContent];
+    iconImage.size = NSMakeSize(31, 31);
+    self.fastImageView.frameSize = iconImage.size;
+    self.fastImageView.image = iconImage;
 }
 
 

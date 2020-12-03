@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,16 +13,15 @@
             <rect key="frame" x="0.0" y="0.0" width="205" height="30"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ho9-5C-vFH">
-                    <rect key="frame" x="4" y="7" width="19" height="17"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="字" id="gPf-2e-Cgu">
-                        <font key="font" metaFont="menu" size="14"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HM8-eM-XcI">
-                    <rect key="frame" x="29" y="8" width="23" height="13"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="d6P-Af-FzH" customClass="SVGKFastImageView">
+                    <rect key="frame" x="5" y="5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="9BB-Bu-yDe"/>
+                        <constraint firstAttribute="width" constant="20" id="QSI-wP-pE2"/>
+                    </constraints>
+                </customView>
+                <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HM8-eM-XcI">
+                    <rect key="frame" x="29" y="9" width="23" height="13"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="title" id="zWP-Wl-a1I">
                         <font key="font" metaFont="system" size="10"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -44,11 +43,14 @@
             <constraints>
                 <constraint firstItem="HM8-eM-XcI" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="FH7-K3-DaK"/>
                 <constraint firstItem="Xhv-J0-Yq1" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="SOe-0K-PRY"/>
-                <constraint firstItem="HM8-eM-XcI" firstAttribute="leading" secondItem="ho9-5C-vFH" secondAttribute="trailing" constant="6" id="agx-an-PPx"/>
-                <constraint firstItem="ho9-5C-vFH" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="avA-uh-JmT"/>
+                <constraint firstItem="d6P-Af-FzH" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="Yax-NM-wbP"/>
+                <constraint firstItem="d6P-Af-FzH" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="5" id="dEZ-Ic-ja3"/>
                 <constraint firstAttribute="trailing" secondItem="Xhv-J0-Yq1" secondAttribute="trailing" id="mr6-0B-TJa"/>
-                <constraint firstItem="ho9-5C-vFH" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="6" id="t0m-G6-idc"/>
+                <constraint firstItem="HM8-eM-XcI" firstAttribute="leading" secondItem="d6P-Af-FzH" secondAttribute="trailing" constant="6" id="xzd-tq-8n2"/>
             </constraints>
+            <connections>
+                <outlet property="fastImageView" destination="d6P-Af-FzH" id="ysU-y6-g7I"/>
+            </connections>
             <point key="canvasLocation" x="139.5" y="154"/>
         </customView>
         <customObject id="dHA-ZH-c8Z" customClass="NSCollectionViewItem">

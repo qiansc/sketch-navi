@@ -17,6 +17,14 @@
 		301F800D2553BF0C000ED935 /* NVMaskCollectionItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 301F800A2553BF0C000ED935 /* NVMaskCollectionItem.h */; };
 		301F800E2553BF0C000ED935 /* NVMaskCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 301F800B2553BF0C000ED935 /* NVMaskCollectionItem.m */; };
 		301F800F2553BF0C000ED935 /* NVMaskCollectionItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301F800C2553BF0C000ED935 /* NVMaskCollectionItem.xib */; };
+		302B39E025788A9500ACDF0D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302B39DE25788A9500ACDF0D /* Cocoa.framework */; };
+		302B39E225788AA300ACDF0D /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302B39DF25788A9500ACDF0D /* CocoaLumberjack.framework */; };
+		302B39E325788AA300ACDF0D /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 302B39DF25788A9500ACDF0D /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		302B39E525788AE600ACDF0D /* SVGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302B39E425788AE600ACDF0D /* SVGKit.framework */; };
+		302B39E82578905600ACDF0D /* SVGKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 302B39E625788B0300ACDF0D /* SVGKit.framework */; };
+		302B39E92578905600ACDF0D /* SVGKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 302B39E625788B0300ACDF0D /* SVGKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		302B39ED2578AB6B00ACDF0D /* SVGLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 302B39EB2578AB6B00ACDF0D /* SVGLoader.h */; };
+		302B39EE2578AB6B00ACDF0D /* SVGLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 302B39EC2578AB6B00ACDF0D /* SVGLoader.m */; };
 		30936DEA2557C4A100AB19B3 /* NVMaskSemanticItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 30936DE72557C4A100AB19B3 /* NVMaskSemanticItem.h */; };
 		30936DEB2557C4A100AB19B3 /* NVMaskSemanticItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 30936DE82557C4A100AB19B3 /* NVMaskSemanticItem.m */; };
 		30936DEC2557C4A100AB19B3 /* NVMaskSemanticItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30936DE92557C4A100AB19B3 /* NVMaskSemanticItem.xib */; };
@@ -285,6 +293,21 @@
 		B2E3ED4825585C1F00F7B6DB /* NVContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E3ED4625585C1F00F7B6DB /* NVContentView.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		302B39D92578881900ACDF0D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				302B39E92578905600ACDF0D /* SVGKit.framework in Embed Frameworks */,
+				302B39E325788AA300ACDF0D /* CocoaLumberjack.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		300A446D255970910078EE29 /* MSColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSColor.m; sourceTree = "<group>"; };
 		301F7FFD25539DF9000ED935 /* NVMaskSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVMaskSource.h; sourceTree = "<group>"; };
@@ -296,6 +319,12 @@
 		301F800A2553BF0C000ED935 /* NVMaskCollectionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVMaskCollectionItem.h; sourceTree = "<group>"; };
 		301F800B2553BF0C000ED935 /* NVMaskCollectionItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVMaskCollectionItem.m; sourceTree = "<group>"; };
 		301F800C2553BF0C000ED935 /* NVMaskCollectionItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVMaskCollectionItem.xib; sourceTree = "<group>"; };
+		302B39DE25788A9500ACDF0D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		302B39DF25788A9500ACDF0D /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaLumberjack.framework; sourceTree = "<group>"; };
+		302B39E425788AE600ACDF0D /* SVGKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVGKit.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/Demo-OSX-csbvkbgojwckzfgifatbslmasrug/Build/Products/Debug-iphoneos/SVGKit.framework"; sourceTree = "<group>"; };
+		302B39E625788B0300ACDF0D /* SVGKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SVGKit.framework; sourceTree = "<group>"; };
+		302B39EB2578AB6B00ACDF0D /* SVGLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVGLoader.h; sourceTree = "<group>"; };
+		302B39EC2578AB6B00ACDF0D /* SVGLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVGLoader.m; sourceTree = "<group>"; };
 		30936DE72557C4A100AB19B3 /* NVMaskSemanticItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVMaskSemanticItem.h; sourceTree = "<group>"; };
 		30936DE82557C4A100AB19B3 /* NVMaskSemanticItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVMaskSemanticItem.m; sourceTree = "<group>"; };
 		30936DE92557C4A100AB19B3 /* NVMaskSemanticItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NVMaskSemanticItem.xib; sourceTree = "<group>"; };
@@ -589,6 +618,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302B39E82578905600ACDF0D /* SVGKit.framework in Frameworks */,
+				302B39E525788AE600ACDF0D /* SVGKit.framework in Frameworks */,
+				302B39E225788AA300ACDF0D /* CocoaLumberjack.framework in Frameworks */,
+				302B39E025788A9500ACDF0D /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +638,26 @@
 				301F800C2553BF0C000ED935 /* NVMaskCollectionItem.xib */,
 			);
 			path = MinItem;
+			sourceTree = "<group>";
+		};
+		302B39B22578846F00ACDF0D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				302B39E425788AE600ACDF0D /* SVGKit.framework */,
+				302B39E625788B0300ACDF0D /* SVGKit.framework */,
+				302B39DE25788A9500ACDF0D /* Cocoa.framework */,
+				302B39DF25788A9500ACDF0D /* CocoaLumberjack.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		302B39EA2578AB2300ACDF0D /* SVG */ = {
+			isa = PBXGroup;
+			children = (
+				302B39EB2578AB6B00ACDF0D /* SVGLoader.h */,
+				302B39EC2578AB6B00ACDF0D /* SVGLoader.m */,
+			);
+			path = SVG;
 			sourceTree = "<group>";
 		};
 		30936DE62557C47100AB19B3 /* MaxItem */ = {
@@ -800,6 +853,7 @@
 		A38993EA250B859F00211D90 = {
 			isa = PBXGroup;
 			children = (
+				302B39B22578846F00ACDF0D /* Frameworks */,
 				A38993F6250B859F00211D90 /* Navi */,
 				A38993F5250B859F00211D90 /* Products */,
 			);
@@ -960,6 +1014,7 @@
 		A3B5E22425382A8F0048F526 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				302B39EA2578AB2300ACDF0D /* SVG */,
 				A3EEF7FB25402F5000C3998D /* PanelHeader */,
 				B226FF51253CA23C009DD159 /* Collection */,
 				B226FF50253CA1F6009DD159 /* Scroller */,
@@ -1324,6 +1379,7 @@
 				B23CA2962519855E00FB2416 /* HexColor.h in Headers */,
 				A33F4003255A7EA800B39E70 /* NVApp.h in Headers */,
 				30D2479E25429FAD0027602C /* NVLineSource.h in Headers */,
+				302B39ED2578AB6B00ACDF0D /* SVGLoader.h in Headers */,
 				301F80082553BDD8000ED935 /* NVMaskCollectionItemView.h in Headers */,
 				30C0919425555E7900DBA590 /* NVShadowCollectionItemView.h in Headers */,
 				A39E44AA25678C1C005037F8 /* NVVertSource.h in Headers */,
@@ -1452,6 +1508,7 @@
 				A38993F1250B859F00211D90 /* Frameworks */,
 				A38993F2250B859F00211D90 /* Resources */,
 				A39E447C2565040E005037F8 /* ShellScript */,
+				302B39D92578881900ACDF0D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1574,6 +1631,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3E4D251256BB3D000DD3974 /* NVWeightCollectionView.m in Sources */,
+				302B39EE2578AB6B00ACDF0D /* SVGLoader.m in Sources */,
 				B268775D2554D4D100EF6C1E /* NVBorderSemanticItem.m in Sources */,
 				A3B5E22925382B470048F526 /* NVPanelHeader.m in Sources */,
 				A32ED9952511D4E100EBCE68 /* Menu.m in Sources */,
@@ -1818,6 +1876,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Navi/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1841,6 +1903,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = Navi/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
