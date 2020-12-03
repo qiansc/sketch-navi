@@ -10,6 +10,7 @@
 #import "Util.h"
 #import "MSDocument.h"
 #import "NVURL.h"
+#import "NVUserData.h"
 
 @implementation NVLogin {
     MSDocument *document;
@@ -26,7 +27,8 @@
     [self.loginButton setAction:@selector(onLoginButtonClick:)];
     
     document = [[[NSApplication sharedApplication] orderedDocuments] firstObject];
-    
+    NSLog(@"### llll %@", [NVUserData cookieFileURL]);
+
 }
 
 - (void)initLoginPanel{
