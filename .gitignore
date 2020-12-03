@@ -23,3 +23,5 @@ navi.sketchplugin/
 assets/data/
 navi.sketchplugin.zip
 assets/table
+.history/
+*.xcworkspace/xcuserdata/

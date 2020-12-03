@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,6 +12,22 @@
         <customView id="c22-O7-iKe" customClass="NVIconCollectionItemView">
             <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="gPu-qz-AAw" customClass="SVGKFastImageView">
+                    <rect key="frame" x="3" y="3" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="0vg-dt-ejR"/>
+                        <constraint firstAttribute="height" constant="25" id="6M8-gs-3YU"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="gPu-qz-AAw" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="W0l-5X-pzZ"/>
+                <constraint firstItem="gPu-qz-AAw" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="Wt8-OC-zYR"/>
+            </constraints>
+            <connections>
+                <outlet property="fastImageView" destination="gPu-qz-AAw" id="QBY-HD-P7q"/>
+            </connections>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>
         <customObject id="yJB-Lm-lb3" customClass="NSCollectionViewItem">

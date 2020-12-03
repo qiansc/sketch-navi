@@ -7,6 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <SVGKit/SVGKit.h>
+#import "SVGLoader.h"
 #import "NVToggleBox.h"
 #import "NVIconSource.h"
 
@@ -15,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NVIconSemanticItemView : NVToggleBox
 
 @property (nonatomic) NVIconSpec spec;
+@property (strong) IBOutlet SVGKFastImageView *fastImageView;
 
 @end
 
