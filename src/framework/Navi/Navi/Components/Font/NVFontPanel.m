@@ -78,7 +78,7 @@
                         [indexPaths addObject: item.indexPath];
                         // 校准一下颜色s
                         // [self applyColor:NSColorFromRGBString(item.spec.defaultColor) toLayer:layer];
-                        [self applyFontSize:item.spec.iosFontSize weight:item.spec.iosFont toLayer:layer];
+                        [self applyFontSize:item.spec.iosFontSize toLayer:layer];
                         title = item.spec.code;
                     }
                 }
@@ -101,13 +101,13 @@
                 [NVUserInfo fromLayer:layer].fontCode = spec.code;
             }
             // [self applyColor:NSColorFromRGBString(spec.defaultColor) toLayer:layer];
-            [self applyFontSize:spec.iosFontSize weight:spec.iosFont toLayer:layer];
+            [self applyFontSize:spec.iosFontSize toLayer:layer];
         }
     }
 }
 
 /* 应用color到图层上 */
--(void)applyFontSize:(double) fontSize weight:(double) fontWeight toLayer:(MSLayer*) layer{
+-(void)applyFontSize:(double) fontSize toLayer:(MSLayer*) layer{
     if ([NVLayer isTextLayer:layer]) {
         layer.fontSize = fontSize;
         // layer.font = [NSFont systemFontOfSize:fontSize weight:fontWeight];

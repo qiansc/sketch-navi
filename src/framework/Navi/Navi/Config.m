@@ -47,12 +47,12 @@
         @"icon": @"Border",
         @"gravity": @1,
         @"type": @"PANEL"
-    }, @{
-        @"name": @"栅格",
-        @"id": @"Grid",
-        @"icon": @"Layout",
-        @"gravity": @1,
-        @"type": @"PANEL"
+//    }, @{
+//        @"name": @"栅格",
+//        @"id": @"Grid",
+//        @"icon": @"Layout",
+//        @"gravity": @1,
+//        @"type": @"PANEL"
 //    }, @{
 //        @"name": @"间距",
 //        @"id": @"Margin",
@@ -71,24 +71,24 @@
         @"icon": @"Margin-H",
         @"gravity": @1,
         @"type": @"PANEL"
-    }, @{
-        @"name": @"投影",
-        @"id": @"Shadow",
-        @"icon": @"Shadow",
-        @"gravity": @1,
-        @"type": @"PANEL"
-    }, @{
-        @"name": @"蒙层",
-        @"id": @"Mask",
-        @"icon": @"Mask",
-        @"gravity": @1,
-        @"type": @"PANEL"
-    }, @{
-        @"name": @"图标",
-        @"id": @"Icon",
-        @"icon": @"Icon",
-        @"gravity": @1,
-        @"type": @"PANEL"
+//    }, @{
+//        @"name": @"投影",
+//        @"id": @"Shadow",
+//        @"icon": @"Shadow",
+//        @"gravity": @1,
+//        @"type": @"PANEL"
+//    }, @{
+//        @"name": @"蒙层",
+//        @"id": @"Mask",
+//        @"icon": @"Mask",
+//        @"gravity": @1,
+//        @"type": @"PANEL"
+//    }, @{
+//        @"name": @"图标",
+//        @"id": @"Icon",
+//        @"icon": @"Icon",
+//        @"gravity": @1,
+//        @"type": @"PANEL"
 //    }, @{
 //        @"name": @"切换",
 //        @"id": @"Artboard",

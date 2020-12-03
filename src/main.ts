@@ -1,4 +1,5 @@
-import { getSpecs } from './spec-data';
+// import { getSpecs } from './spec-data';
+import { getSpecs } from './spec-data-api';
 const framework = require('./framework/Navi.xcworkspace/contents.xcworkspacedata');
 const MochaJSDelegate = require('mocha-js-delegate');
 const NVApp = framework.getClass('NVApp');

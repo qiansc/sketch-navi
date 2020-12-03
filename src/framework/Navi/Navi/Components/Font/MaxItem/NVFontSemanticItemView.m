@@ -33,7 +33,7 @@
     _spec = fontSpec;
     [self drawStyle];
     itemTitle.stringValue = self.spec.cmeaning;
-    itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
+    // itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
     itemDesc.stringValue = [NSString stringWithFormat:@"%i/%i/%i", (int)self.spec.iosFontSize,  (int)self.spec.androidFontSize,  (int)self.spec.h5FontSize];
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];
 }

@@ -39,7 +39,7 @@
     //    size = 65/3;
     // }
 
-    itemTitle.stringValue = @"无极-贴吧";
+    itemTitle.stringValue = @"无极";
     
     NSDictionary *attr = itemTitle.font.fontDescriptor.fontAttributes;
     if (fontSpec.iosFont > 500) {
@@ -51,7 +51,7 @@
     NSFont *font = [NSFont fontWithDescriptor: fontDescriptor size: size];
     
      [itemTitle setFont:font];
-    itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
+    // itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
     itemDesc.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];
     [self removeConstraint:cons];

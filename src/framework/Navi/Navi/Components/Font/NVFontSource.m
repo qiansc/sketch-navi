@@ -133,19 +133,19 @@
 
 +(NVFontSpec)value:(NSDictionary*) specDict {
     NVFontSpec spec = {
-        .defaultColor = specDict[@"defaultValue"][@"color"],
-        .darkColor = specDict[@"darkValue"][@"color"],
-        .nightColor = specDict[@"nightValue"][@"color"],
+//        .defaultColor = specDict[@"defaultValue"][@"color"],
+//        .darkColor = specDict[@"darkValue"][@"color"],
+//        .nightColor = specDict[@"nightValue"][@"color"],
         //.alpha = [specDict[@"defaultValue"][@"opacity"] floatValue],
         .code = specDict[@"code"],
         .cclass = specDict[@"cclass"],
         .cmeaning = specDict[@"cmeaning"],
-        .iosFont = [specDict[@"iosFont"] doubleValue],
-        .androidFont = [specDict[@"androidFont"] doubleValue],
-        .h5Font = [specDict[@"h5Font"] doubleValue],
-        .iosFontSize = [specDict[@"iosFontSize"] doubleValue],
-        .androidFontSize = [specDict[@"androidFontSize"] doubleValue],
-        .h5FontSize = [specDict[@"h5FontSize"] doubleValue],
+        // .iosFont = [specDict[@"iosFont"] doubleValue],
+        // .androidFont = [specDict[@"androidFont"] doubleValue],
+        // .h5Font = [specDict[@"h5Font"] doubleValue],
+        .iosFontSize = [specDict[@"ios"] doubleValue],
+        .androidFontSize = [specDict[@"android"] doubleValue],
+        .h5FontSize = [specDict[@"h5"] doubleValue],
         .elementCode = specDict[@"elementCode"]
 
     };

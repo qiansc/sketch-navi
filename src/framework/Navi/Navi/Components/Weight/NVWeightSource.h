@@ -22,13 +22,13 @@ struct NVWeightSpec {
     double iosFont;             // 400,
     double androidFont;         // 400,
     double h5Font;              // 400,
-    double iosFontSize;         // 17,
-    double androidFontSize;     // 15,
-    double h5FontSize;          // 51,
+//    double iosFontSize;         // 17,
+//    double androidFontSize;     // 15,
+//    double h5FontSize;          // 51,
     NSString *camId;            //'CAM_X350',
-    NSString *defaultColor;
-    NSString *darkColor;
-    NSString *nightColor;
+//    NSString *defaultColor;
+//    NSString *darkColor;
+//    NSString *nightColor;
 
 //    defaultValue: { color: '000000', opacity: 1, rgba: '0, 0, 0, 1' },
 //    darkValue: { color: 'FFFFFF', opacity: 1, rgba: '255, 255, 255, 1' },

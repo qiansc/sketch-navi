@@ -33,7 +33,6 @@
 -(void)setSpec:(NVIconSpec)fontSpec{
     _spec = fontSpec;
     [self drawStyle];
-//    itemTitle.stringValue = @"无极-贴吧";
 //    itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
 //    itemDesc.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];

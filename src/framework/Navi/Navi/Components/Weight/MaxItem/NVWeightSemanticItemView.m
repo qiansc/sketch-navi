@@ -45,7 +45,7 @@
     
     [itemTitle setFont:font];
     itemTitle.stringValue = self.spec.cmeaning;
-    itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
+    // itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
     itemDesc.stringValue = [NSString stringWithFormat:@"%i", (int)self.spec.iosFont];
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];
 }

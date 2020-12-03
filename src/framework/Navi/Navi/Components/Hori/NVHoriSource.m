@@ -105,13 +105,13 @@
 -(NSArray<NSString*>*)getDims{
     NSArray<NSString*>* arr = [dims allKeys];
     NSMutableArray<NSString*>* rs = [NSMutableArray new];
-//    for(NSString * item in arr) {
-//        if (![item isEqual:@"其他"]) [rs addObject:item];
-//    }
-//    if ([arr count] != [rs count]) {
-//        [rs addObject:@"其他"];
-//    }
-    return arr;
+    for(NSString * item in arr) {
+        if (![item isEqual:@"其他"]) [rs addObject:item];
+    }
+    if ([arr count] != [rs count]) {
+        [rs addObject:@"其他"];
+    }
+    return rs;
 }
 
 -(NSArray<NSDictionary*>*)getSpecsWith:(NSString *)dim{

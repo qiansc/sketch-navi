@@ -83,86 +83,56 @@ export class SpecData {
     }
 
     getFontSizeSpec() {
-        const data = {
-            "_id": "5f958c96c531587ee80a3849",
-            "id": 1,
-            "code": "T_X01",
-            "cline": "FEED",
-            "cclass": "默认",
-            "cmeaning": "按钮一级文本",
-            "elementCode": "T_X01",
-            "fontId": 1,
-            "fontSizeId": 15,
-            "camId": "CAM_X350",
-            "defaultValue": {
-                "color": "000000",
-                "opacity": 1,
-                "rgba": "0, 0, 0, 1"
-            },
-            "darkValue": {
-                "color": "FFFFFF",
-                "opacity": 1,
-                "rgba": "255, 255, 255, 1"
-            },
-            "nightValue": {
-                "color": "666666",
-                "opacity": 1,
-                "rgba": "102, 102, 102, 1"
-            },
-            "dim": ["默认"]
-        };
-
-        const arr: any = [];
-        for(var i = 1; i< 11; i++) {
-            let newData = JSON.parse(JSON.stringify(data));
-            newData.cmeaning = newData.code = newData.elementCode = i>9 ? `T_X${i}` : `T_X0${i}`;
-            newData.ios =  [0,34,28,22,20,17,16,15,13,12,10][i];
-            newData.android =  [0,88,73,57,52,44,42,39,34,31,26][i];
-            newData.h5 =  [0,34,28,22,20, 17, 16 ,15,13,12,10][i];
-            arr.push(newData);
+        let file = `/data/spec-baiduboxapp.json`;
+        let json: any = {};
+        let arr: any[] = [];
+        let exist: any = {};
+        if (existsSync(`${this.assetsPath}${file}`)) {
+            const text = readFileSync(`${this.assetsPath}${file}`).toString();
+            json =  JSON.parse(text);
+        } else {
+            const text = readFileSync(`${this.assetsPath}/example${file}`).toString();
+            json =  JSON.parse(text);
         }
+        json.data.forEach((item: any) => {
+            let spec = item;
+            if (exist[spec.code] || spec.cline !=="FEED") {
+                return;
+            }
+            if (!spec.code || spec.code.indexOf('F_T_X') !== 0 || spec.cline !== 'FEED') {
+                return;
+            }
+            spec.dim = [item.cclass, item.cmeaning];
+            exist[spec.code] = true;
+            arr.push(spec);
+        });
         return arr;
     }
 
     getFontWeightSpec() {
-        const data = {
-            "_id": "5f958c96c531587ee80a3849",
-            "id": 1,
-            "code": "T_X01",
-            "cline": "FEED",
-            "cclass": "默认",
-            "cmeaning": "按钮一级文本",
-            "elementCode": "T_X01",
-            "fontId": 1,
-            "camId": "CAM_X350",
-            "defaultValue": {
-                "color": "000000",
-                "opacity": 1,
-                "rgba": "0, 0, 0, 1"
-            },
-            "darkValue": {
-                "color": "FFFFFF",
-                "opacity": 1,
-                "rgba": "255, 255, 255, 1"
-            },
-            "nightValue": {
-                "color": "666666",
-                "opacity": 1,
-                "rgba": "102, 102, 102, 1"
-            },
-            "dim": ["默认"]
-        };
-
-        const arr: any = [];
-        for(var i = 1; i< 3; i++) {
-            let newData = JSON.parse(JSON.stringify(data));
-            newData.code = newData.elementCode = i>9 ? `F_X${i}` : `F_X0${i}`;
-            newData.ios =  [0, 400,700][i];
-            newData.android =  [0, 400,700][i];
-            newData.h5 =  [0, 400,700][i];
-            newData.cmeaning = ['', '常规体', '加粗 中黑体'][i];
-            arr.push(newData);
+        let file = `/data/spec-baiduboxapp.json`;
+        let json: any = {};
+        let arr: any[] = [];
+        let exist: any = {};
+        if (existsSync(`${this.assetsPath}${file}`)) {
+            const text = readFileSync(`${this.assetsPath}${file}`).toString();
+            json =  JSON.parse(text);
+        } else {
+            const text = readFileSync(`${this.assetsPath}/example${file}`).toString();
+            json =  JSON.parse(text);
         }
+        json.data.forEach((item: any) => {
+            let spec = item;
+            if (exist[spec.code] || spec.cline !=="FEED") {
+                return;
+            }
+            if (!spec.code || spec.code.indexOf('F_F_X') !== 0 || spec.cline !== 'FEED') {
+                return;
+            }
+            spec.dim = [item.cclass, item.cmeaning];
+            exist[spec.code] = true;
+            arr.push(spec);
+        });
         return arr;
     }
 
@@ -183,7 +153,7 @@ export class SpecData {
             if (exist[spec.code]) {
                 return;
             }
-            if (!spec.elementCode || spec.elementCode.indexOf('J_X') !== 0) {
+            if (!spec.elementCode || spec.elementCode.indexOf('J_X') !== 0  || spec.cline !== 'FEED') {
                 return;
             }
             spec.dim = [item.cclass, item.cmeaning];
@@ -218,8 +188,8 @@ export class SpecData {
             arr.push(spec);
         });
         return arr;
-    }
-    /*
+    }*/
+
     getMarginSpec(prefix: string = 'M_L') {
         let file = `/data/spec-baiduboxapp.json`;
         let json: any = {};
@@ -237,16 +207,17 @@ export class SpecData {
             if (exist[spec.code]) {
                 return;
             }
-            if (!spec.code || spec.code.indexOf(prefix) !== 0) {
+            if (!spec.code || spec.code.indexOf(prefix) !== 0 || spec.cline !== 'FEED') {
                 return;
             }
+            spec.desc = spec.code.substring(prefix.length, prefix.length+3);
             spec.dim = [item.cclass, item.cmeaning];
             exist[spec.code] = true;
             arr.push(spec);
         });
         return arr;
     }
-    */
+
     // getMaskSpec() {
     //     let arr: any[] = [];
     //     let exist: any = {};
@@ -402,19 +373,33 @@ export class SpecData {
         return rs;
     }
     getLineSpec() {
-        const result =  SpecData.loadJSONData('/data/data.json', this.assetsPath)['line']
-            .sort((a: any, b: any) => a.rowNumber - b.rowNumber)
-            .map((item: any) => {
-                const { code, cmeaning, ios } = item;
-                return {
-                    code,
-                    weight: ios,
-                    text: ios.toString(),
-                    cmeaning,
-                    dim: ['默认'],
-                };
-            });
-        return result;
+        let file = `/data/spec-baiduboxapp.json`;
+        let json: any = {};
+        let arr: any[] = [];
+        let exist: any = {};
+        if (existsSync(`${this.assetsPath}${file}`)) {
+            const text = readFileSync(`${this.assetsPath}${file}`).toString();
+            json =  JSON.parse(text);
+        } else {
+            const text = readFileSync(`${this.assetsPath}/example${file}`).toString();
+            json =  JSON.parse(text);
+        }
+        json.data.forEach((item: any, index: number) => {
+            let spec = item;
+            if (exist[spec.code] || spec.cline !=="FEED") {
+                return;
+            }
+            if (!spec.code || spec.code.indexOf('F_L_X') !== 0 || spec.cline !== 'FEED') {
+                return;
+            }
+            spec.weight = spec.ios;
+            spec.text = item.ios;
+            spec.dim = [item.cclass, item.cmeaning];
+            spec.index = index;
+            exist[spec.code] = true;
+            arr.push(spec);
+        });
+        return arr;
     }
 
     getGridSpec() {
@@ -422,30 +407,29 @@ export class SpecData {
             .sort((a: any, b: any) => a.rowNumber - b.rowNumber)
         return result;
     }
-    getMarginSpec(prefix: string = 'M_L') {
-        const result =  SpecData.loadJSONData('/data/data.json', this.assetsPath)['margin']
-            .filter((item: any) => item.code.indexOf(prefix) >= 0)
-            .sort((a: any, b: any) => a.rowNumber - b.rowNumber)
-        return result;
-    }
+    // getMarginSpec(prefix: string = 'M_L') {
+    //     const result =  SpecData.loadJSONData('/data/data.json', this.assetsPath)['margin']
+    //         .filter((item: any) => item.code.indexOf(prefix) >= 0)
+    //         .sort((a: any, b: any) => a.rowNumber - b.rowNumber)
+    //     return result;
+    // }
 }
 
 export function getSpecs(resourcesPath: string) {
     const specData = new SpecData(resourcesPath);
-    const fontSpec = specData.getFontSizeSpec();
-    const borderSpec = specData.getBorderSpec();
 
+    console.log(specData.getFontSizeSpec());
     return {
-        Color: specData.getTBColor(), //getColorSpec(),
-        Line: specData.getLineSpec(),
-        Font: fontSpec,
+        Color: specData.getColorSpec(), //.getTBColor(), //getColorSpec(),
+        Font: specData.getFontSizeSpec(),
         Weight: specData.getFontWeightSpec(),
-        Border: borderSpec,
+        Line: specData.getLineSpec(),
+        Border: specData.getBorderSpec(),
         Grid: specData.getGridSpec(),
-        Margin: specData.getMarginSpec(),
+        // Margin: specData.getMarginSpec(),
         Mask: specData.getMaskSpec(),
-        Hori: specData.getMarginSpec('M_H'),
-        Vert: specData.getMarginSpec('M_W'),
+        Hori: specData.getMarginSpec('F_M_H_X'),
+        Vert: specData.getMarginSpec('F_M_W_X'),
         Icon: specData.getTBIcon(),
         Shadow: specData.getShadowSpec(),
     };

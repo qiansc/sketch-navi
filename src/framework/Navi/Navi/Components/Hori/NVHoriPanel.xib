@@ -37,9 +37,9 @@
                     </segmentedCell>
                 </segmentedControl>
                 <collectionView allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6v-rQ-vyc" customClass="NVHoriCollectionView">
-                    <rect key="frame" x="0.0" y="-1728" width="240" height="2000"/>
+                    <rect key="frame" x="0.0" y="-2728" width="240" height="3000"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="2000" id="hBa-tW-MMm"/>
+                        <constraint firstAttribute="height" constant="3000" id="hBa-tW-MMm"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="3" id="D9L-QD-hsl">
                         <size key="itemSize" width="50" height="50"/>
