@@ -14,15 +14,15 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wyf-jj-AbR">
-                    <rect key="frame" x="4" y="7" width="23" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="2N" id="Pet-qz-ZXQ">
+                    <rect key="frame" x="4" y="7" width="27" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="2N" id="Pet-qz-ZXQ">
                         <font key="font" metaFont="systemBold"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField identifier="ItemDesc" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pck-e5-hf2">
-                    <rect key="frame" x="42" y="9" width="31" height="12"/>
+                    <rect key="frame" x="37" y="9" width="31" height="12"/>
                     <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="DESC" id="6oH-53-e6H">
                         <font key="font" size="10" name="HelveticaNeue"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -43,7 +43,7 @@
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="mC9-Ce-oPX" secondAttribute="trailing" constant="-8" id="7Ez-hQ-M5Q"/>
-                <constraint firstItem="pck-e5-hf2" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="44" id="80k-hG-9Rw"/>
+                <constraint firstItem="pck-e5-hf2" firstAttribute="leading" secondItem="Wyf-jj-AbR" secondAttribute="trailing" constant="10" id="80k-hG-9Rw"/>
                 <constraint firstItem="mC9-Ce-oPX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pck-e5-hf2" secondAttribute="trailing" priority="990" constant="10" id="K9j-Up-bJa"/>
                 <constraint firstItem="Wyf-jj-AbR" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="TvP-B2-gqq"/>
                 <constraint firstItem="Wyf-jj-AbR" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="6" id="V5c-Yw-PPf"/>

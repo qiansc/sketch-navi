@@ -202,7 +202,7 @@ export class SpecData {
             const text = readFileSync(`${this.assetsPath}/example${file}`).toString();
             json =  JSON.parse(text);
         }
-        json.data.forEach((item: any) => {
+        json.data.forEach((item: any, index: number) => {
             let spec = item;
             if (exist[spec.code]) {
                 return;
@@ -210,8 +210,9 @@ export class SpecData {
             if (!spec.code || spec.code.indexOf(prefix) !== 0 || spec.cline !== 'FEED') {
                 return;
             }
-            spec.desc = spec.code.substring(prefix.length, prefix.length+3);
+            spec.desc = spec.ios.toString();
             spec.dim = [item.cclass, item.cmeaning];
+            spec.index = index;
             exist[spec.code] = true;
             arr.push(spec);
         });
@@ -418,7 +419,6 @@ export class SpecData {
 export function getSpecs(resourcesPath: string) {
     const specData = new SpecData(resourcesPath);
 
-    console.log(specData.getFontSizeSpec());
     return {
         Color: specData.getColorSpec(), //.getTBColor(), //getColorSpec(),
         Font: specData.getFontSizeSpec(),
@@ -428,8 +428,8 @@ export function getSpecs(resourcesPath: string) {
         Grid: specData.getGridSpec(),
         // Margin: specData.getMarginSpec(),
         Mask: specData.getMaskSpec(),
-        Hori: specData.getMarginSpec('F_M_H_X'),
-        Vert: specData.getMarginSpec('F_M_W_X'),
+        Hori: specData.getMarginSpec('F_M_W_X'),
+        Vert: specData.getMarginSpec('F_M_H_X'),
         Icon: specData.getTBIcon(),
         Shadow: specData.getShadowSpec(),
     };

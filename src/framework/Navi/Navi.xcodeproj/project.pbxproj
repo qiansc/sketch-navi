@@ -69,8 +69,6 @@
 		A3003665253873300093395D /* CustomScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = A3003663253873300093395D /* CustomScroller.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A32ED9942511D4E100EBCE68 /* Menu.h in Headers */ = {isa = PBXBuildFile; fileRef = A32ED9922511D4E100EBCE68 /* Menu.h */; };
 		A32ED9952511D4E100EBCE68 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = A32ED9932511D4E100EBCE68 /* Menu.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		A33C37E7256CCD140036F1DA /* SKUBezierPath+SVG.h in Headers */ = {isa = PBXBuildFile; fileRef = A33C37E5256CCD140036F1DA /* SKUBezierPath+SVG.h */; };
-		A33C37E8256CCD150036F1DA /* SKUBezierPath+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = A33C37E6256CCD140036F1DA /* SKUBezierPath+SVG.m */; };
 		A33C37F9256D1AEF0036F1DA /* NVIconCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A33C37EA256D1AEF0036F1DA /* NVIconCollectionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A33C37FA256D1AEF0036F1DA /* NVIconPanel.h in Headers */ = {isa = PBXBuildFile; fileRef = A33C37EB256D1AEF0036F1DA /* NVIconPanel.h */; };
 		A33C37FB256D1AEF0036F1DA /* NVIconSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A33C37EC256D1AEF0036F1DA /* NVIconSource.m */; };
@@ -375,8 +373,6 @@
 		A31812C5256F9F5100E74A33 /* MSDocumentData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSDocumentData.h; sourceTree = "<group>"; };
 		A32ED9922511D4E100EBCE68 /* Menu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		A32ED9932511D4E100EBCE68 /* Menu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
-		A33C37E5256CCD140036F1DA /* SKUBezierPath+SVG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKUBezierPath+SVG.h"; sourceTree = "<group>"; };
-		A33C37E6256CCD140036F1DA /* SKUBezierPath+SVG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKUBezierPath+SVG.m"; sourceTree = "<group>"; };
 		A33C37EA256D1AEF0036F1DA /* NVIconCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVIconCollectionView.m; sourceTree = "<group>"; };
 		A33C37EB256D1AEF0036F1DA /* NVIconPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVIconPanel.h; sourceTree = "<group>"; };
 		A33C37EC256D1AEF0036F1DA /* NVIconSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVIconSource.m; sourceTree = "<group>"; };
@@ -1232,8 +1228,6 @@
 		B23CA2932519852600FB2416 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				A33C37E5256CCD140036F1DA /* SKUBezierPath+SVG.h */,
-				A33C37E6256CCD140036F1DA /* SKUBezierPath+SVG.m */,
 				A3B148E3251628D500939B36 /* Headers */,
 				A3EE0FE4254059D600C3998D /* Sketch-Headers */,
 				B23CA2942519855E00FB2416 /* HexColor.h */,
@@ -1429,7 +1423,6 @@
 				A3D55E96256B812F00B150DF /* NVFontSource.h in Headers */,
 				B2012D1C253C5B2A0003715E /* DisabledWheelScrollView.h in Headers */,
 				A3C5FEF225761EDC00BBFBF9 /* NVPerference.h in Headers */,
-				A33C37E7256CCD140036F1DA /* SKUBezierPath+SVG.h in Headers */,
 				301F80032553B84B000ED935 /* NVMaskCollectionView.h in Headers */,
 				A3E4D25C256BB3D000DD3974 /* NVWeightCollectionItemView.h in Headers */,
 				A361673225516C9400FE0840 /* NVCollectionViewWithHeader.h in Headers */,
@@ -1680,7 +1673,6 @@
 				A3D55E9C256B812F00B150DF /* NVFontSource.m in Sources */,
 				30D2479F25429FAD0027602C /* NVLineSource.m in Sources */,
 				A33F4016255BF66200B39E70 /* NVPanelView.m in Sources */,
-				A33C37E8256CCD150036F1DA /* SKUBezierPath+SVG.m in Sources */,
 				30C0919A25555E7900DBA590 /* NVShadowPanel.m in Sources */,
 				A3DBD3CF25594F1C0042F14C /* NVFastScrollView.m in Sources */,
 				A33F4012255BF45400B39E70 /* NVMenuView.m in Sources */,
