@@ -14,10 +14,20 @@
 
 @implementation NVLogin {
     MSDocument *document;
+    NSString *cookieFile;
+    NSDictionary *userData;
+    NSDictionary *config;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    config = [Util loadConfig];
+    
+    if (config == nil) {
+        [Util message:@"插件配置损坏，请联系运营处理..."];
+        return;
+    }
 
     [self initLoginPanel];
     [self.codeButton setTarget:self];
@@ -26,9 +36,40 @@
     [self.loginButton setTarget:self];
     [self.loginButton setAction:@selector(onLoginButtonClick:)];
     
+    [self.logoutButton setTarget:self];
+    [self.logoutButton setAction:@selector(loginOut:)];
+    
     document = [[[NSApplication sharedApplication] orderedDocuments] firstObject];
-    NSLog(@"### llll %@", [NVUserData cookieFileURL]);
+    cookieFile = [NVUserData cookieFileURL].path;
+    
+    [self checkLogin];
+}
 
+- (void)checkLogin {
+    userData = [NVUserData userData];
+    if (userData[@"username"]) {
+        self.usernameField.stringValue = [NSString stringWithFormat:@"%@%@", userData[@"username"], userData[@"domain"]];
+        [self.accountLoginView setHidden:YES];
+        [self.accountUserView setHidden:NO];
+    } else {
+        [self.accountLoginView setHidden:NO];
+        [self.accountUserView setHidden:YES];
+    }
+}
+
+- (void)loginSuccess{
+    BOOL ret = [NVUserData saveUserData:@{
+        @"username": self.nameField.stringValue,
+        @"domain": self.domainButton.selectedItem.title,
+        @"group": @"FEED",
+    }];
+    if (ret) {
+        [self checkLogin];
+    } else {
+        self.infoField.stringValue = @"登录信息获取失败，请联系运营协助...";
+        [self.infoView setHidden:NO];
+    }
+    
 }
 
 - (void)initLoginPanel{
@@ -38,6 +79,18 @@
     self.infoView.wantsLayer = YES;
     self.infoView.layer.backgroundColor = [NSColor unemphasizedSelectedContentBackgroundColor].CGColor;
     [self.infoView setHidden:YES];
+}
+
+
+- (void)loginOut:(NSButton*)sender {
+    userData = @{};
+    BOOL ret = [NVUserData saveUserData:userData];
+    if (!ret) {
+        self.infoField.stringValue = @"退出登录过程中存在异常，如有需要请联系运营协助...";
+    }
+    [self initLoginPanel];
+    [self checkLogin];
+    
 }
 
 - (void)setCodeFieldEnabled:(BOOL) status{
@@ -58,8 +111,12 @@
     [self.infoView setHidden:NO];
     self.infoField.textColor = [NSColor secondaryLabelColor];
     self.infoField.stringValue = @"登录中，请稍候...";
-    NSString *urlString = [NSString stringWithFormat:@"http://wuji.com/openapi/uikit/client?action=verifyMailCode&mailcode=%@",self.codeField.stringValue];
-    [NVURL request:@{@"url": urlString} completionHandler: ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSString *tpl = [NSString stringWithFormat:@"%@%@", config[@"host"], config[@"loginAPI"]];
+    NSString *url = [NSString stringWithFormat:tpl, self.codeField.stringValue];
+    [NVURL request:@{
+        @"url": url,
+        @"cookie-jar": cookieFile
+    } completionHandler: ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
             self.infoField.stringValue = @"无法连接至账户服务器，请检查网络状态后重试！";
             [self.infoView setHidden:NO];
@@ -71,14 +128,20 @@
 
 - (void)onCodeButtonClick:(NSButton*)sender {
     if (self.nameField.stringValue.length < 3) {
-        [Util message:@"请输入账户！"];
+        self.infoField.stringValue = @"请输入账户！";
+        [self.infoView setHidden:NO];
         return;
     }
     [self.infoView setHidden:NO];
     self.infoField.textColor = [NSColor secondaryLabelColor];
     self.infoField.stringValue = @"请求中，请稍候...";
-    NSString *urlString = [NSString stringWithFormat:@"http://wuji.com/openapi/uikit/client?action=requestMailCode&mail=%@@baidu.com",self.nameField.stringValue];
-    [NVURL request:@{@"url": urlString} completionHandler: ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSString *tpl = [NSString stringWithFormat:@"%@%@", config[@"host"], config[@"codeAPI"]];
+    NSString *mail = [NSString stringWithFormat:@"%@%@", self.nameField.stringValue, @"@baidu.com"];
+    NSString *url = [NSString stringWithFormat:tpl, mail];
+    [NVURL request:@{
+        @"url": url,
+        @"cookie-jar": cookieFile
+    } completionHandler: ^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
             self.infoField.stringValue = @"无法连接至账户服务器，请检查网络状态后重试！";
             [self.infoView setHidden:NO];
@@ -90,7 +153,6 @@
 
 - (void)processCodeVerifyResponse:(NSData*) data {
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    NSLog(@"### login data %@ %@", data, json);
     if (json) {
         if ([json[@"status"] intValue] == 1) {
             self.infoField.stringValue = json[@"msg"] ? json[@"msg"] : json[@"data"];
@@ -98,6 +160,8 @@
         } else if ([json[@"status"] intValue] == 0 && json[@"data"][@"no"]){
             self.infoField.stringValue=@"";
             [self.infoView setHidden:YES];
+            [self loginSuccess];
+            
         }
     } else {
         self.infoField.stringValue = @"网络或数据返回异常，请稍后重试！";

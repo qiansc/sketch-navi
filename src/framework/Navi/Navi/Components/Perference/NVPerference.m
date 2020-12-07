@@ -22,6 +22,8 @@
     // NVLogin *xib = [[NVLogin alloc] initWithNibName:@"NVLogin" bundle: [NVBundle bundlePath]];
 
     [self.accountItem addSubview:self.accountLoginView];
+    [self.accountItem addSubview:self.accountUserView];
+    [self.aboutItem addSubview:self.aboutView];
     [self.loginController viewDidLoad];
 }
 

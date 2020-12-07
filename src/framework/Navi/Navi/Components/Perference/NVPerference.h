@@ -16,6 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSWindow *window;
 @property (nonatomic, strong) IBOutlet NSView *accountItem;
 @property (nonatomic, strong) IBOutlet NSView *accountLoginView;
+@property (nonatomic, strong) IBOutlet NSView *accountUserView;
+
+@property (nonatomic, strong) IBOutlet NSView *aboutItem;
+@property (nonatomic, strong) IBOutlet NSView *aboutView;
 
 @property (nonatomic, strong) IBOutlet NVLogin *loginController;
 

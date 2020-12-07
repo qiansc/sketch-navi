@@ -7,7 +7,7 @@
   },
   "skpm": {
     "name": "无极 UIKit",
-    "description": "Author: qiansc LiuDonghai BiYingshuai",
+    "description": "",
     "manifest": "src/manifest.json",
     "main": "navi.sketchplugin",
     "assets": [

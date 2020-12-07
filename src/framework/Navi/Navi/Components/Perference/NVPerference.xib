@@ -8,8 +8,11 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NVPerference">
             <connections>
+                <outlet property="aboutItem" destination="idT-hy-ujZ" id="dZ8-qV-3uR"/>
+                <outlet property="aboutView" destination="Lfj-nj-GHC" id="bqX-bn-zD8"/>
                 <outlet property="accountItem" destination="N4h-Hf-zcT" id="pYB-5m-pGU"/>
                 <outlet property="accountLoginView" destination="JYd-D0-IeC" id="aj3-5M-ZTV"/>
+                <outlet property="accountUserView" destination="nN0-Uf-4Rd" id="E5H-kh-uQI"/>
                 <outlet property="loginController" destination="EPx-IN-SLb" id="LkH-cv-8NM"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -33,13 +36,13 @@
                         </tabViewItem>
                         <tabViewItem label="通用" identifier="" id="HOn-3H-U8B">
                             <view key="view" id="Zn4-gx-tCI">
-                                <rect key="frame" x="10" y="33" width="445" height="182"/>
+                                <rect key="frame" x="10" y="33" width="445" height="188"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                         </tabViewItem>
                         <tabViewItem label="关于" identifier="" id="T3e-h7-MIg">
                             <view key="view" id="idT-hy-ujZ">
-                                <rect key="frame" x="10" y="33" width="445" height="182"/>
+                                <rect key="frame" x="10" y="33" width="445" height="188"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                         </tabViewItem>
@@ -80,7 +83,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfx-8f-XHy">
-                    <rect key="frame" x="62" y="144" width="44" height="16"/>
+                    <rect key="frame" x="62" y="144" width="49" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="账     户" id="MvL-tP-OW8">
                         <font key="font" metaFont="system"/>
@@ -89,7 +92,7 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" id="NRg-VT-Y2Z">
-                    <rect key="frame" x="147" y="47" width="76" height="27"/>
+                    <rect key="frame" x="147" y="44" width="76" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="smallSquare" title="登录" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="E8S-9Q-Hh9">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -136,16 +139,132 @@
             </subviews>
             <point key="canvasLocation" x="177.5" y="444"/>
         </customView>
+        <customView id="nN0-Uf-4Rd" userLabel="AccountUser">
+            <rect key="frame" x="0.0" y="0.0" width="437" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8XG-mW-am1">
+                    <rect key="frame" x="62" y="97" width="49" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="权     限" id="Bxj-s7-SvZ">
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CaD-51-F35">
+                    <rect key="frame" x="62" y="144" width="49" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="账     户" id="CKp-b2-cJY">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMn-iX-7KN">
+                    <rect key="frame" x="144" y="144" width="233" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="username" id="smL-kb-IKP">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6wg-jL-EeB">
+                    <rect key="frame" x="144" y="97" width="233" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="普通" id="CJi-yf-1B2">
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" id="Pbi-xn-4AQ">
+                    <rect key="frame" x="146" y="45" width="76" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="smallSquare" title="退出" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DqQ-Xc-PnW">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <point key="canvasLocation" x="177.5" y="706"/>
+        </customView>
         <customObject id="EPx-IN-SLb" customClass="NVLogin">
             <connections>
+                <outlet property="accountLoginView" destination="JYd-D0-IeC" id="sSn-x6-Q80"/>
+                <outlet property="accountUserView" destination="nN0-Uf-4Rd" id="yaK-bv-97S"/>
                 <outlet property="codeButton" destination="GlQ-a2-8Ly" id="ZAE-zQ-zfL"/>
                 <outlet property="codeField" destination="Dsa-lC-nPM" id="5mW-xO-OaX"/>
+                <outlet property="domainButton" destination="1eW-r1-4fl" id="lQS-bM-qvn"/>
                 <outlet property="infoField" destination="gpd-5j-EJ4" id="yix-3e-WQs"/>
                 <outlet property="infoView" destination="Qkv-cU-OO3" id="Wpj-5h-SVq"/>
                 <outlet property="loginButton" destination="NRg-VT-Y2Z" id="1Gl-tP-W3j"/>
+                <outlet property="logoutButton" destination="Pbi-xn-4AQ" id="9X8-Iz-Dq1"/>
                 <outlet property="nameField" destination="PeE-Tf-61V" id="1S8-W5-dJB"/>
+                <outlet property="usernameField" destination="lMn-iX-7KN" id="B3u-lD-0We"/>
                 <outlet property="view" destination="JYd-D0-IeC" id="T0W-hw-1hi"/>
             </connections>
         </customObject>
+        <customView id="Lfj-nj-GHC" userLabel="About">
+            <rect key="frame" x="0.0" y="0.0" width="437" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QEY-B5-3pl">
+                    <rect key="frame" x="145" y="109" width="70" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="MEUX出品" id="BSy-8M-E9D">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eFF-nu-aEL">
+                    <rect key="frame" x="330" y="135" width="30" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="1.0.1" id="IhU-KZ-CVe">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fte-Nz-xKr">
+                    <rect key="frame" x="144" y="126" width="178" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="无极Sketch UIkit" id="9kG-YG-xPm">
+                        <font key="font" size="24" name=".PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zlY-2H-Zcg">
+                    <rect key="frame" x="145" y="62" width="246" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="作者：钱思成、刘东海、毕营帅" id="9D5-ue-ZGL">
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vT8-rS-8xG">
+                    <rect key="frame" x="145" y="42" width="246" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Email：wujizt@baidu.com" id="fPT-Sf-4F5">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6pU-1K-aNe">
+                    <rect key="frame" x="36" y="92" width="70" height="67"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="AppIcon" id="haE-Hw-akJ"/>
+                </imageView>
+            </subviews>
+            <point key="canvasLocation" x="177.5" y="-92"/>
+        </customView>
     </objects>
+    <resources>
+        <image name="AppIcon" width="384" height="384"/>
+    </resources>
 </document>

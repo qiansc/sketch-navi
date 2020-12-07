@@ -16,6 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSImage*)createImage:(NSURL*) imageURL withSize:(NSSize) size;
 + (NSBox*)separtorBox;
 
++ (NSURL*)resourceURL:(NSString*) prefix;
++ (void)generateConfig;
++ (NSDictionary*)loadConfig;
+
 + (void)fillSuperview:(NSView*)view;
 
 + (void)position:(MSLayer*)layer at:(CGPoint) point;

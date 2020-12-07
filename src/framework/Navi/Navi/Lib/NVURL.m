@@ -7,6 +7,7 @@
 //
 
 #import "NVURL.h"
+#import "NVUserData.h"
 
 @implementation NVURL
 
@@ -23,6 +24,7 @@
     [task launch];
     NSData * responseData = [[outputPipe fileHandleForReading] readDataToEndOfFile];
     NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    
     if (responseString) {
         handler(responseData, nil, nil);
     } else {

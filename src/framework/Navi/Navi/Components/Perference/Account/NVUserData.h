@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(NSURL*)cookieFileURL;
 
++(NSDictionary*)userData;
++(BOOL)saveUserData:(NSDictionary*) data;
+
 @end
 
 NS_ASSUME_NONNULL_END

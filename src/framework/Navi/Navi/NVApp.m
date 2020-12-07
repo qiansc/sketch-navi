@@ -55,6 +55,7 @@
 }
 
 -(void)show{
+    // [Util generateConfig];
     NSMutableArray *views = [NSMutableArray new];
     for(NSView *view in self.splitView.subviews) {
         [views addObject:view];

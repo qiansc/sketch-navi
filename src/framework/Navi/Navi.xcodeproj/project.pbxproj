@@ -183,7 +183,7 @@
 		A3C5FEF7257621E700BBFBF9 /* NVPerferenceWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = A3C5FEF5257621E700BBFBF9 /* NVPerferenceWindow.h */; };
 		A3C5FEF8257621E700BBFBF9 /* NVPerferenceWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C5FEF6257621E700BBFBF9 /* NVPerferenceWindow.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3D4B60D2576419C00080621 /* NVLogin.h in Headers */ = {isa = PBXBuildFile; fileRef = A3D4B60A2576419C00080621 /* NVLogin.h */; };
-		A3D4B60E2576419C00080621 /* NVLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D4B60B2576419C00080621 /* NVLogin.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3D4B60E2576419C00080621 /* NVLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D4B60B2576419C00080621 /* NVLogin.m */; };
 		A3D55E94256B812F00B150DF /* NVFontPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D55E85256B812F00B150DF /* NVFontPanel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3D55E96256B812F00B150DF /* NVFontSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A3D55E87256B812F00B150DF /* NVFontSource.h */; };
 		A3D55E97256B812F00B150DF /* NVFontSemanticItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = A3D55E89256B812F00B150DF /* NVFontSemanticItemView.h */; };

@@ -9,6 +9,7 @@
 #import "Util.h"
 #import "HexColor.h"
 #import "MSDocument.h"
+#import "NVBundle.h"
 
 @implementation Util
 
@@ -92,5 +93,53 @@
 
     return appDirectory;
 }
+
+
++ (NSURL*)resourceURL:(NSString*) prefix {
+    NSURL *bundleURL = [NVBundle bundlePath].bundleURL;
+    bundleURL = [[bundleURL URLByDeletingLastPathComponent]URLByDeletingLastPathComponent];
+    if (prefix) {
+        
+    }
+    NSURL *url = [bundleURL URLByAppendingPathComponent:prefix isDirectory:NO];
+    return url;
+}
+
++ (NSDictionary*)loadConfig {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSURL *url = [Util resourceURL:@"data/config"];
+    if (![fm fileExistsAtPath: url.path]) {
+        NSLog(@"### Use Default Config");
+        return [Util appConfig];
+    }
+    NSData *json = [NSData dataWithContentsOfURL:url];
+    json = [json initWithBase64EncodedData:json options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    NSError *err;
+    NSDictionary *conf = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingMutableContainers error:&err];
+    if (conf[@"host"] && conf[@"loginAPI"] && conf[@"codeAPI"]) {
+        return conf;
+    }
+    return nil;
+}
+
++ (NSDictionary*)appConfig {
+    return @{
+        @"host": @"https://raw.githubusercontent.com",
+        @"loginAPI": @"/design-to-release/sketch-navi/master/demo/api/verify-success?code=%@",
+        @"codeAPI": @"/design-to-release/sketch-navi/master/demo/api/request-code?mail=%@"
+    };
+}
+
++ (void)generateConfig{
+    NSURL *url = [Util resourceURL:@"data/config"];
+    NSData *json = [NSJSONSerialization dataWithJSONObject:[Util appConfig] options:NSJSONWritingPrettyPrinted error:nil];
+    json = [json base64EncodedDataWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    BOOL ret = [json writeToURL:url atomically:YES];
+    if (ret)
+        NSLog(@"### generate config at %@", url);
+    else
+        NSLog(@"### generate fail at %@", url);
+}
+
 
 @end
