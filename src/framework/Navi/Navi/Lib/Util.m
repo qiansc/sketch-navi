@@ -125,8 +125,8 @@
 + (NSDictionary*)appConfig {
     return @{
         @"host": @"https://raw.githubusercontent.com",
-        @"loginAPI": @"/design-to-release/sketch-navi/master/demo/api/verify-success?code=%@",
-        @"codeAPI": @"/design-to-release/sketch-navi/master/demo/api/request-code?mail=%@"
+        @"loginAPI": @"/design-to-release/sketch-navi/master/demo/api/verify-success.json?code=%@",
+        @"codeAPI": @"/design-to-release/sketch-navi/master/demo/api/request-code.json?mail=%@"
     };
 }
 
