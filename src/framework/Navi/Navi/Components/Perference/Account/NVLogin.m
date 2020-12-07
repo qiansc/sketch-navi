@@ -74,6 +74,7 @@
 
 - (void)initLoginPanel{
     self.nameField.stringValue = @"";
+    self.codeField.stringValue = @"";
     self.codeButton.enabled = YES;
     [self setCodeFieldEnabled: NO];
     self.infoView.wantsLayer = YES;
