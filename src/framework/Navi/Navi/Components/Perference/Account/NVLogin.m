@@ -11,6 +11,7 @@
 #import "MSDocument.h"
 #import "NVURL.h"
 #import "NVUserData.h"
+#import "NVSpec.h"
 
 @implementation NVLogin {
     MSDocument *document;
@@ -62,9 +63,14 @@
         @"username": self.nameField.stringValue,
         @"domain": self.domainButton.selectedItem.title,
         @"group": @"FEED",
+        @"version": @"12.1.5"
     }];
-    if (ret) {
+    
+    BOOL specRet = [NVSpec fetchAllVersion];
+    
+    if (ret && specRet) {
         [self checkLogin];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SPEC_UPDATE" object:nil userInfo:@{}];
     } else {
         self.infoField.stringValue = @"登录信息获取失败，请联系运营协助...";
         [self.infoView setHidden:NO];
@@ -91,6 +97,7 @@
     }
     [self initLoginPanel];
     [self checkLogin];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SPEC_UPDATE" object:nil userInfo:@{}];
     
 }
 

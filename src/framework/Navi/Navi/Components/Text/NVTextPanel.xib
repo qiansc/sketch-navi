@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,9 +26,9 @@
                     </constraints>
                 </customView>
                 <collectionView allowsEmptySelection="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZD5-H8-3oj" customClass="NVTextCollectionView">
-                    <rect key="frame" x="0.0" y="-1728" width="240" height="2000"/>
+                    <rect key="frame" x="0.0" y="-2728" width="240" height="3000"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="2000" id="pww-37-auL"/>
+                        <constraint firstAttribute="height" constant="3000" id="pww-37-auL"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="2" minimumLineSpacing="3" id="7il-1t-d84">
                         <size key="itemSize" width="50" height="50"/>

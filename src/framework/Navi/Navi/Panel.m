@@ -148,6 +148,12 @@
         NSObject<NVSource> *source = panelSources[key];
         if (source) {
             [source update:specs[key]];
+            NVPanel *c = panelControllers[key];
+            if (specs[key] == nil || [specs[key] count] == 0) {
+                [c.view setHidden:YES];
+            } else {
+                [c.view setHidden:NO];
+            }
         }
     }
 }

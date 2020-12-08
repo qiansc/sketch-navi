@@ -28,5 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSButton *mainButton;
 @property (nonatomic, strong) NSObject<MenuProtocol> * delegate;
 
+- (void)updateSpec:(NSDictionary *) object;
+
 @end
 NS_ASSUME_NONNULL_END

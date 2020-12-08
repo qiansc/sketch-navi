@@ -394,7 +394,7 @@ export class SpecData {
                 return;
             }
             spec.weight = spec.ios;
-            spec.text = item.ios;
+            spec.text = item.ios.toString();
             spec.dim = [item.cclass, item.cmeaning];
             spec.index = index;
             exist[spec.code] = true;
@@ -420,11 +420,11 @@ export function getSpecs(resourcesPath: string) {
     const specData = new SpecData(resourcesPath);
 
     return {
-        Color: specData.getColorSpec(), //.getTBColor(), //getColorSpec(),
-        Font: specData.getFontSizeSpec(),
-        Weight: specData.getFontWeightSpec(),
+        // Color: specData.getColorSpec(), //.getTBColor(), //getColorSpec(),
+        // Font: specData.getFontSizeSpec(),
+        // Weight: specData.getFontWeightSpec(),
         Line: specData.getLineSpec(),
-        Border: specData.getBorderSpec(),
+        // Border: specData.getBorderSpec(),
         Grid: specData.getGridSpec(),
         // Margin: specData.getMarginSpec(),
         Mask: specData.getMaskSpec(),

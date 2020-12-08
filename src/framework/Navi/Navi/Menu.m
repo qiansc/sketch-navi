@@ -21,6 +21,7 @@
     NSWindow *artborad;
     NSButton *artboradButton;
     NSMutableDictionary* panelButtons;
+    NSMutableDictionary* separtors;
     NVPerferenceWindow *perference;
 }
 
@@ -33,6 +34,7 @@
 - (void)initButton {
 
     panelButtons = [[NSMutableDictionary alloc]init];
+    separtors = [[NSMutableDictionary alloc]init];
 
     [self.headStack addView:[Util separtorBox] inGravity: NSStackViewGravityBottom];
 
@@ -46,7 +48,9 @@
         NSStackViewGravity gravity = option[@"gravity"] ? [option[@"gravity"] longValue] : NSStackViewGravityTop;
 
         [self.headStack addView:button inGravity: gravity];
-        [self.headStack addView:[Util separtorBox] inGravity: gravity];
+        NSBox *box = [Util separtorBox];
+        [self.headStack addView:box inGravity: gravity];
+        
 
         button.identifier = id;
 
@@ -59,6 +63,7 @@
         else if([option[@"type"] isEqual:@"PANEL"]) {
             button.state = YES;
             [panelButtons setValue:button forKey:id];
+            [separtors setValue:box forKey:id];
         }
         if ([id isEqual:@"Artboard"]){
             artboradButton = button;
@@ -87,8 +92,6 @@
             [perference toogle];
         else
             perference = [NVPerferenceWindow initFromNIB];
-        
-        NSLog(@"### perference %@", perference);
     } else if ([option[@"type"] isEqual:@"MAIN"]) {
         [self.delegate toggleMain: button.state];
     } else if ([option[@"type"] isEqual:@"WINDOW"]) {
@@ -152,6 +155,21 @@
 
 + (instancetype)viewControllerFromNIB {
     return[[Menu alloc] initWithNibName:@"Menu" bundle:[NVBundle bundlePath]];
+}
+
+- (void)updateSpec:(NSDictionary *) object{
+    for(NSString *key in [object allKeys]) {
+        NSView *view = panelButtons[key];
+        if (view){
+            if (object[key] == nil || [object[key] count] == 0) {
+                [view setHidden:YES];
+                [separtors[key] setHidden:YES];
+            } else {
+                [view setHidden:NO];
+                [separtors[key] setHidden:NO];
+            }
+        }
+    }
 }
 
 @end

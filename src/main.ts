@@ -1,5 +1,4 @@
 // import { getSpecs } from './spec-data';
-import { getSpecs } from './spec-data-api';
 const framework = require('./framework/Navi.xcworkspace/contents.xcworkspacedata');
 const MochaJSDelegate = require('mocha-js-delegate');
 const NVApp = framework.getClass('NVApp');
@@ -11,14 +10,14 @@ export function onStart(context: any) {
 export function onOpenDocument(){
     COScript.currentCOScript().setShouldKeepAround(true);
     const app = NVApp.prepareInit();
-    app.dataSource = new MochaJSDelegate({
-        'updateSpec': () => {
-            const path =  app.bundlePath();
-            const spec =  getSpecs(path.substring(0, path.indexOf('/_webpack_resources')));
-            app.specs = spec;
+    // app.dataSource = new MochaJSDelegate({
+    //     'updateSpec': () => {
+    //         const path =  app.bundlePath();
+    //         const spec =  getSpecs(path.substring(0, path.indexOf('/_webpack_resources')));
+    //         app.specs = spec;
 
-        },
-    }).getClassInstance();
+    //     },
+    // }).getClassInstance();
 }
 
 export function onSelectionChanged(context: any) {

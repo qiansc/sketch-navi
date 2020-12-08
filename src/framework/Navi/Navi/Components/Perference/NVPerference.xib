@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,7 +13,11 @@
                 <outlet property="accountItem" destination="N4h-Hf-zcT" id="pYB-5m-pGU"/>
                 <outlet property="accountLoginView" destination="JYd-D0-IeC" id="aj3-5M-ZTV"/>
                 <outlet property="accountUserView" destination="nN0-Uf-4Rd" id="E5H-kh-uQI"/>
+                <outlet property="commonController" destination="u7u-qX-gXs" id="n3P-8n-NFO"/>
+                <outlet property="commonItem" destination="Zn4-gx-tCI" id="Icm-m9-BS7"/>
+                <outlet property="commonView" destination="5zV-mc-qTK" id="Ulv-3Y-Fce"/>
                 <outlet property="loginController" destination="EPx-IN-SLb" id="LkH-cv-8NM"/>
+                <outlet property="tabView" destination="pEs-fK-7f0" id="Hl9-8x-pqA"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -28,14 +32,14 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <font key="font" metaFont="system"/>
                     <tabViewItems>
-                        <tabViewItem label="账户" identifier="" id="tom-xD-izK">
+                        <tabViewItem label="账户" identifier="login" id="tom-xD-izK">
                             <view key="view" id="N4h-Hf-zcT">
                                 <rect key="frame" x="10" y="33" width="445" height="188"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                         </tabViewItem>
-                        <tabViewItem label="通用" identifier="" id="HOn-3H-U8B">
-                            <view key="view" id="Zn4-gx-tCI">
+                        <tabViewItem label="通用" identifier="common" id="HOn-3H-U8B">
+                            <view key="view" ambiguous="YES" id="Zn4-gx-tCI">
                                 <rect key="frame" x="10" y="33" width="445" height="188"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
@@ -47,6 +51,9 @@
                             </view>
                         </tabViewItem>
                     </tabViewItems>
+                    <connections>
+                        <outlet property="delegate" destination="-2" id="9cF-Wv-CzV"/>
+                    </connections>
                 </tabView>
             </subviews>
             <point key="canvasLocation" x="177.5" y="179.5"/>
@@ -99,19 +106,6 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1eW-r1-4fl">
-                    <rect key="frame" x="302" y="139" width="99" height="27"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="smallSquare" title="@baidu.com" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="mbq-uB-Hqg" id="3hK-4Y-FJP">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                        <menu key="menu" id="c39-Jd-DmG">
-                            <items>
-                                <menuItem title="@baidu.com" state="on" id="mbq-uB-Hqg"/>
-                            </items>
-                        </menu>
-                    </popUpButtonCell>
-                </popUpButton>
                 <button verticalHuggingPriority="750" id="GlQ-a2-8Ly">
                     <rect key="frame" x="240" y="93" width="54" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -136,6 +130,21 @@
                     </subviews>
                     <accessibility description="InfoView"/>
                 </customView>
+                <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KLc-ew-1rb">
+                    <rect key="frame" x="318" y="139" width="99" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="smallSquare" title="@baidu.com" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" imageScaling="proportionallyDown" inset="2" selectedItem="bgp-Qj-SFM" id="XGV-qa-wgB">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="TG4-c8-ASY">
+                            <items>
+                                <menuItem title="@baidu.com" identifier="@baidu.com" id="bgp-Qj-SFM">
+                                    <accessibility description="@baidu.com"/>
+                                </menuItem>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                </popUpButton>
             </subviews>
             <point key="canvasLocation" x="177.5" y="444"/>
         </customView>
@@ -144,19 +153,19 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8XG-mW-am1">
-                    <rect key="frame" x="62" y="97" width="49" height="16"/>
+                    <rect key="frame" x="62" y="97" width="26" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="权     限" id="Bxj-s7-SvZ">
-                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="权" id="Bxj-s7-SvZ">
+                        <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CaD-51-F35">
-                    <rect key="frame" x="62" y="144" width="49" height="16"/>
+                    <rect key="frame" x="62" y="144" width="26" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="账     户" id="CKp-b2-cJY">
-                        <font key="font" metaFont="system"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="账" id="CKp-b2-cJY">
+                        <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -174,7 +183,7 @@
                     <rect key="frame" x="144" y="97" width="233" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="普通" id="CJi-yf-1B2">
-                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -184,9 +193,27 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="smallSquare" title="退出" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DqQ-Xc-PnW">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <font key="font" usesAppearanceFont="YES"/>
                     </buttonCell>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Sj-Mb-QYX">
+                    <rect key="frame" x="92" y="144" width="26" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="户" id="D9E-iO-kDt">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tCz-5C-r7w">
+                    <rect key="frame" x="92" y="97" width="26" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="限" id="kI7-1F-maP">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <point key="canvasLocation" x="177.5" y="706"/>
         </customView>
@@ -196,7 +223,7 @@
                 <outlet property="accountUserView" destination="nN0-Uf-4Rd" id="yaK-bv-97S"/>
                 <outlet property="codeButton" destination="GlQ-a2-8Ly" id="ZAE-zQ-zfL"/>
                 <outlet property="codeField" destination="Dsa-lC-nPM" id="5mW-xO-OaX"/>
-                <outlet property="domainButton" destination="1eW-r1-4fl" id="lQS-bM-qvn"/>
+                <outlet property="domainButton" destination="KLc-ew-1rb" id="Xdr-Mr-Y9U"/>
                 <outlet property="infoField" destination="gpd-5j-EJ4" id="yix-3e-WQs"/>
                 <outlet property="infoView" destination="Qkv-cU-OO3" id="Wpj-5h-SVq"/>
                 <outlet property="loginButton" destination="NRg-VT-Y2Z" id="1Gl-tP-W3j"/>
@@ -220,7 +247,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eFF-nu-aEL">
-                    <rect key="frame" x="330" y="135" width="30" height="16"/>
+                    <rect key="frame" x="337" y="135" width="30" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="1.0.1" id="IhU-KZ-CVe">
                         <font key="font" metaFont="system"/>
@@ -229,7 +256,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fte-Nz-xKr">
-                    <rect key="frame" x="144" y="126" width="178" height="33"/>
+                    <rect key="frame" x="144" y="126" width="196" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="无极Sketch UIkit" id="9kG-YG-xPm">
                         <font key="font" size="24" name=".PingFangSC-Regular"/>
@@ -241,7 +268,7 @@
                     <rect key="frame" x="145" y="62" width="246" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="作者：钱思成、刘东海、毕营帅" id="9D5-ue-ZGL">
-                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -263,6 +290,131 @@
             </subviews>
             <point key="canvasLocation" x="177.5" y="-92"/>
         </customView>
+        <customView id="5zV-mc-qTK" userLabel="Common">
+            <rect key="frame" x="0.0" y="0.0" width="437" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HlZ-UN-xCf">
+                    <rect key="frame" x="62" y="97" width="26" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="版" id="VNh-fn-WdG">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lwE-lS-wet">
+                    <rect key="frame" x="62" y="144" width="26" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="业" id="xNP-AE-Dyh">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9HK-Pa-eGO">
+                    <rect key="frame" x="92" y="144" width="26" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="线" id="D0n-Jh-mUR">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-CN-Pru">
+                    <rect key="frame" x="92" y="97" width="26" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="本" id="uZ8-5Q-ejh">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lVe-bR-72S">
+                    <rect key="frame" x="77" y="144" width="26" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="务" id="uwV-7I-KzY">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gNz-p7-XlM">
+                    <rect key="frame" x="134" y="137" width="99" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="smallSquare" title="FEED" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="6w9-oX-nMJ" id="fMv-oo-EwS">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="MFc-ZT-R12">
+                            <items>
+                                <menuItem title="全局" identifier="全局" id="u9J-Tx-UZM"/>
+                                <menuItem title="搜索NA" identifier="搜索" id="VBk-4w-wj6"/>
+                                <menuItem title="互动" identifier="互动" id="P8Y-8W-8Tu"/>
+                                <menuItem title="FEED" state="on" identifier="FEED" id="6w9-oX-nMJ"/>
+                                <menuItem title="视频" identifier="视频" id="QMB-cd-XC6"/>
+                                <menuItem title="直播" identifier="直播" id="Zdd-no-T8S"/>
+                                <menuItem title="基础" identifier="基础" id="UsX-md-RXH"/>
+                                <menuItem title="小说" identifier="小说" id="Z2K-WV-xhj"/>
+                                <menuItem title="动漫" identifier="动漫" id="rS1-ng-WcD"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                </popUpButton>
+                <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9GI-9m-Ect">
+                    <rect key="frame" x="134" y="91" width="99" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="smallSquare" title="12.1.5" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="1oz-S6-rc9" id="w7Y-rm-Btu">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="N4m-GS-PiY">
+                            <items>
+                                <menuItem title="12.1.5" state="on" id="1oz-S6-rc9"/>
+                                <menuItem title="12.0" id="V4G-4n-r8k"/>
+                                <menuItem title="11.6" id="pCH-iD-y34"/>
+                            </items>
+                        </menu>
+                        <accessibility description="12.1.5"/>
+                    </popUpButtonCell>
+                    <accessibility description="version"/>
+                </popUpButton>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AYs-vd-TwI">
+                    <rect key="frame" x="0.0" y="-4" width="437" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="50f-Mh-F0n">
+                            <rect key="frame" x="4" y="7" width="427" height="22"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="网络错误" id="7I7-oy-tFP">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <accessibility description="InfoView"/>
+                </customView>
+                <button toolTip="更新平台数据至本地" verticalHuggingPriority="750" id="GSV-rN-6nF">
+                    <rect key="frame" x="318" y="93" width="76" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="smallSquare" title="更新数据" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kyB-zM-942">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" usesAppearanceFont="YES"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <accessibility description="Common"/>
+            <point key="canvasLocation" x="178" y="975"/>
+        </customView>
+        <customObject id="u7u-qX-gXs" userLabel="Common Controller" customClass="NVCommon">
+            <connections>
+                <outlet property="groupButton" destination="gNz-p7-XlM" id="rzj-gc-aRy"/>
+                <outlet property="infoField" destination="50f-Mh-F0n" id="MeU-QY-YH1"/>
+                <outlet property="infoView" destination="AYs-vd-TwI" id="dIq-Tj-clD"/>
+                <outlet property="updateButton" destination="GSV-rN-6nF" id="15Z-Tc-Xel"/>
+                <outlet property="versionButton" destination="9GI-9m-Ect" id="6sC-Gm-vtG"/>
+                <outlet property="view" destination="5zV-mc-qTK" id="Ett-zv-Atx"/>
+            </connections>
+        </customObject>
     </objects>
     <resources>
         <image name="AppIcon" width="384" height="384"/>

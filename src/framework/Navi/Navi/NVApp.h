@@ -34,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)selectionChange;
 -(void)onPaste;
 -(void)beforeCopy;
+-(void)updateSpec;
+-(void)delayUpdateSpec;
 
 @end
 

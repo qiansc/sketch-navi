@@ -175,7 +175,7 @@
         }
     }
     [self.collectionView.toggleDelegate clearActive];
-    [self applySpec];
+    // [self applySpec];
     if (indexPaths.count > 0) {
         if (indexPaths.count == 1) {
             [self updateTitle];

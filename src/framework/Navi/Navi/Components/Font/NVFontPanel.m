@@ -110,6 +110,7 @@
 -(void)applyFontSize:(double) fontSize toLayer:(MSLayer*) layer{
     if ([NVLayer isTextLayer:layer]) {
         layer.fontSize = fontSize;
+        layer.lineHeight = fontSize;
         // layer.font = [NSFont systemFontOfSize:fontSize weight:fontWeight];
     }
 }

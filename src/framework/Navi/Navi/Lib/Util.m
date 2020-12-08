@@ -124,10 +124,19 @@
 
 + (NSDictionary*)appConfig {
     return @{
-        @"host": @"https://raw.githubusercontent.com",
-        @"loginAPI": @"/design-to-release/sketch-navi/master/demo/api/verify-success.json?code=%@",
-        @"codeAPI": @"/design-to-release/sketch-navi/master/demo/api/request-code.json?mail=%@"
+        @"host": @"http://wuji.com",
+        @"loginAPI": @"/openapi/uikit/client?action=verifyMailCode&mailcode=%@",
+        @"codeAPI": @"/openapi/uikit/client?action=requestMailCode&mail=%@",
+        @"specColorAPI": @"/openapi/uikit/getDepartmentData?source=baiduboxapp&cversion=%@&type=GC-SC-IC-FC-VC-LC-BC-NC-CC",
+        @"specAPI": @"/openapi/uikit/getBusinessData?source=baiduboxapp&cversion=%@",
+        @"specVersions": @[@"11.26", @"12.0", @"12.1.5"],
+        @"groups": @[@"全局", @"互动", @"FEED", @"视频", @"直播", @"基础", @"小说", @"动漫"]
     };
+//    return @{
+//        @"host": @"https://raw.githubusercontent.com",
+//        @"loginAPI": @"/design-to-release/sketch-navi/master/demo/api/verify-success.json?code=%@",
+//        @"codeAPI": @"/design-to-release/sketch-navi/master/demo/api/request-code.json?mail=%@"
+//    };
 }
 
 + (void)generateConfig{

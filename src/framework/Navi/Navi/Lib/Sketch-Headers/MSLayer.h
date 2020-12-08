@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSDictionary *userInfo;
 @property (nonatomic, strong) MSColor *textColor;
 @property (nonatomic) double fontSize;
+@property (nonatomic) double lineHeight;
 @property (nonatomic, strong) NSFont *font;
 @property (nonatomic, strong) NSArray<MSCurvePoint*> *points;
 @property(nonatomic) struct CGRect rect;

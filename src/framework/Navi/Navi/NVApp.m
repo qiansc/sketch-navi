@@ -9,10 +9,12 @@
 #import "NVApp.h"
 #import "NVAppCache.h"
 #import "NVBundle.h"
+#import "NVSpec.h"
 
 @implementation NVApp{
     MSDocument *document;
     NVDocument *navi;
+    NVSpec *spec;
     
 }
 +(instancetype)prepareInit{
@@ -38,7 +40,7 @@
     [NVAppCache cacheApp:self with:document];
     navi = [[NVDocument alloc] initWithNibName:@"NVDocument" bundle:[NVBundle bundlePath]];
     navi.delegate = self;
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(delayUpdateSpec) name:@"SPEC_UPDATE" object:nil];
     return self;
 }
 
@@ -66,11 +68,27 @@
     self.splitView.subviews = views;
     [self.splitView adjustSubviews];
     [self viewWillLayout];
-    if (self.specs == nil) {
-        [self.dataSource updateSpec];
-        [navi.panelView.controller updateSpec:self.specs];
+    
+    if (spec == nil) {
+        [self updateSpec];
     }
 }
+
+-(void)updateSpec{
+    spec = [[NVSpec alloc] init];
+    [spec load];
+    self.specs = [spec getSpec];
+    if (self.dataSource) {
+        [self.dataSource updateSpec];
+    }
+    [navi.panelView.controller updateSpec:self.specs];
+    [navi.menuView.controller updateSpec:self.specs];
+}
+
+-(void)delayUpdateSpec {
+    [NSTimer scheduledTimerWithTimeInterval:0.6 target:self selector:@selector(updateSpec) userInfo:nil repeats:NO];
+}
+
 -(void)hide{
     [navi.view removeFromSuperview];
     [self.splitView adjustSubviews];
