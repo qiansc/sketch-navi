@@ -35,13 +35,17 @@
 -(void)setSpec:(NVBorderSpec)borderSpec{
     _spec = borderSpec;
     [self drawStyle];
-    textField.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];
+    textField.stringValue = [NSString stringWithFormat:@"%@", self.spec.ios];
     box.cornerRadius = 0;
     NSArray<NSString*> *arr = [borderSpec.ios componentsSeparatedByString:@","];
     if (arr[0]) {
         double num = [arr[0] doubleValue];
         if (num == -1) box.cornerRadius = 15;
-        else box.cornerRadius = MIN(num, 15);
+        else if (num < 8) {
+            box.cornerRadius = num;
+        } else{
+           box.cornerRadius = MIN((num-8)/3 + 8, 15);
+        }
     }
     box.boxType = NSBoxCustom;
     box.borderType = NSLineBorder;

@@ -83,6 +83,7 @@
     window.delegate = self;
     window.contentView = self.panelView.controller.view;
     [window setAutorecalculatesKeyViewLoop:true];
+    [window setLevel:CGWindowLevelForKey(kCGMaximumWindowLevelKey)];
     window.minSize = NSMakeSize(240, 400);
     _minWidth = _maxWidth = 40;
     [self viewWillLayout];

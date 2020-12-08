@@ -14,9 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(BOOL)fetch:(NSString*) version;
 +(BOOL)fetchAllVersion;
++(NSDate*)updateTime;
 
 -(instancetype)load;
 -(NSDictionary*)getSpec;
+
 
 @end
 

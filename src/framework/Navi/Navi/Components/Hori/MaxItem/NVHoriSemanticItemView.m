@@ -41,7 +41,13 @@
     [self drawStyle];
     itemTitle.stringValue = [NSString stringWithFormat:@"%@", self.spec.desc];
     itemDesc.stringValue = self.spec.cmeaning;
-    itemCode.stringValue = self.spec.code;
+
+    if (self.spec.code && self.spec.code.length > 10){
+        itemCode.stringValue = [NSString stringWithFormat:@"%@...", [self.spec.code substringToIndex:9]];
+    } else {
+        itemCode.stringValue = self.spec.code;
+    }
+    
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code , self.spec.cmeaning];
     //    box.cornerRadius = 0;
     //    box.boxType = NSBoxCustom;

@@ -16,7 +16,7 @@
                 <textField identifier="ItemTitle" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kya-Au-PeG">
                     <rect key="frame" x="48" y="15" width="29" height="15"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="边角" id="TdO-S7-VKH">
-                        <font key="font" size="12" name=".PingFangSC-Regular"/>
+                        <font key="font" metaFont="label" size="12"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

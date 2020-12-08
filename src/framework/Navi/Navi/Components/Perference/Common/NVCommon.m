@@ -50,6 +50,19 @@
     }
     self.infoField.stringValue = @"";
     [self.infoView setHidden:YES];
+    [self updateDate];
+    
+}
+
+-(void)updateDate {
+    NSDate *date = [NVSpec updateTime];
+    if (date) {
+        NSDateFormatter *formatter =[NSDateFormatter new];
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        self.updateField.stringValue =[formatter stringFromDate:date];
+    } else {
+        self.updateField.stringValue = @"暂无更新日期";
+    }
 }
 
 -(void)groupChanged:(NSButton*) sender {
@@ -82,6 +95,7 @@
        self.infoField.stringValue = @"更新失败，请稍后重试...";
     }
     [self.updateButton setEnabled:YES];
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateDate) userInfo:nil repeats:NO];
 }
 
 @end

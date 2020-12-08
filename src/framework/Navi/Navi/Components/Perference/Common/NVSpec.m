@@ -98,6 +98,21 @@ static int specRequestThread;
     return rs;
 }
 
++(NSDate*)updateTime {
+    NSDictionary *config = [Util loadConfig];
+    NSArray *version = [config[@"specVersions"] lastObject];
+
+    NSURL *dir = [Util applicationDataDirectory];
+    NSString *file = [NSString stringWithFormat:@"spec_%@.json", version];
+    NSURL *url = [dir URLByAppendingPathComponent:file isDirectory: NO];
+    NSFileManager *fm =[NSFileManager defaultManager];
+    NSError *err;
+    NSDictionary *attr =[fm attributesOfItemAtPath:url.path error:&err];
+    NSDate *createDate = [attr objectForKey:NSFileCreationDate];
+    if(err) return nil;
+    return createDate;
+}
+
 -(instancetype)init{
     config = [Util loadConfig];
     return self;
@@ -204,6 +219,24 @@ static int specRequestThread;
     return arr;
 }
 
+- (NSArray*)getBorderSpec{
+    NSMutableArray *arr = [NSMutableArray new];
+    NSMutableDictionary *exist = [NSMutableDictionary new];
+    for(NSDictionary *item in spec) {
+        if (!item[@"code"]) continue;
+        if (exist[item[@"code"]]) continue;
+        if ([[item[@"elementCode"] substringToIndex:3] isNotEqualTo:@"J_X"]) continue;
+        NSMutableDictionary *s = [item mutableCopy];
+        if (s[@"ios"] && ![s[@"ios"] containsString:@","]) {
+            s[@"ios"] = [NSString stringWithFormat:@"%@,%@,%@,%@", s[@"ios"],s[@"ios"],s[@"ios"],s[@"ios"]];
+        }
+        [s setValue:@[s[@"cclass"],s[@"cmeaning"]] forKey:@"dim"];
+        [exist setValue:@YES forKey:s[@"code"]];
+        [arr addObject:s];
+    }
+    return arr;
+}
+
 - (NSArray*)getLineSpec {
     NSMutableArray *arr = [NSMutableArray new];
     NSMutableDictionary *exist = [NSMutableDictionary new];
@@ -244,7 +277,7 @@ static int specRequestThread;
         @"Font": [self getSpecWith:@"T_X"],
         @"Weight": [self getSpecWith:@"F_X"],
         @"Line": [self getLineSpec],
-        @"Border":[self getSpecWith:@"J_X"],
+        @"Border":[self getBorderSpec],
         @"Hori":[self getMarginSpecWith:@"M_W_X"],
         @"Vert":[self getMarginSpecWith:@"M_H_X"]
     };
