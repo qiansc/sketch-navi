@@ -416,6 +416,7 @@
 		A352295C253DA5D400F42D58 /* NVColorSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVColorSource.h; sourceTree = "<group>"; };
 		A352295D253DA5D400F42D58 /* NVColorSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVColorSource.m; sourceTree = "<group>"; };
 		A3522960253DA8B900F42D58 /* NVSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVSource.h; sourceTree = "<group>"; };
+		A357B142258211DC007249A2 /* MSMainSplitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSMainSplitViewController.h; sourceTree = "<group>"; };
 		A36167112551177300FE0840 /* NVSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVSectionHeader.h; sourceTree = "<group>"; };
 		A36167122551177300FE0840 /* NVSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVSectionHeader.m; sourceTree = "<group>"; };
 		A36167162551346300FE0840 /* NVBorderPanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVBorderPanel.h; sourceTree = "<group>"; };
@@ -1168,6 +1169,7 @@
 				B2B5FD3C25740129005F0D89 /* MSSVGImporter.h */,
 				B2B5FD3D25741149005F0D89 /* MSCanvasView.h */,
 				A3C5FEED2574E97200BBFBF9 /* MSArtboardGroup.h */,
+				A357B142258211DC007249A2 /* MSMainSplitViewController.h */,
 			);
 			path = "Sketch-Headers";
 			sourceTree = "<group>";

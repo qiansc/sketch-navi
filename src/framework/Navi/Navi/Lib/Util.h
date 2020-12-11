@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)message:(NSString *) string;
 
 + (NSURL*)applicationDataDirectory;
++ (int)sketchVersion;
 
 @end
 

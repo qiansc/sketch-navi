@@ -247,9 +247,9 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eFF-nu-aEL">
-                    <rect key="frame" x="337" y="135" width="30" height="16"/>
+                    <rect key="frame" x="337" y="133" width="64" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="1.0.1" id="IhU-KZ-CVe">
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="1.0.3 Beta" id="IhU-KZ-CVe">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -360,17 +360,19 @@
                 <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gNz-p7-XlM">
                     <rect key="frame" x="134" y="137" width="99" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="smallSquare" title="FEED" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="6w9-oX-nMJ" id="fMv-oo-EwS">
+                    <popUpButtonCell key="cell" type="smallSquare" title="全局" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="u9J-Tx-UZM" id="fMv-oo-EwS">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                         <menu key="menu" id="MFc-ZT-R12">
                             <items>
-                                <menuItem title="全局" identifier="全局" id="u9J-Tx-UZM"/>
+                                <menuItem title="全局" state="on" identifier="全局" id="u9J-Tx-UZM"/>
                                 <menuItem title="搜索NA" identifier="搜索" id="VBk-4w-wj6"/>
+                                <menuItem title="搜索H5" identifier="搜索H5" id="oqz-gs-Uqy"/>
                                 <menuItem title="互动" identifier="互动" id="P8Y-8W-8Tu"/>
-                                <menuItem title="FEED" state="on" identifier="FEED" id="6w9-oX-nMJ"/>
+                                <menuItem title="FEED" identifier="FEED" id="6w9-oX-nMJ"/>
                                 <menuItem title="视频" identifier="视频" id="QMB-cd-XC6"/>
                                 <menuItem title="直播" identifier="直播" id="Zdd-no-T8S"/>
+                                <menuItem title="直播1" identifier="直播1" id="ESc-cf-t2v"/>
                                 <menuItem title="基础" identifier="基础" id="UsX-md-RXH"/>
                                 <menuItem title="小说" identifier="小说" id="Z2K-WV-xhj"/>
                                 <menuItem title="动漫" identifier="动漫" id="rS1-ng-WcD"/>

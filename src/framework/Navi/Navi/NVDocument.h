@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol NVDocumentLayoutProtocol <NSObject>
 @required
 -(void)viewWillLayout;
+-(void)viewLimitBetweenMinimum:(float)minWidth andMaximum:(float)maxWidth;
 @end
 
 

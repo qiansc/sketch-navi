@@ -1,13 +1,13 @@
 {
   "name": "sketch-navi",
   "description": "",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "engines": {
     "sketch": ">=49.0"
   },
   "skpm": {
     "name": "无极 UIKit",
-    "description": "",
+    "description": "Beta测试版",
     "manifest": "src/manifest.json",
     "main": "navi.sketchplugin",
     "assets": [

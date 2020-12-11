@@ -150,5 +150,7 @@
         NSLog(@"### generate fail at %@", url);
 }
 
-
++ (int)sketchVersion {
+    return [[[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"] intValue];
+}
 @end

@@ -15,6 +15,8 @@
     MSDocument *document;
     NVDocument *navi;
     NVSpec *spec;
+    NSSplitViewItem *blankWrapper;
+    NSSplitViewItem *wrapper;
     
 }
 +(instancetype)prepareInit{
@@ -37,6 +39,13 @@
 
 -(instancetype)initWithCurrentDocument{
     document = [[NSDocumentController sharedDocumentController] currentDocument];
+    if (document == nil) {
+        MSDocument *last = [[[NSDocumentController sharedDocumentController] documents] lastObject];
+        if ([NVAppCache getAppWith: last] == nil) {
+            document = last;
+        }
+    }
+    
     [NVAppCache cacheApp:self with:document];
     navi = [[NVDocument alloc] initWithNibName:@"NVDocument" bundle:[NVBundle bundlePath]];
     navi.delegate = self;
@@ -58,17 +67,27 @@
 
 -(void)show{
     [Util generateConfig];
-    NSMutableArray *views = [NSMutableArray new];
-    for(NSView *view in self.splitView.subviews) {
-        [views addObject:view];
-        if ([view.identifier isEqual:@"view_canvas"]) {
-            [views addObject:navi.view];
+    if ([Util sketchVersion] >=70) {
+        NSViewController *c= [NSViewController new];
+        c.view = navi.view;
+        wrapper = [NSSplitViewItem splitViewItemWithViewController:c];
+        wrapper.holdingPriority = NSLayoutPriorityFittingSizeCompression;
+        [document.splitViewController insertSplitViewItem:wrapper atIndex:2];
+    } else {
+        NSMutableArray *views = [NSMutableArray new];
+        for(NSView *view in self.splitView.subviews) {
+            [views addObject:view];
+            if ([view.identifier isEqual:@"view_canvas"]) {
+                [views addObject:navi.view];
+            }
         }
+        self.splitView.subviews = views;
+        [self.splitView adjustSubviews];
     }
-    self.splitView.subviews = views;
-    [self.splitView adjustSubviews];
+
     [self viewWillLayout];
-    
+    [self viewLimitBetweenMinimum: navi.minWidth andMaximum:navi.maxWidth];
+
     if (spec == nil) {
         [self updateSpec];
     }
@@ -106,24 +125,48 @@
 }
 
 
+-(void)viewLimitBetweenMinimum:(float)minWidth andMaximum:(float)maxWidth {
+    if ([Util sketchVersion] >= 70) {
+        if (maxWidth == minWidth) {
+            int index = [document.splitViewController.splitViewItems indexOfObject:blankWrapper];
+            if (index > -1) {
+                [document.splitViewController removeSplitViewItem:blankWrapper];
+            }
+        } else {
+            int index = [document.splitViewController.splitViewItems indexOfObject:wrapper];
+            NSViewController *empty = [NSViewController new];
+            empty.view = [NSView new];
+            blankWrapper = [NSSplitViewItem splitViewItemWithViewController:empty];
+            blankWrapper.minimumThickness = 0;
+            blankWrapper.maximumThickness = 0;
+            [document.splitViewController insertSplitViewItem:blankWrapper atIndex:index];
+            // 初次触发一次layout
+            long nextPos = [self.splitView maxPossiblePositionOfDividerAtIndex:index];
+            [self.splitView setPosition:nextPos ofDividerAtIndex:index];
+        }
+        wrapper.minimumThickness = minWidth;
+        wrapper.maximumThickness = maxWidth;
+    }
+}
 
 - (void)viewWillLayout {
-    NSSplitView *parent = self.splitView;
-    NSView *subview = navi.view;
-    long index = [parent.subviews indexOfObject:navi.view];
-    if (index > 0 && [parent.subviews objectAtIndex:index + 1]) {
-        long x = [parent maxPossiblePositionOfDividerAtIndex:index - 1] - subview.frame.size.width;
-        long nextWith = parent.subviews[index +1].frame.size.width;
-        long nextPos = [parent maxPossiblePositionOfDividerAtIndex:index];
-        long startX = nextPos -nextWith -  navi.minWidth;
-        long endX =  nextPos -nextWith - navi.maxWidth;
-        if (x > startX) {
-            [parent setPosition:startX ofDividerAtIndex: index - 1];
-        } else if(x < endX) {
-            [parent setPosition:endX ofDividerAtIndex: index - 1];
+    if ([Util sketchVersion] < 70) {
+        NSSplitView *parent = self.splitView;
+        NSView *subview = navi.view;
+        long index = [parent.subviews indexOfObject:navi.view];
+        if (index > 0 && [parent.subviews objectAtIndex:index + 1]) {
+            long x = [parent maxPossiblePositionOfDividerAtIndex:index - 1] - subview.frame.size.width;
+            long nextWith = parent.subviews[index +1].frame.size.width;
+            long nextPos = [parent maxPossiblePositionOfDividerAtIndex:index];
+            long startX = nextPos -nextWith -  navi.minWidth;
+            long endX =  nextPos -nextWith - navi.maxWidth;
+            if (x > startX) {
+                [parent setPosition:startX ofDividerAtIndex: index - 1];
+            } else if(x < endX) {
+                [parent setPosition:endX ofDividerAtIndex: index - 1];
+            }
         }
     }
-
 }
 
 

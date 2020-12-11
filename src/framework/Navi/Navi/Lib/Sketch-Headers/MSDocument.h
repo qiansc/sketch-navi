@@ -10,6 +10,7 @@
 #import "MSPage.h"
 #import "MSDocumentData.h"
 #import "MSCanvasView.h"
+#import "MSMainSplitViewController.h"
 
 @interface MSDocument: NSDocument
 
@@ -19,6 +20,8 @@
 @property (readonly, strong) MSDocumentData *documentData;
 @property (readonly, strong) MSPage *currentPage;
 @property (readonly, strong) MSCanvasView *contentDrawView;
+
+@property(readonly, nonatomic) MSMainSplitViewController *splitViewController;
 
 -(void)showMessage:(NSString *) text;
 

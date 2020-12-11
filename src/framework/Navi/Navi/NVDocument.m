@@ -52,6 +52,7 @@
         _minWidth = _maxWidth = 40;
     }
     [self viewWillLayout];
+    [self.delegate viewLimitBetweenMinimum:_minWidth andMaximum:_maxWidth];
 }
 
 - (void)toggleFloatMode:(NSButton *) button{
@@ -86,6 +87,7 @@
     [window setLevel:CGWindowLevelForKey(kCGMaximumWindowLevelKey)];
     window.minSize = NSMakeSize(240, 400);
     _minWidth = _maxWidth = 40;
+    [self.delegate viewLimitBetweenMinimum:_minWidth andMaximum:_maxWidth];
     [self viewWillLayout];
 }
 - (void)showSlider{
