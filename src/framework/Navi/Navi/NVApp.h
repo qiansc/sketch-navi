@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSObject<NVDataSource> *dataSource;
 @property (nonatomic, strong) NSDictionary *specs;
 @property (nonatomic, strong) MSSplitView *splitView;
+@property (nonatomic, strong) NSSplitViewItem *blankWrapper;
+@property (nonatomic, strong) NSSplitViewItem *wrapper;
 
 +(instancetype)prepareInit;
 +(instancetype)currentApp;

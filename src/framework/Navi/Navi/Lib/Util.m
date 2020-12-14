@@ -124,7 +124,7 @@
 
 + (NSDictionary*)appConfig {
     return @{
-        @"host": @"http://wuji.com",
+        @"host": @"http://wuji.baidu-int.com",
         @"loginAPI": @"/openapi/uikit/client?action=verifyMailCode&mailcode=%@",
         @"codeAPI": @"/openapi/uikit/client?action=requestMailCode&mail=%@",
         @"specColorAPI": @"/openapi/uikit/getDepartmentData?source=baiduboxapp&cversion=%@&type=GC-SC-IC-FC-VC-LC-BC-NC-CC",

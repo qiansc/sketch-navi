@@ -15,8 +15,6 @@
     MSDocument *document;
     NVDocument *navi;
     NVSpec *spec;
-    NSSplitViewItem *blankWrapper;
-    NSSplitViewItem *wrapper;
     
 }
 +(instancetype)prepareInit{
@@ -70,9 +68,9 @@
     if ([Util sketchVersion] >=70) {
         NSViewController *c= [NSViewController new];
         c.view = navi.view;
-        wrapper = [NSSplitViewItem splitViewItemWithViewController:c];
-        wrapper.holdingPriority = NSLayoutPriorityFittingSizeCompression;
-        [document.splitViewController insertSplitViewItem:wrapper atIndex:2];
+        self.wrapper = [NSSplitViewItem splitViewItemWithViewController:c];
+        self.wrapper.holdingPriority = NSLayoutPriorityFittingSizeCompression;
+        [document.splitViewController insertSplitViewItem:self.wrapper atIndex:2];
     } else {
         NSMutableArray *views = [NSMutableArray new];
         for(NSView *view in self.splitView.subviews) {
@@ -109,8 +107,15 @@
 }
 
 -(void)hide{
-    [navi.view removeFromSuperview];
-    [self.splitView adjustSubviews];
+    if ([Util sketchVersion] >=70) {
+        [navi toggleMain:NO];
+        [self removeWrapper];
+        [self removeBlankWrapper];
+    } else {
+        [navi.view removeFromSuperview];
+        [self.splitView adjustSubviews];
+    }
+
 }
 
 -(NSString*)bundlePath {
@@ -124,28 +129,38 @@
     return nil;
 }
 
+-(void)removeWrapper {
+    int index = [document.splitViewController.splitViewItems indexOfObject:self.wrapper];
+    if (index > -1) {
+        [document.splitViewController removeSplitViewItem:self.wrapper];
+    }
+}
+
+-(void)removeBlankWrapper {
+    int index = [document.splitViewController.splitViewItems indexOfObject:self.blankWrapper];
+    if (index > -1) {
+        [document.splitViewController removeSplitViewItem:self.blankWrapper];
+    }
+}
 
 -(void)viewLimitBetweenMinimum:(float)minWidth andMaximum:(float)maxWidth {
     if ([Util sketchVersion] >= 70) {
         if (maxWidth == minWidth) {
-            int index = [document.splitViewController.splitViewItems indexOfObject:blankWrapper];
-            if (index > -1) {
-                [document.splitViewController removeSplitViewItem:blankWrapper];
-            }
+            [self removeBlankWrapper];
         } else {
-            int index = [document.splitViewController.splitViewItems indexOfObject:wrapper];
+            int index = [document.splitViewController.splitViewItems indexOfObject:self.wrapper];
             NSViewController *empty = [NSViewController new];
             empty.view = [NSView new];
-            blankWrapper = [NSSplitViewItem splitViewItemWithViewController:empty];
-            blankWrapper.minimumThickness = 0;
-            blankWrapper.maximumThickness = 0;
-            [document.splitViewController insertSplitViewItem:blankWrapper atIndex:index];
+            self.blankWrapper = [NSSplitViewItem splitViewItemWithViewController:empty];
+            self.blankWrapper.minimumThickness = 0;
+            self.blankWrapper.maximumThickness = 0;
+            [document.splitViewController insertSplitViewItem:self.blankWrapper atIndex:index];
             // 初次触发一次layout
             long nextPos = [self.splitView maxPossiblePositionOfDividerAtIndex:index];
             [self.splitView setPosition:nextPos ofDividerAtIndex:index];
         }
-        wrapper.minimumThickness = minWidth;
-        wrapper.maximumThickness = maxWidth;
+        self.wrapper.minimumThickness = minWidth;
+        self.wrapper.maximumThickness = maxWidth;
     }
 }
 
