@@ -13,6 +13,7 @@
 #import "NVLayer.h"
 #import "MSLayerArray.h"
 #import "MSDocument.h"
+#import "NVUserData.h"
 
 @implementation NVHoriPanel {
     NVHoriSpec se;
@@ -317,7 +318,7 @@
     if (pos == 3 || pos == 31) {
         MSLayer *target = [self selectionTarget];
         MSLayer *layer = [self selectionLayer];
-        layer.frame.x = target.frame.x + se.ios;
+        layer.frame.x = target.frame.x + [self dev:se];
     }
 }
 
@@ -332,10 +333,10 @@
             return;
         }
         [NVUserInfo fromLayer:layer].originWidth = layer.frame.width;
-        layer.frame.width = target.frame.width - se.ios - se.ios;
+        layer.frame.width = target.frame.width - [self dev:se] - [self dev:se];
     }
     if (pos == 1 || pos == 31) {
-        layer.frame.x = target.frame.x + target.frame.width - layer.frame.width - se.ios;
+        layer.frame.x = target.frame.x + target.frame.width - layer.frame.width - [self dev:se];
     }
 }
 
@@ -345,7 +346,7 @@
     if (pos == 3) {
         MSLayer *target = [self selectionTarget];
         MSLayer *layer = [self selectionLayer];
-        layer.frame.x = (target.frame.x + target.frame.width) + se.ios;
+        layer.frame.x = (target.frame.x + target.frame.width) + [self dev:se];
     }
 }
 
@@ -354,7 +355,7 @@
     if (pos == 1) {
         MSLayer *target = [self selectionTarget];
         MSLayer *layer = [self selectionLayer];
-        layer.frame.x = (target.frame.x - layer.frame.width) - se.ios;
+        layer.frame.x = (target.frame.x - layer.frame.width) - [self dev:se];
     }
 }
 
@@ -372,6 +373,17 @@
             info.marginLeftTarget =  mapper[info.marginLeftTarget];
         if (info.marginRightTarget && mapper[info.marginRightTarget])
             info.marginRightTarget =  mapper[info.marginRightTarget];
+    }
+}
+
+-(double)dev:(NVHoriSpec) spec{
+    NSDictionary *data = [NVUserData userData];
+    if ([data[@"unit"] isEqual:@"pt"]) {
+        return spec.ios;
+    } else if ([data[@"unit"] isEqual:@"dp"]) {
+        return spec.android;
+    } else {
+        return spec.h5;
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "NVVertCollectionItemView.h"
+#import "NVUserData.h"
 
 @implementation NVVertCollectionItemView {
 //    NSBox *box;
@@ -35,7 +36,7 @@
 -(void)setSpec:(NVVertSpec)borderSpec{
     _spec = borderSpec;
     [self drawStyle];
-    itemTitle.stringValue = [NSString stringWithFormat:@"%@", self.spec.desc];
+    itemTitle.stringValue = [NSString stringWithFormat:@"%d", (int)[self dev:_spec]];
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code , self.spec.cmeaning];
 //    box.cornerRadius = 0;
 //    box.boxType = NSBoxCustom;
@@ -56,6 +57,17 @@
         self.fillColor  = [NSColor controlBackgroundColor];
         self.borderColor = [NSColor windowBackgroundColor];
         itemTitle.textColor = [NSColor secondaryLabelColor];
+    }
+}
+
+-(double)dev:(NVVertSpec) spec{
+    NSDictionary *data = [NVUserData userData];
+    if ([data[@"unit"] isEqual:@"pt"]) {
+        return spec.ios;
+    } else if ([data[@"unit"] isEqual:@"dp"]) {
+        return spec.android;
+    } else {
+        return spec.h5;
     }
 }
 

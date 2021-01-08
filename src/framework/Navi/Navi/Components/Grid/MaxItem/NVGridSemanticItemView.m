@@ -70,4 +70,5 @@
         itemCode.textColor = [NSColor secondaryLabelColor];
     }
 }
+
 @end

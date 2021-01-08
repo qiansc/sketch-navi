@@ -115,7 +115,6 @@
         [navi.view removeFromSuperview];
         [self.splitView adjustSubviews];
     }
-
 }
 
 -(NSString*)bundlePath {

@@ -13,6 +13,7 @@
 #import "NVUserInfo.h"
 #import "NVLayer.h"
 #import "MSLayerArray.h"
+#import "NVUserData.h"
 
 @interface NVFontPanel ()
 
@@ -78,7 +79,7 @@
                         [indexPaths addObject: item.indexPath];
                         // 校准一下颜色s
                         // [self applyColor:NSColorFromRGBString(item.spec.defaultColor) toLayer:layer];
-                        [self applyFontSize:item.spec.iosFontSize toLayer:layer];
+                        [self applyFontSize:item.spec toLayer:layer];
                         title = item.spec.code;
                     }
                 }
@@ -101,14 +102,23 @@
                 [NVUserInfo fromLayer:layer].fontCode = spec.code;
             }
             // [self applyColor:NSColorFromRGBString(spec.defaultColor) toLayer:layer];
-            [self applyFontSize:spec.iosFontSize toLayer:layer];
+            [self applyFontSize:spec toLayer:layer];
         }
     }
 }
 
 /* 应用color到图层上 */
--(void)applyFontSize:(double) fontSize toLayer:(MSLayer*) layer{
+-(void)applyFontSize:(NVFontSpec) spec toLayer:(MSLayer*) layer{
     if ([NVLayer isTextLayer:layer]) {
+        double fontSize;
+        NSDictionary *data = [NVUserData userData];
+        if ([data[@"unit"] isEqual:@"pt"]) {
+            fontSize = spec.iosFontSize;
+        } else if ([data[@"unit"] isEqual:@"dp"]) {
+            fontSize = spec.androidFontSize;
+        } else {
+            fontSize = spec.h5FontSize;
+        }
         layer.fontSize = fontSize;
         layer.lineHeight = fontSize;
         // layer.font = [NSFont systemFontOfSize:fontSize weight:fontWeight];

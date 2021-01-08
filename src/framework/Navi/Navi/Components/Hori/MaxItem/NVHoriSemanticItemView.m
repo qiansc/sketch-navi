@@ -7,6 +7,7 @@
 //
 
 #import "NVHoriSemanticItemView.h"
+#import "NVUserData.h"
 
 @implementation NVHoriSemanticItemView{
     //    NSBox *box;
@@ -39,7 +40,7 @@
 -(void)setSpec:(NVHoriSpec)borderSpec{
     _spec = borderSpec;
     [self drawStyle];
-    itemTitle.stringValue = [NSString stringWithFormat:@"%@", self.spec.desc];
+    itemTitle.stringValue = [NSString stringWithFormat:@"%d", (int)[self dev: _spec]];
     itemDesc.stringValue = self.spec.cmeaning;
 
     if (self.spec.code && self.spec.code.length > 10){
@@ -76,4 +77,16 @@
         itemCode.textColor = [NSColor secondaryLabelColor];
     }
 }
+
+-(double)dev:(NVHoriSpec) spec{
+    NSDictionary *data = [NVUserData userData];
+    if ([data[@"unit"] isEqual:@"pt"]) {
+        return spec.ios;
+    } else if ([data[@"unit"] isEqual:@"dp"]) {
+        return spec.android;
+    } else {
+        return spec.h5;
+    }
+}
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "NVBorderSemanticItemView.h"
+#import "NVUserData.h"
 
 @implementation NVBorderSemanticItemView{
     NSBox *box;
@@ -40,7 +41,7 @@
     [self drawStyle];
     itemText.stringValue = [NSString stringWithFormat:@"%@  %@", self.spec.code, self.spec.cmeaning];
     box.cornerRadius = 0;
-    NSArray<NSString*> *arr = [borderSpec.ios componentsSeparatedByString:@","];
+    NSArray<NSString*> *arr = [[self dev: borderSpec] componentsSeparatedByString:@","];
     itemValue.stringValue = @"";
     if (arr[0]) {
         double num = [arr[0] doubleValue];
@@ -79,4 +80,16 @@
         itemValue.textColor = [NSColor secondaryLabelColor];
     }
 }
+
+-(NSString*)dev:(NVBorderSpec) spec{
+    NSDictionary *data = [NVUserData userData];
+    if ([data[@"unit"] isEqual:@"pt"]) {
+        return spec.ios;
+    } else if ([data[@"unit"] isEqual:@"dp"]) {
+        return spec.android;
+    } else {
+        return spec.h5;
+    }
+}
+
 @end

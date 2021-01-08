@@ -8,6 +8,7 @@
 
 #import "NVFontCollectionItemView.h"
 #import "HexColor.h"
+#import "NVUserData.h"
 
 @implementation NVFontCollectionItemView {
     NSTextField *itemTitle;
@@ -34,12 +35,22 @@
     _spec = fontSpec;
     [self drawStyle];
 
+    double fontSize;
+    NSDictionary *data = [NVUserData userData];
+    if ([data[@"unit"] isEqual:@"pt"]) {
+        fontSize = fontSpec.iosFontSize;
+    } else if ([data[@"unit"] isEqual:@"dp"]) {
+        fontSize = fontSpec.androidFontSize;
+    } else {
+        fontSize = fontSpec.h5FontSize;
+    }
+    
     double size = 48/3;
-    if (_spec.iosFontSize > 78) {
+    if (fontSize > 78) {
         size = 65/3;
     }
 
-    itemTitle.stringValue = [NSString stringWithFormat:@"无极%ipx", (int)self.spec.iosFontSize];
+    itemTitle.stringValue = [NSString stringWithFormat:@"无极%i%@", (int)fontSize, data[@"unit"]];
     [itemTitle setFont:[NSFont systemFontOfSize:size]];
     // itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
     itemDesc.stringValue = [NSString stringWithFormat:@"%@", self.spec.cmeaning];

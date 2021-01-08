@@ -29,6 +29,10 @@
     [self.updateButton setTarget:self];
     [self.updateButton setAction:@selector(updateButtonClicked:)];
 
+    
+    [self.unitButton setTarget:self];
+    [self.unitButton setAction:@selector(unitChanged:)];
+    
     self.infoView.wantsLayer = YES;
     self.infoView.layer.backgroundColor = [NSColor unemphasizedSelectedContentBackgroundColor].CGColor;
 }
@@ -80,6 +84,16 @@
     [NVUserData saveUserData:data];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SPEC_UPDATE" object:nil userInfo:nil];
     self.infoField.stringValue = [NSString stringWithFormat: @"已经切换到 %@ 版本！", self.versionButton.selectedItem.title];
+    [self.infoView setHidden:NO];
+}
+
+
+-(void)unitChanged:(NSButton*) sender {
+    NSMutableDictionary *data = [[NVUserData userData] mutableCopy];
+    data[@"unit"] = self.unitButton.selectedItem.identifier;
+    [NVUserData saveUserData:data];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SPEC_UPDATE" object:nil userInfo:nil];
+    self.infoField.stringValue = [NSString stringWithFormat: @"使用单位 %@ ", self.unitButton.selectedItem.title];
     [self.infoView setHidden:NO];
 }
 

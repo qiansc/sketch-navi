@@ -13,11 +13,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 struct NVLineSpec {
-    double weight; // 线条粗细
     NSString *code; // 编码
     NSString *cmeaning; // 语义化
-    NSString *text; // 显示的文字
     double index; // 排序
+    double ios;              //
+    double android;          //
+    double h5;               //
 };
 
 typedef struct NVLineSpec NVLineSpec;

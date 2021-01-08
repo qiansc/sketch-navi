@@ -8,6 +8,7 @@
 
 #import "NVFontSemanticItemView.h"
 #import "HexColor.h"
+#import "NVUserData.h"
 
 @implementation NVFontSemanticItemView{
     NSTextField *itemTitle;
@@ -33,6 +34,17 @@
     _spec = fontSpec;
     [self drawStyle];
     itemTitle.stringValue = self.spec.cmeaning;
+    
+    double fontSize;
+    NSDictionary *data = [NVUserData userData];
+    if ([data[@"unit"] isEqual:@"pt"]) {
+        fontSize = fontSpec.iosFontSize;
+    } else if ([data[@"unit"] isEqual:@"dp"]) {
+        fontSize = fontSpec.androidFontSize;
+    } else {
+        fontSize = fontSpec.h5FontSize;
+    }
+    
     // itemTitle.textColor = NSColorFromRGBString(self.spec.defaultColor);
     itemDesc.stringValue = [NSString stringWithFormat:@"%i/%i/%i", (int)self.spec.iosFontSize,  (int)self.spec.androidFontSize,  (int)self.spec.h5FontSize];
     self.toolTip = [NSString stringWithFormat:@"%@ %@", self.spec.code, self.spec.cmeaning];

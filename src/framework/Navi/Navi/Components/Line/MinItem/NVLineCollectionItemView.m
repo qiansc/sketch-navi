@@ -7,6 +7,7 @@
 //
 
 #import "NVLineCollectionItemView.h"
+#import "NVUserData.h"
 
 
 @implementation NVLineCollectionItemView {
@@ -40,8 +41,8 @@
     [lineBox removeConstraint: constraintHeight];
     _spec = lineSpec;
     [self drawStyle];
-    textField.stringValue = self.spec.text;
-    CGFloat lineHeight = self.spec.weight;
+    textField.stringValue = [NSString stringWithFormat:@"%.2lf", [self dev:_spec]];
+    CGFloat lineHeight = [self dev:_spec];
     constraintHeight = [lineBox.heightAnchor constraintEqualToConstant: lineHeight >= 1 ? lineHeight : 1];
     [lineBox addConstraint:constraintHeight];
     self.toolTip = [NSString stringWithFormat:@"%@ - %@", self.spec.code, self.spec.cmeaning];
@@ -67,5 +68,18 @@
 
     // Drawing code here.
 }
+
+
+-(double)dev:(NVLineSpec) spec{
+    NSDictionary *data = [NVUserData userData];
+    if ([data[@"unit"] isEqual:@"pt"]) {
+        return spec.ios;
+    } else if ([data[@"unit"] isEqual:@"dp"]) {
+        return spec.android;
+    } else {
+        return spec.h5;
+    }
+}
+
 
 @end

@@ -230,6 +230,14 @@ static int specRequestThread;
         if (s[@"ios"] && ![s[@"ios"] containsString:@","]) {
             s[@"ios"] = [NSString stringWithFormat:@"%@,%@,%@,%@", s[@"ios"],s[@"ios"],s[@"ios"],s[@"ios"]];
         }
+        if (s[@"android"] && ![s[@"android"] containsString:@","]) {
+            s[@"android"] = [NSString stringWithFormat:@"%@,%@,%@,%@", s[@"android"],s[@"android"],s[@"android"],s[@"android"]];
+        }
+        if ([s[@"h5"] isEqual:@""]) {
+            s[@"h5"] = s[@"ios"];
+        } else if (s[@"h5"] && ![s[@"h5"] containsString:@","]) {
+            s[@"h5"] = [NSString stringWithFormat:@"%@,%@,%@,%@", s[@"h5"],s[@"h5"],s[@"h5"],s[@"h5"]];
+        }
         [s setValue:@[s[@"cclass"],s[@"cmeaning"]] forKey:@"dim"];
         [exist setValue:@YES forKey:s[@"code"]];
         [arr addObject:s];
@@ -246,8 +254,6 @@ static int specRequestThread;
         if ([[item[@"elementCode"] substringToIndex:3] isNotEqualTo:@"L_X"]) continue;
         NSDictionary *s = [item mutableCopy];
         [s setValue:@[s[@"cclass"],s[@"cmeaning"]] forKey:@"dim"];
-        [s setValue:s[@"ios"] forKey:@"weight"];
-        [s setValue: [NSString stringWithFormat:@"%@", s[@"ios"]] forKey:@"text"];
         [exist setValue:@YES forKey:s[@"code"]];
         [arr addObject:s];
     }

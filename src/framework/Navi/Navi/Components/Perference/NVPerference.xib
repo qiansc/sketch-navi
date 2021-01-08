@@ -358,7 +358,7 @@
                     </textFieldCell>
                 </textField>
                 <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gNz-p7-XlM">
-                    <rect key="frame" x="134" y="137" width="99" height="27"/>
+                    <rect key="frame" x="134" y="139" width="74" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="smallSquare" title="全局" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="u9J-Tx-UZM" id="fMv-oo-EwS">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -381,7 +381,7 @@
                     </popUpButtonCell>
                 </popUpButton>
                 <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9GI-9m-Ect">
-                    <rect key="frame" x="134" y="91" width="99" height="27"/>
+                    <rect key="frame" x="134" y="93" width="74" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="smallSquare" title="12.1.5" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="1oz-S6-rc9" id="w7Y-rm-Btu">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -421,6 +421,39 @@
                         <font key="font" usesAppearanceFont="YES"/>
                     </buttonCell>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SDs-ek-ji6">
+                    <rect key="frame" x="243" y="142" width="26" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="单" id="j8t-An-ply">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVR-uq-1lR">
+                    <rect key="frame" x="273" y="142" width="26" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="位" id="dUS-IU-iE0">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GH6-E9-e1A">
+                    <rect key="frame" x="305" y="139" width="74" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="smallSquare" title="px H5" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="JfE-QC-prM" id="ybn-rA-kTK">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" id="huO-Tn-7KC">
+                            <items>
+                                <menuItem title="px H5" state="on" identifier="px" id="JfE-QC-prM"/>
+                                <menuItem title="pt IOS" identifier="pt" id="aVh-KN-LRo"/>
+                                <menuItem title="dp 安卓" identifier="dp" id="orO-SR-zUK"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                </popUpButton>
             </subviews>
             <accessibility description="Common"/>
             <point key="canvasLocation" x="177.5" y="975"/>
@@ -430,6 +463,7 @@
                 <outlet property="groupButton" destination="gNz-p7-XlM" id="rzj-gc-aRy"/>
                 <outlet property="infoField" destination="50f-Mh-F0n" id="MeU-QY-YH1"/>
                 <outlet property="infoView" destination="AYs-vd-TwI" id="dIq-Tj-clD"/>
+                <outlet property="unitButton" destination="GH6-E9-e1A" id="7fL-N8-bEY"/>
                 <outlet property="updateButton" destination="GSV-rN-6nF" id="15Z-Tc-Xel"/>
                 <outlet property="updateField" destination="wNE-b9-Qkv" id="XgB-R0-8Bu"/>
                 <outlet property="versionButton" destination="9GI-9m-Ect" id="6sC-Gm-vtG"/>

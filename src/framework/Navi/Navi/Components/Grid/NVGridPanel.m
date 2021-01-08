@@ -12,6 +12,7 @@
 #import "NVUserInfo.h"
 #import "NVLayer.h"
 #import "MSLayerArray.h"
+#import "NVUserData.h"
 
 @implementation NVGridPanel {
     NVGridSpec widthSpec;
@@ -98,8 +99,8 @@
                 if ([item.spec.code isEqual:gridWidthCode]) {
                     [indexPaths addObject:item.indexPath];
                     widthSpec = item.spec;
-                    [self applyWidth:item.spec.ios toLayer:layer];
-                    layer.frame.width = item.spec.ios;
+                    [self applyWidth:[self dev:item.spec] toLayer:layer];
+                    layer.frame.width = [self dev:item.spec];
                 }
 
                 if ([item.spec.code isEqual:gridScaleCode]) {
@@ -129,7 +130,7 @@
                 [self applyScale:spec.scale toLayer:layer];
             } else {
                 [NVUserInfo fromLayer:layer].gridWidthCode = spec.code;
-                [self applyWidth:spec.ios toLayer:layer];
+                [self applyWidth:[self dev:spec] toLayer:layer];
             }
         }
     }
@@ -157,6 +158,17 @@
     double width = [arr[0] doubleValue];
     double height = [arr[1] doubleValue];
     layer.frame.height = round(layer.frame.width * 100 * height / width) / 100;
+}
+
+-(double)dev:(NVGridSpec) spec{
+    NSDictionary *data = [NVUserData userData];
+    if ([data[@"unit"] isEqual:@"pt"]) {
+        return spec.ios;
+    } else if ([data[@"unit"] isEqual:@"dp"]) {
+        return spec.android;
+    } else {
+        return spec.h5;
+    }
 }
 
 @end

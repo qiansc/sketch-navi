@@ -13,6 +13,7 @@
 #import "NVLayer.h"
 #import "MSLayerArray.h"
 #import "MSDocument.h"
+#import "NVUserData.h"
 
 @implementation NVVertPanel {
     NVVertSpec se;
@@ -317,7 +318,7 @@
     if (pos == 3 || pos == 31) {
         MSLayer *target = [self selectionTarget];
         MSLayer *layer = [self selectionLayer];
-        layer.frame.y = target.frame.y + se.ios;
+        layer.frame.y = target.frame.y + [self dev:se];
     }
 }
 
@@ -332,10 +333,10 @@
             return;
         }
         [NVUserInfo fromLayer:layer].originHeight = layer.frame.height;
-        layer.frame.height = target.frame.height - se.ios - se.ios;
+        layer.frame.height = target.frame.height - [self dev:se] - [self dev:se];
     }
     if (pos == 1 || pos == 31) {
-        layer.frame.y = target.frame.y + target.frame.height - layer.frame.height - se.ios;
+        layer.frame.y = target.frame.y + target.frame.height - layer.frame.height - [self dev:se];
     }
 }
 
@@ -345,7 +346,7 @@
     if (pos == 3) {
         MSLayer *target = [self selectionTarget];
         MSLayer *layer = [self selectionLayer];
-        layer.frame.y = (target.frame.y + target.frame.height) + se.ios;
+        layer.frame.y = (target.frame.y + target.frame.height) + [self dev:se];
     }
 }
 
@@ -354,7 +355,7 @@
     if (pos == 1) {
         MSLayer *target = [self selectionTarget];
         MSLayer *layer = [self selectionLayer];
-        layer.frame.y = (target.frame.y - layer.frame.height) - se.ios;
+        layer.frame.y = (target.frame.y - layer.frame.height) - [self dev:se];
     }
 }
 
@@ -372,6 +373,17 @@
             info.marginTopTarget =  mapper[info.marginTopTarget];
         if (info.marginBottomTarget && mapper[info.marginBottomTarget])
             info.marginBottomTarget =  mapper[info.marginBottomTarget];
+    }
+}
+
+-(double)dev:(NVVertSpec) spec{
+    NSDictionary *data = [NVUserData userData];
+    if ([data[@"unit"] isEqual:@"pt"]) {
+        return spec.ios;
+    } else if ([data[@"unit"] isEqual:@"dp"]) {
+        return spec.android;
+    } else {
+        return spec.h5;
     }
 }
 

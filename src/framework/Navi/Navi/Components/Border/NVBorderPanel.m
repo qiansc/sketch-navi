@@ -12,6 +12,7 @@
 #import "NVUserInfo.h"
 #import "NVLayer.h"
 #import "MSLayerArray.h"
+#import "NVUserData.h"
 
 @interface NVBorderPanel ()
 
@@ -60,7 +61,7 @@
                 NVBorderCollectionItemView *item = ((NVBorderCollectionItemView *) view);
                 if ([item.spec.code isEqual:cornerRadiusCode]) {
                     [indexPaths addObject:item.indexPath];
-                    [self applyCornerRadius:item.spec.ios toLayer:layer];
+                    [self applyCornerRadius:item.spec toLayer:layer];
                     title = item.spec.code;
                 }
             }
@@ -81,12 +82,13 @@
         for(MSLayer *layer in self.selections) {
             if (![NVLayer isRectangleShape:layer]) continue;
             [NVUserInfo fromLayer:layer].cornerRadiusCode = spec.code;
-            [self applyCornerRadius:spec.ios toLayer:layer];
+            [self applyCornerRadius:spec toLayer:layer];
         }
     }
 }
 
--(void)applyCornerRadius:(NSString *) radiusString toLayer:(MSLayer*) layer{
+-(void)applyCornerRadius:(NVBorderSpec) spec toLayer:(MSLayer*) layer{
+    NSString *radiusString = [self dev:spec];
     NSArray<NSString*> *arr = [radiusString componentsSeparatedByString:@","];
     int index = 0;
     for(MSCurvePoint *point in layer.points) {
@@ -103,5 +105,17 @@
         index++;
     }
 }
+
+-(NSString*)dev:(NVBorderSpec) spec{
+    NSDictionary *data = [NVUserData userData];
+    if ([data[@"unit"] isEqual:@"pt"]) {
+        return spec.ios;
+    } else if ([data[@"unit"] isEqual:@"dp"]) {
+        return spec.android;
+    } else {
+        return spec.h5;
+    }
+}
+
 
 @end

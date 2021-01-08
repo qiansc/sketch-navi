@@ -7,6 +7,7 @@
 //
 
 #import "NVVertSemanticItemView.h"
+#import "NVUserData.h"
 
 @implementation NVVertSemanticItemView{
     //    NSBox *box;
@@ -39,7 +40,7 @@
 -(void)setSpec:(NVVertSpec)borderSpec{
     _spec = borderSpec;
     [self drawStyle];
-    itemTitle.stringValue = [NSString stringWithFormat:@"%@", self.spec.desc];
+    itemTitle.stringValue = [NSString stringWithFormat:@"%d", (int)[self dev: _spec]];
     itemDesc.stringValue = self.spec.cmeaning;
 
     if (self.spec.code && self.spec.code.length > 10){
@@ -75,4 +76,16 @@
         itemCode.textColor = [NSColor secondaryLabelColor];
     }
 }
+
+-(double)dev:(NVVertSpec) spec{
+    NSDictionary *data = [NVUserData userData];
+    if ([data[@"unit"] isEqual:@"pt"]) {
+        return spec.ios;
+    } else if ([data[@"unit"] isEqual:@"dp"]) {
+        return spec.android;
+    } else {
+        return spec.h5;
+    }
+}
+
 @end

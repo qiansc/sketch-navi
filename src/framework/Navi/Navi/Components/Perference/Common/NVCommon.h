@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readwrite, strong) IBOutlet NSPopUpButton *groupButton;
 @property (readwrite, strong) IBOutlet NSPopUpButton *versionButton;
+@property (readwrite, strong) IBOutlet NSPopUpButton *unitButton;
 
 @property (readwrite, strong) IBOutlet NSTextField *updateField;
 @property (readwrite, strong) IBOutlet NSButton *updateButton;

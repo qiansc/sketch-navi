@@ -12,6 +12,7 @@
 #import "NVUserInfo.h"
 #import "NVLayer.h"
 #import "MSLayerArray.h"
+#import "NVUserData.h"
 
 @implementation NVLinePanel
 
@@ -54,7 +55,7 @@
                 NVLineCollectionItemView *item = ((NVLineCollectionItemView *) view);
                 if ([item.spec.code isEqual:borderThicknessCode]) {
                     [indexPaths addObject:item.indexPath];
-                    [self applyLine:item.spec.weight toLayer:layer];
+                    [self applyLine:[self dev:item.spec] toLayer:layer];
                     title = item.spec.code;
                 }
             }
@@ -82,7 +83,7 @@
 }
 
 - (void) applySpec:(NVLineSpec) spec toLayer:(MSLayer *) layer {
-    [self applyLine:spec.weight toLayer:layer];
+    [self applyLine:[self dev:spec] toLayer:layer];
 }
 
 - (void)applyLine:(double) lineWeight toLayer:(MSLayer *) layer {
@@ -93,9 +94,14 @@
     }
 }
 
-//- (int)height {
-//    int superHeight = [super height];
-//    return superHeight + 20;
-//}
-
+-(double)dev:(NVLineSpec) spec{
+    NSDictionary *data = [NVUserData userData];
+    if ([data[@"unit"] isEqual:@"pt"]) {
+        return spec.ios;
+    } else if ([data[@"unit"] isEqual:@"dp"]) {
+        return spec.android;
+    } else {
+        return spec.h5;
+    }
+}
 @end

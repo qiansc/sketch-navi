@@ -9,10 +9,11 @@
 #import "NVUserData.h"
 #import "Util.h"
 
+static NSDictionary *_data;
+
 @implementation NVUserData {
     
 }
-
 
 +(NSURL*)cookieFileURL {
     NSURL *dir = [Util applicationDataDirectory];
@@ -43,7 +44,8 @@
 }
 
 +(NSDictionary*)userData {
-    NSDictionary *data = @{};
+    if (_data != nil) return _data;
+    NSMutableDictionary *data = [NSMutableDictionary new];
     NSURL *url = [NVUserData userFileURL];
     NSFileManager *fm = [NSFileManager defaultManager];
     if ([fm fileExistsAtPath:url.path]) {
@@ -52,8 +54,10 @@
         
         NSError *err;
         data = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingMutableContainers error:&err];
-        return data;
+        data = [data mutableCopy];
     }
+    if (data[@"unit"] == nil) data[@"unit"] = @"px";
+    _data = data;
     return data;
 }
 
@@ -62,6 +66,7 @@
     NSData *json = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
     json = [json base64EncodedDataWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
     BOOL ret = [json writeToURL:url atomically:YES];
+    _data = data;
     return ret;
 }
 

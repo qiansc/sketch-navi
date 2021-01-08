@@ -7,6 +7,7 @@
 //
 
 #import "NVBorderCollectionItemView.h"
+#import "NVUserData.h"
 
 @implementation NVBorderCollectionItemView {
     NSBox *box;
@@ -35,9 +36,9 @@
 -(void)setSpec:(NVBorderSpec)borderSpec{
     _spec = borderSpec;
     [self drawStyle];
-    textField.stringValue = [NSString stringWithFormat:@"%@", self.spec.ios];
+    textField.stringValue = [NSString stringWithFormat:@"%@", [self dev: borderSpec]];
     box.cornerRadius = 0;
-    NSArray<NSString*> *arr = [borderSpec.ios componentsSeparatedByString:@","];
+    NSArray<NSString*> *arr = [[self dev: borderSpec] componentsSeparatedByString:@","];
     if (arr[0]) {
         double num = [arr[0] doubleValue];
         if (num == -1) box.cornerRadius = 15;
@@ -66,6 +67,18 @@
         self.fillColor  = [NSColor controlBackgroundColor];
         self.borderColor = [NSColor windowBackgroundColor];
         textField.textColor = [NSColor secondaryLabelColor];
+    }
+}
+
+
+-(NSString*)dev:(NVBorderSpec) spec{
+    NSDictionary *data = [NVUserData userData];
+    if ([data[@"unit"] isEqual:@"pt"]) {
+        return spec.ios;
+    } else if ([data[@"unit"] isEqual:@"dp"]) {
+        return spec.android;
+    } else {
+        return spec.h5;
     }
 }
 
