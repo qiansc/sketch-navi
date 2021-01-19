@@ -227,12 +227,15 @@ static int specRequestThread;
         if (exist[item[@"code"]]) continue;
         if ([[item[@"elementCode"] substringToIndex:3] isNotEqualTo:@"J_X"]) continue;
         NSMutableDictionary *s = [item mutableCopy];
+        s[@"ios"] = [NSString stringWithFormat:@"%@", s[@"ios"]];
         if (s[@"ios"] && ![s[@"ios"] containsString:@","]) {
             s[@"ios"] = [NSString stringWithFormat:@"%@,%@,%@,%@", s[@"ios"],s[@"ios"],s[@"ios"],s[@"ios"]];
         }
+        s[@"android"] = [NSString stringWithFormat:@"%@", s[@"android"]];
         if (s[@"android"] && ![s[@"android"] containsString:@","]) {
             s[@"android"] = [NSString stringWithFormat:@"%@,%@,%@,%@", s[@"android"],s[@"android"],s[@"android"],s[@"android"]];
         }
+        s[@"h5"] = [NSString stringWithFormat:@"%@", s[@"h5"]];
         if ([s[@"h5"] isEqual:@""]) {
             s[@"h5"] = s[@"ios"];
         } else if (s[@"h5"] && ![s[@"h5"] containsString:@","]) {
