@@ -16,6 +16,7 @@
 #import "NVLinePanel.h"
 #import "NVMaskPanel.h"
 #import "NVBorderPanel.h"
+#import "NVPorderPanel.h"
 #import "NVGridPanel.h"
 #import "NVMarginPanel.h"
 #import "NVVertPanel.h"
@@ -94,6 +95,8 @@
                 c = [[NVMaskPanel alloc] initWithId:id];
             } else if([id isEqual: @"Border"]) {
                 c = [[NVBorderPanel alloc] initWithId:id];
+            } else if([id isEqual: @"Porder"]) {
+                c = [[NVPorderPanel alloc] initWithId:id];
             } else if([id isEqual: @"Grid"]) {
                 c = [[NVGridPanel alloc] initWithId:id];
             } else if([id isEqual: @"Vert"]) {

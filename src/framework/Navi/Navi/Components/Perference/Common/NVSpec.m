@@ -228,19 +228,41 @@ static int specRequestThread;
         if ([[item[@"elementCode"] substringToIndex:3] isNotEqualTo:@"J_X"]) continue;
         NSMutableDictionary *s = [item mutableCopy];
         s[@"ios"] = [NSString stringWithFormat:@"%@", s[@"ios"]];
-        if (s[@"ios"] && ![s[@"ios"] containsString:@","]) {
-            s[@"ios"] = [NSString stringWithFormat:@"%@,%@,%@,%@", s[@"ios"],s[@"ios"],s[@"ios"],s[@"ios"]];
-        }
+        if (![s[@"ios"] containsString:@","])
+            continue;
+//        if (s[@"ios"] && ![s[@"ios"] containsString:@","]) {
+//            s[@"ios"] = [NSString stringWithFormat:@"%@,%@,%@,%@", s[@"ios"],s[@"ios"],s[@"ios"],s[@"ios"]];
+//        }
+//        s[@"android"] = [NSString stringWithFormat:@"%@", s[@"android"]];
+//        if (s[@"android"] && ![s[@"android"] containsString:@","]) {
+//            s[@"android"] = [NSString stringWithFormat:@"%@,%@,%@,%@", s[@"android"],s[@"android"],s[@"android"],s[@"android"]];
+//        }
+//        s[@"h5"] = [NSString stringWithFormat:@"%@", s[@"h5"]];
+//        if ([s[@"h5"] isEqual:@""]) {
+//            s[@"h5"] = s[@"ios"];
+//        } else if (s[@"h5"] && ![s[@"h5"] containsString:@","]) {
+//            s[@"h5"] = [NSString stringWithFormat:@"%@,%@,%@,%@", s[@"h5"],s[@"h5"],s[@"h5"],s[@"h5"]];
+//        }
+        [s setValue:@[s[@"cclass"],s[@"cmeaning"]] forKey:@"dim"];
+        [exist setValue:@YES forKey:s[@"code"]];
+        [arr addObject:s];
+    }
+    return arr;
+}
+
+- (NSArray*)getPorderSpec{
+    NSMutableArray *arr = [NSMutableArray new];
+    NSMutableDictionary *exist = [NSMutableDictionary new];
+    for(NSDictionary *item in spec) {
+        if (!item[@"code"]) continue;
+        if (exist[item[@"code"]]) continue;
+        if ([[item[@"elementCode"] substringToIndex:3] isNotEqualTo:@"J_X"]) continue;
+        NSMutableDictionary *s = [item mutableCopy];
+        s[@"ios"] = [NSString stringWithFormat:@"%@", s[@"ios"]];
+        if ([s[@"ios"] containsString:@","])
+            continue;
         s[@"android"] = [NSString stringWithFormat:@"%@", s[@"android"]];
-        if (s[@"android"] && ![s[@"android"] containsString:@","]) {
-            s[@"android"] = [NSString stringWithFormat:@"%@,%@,%@,%@", s[@"android"],s[@"android"],s[@"android"],s[@"android"]];
-        }
         s[@"h5"] = [NSString stringWithFormat:@"%@", s[@"h5"]];
-        if ([s[@"h5"] isEqual:@""]) {
-            s[@"h5"] = s[@"ios"];
-        } else if (s[@"h5"] && ![s[@"h5"] containsString:@","]) {
-            s[@"h5"] = [NSString stringWithFormat:@"%@,%@,%@,%@", s[@"h5"],s[@"h5"],s[@"h5"],s[@"h5"]];
-        }
         [s setValue:@[s[@"cclass"],s[@"cmeaning"]] forKey:@"dim"];
         [exist setValue:@YES forKey:s[@"code"]];
         [arr addObject:s];
@@ -287,6 +309,7 @@ static int specRequestThread;
         @"Weight": [self getSpecWith:@"F_X"],
         @"Line": [self getLineSpec],
         @"Border":[self getBorderSpec],
+        @"Porder":[self getPorderSpec],
         @"Hori":[self getMarginSpecWith:@"M_W_X"],
         @"Vert":[self getMarginSpecWith:@"M_H_X"]
     };

@@ -50,6 +50,8 @@ static NSMutableDictionary *cache;
         self.data[@"fillColorCode"] = @"";
         self.data[@"maskCode"] = @"";
         
+        self.data[@"cornerRadiusCodes"] = [NSMutableDictionary new];
+        
         self.data[@"style"][@"borders"] = [NSMutableArray new];
         self.data[@"borderColorCode"] = @"";
         self.data[@"borderThicknessCode"] = @"";
@@ -179,6 +181,13 @@ static NSMutableDictionary *cache;
     self.data[@"cornerRadiusCode"] = code;
     [self save];
 }
+
+-(NSDictionary *)cornerRadiusCodes {return self.data[@"cornerRadiusCodes"];}
+-(void)setCornerRadiusCodes:(NSDictionary*)codes {
+    self.data[@"cornerRadiusCodes"] = codes;
+    [self save];
+}
+
 
 #pragma mark Frame
 

@@ -25,4 +25,6 @@
 
 -(void)showMessage:(NSString *) text;
 
+- (id)currentHandler;
+
 @end

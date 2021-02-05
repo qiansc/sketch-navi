@@ -1,21 +1,21 @@
 //
-//  NVBorderCollectionItemView.m
+//  NVPorderCollectionItemView.m
 //  Navi
 //
 //  Created by Qian,Sicheng on 2020/11/3.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "NVBorderCollectionItemView.h"
+#import "NVPorderCollectionItemView.h"
 #import "NVUserData.h"
 
-@implementation NVBorderCollectionItemView {
+@implementation NVPorderCollectionItemView {
     NSBox *box;
     NSTextField *textField;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
-    NVBorderCollectionItemView *view = [super initWithCoder:coder];
+    NVPorderCollectionItemView *view = [super initWithCoder:coder];
     view.boxType = NSBoxCustom;
     view.borderColor = [NSColor disabledControlTextColor];
     view.borderType = NSLineBorder;
@@ -33,7 +33,7 @@
     return view;
 }
 
--(void)setSpec:(NVBorderSpec)borderSpec{
+-(void)setSpec:(NVPorderSpec)borderSpec{
     _spec = borderSpec;
     [self drawStyle];
     NSDictionary *data = [NVUserData userData];
@@ -72,13 +72,16 @@
 }
 
 
--(NSString*)dev:(NVBorderSpec) spec{
+-(NSString*)dev:(NVPorderSpec) spec{
     NSDictionary *data = [NVUserData userData];
     if ([data[@"unit"] isEqual:@"pt"]) {
         return spec.ios;
     } else if ([data[@"unit"] isEqual:@"dp"]) {
         return spec.android;
     } else {
+        if([spec.h5 isEqualToString:@""]) {
+            return @"0";
+        }
         return spec.h5;
     }
 }

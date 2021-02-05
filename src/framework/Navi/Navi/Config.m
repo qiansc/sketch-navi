@@ -47,6 +47,12 @@
         @"icon": @"Border",
         @"gravity": @1,
         @"type": @"PANEL"
+    }, @{
+        @"name": @"点边角",
+        @"id": @"Porder",
+        @"icon": @"PointBorder",
+        @"gravity": @1,
+        @"type": @"PANEL"
 //    }, @{
 //        @"name": @"栅格",
 //        @"id": @"Grid",

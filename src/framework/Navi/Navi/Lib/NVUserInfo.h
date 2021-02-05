@@ -43,6 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark Points - CurvePoint
 
 @property (nonatomic, strong) NSString *cornerRadiusCode; // 圆角编码
+@property (nonatomic, strong) NSDictionary *cornerRadiusCodes; // 圆角编码
 
 #pragma mark Frame
 
