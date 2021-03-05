@@ -8,17 +8,17 @@
 #import "MSEventHandler.h"
 
 @protocol MSEventHandlerManagerDelegate <NSObject>
-- (void)eventHandlerManager:(MSEventHandlerManager *)arg1 didChangeCurrentHandler:(MSEventHandler *)arg2;
+- (void)eventHandlerManager:(id *)arg1 didChangeCurrentHandler:(MSEventHandler *)arg2;
 @end
 
 
 
 @interface MSEventHandlerManager : NSObject
 {
-    MSDocument *_document;
+    id _document;
     id <MSEventHandlerManagerDelegate> _delegate;
     MSEventHandler *_currentHandler;
-    MSNormalEventHandler *_normalHandler;
+    // MSNormalEventHandler *_normalHandler;
     long long _lastMouseDownClickCount;
     unsigned long long _lastEventType;
     struct CGPoint _lastEventLocationInWindow;
@@ -27,10 +27,10 @@
 @property(nonatomic) unsigned long long lastEventType; // @synthesize lastEventType=_lastEventType;
 @property(nonatomic) long long lastMouseDownClickCount; // @synthesize lastMouseDownClickCount=_lastMouseDownClickCount;
 @property(nonatomic) struct CGPoint lastEventLocationInWindow; // @synthesize lastEventLocationInWindow=_lastEventLocationInWindow;
-@property(retain, nonatomic) MSNormalEventHandler *normalHandler; // @synthesize normalHandler=_normalHandler;
+// @property(retain, nonatomic) MSNormalEventHandler *normalHandler; // @synthesize normalHandler=_normalHandler;
 @property(retain, nonatomic) MSEventHandler *currentHandler; // @synthesize currentHandler=_currentHandler;
 @property(nonatomic) __weak id <MSEventHandlerManagerDelegate> delegate; // @synthesize delegate=_delegate;
-@property(nonatomic) __weak MSDocument *document; // @synthesize document=_document;
+@property(nonatomic) __weak id *document; // @synthesize document=_document;
 - (id)overlayItems:(unsigned long long)arg1 parameters:(struct MSRenderingParameters)arg2;
 - (id)overlayItemImages:(struct CGColorSpace *)arg1 backingScale:(double)arg2;
 - (void)documentDidChange:(id)arg1;

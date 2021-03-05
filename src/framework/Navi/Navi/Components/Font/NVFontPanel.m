@@ -14,6 +14,7 @@
 #import "NVLayer.h"
 #import "MSLayerArray.h"
 #import "NVUserData.h"
+#import "MSTextLayer.h"
 
 @interface NVFontPanel ()
 
@@ -108,7 +109,7 @@
 }
 
 /* 应用color到图层上 */
--(void)applyFontSize:(NVFontSpec) spec toLayer:(MSLayer*) layer{
+-(void)applyFontSize:(NVFontSpec) spec toLayer:(MSTextLayer*) layer{
     if ([NVLayer isTextLayer:layer]) {
         double fontSize;
         NSDictionary *data = [NVUserData userData];
@@ -127,7 +128,7 @@
 
 
 /* 应用color到图层上 */
--(void)applyColor:(NSColor*) color toLayer:(MSLayer*) layer{
+-(void)applyColor:(NSColor*) color toLayer:(MSTextLayer*) layer{
     if ([NVLayer isTextLayer:layer]) {
         MSColor *c = layer.textColor;
         c.red = color.redComponent;

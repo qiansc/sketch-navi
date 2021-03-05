@@ -10,6 +10,7 @@
 #import "NVAppCache.h"
 #import "NVBundle.h"
 #import "NVSpec.h"
+#import "MSCanvasViewController.h"
 
 @implementation NVApp{
     MSDocument *document;
@@ -48,7 +49,45 @@
     navi = [[NVDocument alloc] initWithNibName:@"NVDocument" bundle:[NVBundle bundlePath]];
     navi.delegate = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(delayUpdateSpec) name:@"SPEC_UPDATE" object:nil];
+    [self test];
     return self;
+}
+
+-(void)test {
+    NSLog(@"### monitor");
+
+
+    id monitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskKeyDown handler:^NSEvent * _Nullable(NSEvent * _Nonnull e) {
+        //判断aEvent.keyCode属性
+//        NSLog(@"### gogogo1 %@", e.window);
+//        NSLog(@"### gogogo2 %hu", e.keyCode);
+        // NSLog(@"### gogogo3 %@", e.trackingArea.options);
+        
+        MSCanvasViewController *c = document.splitViewController.splitViewItems[1].viewController;
+        NSView *canvasContainerView = c.view.subviews[0];
+        
+        NSTextField *text =  [[NSTextField alloc] initWithFrame:CGRectMake(100, 100, 100, 40)];
+        text.backgroundColor = [NSColor clearColor];
+        text.stringValue = @"静态文本";
+        [text setTextColor:[NSColor redColor]];
+        [text setFont:[NSFont systemFontOfSize:10]];
+        [canvasContainerView addSubview: text];
+        
+        MSCanvasView *canvasView = canvasContainerView.subviews[3];
+        NSStackView *sView = canvasView.subviews[0];
+        // canvasView
+        NSLog(@"### canvasView %@", canvasView);
+        MSPage *page = canvasView.currentPage;
+        NSLog(@"### canvasView %@", page.layout);
+        
+//        MSDocument *document = [[NSDocumentController sharedDocumentController] currentDocument];
+//        MSLayer *layer= document.selectedLayers[0];
+        
+        // NSLog(@"### mmmmmmmm %@", layer.parentObject);
+        
+        return e;
+    }];
+    // [NSEvent removeMonitor:monitor];
 }
 
 -(void)toggle{

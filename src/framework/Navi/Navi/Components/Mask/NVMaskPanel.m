@@ -16,6 +16,7 @@
 #import "MSGradient.h"
 #import "NVUserInfo.h"
 #import "MSStyleFill.h"
+#import "MSStyledLayer.h"
 
 @interface NVMaskPanel ()
 
@@ -88,7 +89,7 @@
     }
 }
 
-- (void)applyMask:(NVMaskSpec) spec toLayer:(MSLayer *)layer {
+- (void)applyMask:(NVMaskSpec) spec toLayer:(MSStyledLayer *)layer {
     // fillType 1代表线性渐变
     [layer.style removeAllStyleFills];
     MSGradient *gradient = [[[NVBundle SketchModelBundle] classNamed: @"MSGradient"] new];

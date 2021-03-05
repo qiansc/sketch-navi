@@ -15,6 +15,7 @@
 #import "NVLayer.h"
 #import "HexColor.h"
 #import "MSColor.h"
+#import "MSStyledLayer.h"
 
 @interface NVShadowPanel ()
 
@@ -87,7 +88,7 @@
     }
 }
 
--(void)applyShadow:(NVShadowSpec) spec toLayer:(MSLayer*) layer{
+-(void)applyShadow:(NVShadowSpec) spec toLayer:(MSStyledLayer*) layer{
     if (layer.style.shadows.count == 0) {
 //        [layer.style.shadows addNewStylePart];
         // 0- fill, 1- stroke, 2-shadow

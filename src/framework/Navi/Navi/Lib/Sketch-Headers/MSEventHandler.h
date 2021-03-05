@@ -10,7 +10,7 @@
     struct CGPoint mouseAtTimeOfMenu;
     NSMutableArray *_gestureRecognizers;
     BOOL _mouseIsDown;
-    id *_manager;
+    id _manager;
 //    MSDuplicateOffsetTracker *_offsetTracker;
     NSString *_pressedKeys;
     NSTouchBar *_noSelectionTouchBar;

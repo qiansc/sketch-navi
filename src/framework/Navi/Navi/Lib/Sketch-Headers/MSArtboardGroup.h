@@ -6,11 +6,9 @@
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
 
-#import "MSLayer.h"
-
 @interface MSArtboardGroup: NSObject
 
 @property (readonly, strong) MSRect *frame;
--(void)addLayer:(MSLayer*) layer;
+-(void)addLayer:(id) layer;
 
 @end

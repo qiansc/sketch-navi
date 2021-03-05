@@ -13,6 +13,7 @@
 #import "NVLayer.h"
 #import "MSLayerArray.h"
 #import "NVUserData.h"
+#import "MSShapePathLayer.h"
 
 @interface NVBorderPanel ()
 
@@ -87,7 +88,7 @@
     }
 }
 
--(void)applyCornerRadius:(NVBorderSpec) spec toLayer:(MSLayer*) layer{
+-(void)applyCornerRadius:(NVBorderSpec) spec toLayer:(MSShapePathLayer*) layer{
     NSString *radiusString = [self dev:spec];
     NSArray<NSString*> *arr = [radiusString componentsSeparatedByString:@","];
     int index = 0;

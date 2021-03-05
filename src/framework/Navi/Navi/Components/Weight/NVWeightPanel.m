@@ -12,7 +12,9 @@
 #import "NVWeightCollectionItemView.h"
 #import "NVUserInfo.h"
 #import "NVLayer.h"
+#import "MSTextLayer.h"
 #import "MSLayerArray.h"
+#import "MSTextLayer.h"
 
 @interface NVWeightPanel ()
 
@@ -107,7 +109,7 @@
 }
 
 /* 应用color到图层上 */
--(void)applyWeight:(double) fontWeight toLayer:(MSLayer*) layer{
+-(void)applyWeight:(double) fontWeight toLayer:(MSTextLayer*) layer{
     if ([NVLayer isTextLayer:layer]) {
         // layer.fontSize = fontSize;
 //        NSFontManager *manager = [NSFontManager sharedFontManager];
@@ -152,7 +154,7 @@
 
 
 /* 应用color到图层上 */
--(void)applyColor:(NSColor*) color toLayer:(MSLayer*) layer{
+-(void)applyColor:(NSColor*) color toLayer:(MSTextLayer*) layer{
     if ([NVLayer isTextLayer:layer]) {
         MSColor *c = layer.textColor;
         c.red = color.redComponent;

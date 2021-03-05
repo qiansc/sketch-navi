@@ -13,6 +13,7 @@
 #import "NVUserInfo.h"
 #import "NVLayer.h"
 #import "MSLayerArray.h"
+#import "MSTextLayer.h"
 
 @interface NVColorPanel ()
 
@@ -103,7 +104,7 @@
 /* 应用spec到图层上 */
 -(void)applySpecToSelections:(NVColorSpec) spec {
     if (self.selections) {
-        for(MSLayer *layer in self.selections) {
+        for(MSStyledLayer *layer in self.selections) {
             NVUserInfo *info = [NVUserInfo fromLayer:layer];
             if (self.collectionView.dataSource.isTextType) {
                 info.fontColorCode = spec.specCode;
@@ -117,7 +118,7 @@
     }
 }
 /* 应用color到图层上 */
--(void)applyColor:(NSColor*) color toLayer:(MSLayer*) layer{
+-(void)applyColor:(NSColor*) color toLayer:(MSTextLayer*) layer{
     if (self.collectionView.dataSource.isTextType) {
         MSColor *c = layer.textColor;
         c.red = color.redComponent;

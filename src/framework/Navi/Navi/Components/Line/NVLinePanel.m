@@ -13,6 +13,7 @@
 #import "NVLayer.h"
 #import "MSLayerArray.h"
 #import "NVUserData.h"
+#import "MSStyledLayer.h"
 
 @implementation NVLinePanel
 
@@ -86,7 +87,7 @@
     [self applyLine:[self dev:spec] toLayer:layer];
 }
 
-- (void)applyLine:(double) lineWeight toLayer:(MSLayer *) layer {
+- (void)applyLine:(double) lineWeight toLayer:(MSStyledLayer *) layer {
     if ([NVLayer isShapePathLayer:layer] || [NVLayer isShape:layer]) {
         for (MSStyleBorder *border in layer.style.borders) {
             border.thickness = lineWeight;
