@@ -1,7 +1,7 @@
 {
   "name": "sketch-navi",
   "description": "",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "engines": {
     "sketch": ">=49.0"
   },
@@ -15,7 +15,7 @@
     ]
   },
   "scripts": {
-    "build": "npm run load-data && skpm-build",
+    "build": "skpm-build",
     "watch": "skpm-build --watch",
     "start": "skpm-build --watch --run",
     "lint": "eslint .",

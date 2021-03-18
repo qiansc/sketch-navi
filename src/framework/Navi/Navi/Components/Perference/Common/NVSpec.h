@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NVSpec : NSObject
 
-+(BOOL)fetch:(NSString*) version;
++(BOOL)fetchOnSource:(NSDictionary*) sourceConfig at:(NSString*) version;
 +(BOOL)fetchAllVersion;
 +(NSDate*)updateTime;
 

@@ -16,6 +16,7 @@
 #import "NVBundle.h"
 #import "MSSVGImporter.h"
 #import "MSDocument.h"
+#import "MSCanvasView.h"
 #import "Util.h"
 
 

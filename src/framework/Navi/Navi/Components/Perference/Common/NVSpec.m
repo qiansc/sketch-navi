@@ -20,13 +20,23 @@ static int specRequestThread;
 }
 
 
-+(BOOL)fetchColorSpec:(NSString*) version{
++(BOOL)fetchColorSpecOnSource:(NSDictionary*) sourceConfig version:(NSString*) version{
     NSString *cookieFile = [NVUserData cookieFileURL].path;
     NSDictionary *config = [Util loadConfig];
     if (config == nil) return NO;
+    NSMutableArray *groupIds = [NSMutableArray new];
+    for(NSDictionary* groupConfig in sourceConfig[@"groupList"]) {
+        [groupIds addObject:groupConfig[@"id"]];
+    }
+    
     NSString *tpl = [NSString stringWithFormat:@"%@%@", config[@"host"], config[@"specColorAPI"]];
-    NSString *url = [NSString stringWithFormat:tpl, version];
+    NSString *url = [NSString stringWithFormat:tpl,
+                     sourceConfig[@"id"],
+                     [version isEqualToString:@"默认"] ? @"" : version,
+                     [groupIds componentsJoinedByString:@"-"]];
+
     [NVSpec addRequestThread];
+    NSLog(@"### fetch color spec: %@", url);
     [NVURL request:@{
         @"url": url,
         @"cookie-jar": cookieFile
@@ -35,7 +45,7 @@ static int specRequestThread;
             NSLog(@"### fetchColorSpec Error %@ Url %@ data %@", error, url, data);
         } else {
             NSURL *dir = [Util applicationDataDirectory];
-            NSString *file = [NSString stringWithFormat:@"spec_color_%@.json", version];
+            NSString *file = [NSString stringWithFormat:@"spec_color_%@_%@.json", sourceConfig[@"id"], version];
             NSURL *url = [dir URLByAppendingPathComponent:file isDirectory: NO];
             [data writeToURL:url atomically:YES];
             [NVSpec resolveRequestThread];
@@ -44,13 +54,16 @@ static int specRequestThread;
     return YES;
 }
 
-+(BOOL)fetchSpec:(NSString*) version{
++(BOOL)fetchSpecOnSource:(NSDictionary*) sourceConfig version:(NSString*) version{
     NSString *cookieFile = [NVUserData cookieFileURL].path;
     NSDictionary *config = [Util loadConfig];
     if (config == nil) return NO;
     NSString *tpl = [NSString stringWithFormat:@"%@%@", config[@"host"], config[@"specAPI"]];
-    NSString *url = [NSString stringWithFormat:tpl, version];
+    NSString *url = [NSString stringWithFormat:tpl,
+                     sourceConfig[@"id"],
+                     [version isEqualToString:@"默认"] ? @"" : version];
     [NVSpec addRequestThread];
+    NSLog(@"### fetch spec: %@", url);
     [NVURL request:@{
         @"url": url,
         @"cookie-jar": cookieFile
@@ -59,7 +72,7 @@ static int specRequestThread;
             NSLog(@"### fetchSpec Error %@  Url %@  data %@", error, url, data);
         } else {
             NSURL *dir = [Util applicationDataDirectory];
-            NSString *file = [NSString stringWithFormat:@"spec_%@.json", version];
+            NSString *file = [NSString stringWithFormat:@"spec_%@_%@.json", sourceConfig[@"id"], version];
             NSURL *url = [dir URLByAppendingPathComponent:file isDirectory: NO];
             [data writeToURL:url atomically:YES];
             [NVSpec resolveRequestThread];
@@ -77,8 +90,9 @@ static int specRequestThread;
     specRequestThread--;
 }
 
-+(BOOL)fetch:(NSString*) version{
-    if ([NVSpec fetchSpec:version] && [NVSpec fetchColorSpec:version]) {
++(BOOL)fetchOnSource:(NSDictionary*) sourceConfig at:(NSString*) version{
+    if ([NVSpec fetchSpecOnSource: sourceConfig version:version] &&
+        [NVSpec fetchColorSpecOnSource:sourceConfig version:version]) {
         return YES;
     }
     return NO;
@@ -87,23 +101,31 @@ static int specRequestThread;
 +(BOOL)fetchAllVersion{
     BOOL rs = YES;
     NSDictionary *config = [Util loadConfig];
-    NSArray *versions = config[@"specVersions"];
-    [NVSpec addRequestThread];
-    for(NSString *version in versions) {
-        if(![NVSpec fetch:version]) {
-            rs = NO;
+    
+    for(NSDictionary* sourceConfig in config[@"sourceList"]) {
+        NSArray *versions = sourceConfig[@"specVersions"];
+        if (versions == nil || [versions count] == 0) {
+            versions= @[@""];
         }
+        [NVSpec addRequestThread];
+        for(NSString *version in versions) {
+            if(![NVSpec fetchOnSource: sourceConfig at:version]) {
+                rs = NO;
+            }
+        }
+        [NVSpec resolveRequestThread];
     }
-    [NVSpec resolveRequestThread];
     return rs;
 }
 
 +(NSDate*)updateTime {
     NSDictionary *config = [Util loadConfig];
-    NSArray *version = [config[@"specVersions"] lastObject];
+    NSDictionary *sourceConfig = [config[@"sourceList"] firstObject];
+    // NSDictionary *groupConfig = [sourceConfig[@"groupList"] firstObject];
+    NSArray *version = [sourceConfig[@"specVersions"] lastObject];
 
     NSURL *dir = [Util applicationDataDirectory];
-    NSString *file = [NSString stringWithFormat:@"spec_%@.json", version];
+    NSString *file = [NSString stringWithFormat:@"spec_%@_%@.json", sourceConfig[@"id"], version];
     NSURL *url = [dir URLByAppendingPathComponent:file isDirectory: NO];
     NSFileManager *fm =[NSFileManager defaultManager];
     NSError *err;
@@ -128,19 +150,33 @@ static int specRequestThread;
 }
 
 -(instancetype)load:(NSString*) version {
+    NSString *sourceId = [NVUserData userData][@"source"];
     NSURL *dir = [Util applicationDataDirectory];
-    NSString *colorFile = [NSString stringWithFormat:@"spec_color_%@.json", version];
-    NSString *specFile = [NSString stringWithFormat:@"spec_%@.json", version];
+    NSString *colorFile = [NSString stringWithFormat:@"spec_color_%@_%@.json", sourceId, version];
+    NSString *specFile = [NSString stringWithFormat:@"spec_%@_%@.json", sourceId, version];
     NSURL *colorUrl = [dir URLByAppendingPathComponent:colorFile isDirectory: NO];
     NSURL *specUrl = [dir URLByAppendingPathComponent:specFile isDirectory: NO];
     NSFileManager *fm = [NSFileManager defaultManager];
+    // NSLog(@"### load path colorUrl.path: %@ specUrl: %@ ", colorUrl.path, specUrl.path);
     if ([fm fileExistsAtPath:colorUrl.path] && [fm fileExistsAtPath:specUrl.path]) {
         NSData * colorData = [NSData dataWithContentsOfURL:colorUrl];
         NSData * specData = [NSData dataWithContentsOfURL:specUrl];
         colorSpec = [NSJSONSerialization JSONObjectWithData:colorData options:NSJSONReadingMutableContainers error:nil][@"data"];
         spec = [NSJSONSerialization JSONObjectWithData:specData options:NSJSONReadingMutableContainers error:nil][@"data"];
         
-        NSString *group = [NVUserData userData][@"group"];
+        NSString *groupId = [NVUserData userData][@"group"];
+        NSDictionary *config = [Util loadConfig];
+        NSString *group;
+        for(NSDictionary *sourceConfig in config[@"sourceList"]) {
+            if ([sourceConfig[@"id"] isNotEqualTo:sourceId]) continue;
+            for(NSDictionary *groupConfig in sourceConfig[@"groupList"]) {
+                if ([groupConfig[@"id"] isEqualToString:groupId]) {
+                    group = groupConfig[@"label"];
+                }
+            }
+        }
+        
+        // NSLog(@"### load data group: %@ colorData: %@, specData: %@", group, colorSpec, spec);
         NSMutableArray *arr= [NSMutableArray new];
         int index = 0;
         for(NSDictionary* item in colorSpec) {

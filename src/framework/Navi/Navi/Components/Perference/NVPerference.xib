@@ -357,42 +357,31 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gNz-p7-XlM">
-                    <rect key="frame" x="134" y="139" width="74" height="27"/>
+                <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyw-P0-cpW" userLabel="Source">
+                    <rect key="frame" x="135" y="139" width="91" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="smallSquare" title="全局" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="u9J-Tx-UZM" id="fMv-oo-EwS">
+                    <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" imageScaling="proportionallyDown" inset="2" id="Uvb-Li-GB9">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
-                        <menu key="menu" id="MFc-ZT-R12">
-                            <items>
-                                <menuItem title="全局" state="on" identifier="全局" id="u9J-Tx-UZM"/>
-                                <menuItem title="搜索NA" identifier="搜索" id="VBk-4w-wj6"/>
-                                <menuItem title="搜索H5" identifier="搜索H5" id="oqz-gs-Uqy"/>
-                                <menuItem title="互动" identifier="互动" id="P8Y-8W-8Tu"/>
-                                <menuItem title="FEED" identifier="FEED" id="6w9-oX-nMJ"/>
-                                <menuItem title="视频" identifier="视频" id="QMB-cd-XC6"/>
-                                <menuItem title="直播" identifier="直播" id="Zdd-no-T8S"/>
-                                <menuItem title="直播1" identifier="直播1" id="ESc-cf-t2v"/>
-                                <menuItem title="基础" identifier="基础" id="UsX-md-RXH"/>
-                                <menuItem title="小说" identifier="小说" id="Z2K-WV-xhj"/>
-                                <menuItem title="动漫" identifier="动漫" id="rS1-ng-WcD"/>
-                            </items>
-                        </menu>
+                        <menu key="menu" id="Lbq-GD-1N4"/>
+                    </popUpButtonCell>
+                </popUpButton>
+                <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gNz-p7-XlM">
+                    <rect key="frame" x="236" y="139" width="74" height="27"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" imageScaling="proportionallyDown" inset="2" id="fMv-oo-EwS">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <menu key="menu" id="MFc-ZT-R12"/>
                     </popUpButtonCell>
                 </popUpButton>
                 <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9GI-9m-Ect">
                     <rect key="frame" x="134" y="93" width="74" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="smallSquare" title="12.1.5" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="1oz-S6-rc9" id="w7Y-rm-Btu">
+                    <popUpButtonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" imageScaling="proportionallyDown" inset="2" id="w7Y-rm-Btu">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
-                        <menu key="menu" id="N4m-GS-PiY">
-                            <items>
-                                <menuItem title="12.1.5" state="on" id="1oz-S6-rc9"/>
-                                <menuItem title="12.0" id="V4G-4n-r8k"/>
-                                <menuItem title="11.6" id="pCH-iD-y34"/>
-                            </items>
-                        </menu>
+                        <menu key="menu" id="N4m-GS-PiY"/>
                         <accessibility description="12.1.5"/>
                     </popUpButtonCell>
                     <accessibility description="version"/>
@@ -422,7 +411,7 @@
                     </buttonCell>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SDs-ek-ji6">
-                    <rect key="frame" x="243" y="142" width="26" height="16"/>
+                    <rect key="frame" x="243" y="98" width="26" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="单" id="j8t-An-ply">
                         <font key="font" usesAppearanceFont="YES"/>
@@ -431,7 +420,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVR-uq-1lR">
-                    <rect key="frame" x="273" y="142" width="26" height="16"/>
+                    <rect key="frame" x="273" y="98" width="26" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="位" id="dUS-IU-iE0">
                         <font key="font" usesAppearanceFont="YES"/>
@@ -440,7 +429,7 @@
                     </textFieldCell>
                 </textField>
                 <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GH6-E9-e1A">
-                    <rect key="frame" x="305" y="139" width="74" height="27"/>
+                    <rect key="frame" x="305" y="95" width="74" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="smallSquare" title="px H5" bezelStyle="smallSquare" alignment="left" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="JfE-QC-prM" id="ybn-rA-kTK">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -463,6 +452,7 @@
                 <outlet property="groupButton" destination="gNz-p7-XlM" id="rzj-gc-aRy"/>
                 <outlet property="infoField" destination="50f-Mh-F0n" id="MeU-QY-YH1"/>
                 <outlet property="infoView" destination="AYs-vd-TwI" id="dIq-Tj-clD"/>
+                <outlet property="sourceButton" destination="jyw-P0-cpW" id="ftF-i8-G2e"/>
                 <outlet property="unitButton" destination="GH6-E9-e1A" id="7fL-N8-bEY"/>
                 <outlet property="updateButton" destination="GSV-rN-6nF" id="15Z-Tc-Xel"/>
                 <outlet property="updateField" destination="wNE-b9-Qkv" id="XgB-R0-8Bu"/>

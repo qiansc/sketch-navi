@@ -127,10 +127,40 @@
         @"host": @"http://wuji.baidu-int.com",
         @"loginAPI": @"/openapi/uikit/client?action=verifyMailCode&mailcode=%@",
         @"codeAPI": @"/openapi/uikit/client?action=requestMailCode&mail=%@",
-        @"specColorAPI": @"/openapi/uikit/getDepartmentData?source=baiduboxapp&cversion=%@&type=GC-SC-IC-FC-VC-LC-BC-NC-CC",
-        @"specAPI": @"/openapi/uikit/getBusinessData?source=baiduboxapp&cversion=%@",
-        @"specVersions": @[@"11.26", @"12.0", @"12.1.5"],
-        @"groups": @[@"全局", @"互动", @"搜索", @"FEED", @"视频", @"直播", @"直播1", @"基础", @"小说", @"动漫"]
+        @"specColorAPI": @"/openapi/uikit/getDepartmentData?source=%@&cversion=%@&type=%@",
+        @"specAPI": @"/openapi/uikit/getBusinessData?source=%@&cversion=%@",
+        @"sourceList": @[
+                @{
+                    @"id": @"baiduboxapp", @"label": @"百度APP",
+                    @"specVersions": @[@"11.26", @"12.0", @"12.1.5"],
+                    @"groupList": @[
+                            @{@"id": @"GC", @"label": @"全局"},
+                            @{@"id": @"SC", @"label": @"搜索"},
+                            @{@"id": @"DC", @"label": @"搜索H5"},
+                            @{@"id": @"IC", @"label": @"互动"},
+                            @{@"id": @"FC", @"label": @"FEED"},
+                            @{@"id": @"VC", @"label": @"视频"},
+                            @{@"id": @"LC", @"label": @"直播"},
+                            @{@"id": @"ALC", @"label": @"直播1"},
+                            @{@"id": @"BC", @"label": @"基础"},
+                            @{@"id": @"UC", @"label": @"基础组件"},
+                            @{@"id": @"NC", @"label": @"小说"},
+                            @{@"id": @"CC", @"label": @"动漫"}
+                    ]
+                },@{
+                    @"id": @"tiebaapp", @"label": @"贴吧APP",
+                    @"specVersions": @[@"默认"],
+                    @"groupList": @[@{@"id": @"CAM", @"label": @"贴吧"}]
+                },@{
+                    @"id": @"pc", @"label": @"PC搜索",
+                    @"specVersions": @[@"默认"],
+                    @"groupList": @[@{@"id": @"CAM", @"label": @"pc"}]
+                },@{
+                    @"id": @"netdiskapp", @"label": @"网盘APP",
+                    @"specVersions": @[@"默认"],
+                    @"groupList": @[@{@"id": @"CAM", @"label": @"网盘"}]
+                }
+        ]
     };
 //    return @{
 //        @"host": @"https://raw.githubusercontent.com",

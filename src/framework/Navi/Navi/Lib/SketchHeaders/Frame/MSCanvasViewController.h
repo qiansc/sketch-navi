@@ -1,8 +1,9 @@
+
 @interface MSCanvasViewController : NSViewController
 {
     BOOL _shouldHideOverlayControls;
     BOOL _observingDefaults;
-    MSCanvasView *_canvasView;
+    // MSCanvasView *_canvasView;
     NSView *_rulerCornerView;
     NSLayoutConstraint *_rulerWidthConstraint;
     NSLayoutConstraint *_rulerHeightConstraint;
@@ -18,7 +19,7 @@
 @property(retain, nonatomic) NSView *rulerCornerView; // @synthesize rulerCornerView=_rulerCornerView;
 //@property(retain, nonatomic) _TtC6Sketch11MSRulerView *verticalRuler; // @synthesize verticalRuler=_verticalRuler;
 //@property(retain, nonatomic) _TtC6Sketch11MSRulerView *horizontalRuler; // @synthesize horizontalRuler=_horizontalRuler;
-@property(retain, nonatomic) MSCanvasView *canvasView; // @synthesize canvasView=_canvasView;
+@property(retain, nonatomic) id canvasView; // @synthesize canvasView=_canvasView;
 - (void)rulerViewStopCoalescingHistory:(id)arg1;
 - (void)rulerViewStartCoalescingHistory:(id)arg1;
 - (void)rulerViewDidDisableTemporaryGuide:(id)arg1;

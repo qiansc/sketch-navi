@@ -62,7 +62,8 @@
     BOOL ret = [NVUserData saveUserData:@{
         @"username": self.nameField.stringValue,
         @"domain": self.domainButton.selectedItem.title,
-        @"group": @"FEED",
+        @"source": @"baiduboxapp",
+        @"group": @"FC",
         @"version": @"12.1.5"
     }];
     

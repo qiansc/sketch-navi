@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(NSBundle *)SketchControllersBundle;
 
++(NSBundle *)SketchRenderingBundle;
+
 @end
 
 NS_ASSUME_NONNULL_END

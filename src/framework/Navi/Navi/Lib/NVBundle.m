@@ -23,6 +23,10 @@
     return [NSBundle bundleWithIdentifier:@"com.bohemiancoding.SketchControllers"];
 }
 
++(NSBundle *)SketchRenderingBundle {
+    return [NSBundle bundleWithIdentifier:@"com.bohemiancoding.SketchRendering"];
+}
+
 @end
 
 

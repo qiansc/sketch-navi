@@ -10,7 +10,20 @@
 #import "MSEventHandlerManager.h"
 #import "MSViewPort.h"
 
-@interface MSCanvasView : NSView
+#import "MSEventHandlerManagerDelegate-Protocol.h"
+#import "MSOverlayItemDataSource-Protocol.h"
+#import "MSTiledRendererHostView-Protocol.h"
+
+struct MSRenderingParameters {
+//    struct CGRect _field1;
+//    double _field2;
+//    double _field3;
+//    struct CGSize _field4;
+//    unsigned long long _field5;
+};
+typedef struct MSRenderingParameters MSRenderingParameters;
+
+@interface MSCanvasView : NSView<MSOverlayItemDataSource, CALayerDelegate, MSEventHandlerManagerDelegate, MSTiledRendererHostView>
 {
     BOOL handToolIsActive;
     struct CGPoint handToolOriginalPoint;

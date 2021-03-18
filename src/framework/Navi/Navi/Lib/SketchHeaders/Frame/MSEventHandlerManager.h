@@ -6,12 +6,7 @@
 
 #import <objc/NSObject.h>
 #import "MSEventHandler.h"
-
-@protocol MSEventHandlerManagerDelegate <NSObject>
-- (void)eventHandlerManager:(id *)arg1 didChangeCurrentHandler:(MSEventHandler *)arg2;
-@end
-
-
+#import "MSEventHandlerManagerDelegate-Protocol.h"
 
 @interface MSEventHandlerManager : NSObject
 {

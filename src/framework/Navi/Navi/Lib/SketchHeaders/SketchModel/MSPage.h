@@ -5,12 +5,13 @@
 //  Created by Qian,Sicheng on 2020/11/26.
 //  Copyright © 2020 Qian,Sicheng. All rights reserved.
 //
+#import "_MSPage.h"
 #import "MSLayer.h"
 #import "MSArtboardGroup.h"
 #import "MSLayerArray.h"
 #import "MSLayoutGrid.h"
 
-@interface MSPage
+@interface MSPage : _MSPage
 {
     NSMutableSet *_selectedLayerIDs;
     MSArtboardGroup *_currentArtboard;

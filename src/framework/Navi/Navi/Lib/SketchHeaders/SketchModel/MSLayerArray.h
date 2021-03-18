@@ -1,7 +1,5 @@
 #import "MSLayer.h"
 
-@class NSArray, NSString;
-
 @interface MSLayerArray : NSObject<NSFastEnumeration>
 {
     NSArray *_layers;

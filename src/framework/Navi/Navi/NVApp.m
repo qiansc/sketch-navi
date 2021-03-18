@@ -11,6 +11,15 @@
 #import "NVBundle.h"
 #import "NVSpec.h"
 #import "MSCanvasViewController.h"
+#import "MSOverlayItemContainer.h"
+#import "MSCanvasView.h"
+#import <QuartzCore/CALayer.h>
+#import <QuartzCore/CAMetalLayer.h>
+#import <QuartzCore/CATextLayer.h>
+#import <QuartzCore/CABase.h>
+#import "NVLayerDelegate.h"
+#import "CAImageQueue.h"
+
 
 @implementation NVApp{
     MSDocument *document;
@@ -49,13 +58,22 @@
     navi = [[NVDocument alloc] initWithNibName:@"NVDocument" bundle:[NVBundle bundlePath]];
     navi.delegate = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(delayUpdateSpec) name:@"SPEC_UPDATE" object:nil];
-    [self test];
+    // [self monitor];
     return self;
 }
 
--(void)test {
+-(void)monitor {
     NSLog(@"### monitor");
+//    MSCanvasViewController *c = document.splitViewController.splitViewItems[1].viewController;
+//    NSView *canvasContainerView = c.view.subviews[0];
+//    MSCanvasView *canvasView = canvasContainerView.subviews[3];
+//    NVLayerDelegate *delegate = [[NVLayerDelegate alloc] init:canvasView];
+//    NSLog(@"### canvasView.layer.delegate %@ || %@", canvasView.layer.delegate, canvasView);
+//    canvasView.layer.delegate = delegate;
+//    NSLog(@"### delegate has bind!");
+//    NSLog(@"### canvasView.layer.delegate %@ || %@", canvasView.layer.delegate, canvasView);
 
+    
 
     id monitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskKeyDown handler:^NSEvent * _Nullable(NSEvent * _Nonnull e) {
         //判断aEvent.keyCode属性
@@ -65,25 +83,81 @@
         
         MSCanvasViewController *c = document.splitViewController.splitViewItems[1].viewController;
         NSView *canvasContainerView = c.view.subviews[0];
-        
+        NSLog(@"### 0 code: %hu", e.keyCode);
         NSTextField *text =  [[NSTextField alloc] initWithFrame:CGRectMake(100, 100, 100, 40)];
         text.backgroundColor = [NSColor clearColor];
         text.stringValue = @"静态文本";
         [text setTextColor:[NSColor redColor]];
         [text setFont:[NSFont systemFontOfSize:10]];
-        [canvasContainerView addSubview: text];
+        // [canvasContainerView addSubview: text];
         
         MSCanvasView *canvasView = canvasContainerView.subviews[3];
-        NSStackView *sView = canvasView.subviews[0];
+        NSLog(@"### 0 canvasContainerView subviews: %@", canvasContainerView.subviews);
+        NSStackView *stackView = canvasView.subviews[0];
         // canvasView
-        NSLog(@"### canvasView %@", canvasView);
         MSPage *page = canvasView.currentPage;
-        NSLog(@"### canvasView %@", page.layout);
+        // MSLayer *layer = page.selectedLayers[0];
+        NSLog(@"### 0.1");
         
-//        MSDocument *document = [[NSDocumentController sharedDocumentController] currentDocument];
-//        MSLayer *layer= document.selectedLayers[0];
+        CATextLayer * ygTextLayer = [CATextLayer layer];
+        ygTextLayer.frame           = CGRectMake(20, 64+100, 300, 35);
+        ygTextLayer.backgroundColor = [NSColor yellowColor].CGColor;
+        ygTextLayer.string = @"CATextLayer";
+        //字体的大小
+        ygTextLayer.fontSize = 18.f;
+        //字体的对齐方式
+        ygTextLayer.alignmentMode = kCAAlignmentCenter;
+        // MSLayer *layer= page.selectedLayers[0];
+
+        NSLog(@"### 1 canvasView.layer.sublayers %@ ||  %@ ", canvasView.layer ,canvasView.layer.sublayers);
+        CALayer *bglayer = canvasView.layer.sublayers[0];
+        CAMetalLayer *clayer = canvasView.layer.modelLayer;
+        // NSLog(@"### 1.2 layer object: %@", layer model);
         
-        // NSLog(@"### mmmmmmmm %@", layer.parentObject);
+        NSLog(@"### 2.0 canvasView.layer.actions : %@", canvasView.layer.actions);
+        NSLog(@"### 2.2 clayer.contents: %@", clayer.contents);
+        
+        MSOverlayItemContainer *container;
+        // @try {
+        MSRenderingParameters p = {
+            // ._field1 = NSMakeRect(0, 0, 100, 100),
+//            ._field2 = 0,
+//            ._field3 = 0,
+            // ._field4 = NSMakeSize(100, 100),
+//            ._field5 = 0,
+        };
+        container = [canvasView overlayItems:0 parameters: p];
+        NSLog(@"### 4 container.flowItems : %@", [container flowItems]);
+        NSLog(@"### 5 container.pathItems : %@", [container pathItems]);
+
+//            NSLog(@"### TRY 001");
+//            MSPath *path = [[[NVBundle SketchModelBundle] classNamed: @"MSPath"] pathWithLineFrom: NSMakePoint(0, 0) to: NSMakePoint(0, 100)];
+//            NSLog(@"### TRY 002");
+//            MSOverlayPathItem *pathItem = [[[NVBundle SketchRenderingBundle] classNamed: @"MSOverlayPathItem"] itemForPath:path transform:CGAffineTransformMake(1,0,0,1,0,0) color:NSColorFromRGBString(@"888888").CGColor lineWidth:1];
+//            NSLog(@"### TRY 003 %@ %@", path, pathItem);
+//            NSArray *arr = @[@[pathItem], @[pathItem], @[pathItem], @[pathItem]];
+//            [container initWithPathItems:arr bitmapItems:@[] labelItems:@[]];
+//
+//            NSLog(@"### 8 container.pathItems : %@", [container pathItems]);
+//            [container appendingItems: arr];
+        // }@catch(NSException *exception) {
+            // NSLog(@"### catch %@ %@ %@", exception.description, exception.debugDescription, exception.callStackReturnAddresses);
+            // NSLog(@"### catc h%@ %@ %@", exception.callStackSymbols, exception.reason, exception.userInfo);
+            
+        // }
+//        [c updateContentSettings];
+//        [c updateOverlaySettings];
+        
+
+        
+        
+        
+        
+        // [page setIsVisible:NO];
+        // [page add]
+        
+        // [canvasContainerView.subviews[2] setHidden:YES];
+       //  [canvasView addSubview: text];
         
         return e;
     }];

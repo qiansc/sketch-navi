@@ -67,6 +67,8 @@
 		A3003661253870F40093395D /* NVMaskPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = A300365E253870F40093395D /* NVMaskPanel.xib */; };
 		A3003664253873300093395D /* CustomScroller.h in Headers */ = {isa = PBXBuildFile; fileRef = A3003662253873300093395D /* CustomScroller.h */; };
 		A3003665253873300093395D /* CustomScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = A3003663253873300093395D /* CustomScroller.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3179FB225FF43B600B30235 /* NVLayerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = A3179FB025FF43B600B30235 /* NVLayerDelegate.h */; };
+		A3179FB325FF43B600B30235 /* NVLayerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3179FB125FF43B600B30235 /* NVLayerDelegate.m */; };
 		A32ED9942511D4E100EBCE68 /* Menu.h in Headers */ = {isa = PBXBuildFile; fileRef = A32ED9922511D4E100EBCE68 /* Menu.h */; };
 		A32ED9952511D4E100EBCE68 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = A32ED9932511D4E100EBCE68 /* Menu.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A33C37F9256D1AEF0036F1DA /* NVIconCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A33C37EA256D1AEF0036F1DA /* NVIconCollectionView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -413,6 +415,21 @@
 		A3179F9B25F23CEA00B30235 /* _MSShapePathLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _MSShapePathLayer.h; sourceTree = "<group>"; };
 		A3179F9C25F23D5A00B30235 /* MSPathLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSPathLayer.h; sourceTree = "<group>"; };
 		A3179F9E25F23DC000B30235 /* MSLayerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSLayerProtocol.h; sourceTree = "<group>"; };
+		A3179F9F25F746D300B30235 /* MSOverlayItemContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOverlayItemContainer.h; sourceTree = "<group>"; };
+		A3179FA025F7509200B30235 /* MSOverlayPathItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOverlayPathItem.h; sourceTree = "<group>"; };
+		A3179FA125F750A700B30235 /* MSOverlayItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOverlayItem.h; sourceTree = "<group>"; };
+		A3179FA625FB5E5900B30235 /* _MSPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _MSPage.h; sourceTree = "<group>"; };
+		A3179FA725FB5E8F00B30235 /* MSLayerGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSLayerGroup.h; sourceTree = "<group>"; };
+		A3179FA825FB5EA100B30235 /* _MSLayerGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _MSLayerGroup.h; sourceTree = "<group>"; };
+		A3179FA925FB5FD500B30235 /* MSGroupLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSGroupLayout.h; sourceTree = "<group>"; };
+		A3179FAA25FB5FEA00B30235 /* _MSGroupLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _MSGroupLayout.h; sourceTree = "<group>"; };
+		A3179FAB25FB636700B30235 /* MSOverlayItemDataSource-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSOverlayItemDataSource-Protocol.h"; sourceTree = "<group>"; };
+		A3179FAD25FB639100B30235 /* MSEventHandlerManagerDelegate-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSEventHandlerManagerDelegate-Protocol.h"; sourceTree = "<group>"; };
+		A3179FAE25FB639F00B30235 /* MSTiledRendererHostView-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MSTiledRendererHostView-Protocol.h"; sourceTree = "<group>"; };
+		A3179FAF25FB65F100B30235 /* MSOverlayItemDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOverlayItemDataSource.h; sourceTree = "<group>"; };
+		A3179FB025FF43B600B30235 /* NVLayerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVLayerDelegate.h; sourceTree = "<group>"; };
+		A3179FB125FF43B600B30235 /* NVLayerDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVLayerDelegate.m; sourceTree = "<group>"; };
+		A3179FB4260059D000B30235 /* CAImageQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAImageQueue.h; sourceTree = "<group>"; };
 		A31812C4256F98CC00E74A33 /* MSPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSPage.h; sourceTree = "<group>"; };
 		A31812C5256F9F5100E74A33 /* MSDocumentData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSDocumentData.h; sourceTree = "<group>"; };
 		A32ED9922511D4E100EBCE68 /* Menu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
@@ -845,6 +862,88 @@
 			path = Line;
 			sourceTree = "<group>";
 		};
+		A3179FA225F787F800B30235 /* SketchRendering */ = {
+			isa = PBXGroup;
+			children = (
+				A3179F9F25F746D300B30235 /* MSOverlayItemContainer.h */,
+				A3179FA025F7509200B30235 /* MSOverlayPathItem.h */,
+				A3179FA125F750A700B30235 /* MSOverlayItem.h */,
+			);
+			path = SketchRendering;
+			sourceTree = "<group>";
+		};
+		A3179FA425F7883C00B30235 /* SketchModel */ = {
+			isa = PBXGroup;
+			children = (
+				A3EE0FE5254059E900C3998D /* MSDocument.h */,
+				A31812C5256F9F5100E74A33 /* MSDocumentData.h */,
+				A3179FA625FB5E5900B30235 /* _MSPage.h */,
+				A31812C4256F98CC00E74A33 /* MSPage.h */,
+				A3179FA825FB5EA100B30235 /* _MSLayerGroup.h */,
+				A3179FA725FB5E8F00B30235 /* MSLayerGroup.h */,
+				A3EE0FE92540649F00C3998D /* MSColor.h */,
+				A3C42F5625CD36C6007DC3C6 /* MSModelObjectCommon.h */,
+				A3C42F5525CD369E007DC3C6 /* MSModelObject.h */,
+				A3C42F5425CD3646007DC3C6 /* _MSCurvePoint.h */,
+				A3DBD3CA255415CE0042F14C /* MSCurvePoint.h */,
+				A3DBD3CB25541FFC0042F14C /* MSRect.h */,
+				300A446D255970910078EE29 /* MSColor.m */,
+				30F6D958255A82F70023DB7D /* MSGradient.h */,
+				B2B5FD3C25740129005F0D89 /* MSSVGImporter.h */,
+				A3179F8C25F201E000B30235 /* MSAction.h */,
+				A3179F8F25F22E5100B30235 /* MSPath.h */,
+				A36DBA892546DDCB00822312 /* MSLayerArray.h */,
+				A3179F8E25F2273600B30235 /* _MSLayer.h */,
+				A3EE0FE625405AEE00C3998D /* MSLayer.h */,
+				A3EE0FE72540612E00C3998D /* MSStyle.h */,
+				A3EE0FE82540614600C3998D /* MSStyleFill.h */,
+				A3F982D0254668C200072AAA /* MSStyleBorder.h */,
+				30EC08F525582E9F00A24F47 /* MSStyleShadow.h */,
+				A3179F9025F22F3C00B30235 /* MSTextLayer.h */,
+				A3179F9125F22F6600B30235 /* _MSTextLayer.h */,
+				A3179F9225F22F8100B30235 /* MSStyledLayer.h */,
+				A3179F9325F22F9600B30235 /* _MSStyledLayer.h */,
+				A3179F9425F230A500B30235 /* MSSharedStyle.h */,
+				A3179F9525F230C400B30235 /* _MSSharedStyle.h */,
+				A3179F9625F230DB00B30235 /* MSSharedObject.h */,
+				A3179F9725F2310800B30235 /* _MSSharedObject.h */,
+				A3179F9825F23B9C00B30235 /* MSAttributedString.h */,
+				A3179F9925F23BBF00B30235 /* MSImageData.h */,
+				A3179F9A25F23CDA00B30235 /* MSShapePathLayer.h */,
+				A3179F9B25F23CEA00B30235 /* _MSShapePathLayer.h */,
+				A3179F9C25F23D5A00B30235 /* MSPathLayer.h */,
+				A3179F9E25F23DC000B30235 /* MSLayerProtocol.h */,
+				A3179FA925FB5FD500B30235 /* MSGroupLayout.h */,
+				A3179FAA25FB5FEA00B30235 /* _MSGroupLayout.h */,
+			);
+			path = SketchModel;
+			sourceTree = "<group>";
+		};
+		A3179FA525F7886E00B30235 /* Frame */ = {
+			isa = PBXGroup;
+			children = (
+				A33F401B255D0BE100B39E70 /* MSSplitView.h */,
+				A3C5FEED2574E97200BBFBF9 /* MSArtboardGroup.h */,
+				A357B142258211DC007249A2 /* MSMainSplitViewController.h */,
+				A3C42F5025CD1A01007DC3C6 /* MSShapeEventHandler.h */,
+				A3C42F5125CD1A37007DC3C6 /* MSEventHandler.h */,
+				A3C42F5225CD1B23007DC3C6 /* MSPathController.h */,
+				A3C42F5325CD1BB4007DC3C6 /* MSEventHandlerManager.h */,
+				A3C42F5A25CD3832007DC3C6 /* MSImmutableModelObject.h */,
+				A3179F8925F1FFE700B30235 /* MSCanvasViewDelegate.h */,
+				B2B5FD3D25741149005F0D89 /* MSCanvasView.h */,
+				A3179F8825F0C0F400B30235 /* MSCanvasViewController.h */,
+				A3179F8A25F2015700B30235 /* MSViewPort.h */,
+				A3179F8B25F2017300B30235 /* MSDocumentAction.h */,
+				A3179F8D25F226E800B30235 /* MSLayoutGrid.h */,
+				A3179FAD25FB639100B30235 /* MSEventHandlerManagerDelegate-Protocol.h */,
+				A3179FAB25FB636700B30235 /* MSOverlayItemDataSource-Protocol.h */,
+				A3179FAE25FB639F00B30235 /* MSTiledRendererHostView-Protocol.h */,
+				A3179FAF25FB65F100B30235 /* MSOverlayItemDataSource.h */,
+			);
+			path = Frame;
+			sourceTree = "<group>";
+		};
 		A33C37E9256D1AEF0036F1DA /* Icon */ = {
 			isa = PBXGroup;
 			children = (
@@ -927,6 +1026,8 @@
 		A38993EA250B859F00211D90 = {
 			isa = PBXGroup;
 			children = (
+				A3179FB025FF43B600B30235 /* NVLayerDelegate.h */,
+				A3179FB125FF43B600B30235 /* NVLayerDelegate.m */,
 				302B39B22578846F00ACDF0D /* Frameworks */,
 				A38993F6250B859F00211D90 /* Navi */,
 				A38993F5250B859F00211D90 /* Products */,
@@ -1058,6 +1159,7 @@
 			isa = PBXGroup;
 			children = (
 				A396D0D2251DE63B0061CC73 /* DataChangeProtocol.h */,
+				A3179FB4260059D000B30235 /* CAImageQueue.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -1254,60 +1356,14 @@
 			path = Color;
 			sourceTree = "<group>";
 		};
-		A3EE0FE4254059D600C3998D /* Sketch-Headers */ = {
+		A3EE0FE4254059D600C3998D /* SketchHeaders */ = {
 			isa = PBXGroup;
 			children = (
-				A3EE0FE5254059E900C3998D /* MSDocument.h */,
-				A31812C5256F9F5100E74A33 /* MSDocumentData.h */,
-				A31812C4256F98CC00E74A33 /* MSPage.h */,
-				A36DBA892546DDCB00822312 /* MSLayerArray.h */,
-				A3179F8E25F2273600B30235 /* _MSLayer.h */,
-				A3EE0FE625405AEE00C3998D /* MSLayer.h */,
-				A3EE0FE72540612E00C3998D /* MSStyle.h */,
-				A3EE0FE82540614600C3998D /* MSStyleFill.h */,
-				A3F982D0254668C200072AAA /* MSStyleBorder.h */,
-				A3EE0FE92540649F00C3998D /* MSColor.h */,
-				A3C42F5625CD36C6007DC3C6 /* MSModelObjectCommon.h */,
-				A3C42F5525CD369E007DC3C6 /* MSModelObject.h */,
-				A3C42F5425CD3646007DC3C6 /* _MSCurvePoint.h */,
-				A3DBD3CA255415CE0042F14C /* MSCurvePoint.h */,
-				A3DBD3CB25541FFC0042F14C /* MSRect.h */,
-				30EC08F525582E9F00A24F47 /* MSStyleShadow.h */,
-				300A446D255970910078EE29 /* MSColor.m */,
-				30F6D958255A82F70023DB7D /* MSGradient.h */,
-				A33F401B255D0BE100B39E70 /* MSSplitView.h */,
-				B2B5FD3C25740129005F0D89 /* MSSVGImporter.h */,
-				A3C5FEED2574E97200BBFBF9 /* MSArtboardGroup.h */,
-				A357B142258211DC007249A2 /* MSMainSplitViewController.h */,
-				A3C42F5025CD1A01007DC3C6 /* MSShapeEventHandler.h */,
-				A3C42F5125CD1A37007DC3C6 /* MSEventHandler.h */,
-				A3C42F5225CD1B23007DC3C6 /* MSPathController.h */,
-				A3C42F5325CD1BB4007DC3C6 /* MSEventHandlerManager.h */,
-				A3C42F5A25CD3832007DC3C6 /* MSImmutableModelObject.h */,
-				A3179F8925F1FFE700B30235 /* MSCanvasViewDelegate.h */,
-				B2B5FD3D25741149005F0D89 /* MSCanvasView.h */,
-				A3179F8825F0C0F400B30235 /* MSCanvasViewController.h */,
-				A3179F8A25F2015700B30235 /* MSViewPort.h */,
-				A3179F8B25F2017300B30235 /* MSDocumentAction.h */,
-				A3179F8C25F201E000B30235 /* MSAction.h */,
-				A3179F8D25F226E800B30235 /* MSLayoutGrid.h */,
-				A3179F8F25F22E5100B30235 /* MSPath.h */,
-				A3179F9025F22F3C00B30235 /* MSTextLayer.h */,
-				A3179F9125F22F6600B30235 /* _MSTextLayer.h */,
-				A3179F9225F22F8100B30235 /* MSStyledLayer.h */,
-				A3179F9325F22F9600B30235 /* _MSStyledLayer.h */,
-				A3179F9425F230A500B30235 /* MSSharedStyle.h */,
-				A3179F9525F230C400B30235 /* _MSSharedStyle.h */,
-				A3179F9625F230DB00B30235 /* MSSharedObject.h */,
-				A3179F9725F2310800B30235 /* _MSSharedObject.h */,
-				A3179F9825F23B9C00B30235 /* MSAttributedString.h */,
-				A3179F9925F23BBF00B30235 /* MSImageData.h */,
-				A3179F9A25F23CDA00B30235 /* MSShapePathLayer.h */,
-				A3179F9B25F23CEA00B30235 /* _MSShapePathLayer.h */,
-				A3179F9C25F23D5A00B30235 /* MSPathLayer.h */,
-				A3179F9E25F23DC000B30235 /* MSLayerProtocol.h */,
+				A3179FA425F7883C00B30235 /* SketchModel */,
+				A3179FA225F787F800B30235 /* SketchRendering */,
+				A3179FA525F7886E00B30235 /* Frame */,
 			);
-			path = "Sketch-Headers";
+			path = SketchHeaders;
 			sourceTree = "<group>";
 		};
 		A3EEF7FA2540044F00C3998D /* MinItem */ = {
@@ -1376,7 +1432,7 @@
 			isa = PBXGroup;
 			children = (
 				A3B148E3251628D500939B36 /* Headers */,
-				A3EE0FE4254059D600C3998D /* Sketch-Headers */,
+				A3EE0FE4254059D600C3998D /* SketchHeaders */,
 				B23CA2942519855E00FB2416 /* HexColor.h */,
 				A396D0E825346F990061CC73 /* Util.h */,
 				A396D0E925346F990061CC73 /* Util.m */,
@@ -1583,6 +1639,7 @@
 				A300365F253870F40093395D /* NVMaskPanel.h in Headers */,
 				A3C42F3F25CBEF22007DC3C6 /* NVPorderSource.h in Headers */,
 				B286F6BA2543BDA400984F2A /* RFOverlayScroller.h in Headers */,
+				A3179FB225FF43B600B30235 /* NVLayerDelegate.h in Headers */,
 				301F800D2553BF0C000ED935 /* NVMaskCollectionItem.h in Headers */,
 				A3D55E96256B812F00B150DF /* NVFontSource.h in Headers */,
 				A3C42F4D25CBEF22007DC3C6 /* NVPorderCollectionItem.h in Headers */,
@@ -1821,6 +1878,7 @@
 				A352295F253DA5D400F42D58 /* NVColorSource.m in Sources */,
 				A38C95D425483C06008C0A57 /* NVTextCollectionItem.m in Sources */,
 				30EC08F425581F9200A24F47 /* NVShadowSemanticItemView.m in Sources */,
+				A3179FB325FF43B600B30235 /* NVLayerDelegate.m in Sources */,
 				B256512B2554C72E00116B8C /* NVLineSemanticItem.m in Sources */,
 				B26877622554D4F300EF6C1E /* NVBorderSemanticItemView.m in Sources */,
 				A3EEF7FF25402F9900C3998D /* NVPanelInfoButton.m in Sources */,
@@ -2050,9 +2108,11 @@
 		A38993FD250B85A000211D90 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = H6PWTR6MVH;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2070,6 +2130,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.baidu.navi;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -2077,9 +2138,11 @@
 		A38993FE250B85A000211D90 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = H6PWTR6MVH;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2097,6 +2160,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.baidu.navi;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

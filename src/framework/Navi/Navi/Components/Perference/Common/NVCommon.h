@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readwrite, strong) IBOutlet NSView *infoView;
 @property (readwrite, strong) IBOutlet NSTextField *infoField;
 
+@property (readwrite, strong) IBOutlet NSPopUpButton *sourceButton;
 @property (readwrite, strong) IBOutlet NSPopUpButton *groupButton;
 @property (readwrite, strong) IBOutlet NSPopUpButton *versionButton;
 @property (readwrite, strong) IBOutlet NSPopUpButton *unitButton;
