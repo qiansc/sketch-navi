@@ -77,18 +77,18 @@
         @"icon": @"Margin-H",
         @"gravity": @1,
         @"type": @"PANEL"
-//    }, @{
-//        @"name": @"投影",
-//        @"id": @"Shadow",
-//        @"icon": @"Shadow",
-//        @"gravity": @1,
-//        @"type": @"PANEL"
-//    }, @{
-//        @"name": @"蒙层",
-//        @"id": @"Mask",
-//        @"icon": @"Mask",
-//        @"gravity": @1,
-//        @"type": @"PANEL"
+    }, @{
+        @"name": @"投影",
+        @"id": @"Shadow",
+        @"icon": @"Shadow",
+        @"gravity": @1,
+        @"type": @"PANEL"
+    }, @{
+        @"name": @"蒙层",
+        @"id": @"Mask",
+        @"icon": @"Mask",
+        @"gravity": @1,
+        @"type": @"PANEL"
 //    }, @{
 //        @"name": @"图标",
 //        @"id": @"Icon",

@@ -41,6 +41,9 @@
             [dims removeObjectForKey:dim];
         }
     }
+    if ([others count] > 0) {
+        dims[@"其他"] = others;
+    }
     updatedCallback();
 }
 
@@ -64,18 +67,19 @@
 }
 
 + (NVShadowSpec)value: (NSDictionary *) specDict {
+    NSDictionary *dev = specDict[@"ios"] ? specDict[@"ios"] : specDict[@"pc"];
     NVShadowSpec spec = {
         .code = specDict[@"code"],
         .cclass = specDict[@"cclass"],
         .cline = specDict[@"cline"],
         .cmeaning = specDict[@"cmeaning"],
         .elementCode = specDict[@"elementCode"],
-        .color = specDict[@"color"],
-        .x = [specDict[@"x"] doubleValue],
-        .y = [specDict[@"y"] doubleValue],
-        .size = [specDict[@"size"] doubleValue],
-        .spread = [specDict[@"spread"] doubleValue],
-        .opacity = [specDict[@"opacity"] doubleValue]
+        .color = specDict[@"defaultValue"][@"color"],
+        .x = [dev[@"x"] doubleValue],
+        .y = [dev[@"y"] doubleValue],
+        .size = [dev[@"size"] doubleValue],
+        .spread = 0, // [specDict[@"spread"] doubleValue],
+        .opacity = [specDict[@"defaultValue"][@"opacity"] doubleValue]
     };
     return spec;
 }

@@ -35,7 +35,6 @@ struct NVMaskSpec {
     NSString *cmeaning; // "卡片+容器（图片上有文字内容的）"
     NSString *elementCode; // Mask_X11
     NSString *direction; // bottom
-    double index; // 排序
     MaskPoint *from;
     MaskPoint *to;
     double elipseLength;

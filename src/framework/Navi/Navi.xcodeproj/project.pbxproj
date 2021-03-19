@@ -722,11 +722,11 @@
 		301F80052553BDA4000ED935 /* MinItem */ = {
 			isa = PBXGroup;
 			children = (
-				301F80062553BDD8000ED935 /* NVMaskCollectionItemView.h */,
-				301F80072553BDD8000ED935 /* NVMaskCollectionItemView.m */,
 				301F800A2553BF0C000ED935 /* NVMaskCollectionItem.h */,
 				301F800B2553BF0C000ED935 /* NVMaskCollectionItem.m */,
 				301F800C2553BF0C000ED935 /* NVMaskCollectionItem.xib */,
+				301F80062553BDD8000ED935 /* NVMaskCollectionItemView.h */,
+				301F80072553BDD8000ED935 /* NVMaskCollectionItemView.m */,
 			);
 			path = MinItem;
 			sourceTree = "<group>";
@@ -766,15 +766,15 @@
 		30C0918225555E7900DBA590 /* Shadow */ = {
 			isa = PBXGroup;
 			children = (
-				30EC08EA25581D7900A24F47 /* MaxItem */,
 				30C0918325555E7900DBA590 /* NVShadowPanel.h */,
-				30C0918425555E7900DBA590 /* NVShadowCollectionView.m */,
+				30C0918E25555E7900DBA590 /* NVShadowPanel.m */,
 				30C0918525555E7900DBA590 /* NVShadowPanel.xib */,
+				30EC08EA25581D7900A24F47 /* MaxItem */,
 				30C0918625555E7900DBA590 /* MiniItem */,
+				30C0918F25555E7900DBA590 /* NVShadowSource.h */,
 				30C0918C25555E7900DBA590 /* NVShadowSource.m */,
 				30C0918D25555E7900DBA590 /* NVShadowCollectionView.h */,
-				30C0918E25555E7900DBA590 /* NVShadowPanel.m */,
-				30C0918F25555E7900DBA590 /* NVShadowSource.h */,
+				30C0918425555E7900DBA590 /* NVShadowCollectionView.m */,
 			);
 			path = Shadow;
 			sourceTree = "<group>";

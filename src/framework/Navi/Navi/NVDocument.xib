@@ -25,9 +25,8 @@
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="yuL-U3-zna"/>
                     </constraints>
                 </customView>
-                <customView id="8LA-g5-a4O" customClass="NVMenuView">
+                <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8LA-g5-a4O" customClass="NVMenuView">
                     <rect key="frame" x="240" y="0.0" width="40" height="650"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="qgp-fx-NlY"/>
                     </constraints>
@@ -38,9 +37,10 @@
                 </box>
             </subviews>
             <constraints>
-                <constraint firstItem="Sg6-f9-ULK" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="FUx-yc-AjN"/>
+                <constraint firstAttribute="trailing" secondItem="8LA-g5-a4O" secondAttribute="trailing" id="27Q-uF-jO8"/>
                 <constraint firstItem="8LA-g5-a4O" firstAttribute="leading" secondItem="Sg6-f9-ULK" secondAttribute="trailing" id="RHM-Qy-SHM"/>
                 <constraint firstAttribute="bottom" secondItem="Sg6-f9-ULK" secondAttribute="bottom" id="hLK-XB-Z3K"/>
+                <constraint firstAttribute="bottom" secondItem="8LA-g5-a4O" secondAttribute="bottom" id="yXv-VZ-m6d"/>
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>

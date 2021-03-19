@@ -81,27 +81,46 @@
         .cclass = specDict[@"cclass"],
         .cmeaning = specDict[@"cmeaning"],
         .direction = specDict[@"direction"],
-        .index = [(NSNumber * )specDict[@"rowNumber"] doubleValue],
         .from = [MaskPoint new],
         .to = [MaskPoint new],
         .stops = [NSMutableArray new],
     };
-    NSArray<NSDictionary *> *stops = specDict[@"stops"];
-    for (int i = 0; i < stops.count; i++) {
-        MaskStop *stop = [MaskStop new];
-        stop.position = [(NSNumber *)[stops[i] valueForKey:@"position"] doubleValue];
-        stop.alpha = [(NSNumber *)[stops[i] valueForKey:@"alpha"] doubleValue];
-        NSString *hex = (NSString *)[stops[i] valueForKey:@"color"];
-        stop.color =[MSColor fromHexColorString:hex withAlpha: stop.alpha];
-        [spec.stops addObject:stop];
-    }
-    NSDictionary *from = specDict[@"from"];
+
+    [spec.stops addObject:[NVMaskSource generatePoint:0
+                          alpha: [specDict[@"startCam"][@"defaultValue"][@"opacity"] doubleValue]
+                          color: specDict[@"startCam"][@"defaultValue"][@"color"]]
+    ];
+    [spec.stops addObject:[NVMaskSource generatePoint: [specDict[@"nodePosition"] doubleValue]
+                          alpha: [specDict[@"nodeCam"][@"defaultValue"][@"opacity"] doubleValue]
+                          color: specDict[@"nodeCam"][@"defaultValue"][@"color"]]
+    ];
+    [spec.stops addObject:[NVMaskSource generatePoint:1
+                          alpha: [specDict[@"endCam"][@"defaultValue"][@"opacity"] doubleValue]
+                          color: specDict[@"endCam"][@"defaultValue"][@"color"]]
+    ];
+    NSDictionary *dir = [specDict[@"direction"] isEqualToString:@"top"] ?
+    @{@"from": @{ @"x": @0.5, @"y": @0 },@"to": @{ @"x": @0.5, @"y": @1 }} :
+    @{@"from": @{ @"x": @0.5, @"y": @1 },@"to": @{ @"x": @0.5, @"y": @0 }};
+    
+    NSDictionary *from = dir[@"from"];
+    
     spec.from.x = [(NSNumber *)[from valueForKey:@"x"] doubleValue];
     spec.from.y = [(NSNumber *)[from valueForKey:@"y"] doubleValue];
-    NSDictionary *to = specDict[@"to"];
+    NSDictionary *to = dir[@"to"];
     spec.to.x = [(NSNumber *)[to valueForKey:@"x"] doubleValue];
     spec.to.y = [(NSNumber *)[to valueForKey:@"y"] doubleValue];
     return spec;
+}
+
++ (MaskStop*)generatePoint:(double) position alpha:(double) alpha color:(NSString*) color {
+    MaskStop *stop = [MaskStop new];
+    stop.position = position;
+    stop.alpha = alpha;
+    stop.color =[MSColor fromHexColorString:color withAlpha: stop.alpha];
+    stop.color.red =  stop.color.red / 255;
+    stop.color.green =  stop.color.green / 255;
+    stop.color.blue =  stop.color.blue / 255;
+    return stop;
 }
 
 - (void) onUpdated:(NVSourceUpdateCallback) callback {
@@ -137,7 +156,7 @@
 - (NSArray<NSDictionary*>*)getSpecsIn:(long) section{
     NSString *dim = [self getDims][section];
     return  [dims[dim] sortedArrayUsingComparator: ^NSComparisonResult(NSDictionary* s1, NSDictionary* s2) {
-        return s1[@"index"] > s2[@"index"];
+        return s1[@"code"] > s2[@"code"];
     }];
 }
 

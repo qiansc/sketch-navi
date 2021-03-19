@@ -347,7 +347,9 @@ static int specRequestThread;
         @"Border":[self getBorderSpec],
         @"Porder":[self getPorderSpec],
         @"Hori":[self getMarginSpecWith:@"M_W_X"],
-        @"Vert":[self getMarginSpecWith:@"M_H_X"]
+        @"Vert":[self getMarginSpecWith:@"M_H_X"],
+        @"Mask":[self getSpecWith:@"Mas"],
+        @"Shadow":[self getSpecWith:@"S_O"]
     };
 }
 

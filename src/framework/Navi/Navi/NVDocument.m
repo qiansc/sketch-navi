@@ -29,6 +29,17 @@
     self.menuView.controller.delegate = self;
     [self.panelView.controller.floatButton setTarget:self];
     [self.panelView.controller.floatButton setAction:@selector(toggleFloatMode:)];
+    
+    int paddingTop = 0;
+    
+    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:(NSOperatingSystemVersion){10,16,0}]) {
+        // BigSur 后界面有悬浮遮挡
+        paddingTop = 51;
+    }
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.panelView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:paddingTop]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.menuView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem: self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:paddingTop]];
+    
+
 }
 
 - (void)togglePanel:(NSString *)panelId state:(BOOL)state {
