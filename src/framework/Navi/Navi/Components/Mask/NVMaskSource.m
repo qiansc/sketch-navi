@@ -77,6 +77,7 @@
 
 + (NVMaskSpec)value: (NSDictionary *) specDict {
     NVMaskSpec spec = {
+        .id = [specDict[@"id"] doubleValue],
         .code = specDict[@"code"],
         .cclass = specDict[@"cclass"],
         .cmeaning = specDict[@"cmeaning"],
@@ -90,17 +91,26 @@
                           alpha: [specDict[@"startCam"][@"defaultValue"][@"opacity"] doubleValue]
                           color: specDict[@"startCam"][@"defaultValue"][@"color"]]
     ];
-    [spec.stops addObject:[NVMaskSource generatePoint: [specDict[@"nodePosition"] doubleValue]
-                          alpha: [specDict[@"nodeCam"][@"defaultValue"][@"opacity"] doubleValue]
-                          color: specDict[@"nodeCam"][@"defaultValue"][@"color"]]
-    ];
+    
+    double nodePosition = [specDict[@"nodePosition"] isEqual: [NSNull null]] ? 1 : [specDict[@"nodePosition"] doubleValue];
+    if ([specDict[@"nodeCam"] isEqual: [NSNull null]]) {
+        [spec.stops addObject:[NVMaskSource generatePoint: nodePosition
+                              alpha: [specDict[@"endCam"][@"defaultValue"][@"opacity"] doubleValue]
+                              color: specDict[@"endCam"][@"defaultValue"][@"color"]]
+        ];
+    } else {
+        [spec.stops addObject:[NVMaskSource generatePoint: nodePosition
+                              alpha: [specDict[@"nodeCam"][@"defaultValue"][@"opacity"] doubleValue]
+                              color: specDict[@"nodeCam"][@"defaultValue"][@"color"]]
+         ];
+    }
     [spec.stops addObject:[NVMaskSource generatePoint:1
                           alpha: [specDict[@"endCam"][@"defaultValue"][@"opacity"] doubleValue]
                           color: specDict[@"endCam"][@"defaultValue"][@"color"]]
     ];
     NSDictionary *dir = [specDict[@"direction"] isEqualToString:@"top"] ?
-    @{@"from": @{ @"x": @0.5, @"y": @0 },@"to": @{ @"x": @0.5, @"y": @1 }} :
-    @{@"from": @{ @"x": @0.5, @"y": @1 },@"to": @{ @"x": @0.5, @"y": @0 }};
+    @{@"from": @{ @"x": @(nodePosition), @"y": @0 },@"to": @{ @"x": @(nodePosition), @"y": @1 }} :
+    @{@"from": @{ @"x": @(nodePosition), @"y": @1 },@"to": @{ @"x": @(nodePosition), @"y": @0 }};
     
     NSDictionary *from = dir[@"from"];
     
@@ -116,7 +126,7 @@
     MaskStop *stop = [MaskStop new];
     stop.position = position;
     stop.alpha = alpha;
-    stop.color =[MSColor fromHexColorString:color withAlpha: stop.alpha];
+    stop.color =[MSColor fromHexColorString:color withAlpha: alpha];
     stop.color.red =  stop.color.red / 255;
     stop.color.green =  stop.color.green / 255;
     stop.color.blue =  stop.color.blue / 255;
@@ -156,7 +166,7 @@
 - (NSArray<NSDictionary*>*)getSpecsIn:(long) section{
     NSString *dim = [self getDims][section];
     return  [dims[dim] sortedArrayUsingComparator: ^NSComparisonResult(NSDictionary* s1, NSDictionary* s2) {
-        return s1[@"code"] > s2[@"code"];
+        return [s1[@"id"] doubleValue] > [s2[@"id"] doubleValue];
     }];
 }
 

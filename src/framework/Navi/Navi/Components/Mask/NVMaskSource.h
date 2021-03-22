@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 struct NVMaskSpec {
+    double id;
     NSString *code; // F_Mask_X2
     NSString *cline; // "FEED"
     NSString *cclass; // "图片"
