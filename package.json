@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@skpm/builder": "<1",
+    "@skpm/xcodeproj-loader": "^0.1.11",
     "@types/node": "^14.14.9",
     "@types/sketch": "git+https://github.com/qjebbs/sketch.d.ts.git",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
